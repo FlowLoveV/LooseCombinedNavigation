@@ -31,6 +31,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../include"
   "../Sources/Headers"
   "../ObsData"
+  "../executable"
   "/usr/local/lib/QtCore.framework/Headers"
   "/usr/local/lib/QtCore.framework"
   "/usr/local/share/qt/mkspecs/macx-clang"

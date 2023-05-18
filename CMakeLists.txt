@@ -17,10 +17,11 @@ include_directories(
         ${PROJECT_SOURCE_DIR}/include
         ${PROJECT_SOURCE_DIR}/Sources/Headers
         ${PROJECT_SOURCE_DIR}/ObsData
+        ${PROJECT_SOURCE_DIR}/executable
 )
 
 add_executable(CombinedNavigation Sources/main.cpp Sources/mainwindow.cpp Sources/Headers/mainwindow.h Sources/UI/mainwindow.ui
-        include/Matrix.h Sources/Matrix.cpp include/INSData.h Sources/INSData.cpp include/TimeSys.h Sources/TimeSys.cpp include/INSSolution.h Sources/INSSolution.cpp)
+        include/Matrix.h Sources/Matrix.cpp include/INSData.h Sources/INSData.cpp include/TimeSys.h Sources/TimeSys.cpp include/INSSolution.h Sources/INSSolution.cpp )
 target_link_libraries(CombinedNavigation
         Qt::Core
         Qt::Gui

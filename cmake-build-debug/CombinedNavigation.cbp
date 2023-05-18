@@ -51,6 +51,7 @@
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/include"/>
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/Headers"/>
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/ObsData"/>
+					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/executable"/>
 					<Add directory="/usr/local/lib/QtCore.framework/Headers"/>
 					<Add directory="/usr/local/lib/QtCore.framework"/>
 					<Add directory="/usr/local/share/qt/mkspecs/macx-clang"/>
@@ -86,6 +87,7 @@
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/include"/>
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/Headers"/>
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/ObsData"/>
+					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/executable"/>
 					<Add directory="/usr/local/lib/QtCore.framework/Headers"/>
 					<Add directory="/usr/local/lib/QtCore.framework"/>
 					<Add directory="/usr/local/share/qt/mkspecs/macx-clang"/>

@@ -5,6 +5,8 @@
 #ifndef RTK_TIMESYS_H
 #define RTK_TIMESYS_H
 
+#include "ctime"
+#include <chrono>
 
 // 通用时
 struct CommonTime {
@@ -168,6 +170,9 @@ BDST GPST2BDST(const GPST t);
 
 // BDST转GPST
 GPST BDST2GPST(const BDST t);
+
+// 获取当前时间函数
+::std::tm getCurrentTime();
 
 
 #endif //RTK_TIMESYS_H

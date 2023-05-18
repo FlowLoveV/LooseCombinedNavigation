@@ -336,3 +336,12 @@ GPST BDST2GPST(const BDST t) {
     GPST tout(t.weeks + 1356, t.second + 14);
     return tout;
 }
+
+::std::tm getCurrentTime(){
+    auto now = std::chrono::system_clock::now();
+    // 将时间点转换为 time_t 类型
+    auto currentTime = std::chrono::system_clock::to_time_t(now);
+    // 格式化输出当前时间
+    std::tm* localTime = std::localtime(&currentTime);
+    return *localTime;
+}

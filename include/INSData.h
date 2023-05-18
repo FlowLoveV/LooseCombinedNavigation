@@ -101,11 +101,11 @@ public:
     // 手动配置自己的惯导机械编排算法
     virtual void standardINSSolver(InsConfigure & configure);
     // 创建输出结果文件流
-    ::std::ostream * createResFile(const ::std::string & fileDir);
+    ::std::ofstream * createResFile(const ::std::string & fileDir);
     // 输出结果文件
-    void outputResFile(const INSRes_SingleEpoch & res,::std::ostream & outputfile) const;
+    void outputResFile(const INSRes_SingleEpoch & res,::std::ofstream & outputfile) const;
     // 销毁输出结果的文件流
-    void releaseFileStream(::std::ostream * output);
+    void releaseFileStream(::std::ofstream * output);
 };
 
 

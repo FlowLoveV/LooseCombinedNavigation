@@ -196,7 +196,7 @@ void PureIns::updateSinEpoch(const IMUData_SingleEpoch & obs2,const IMUData_Sing
     res.mPos[1] = res1.mPos[1] + (res.mSpeed[1] + res1.mSpeed[1]) / 2 / (Rn + average_h) / cos(average_lat) * delta_t;
 }
 
-void PureIns::outputResFile(const INSRes_SingleEpoch & res, ::std::ostream & outputfile) const {
+void PureIns::outputResFile(const INSRes_SingleEpoch & res, ::std::ofstream & outputfile) const {
     double_t euler[3];
     EMatrix2Euler(res.mEMatrix,euler);
     outputfile << res.t.weeks << "," << res.t.second << "," <<
@@ -205,15 +205,15 @@ void PureIns::outputResFile(const INSRes_SingleEpoch & res, ::std::ostream & out
     euler[2] << "," << euler[1] << "," << euler[0] << '\n';
 }
 
-::std::ostream *PureIns::createResFile(const ::std::string & fileDir) {
+::std::ofstream *PureIns::createResFile(const ::std::string & fileDir) {
     // 创建文件流，设定输出格式
     ::std::ofstream* output = new std::ofstream(fileDir);
     *output << ::std::fixed << ::std::setprecision(5);
-
     return output;
 }
 
 
-void PureIns::releaseFileStream(::std::ostream *output) {
+void PureIns::releaseFileStream(::std::ofstream *output) {
+    output->close();
     delete output;
 }
