@@ -8,6 +8,7 @@
 #include "TimeSys.h"
 #include "INSSolution.h"
 #include "fstream"
+#include "ostream"
 #include "vector"
 #include "Matrix.h"
 
@@ -45,9 +46,10 @@ public:
 class INSRes_SingleEpoch{
 public:
     GPST t;
-    double mPos[3] = {0};         // 位置 [lat,lon,h]
-    double mSpeed[3] = {0};       // 速度 [Vn,Ve,Vd]
-    double mQuaternion[4] = {0};  // 姿态四元数
+    double_t mPos[3] = {0};         // 位置 [lat,lon,h]
+    double_t mSpeed[3] = {0};       // 速度 [Vn,Ve,Vd]
+    double_t mQuaternion[4] = {0};  // 姿态四元数
+    double_t mEMatrix[4] = {0};     // 姿态角矩阵
 
     INSRes_SingleEpoch();
     INSRes_SingleEpoch(const INSRes_SingleEpoch &);
@@ -58,25 +60,27 @@ public:
 class InsConfigure{
     ::std::string mImuDataFileDir;        // Imu数据文件路径
     ::std::string mGnssDataFileDir;       // Gnss数据文件路径
+    ::std::string moutputResFileDir;      // 输出结果文件路径
     double_t mStartPos[3] = {0};          // 起始位置信息
     double_t mStartV[3] = {0};            // 起始速度信息
-    double_t mStartEuler[3] = {0};           // 起始欧拉角组（这个信息不一定可以在配置中给出，因为一般初始姿态需要对准后才能获得）
+    double_t mStartEuler[3] = {0};        // 起始欧拉角组（这个信息不一定可以在配置中给出，因为一般初始姿态需要对准后才能获得）
 
 public:
     InsConfigure();
 
-    InsConfigure(double_t *mStartPos);
     // set、get函数
     void setImuFileDir(const ::std::string dir) {mImuDataFileDir = dir;}
     ::std::string getImuFileDir() const {return mImuDataFileDir;}
     void setGnssFileDir(const ::std::string dir) {mGnssDataFileDir = dir;}
     ::std::string getGnssFileDir() const {return mGnssDataFileDir;}
     void setStartPos(const double_t pos[]) {memcpy(mStartPos,pos,IMUDATA_SIZE);}
-    double_t* getStartPos() {return mStartPos;}
+    const double_t *const getStartPos() const {return mStartPos;}
     void setStartV(const double_t v[]) {memcpy(mStartV,v,IMUDATA_SIZE);}
-    double_t* getStartV() {return mStartV;}
+    const double_t *const getStartV() const {return mStartV;}
     void setStartEuler(const double_t euler[]) {memcpy(mStartEuler,euler,IMUDATA_SIZE);}
-    double_t* getStartEuler() {return mStartEuler;}
+    const double_t *const getStartEuler() const {return mStartEuler;}
+    void setOutputDir(const ::std::string dir) {moutputResFileDir = dir;}
+    ::std::string getOutputDir() const {return moutputResFileDir;}
 };
 
 // 纯惯导解算器
@@ -96,6 +100,12 @@ public:
                         const INSRes_SingleEpoch & res1,INSRes_SingleEpoch & res);
     // 手动配置自己的惯导机械编排算法
     virtual void standardINSSolver(InsConfigure & configure);
+    // 创建输出结果文件流
+    ::std::ostream * createResFile(const ::std::string & fileDir);
+    // 输出结果文件
+    void outputResFile(const INSRes_SingleEpoch & res,::std::ostream & outputfile) const;
+    // 销毁输出结果的文件流
+    void releaseFileStream(::std::ostream * output);
 };
 
 

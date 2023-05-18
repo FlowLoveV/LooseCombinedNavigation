@@ -10,6 +10,8 @@
 
 
 int main(int argc, char *argv[]) {
+
+
     InsConfigure testConfigure;
     ::std::string filename = "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/ObsData/粗对准.ASC";
     testConfigure.setImuFileDir(filename);
@@ -17,7 +19,6 @@ int main(int argc, char *argv[]) {
     testConfigure.setStartPos(pos);
     PureIns testSolver;
     testSolver.standardINSSolver(testConfigure);
-
     return 0;
 
     /*

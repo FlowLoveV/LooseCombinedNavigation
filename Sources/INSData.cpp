@@ -115,7 +115,9 @@ void PureIns::gyrAlignment(const ::std::vector<IMUData_SingleEpoch> & rawData, d
     w[2].reshape(1,3);
     Matrix C = horizontal_stack_array(v,3) * vertical_stack_array(w,3);
     EMatrix2Euler(C.p,euler);
+    // 将对准姿态结果存储到初始信息中，以姿态四元数及姿态矩阵的形式
     Euler2Quaternion(euler,mStartInfo.mQuaternion);
+    Euler2EMatrix(euler,mStartInfo.mEMatrix);
 }
 
 void PureIns::setStartInfo(const double *pos, const double *speed) {
@@ -142,6 +144,7 @@ INSRes_SingleEpoch::INSRes_SingleEpoch(const INSRes_SingleEpoch & another) {
     memcpy(&mPos,&another.mPos,IMUDATA_SIZE);
     memcpy(&mSpeed,&another.mSpeed,IMUDATA_SIZE);
     memcpy(&mQuaternion,&another.mQuaternion,QUATERNION_SIZE);
+    memcpy(&mEMatrix,&another.mEMatrix,3*IMUDATA_SIZE);
 }
 
 InsConfigure::InsConfigure() = default;
@@ -168,10 +171,11 @@ void PureIns::updateSinEpoch(const IMUData_SingleEpoch & obs2,const IMUData_Sing
     for (int i = 1; i < 4; ++i) {
         qn[i] = -qn[i];
     }
-    // 更新姿态
+    // 更新姿态 - 姿态四元数及姿态矩阵
     double_t q_temp[4];
     Multiply_q(qn,res1.mQuaternion,q_temp);
     Multiply_q(q_temp,qb,res.mQuaternion);
+    Quaternion2EMatrix(res.mQuaternion,res.mEMatrix);
     // 更新速度
     double_t g = calculate_g(pos[0],pos[2]);   // 重力
     Matrix m_g(3,1,{0,0,g}),m_v(3,1,speed);           // 构造重力、k-0.5历元速度矩阵
@@ -180,9 +184,7 @@ void PureIns::updateSinEpoch(const IMUData_SingleEpoch & obs2,const IMUData_Sing
     Matrix m_vk_1(3,1,obs1.mAcc),m_thetak_1(3,1,obs1.mGyr); // k-1历元原始观测值矩阵
     Matrix m_v_fk_1_b = m_vk + cross(m_thetak,m_vk) / 2 +
             ( cross(m_thetak_1,m_vk) + cross(m_vk_1,m_thetak) ) / 12;
-    double_t Cnbk_1[9];
-    Quaternion2EMatrix(res1.mQuaternion,Cnbk_1);
-    Matrix m_Cnbk_1(3,3,Cnbk_1);   // 上一历元姿态矩阵
+    Matrix m_Cnbk_1(3,3,res1.mEMatrix);   // 上一历元姿态矩阵
     Matrix m_v_fk_n = (eye(3) - antiVector(m_rv) / 2) * m_Cnbk_1 * m_v_fk_1_b;
     Matrix m_res_vk = Matrix(3,1,res1.mSpeed) + m_cor + m_v_fk_n;
     memcpy(res.mSpeed,m_res_vk.p,IMUDATA_SIZE);
@@ -192,4 +194,26 @@ void PureIns::updateSinEpoch(const IMUData_SingleEpoch & obs2,const IMUData_Sing
     res.mPos[0] = res1.mPos[0] + (res.mSpeed[0] + res1.mSpeed[0]) / 2 / (Rm + average_h) * delta_t;
     double_t average_lat = (res.mPos[0] + res.mPos[0]) / 2;
     res.mPos[1] = res1.mPos[1] + (res.mSpeed[1] + res1.mSpeed[1]) / 2 / (Rn + average_h) / cos(average_lat) * delta_t;
+}
+
+void PureIns::outputResFile(const INSRes_SingleEpoch & res, ::std::ostream & outputfile) const {
+    double_t euler[3];
+    EMatrix2Euler(res.mEMatrix,euler);
+    outputfile << res.t.weeks << "," << res.t.second << "," <<
+    res.mPos[0] << "," << res.mPos[1] << "," << res.mPos[2] << "," <<
+    res.mSpeed[0] << "," << res.mSpeed[1] << "," << res.mSpeed[2] << "," <<
+    euler[2] << "," << euler[1] << "," << euler[0] << '\n';
+}
+
+::std::ostream *PureIns::createResFile(const ::std::string & fileDir) {
+    // 创建文件流，设定输出格式
+    ::std::ofstream* output = new std::ofstream(fileDir);
+    *output << ::std::fixed << ::std::setprecision(5);
+
+    return output;
+}
+
+
+void PureIns::releaseFileStream(::std::ostream *output) {
+    delete output;
 }
