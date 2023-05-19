@@ -19,6 +19,8 @@ vector
 ../include/vector
 Matrix.h
 ../include/Matrix.h
+deque
+-
 
 ../include/INSSolution.h
 cmath
@@ -54,14 +56,6 @@ iostream
 INSSolution.h
 /Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/INSSolution.h
 
-/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/TimeSys.cpp
-iomanip
--
-iostream
-/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/iostream
-TimeSys.h
-/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/TimeSys.h
-
 /Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/main.cpp
 QApplication
 -
@@ -74,8 +68,6 @@ iostream
 fstream
 -
 Matrix.h
--
-filesystem
 -
 
 /usr/local/include/QtCore/QList

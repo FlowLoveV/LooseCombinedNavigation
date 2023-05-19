@@ -11,6 +11,7 @@
 #include "ostream"
 #include "vector"
 #include "Matrix.h"
+#include <deque>
 
 const int IMUDATA_SIZE = 3*sizeof(double);  // 一组加速度或者陀螺仪数据量大小
 const int GPST_SIZE = sizeof(GPST);         // 一个GPST结构体的大小
@@ -40,6 +41,7 @@ public:
     IMUData_SingleEpoch();
     IMUData_SingleEpoch(const IMUData_SingleEpoch &);
     IMUData_SingleEpoch(const double[],const double[],const GPST &);
+    ~IMUData_SingleEpoch();
 };
 
 // 惯导机械编排算法解算结果
@@ -53,7 +55,7 @@ public:
 
     INSRes_SingleEpoch();
     INSRes_SingleEpoch(const INSRes_SingleEpoch &);
-
+    ~INSRes_SingleEpoch();
 };
 
 // 解算INS配置器
@@ -64,6 +66,8 @@ class InsConfigure{
     double_t mStartPos[3] = {0};          // 起始位置信息
     double_t mStartV[3] = {0};            // 起始速度信息
     double_t mStartEuler[3] = {0};        // 起始欧拉角组（这个信息不一定可以在配置中给出，因为一般初始姿态需要对准后才能获得）
+    GPST *mBeginTime;                     // 开始处理的时间(nullptr表示默认第一行数据开始)
+    GPST *mEndTime;                       // 结束处理的时间(nullptr表示默认最后一行数据结束)
 
 public:
     InsConfigure();
@@ -71,35 +75,52 @@ public:
     // set、get函数
     void setImuFileDir(const ::std::string dir) {mImuDataFileDir = dir;}
     ::std::string getImuFileDir() const {return mImuDataFileDir;}
+
     void setGnssFileDir(const ::std::string dir) {mGnssDataFileDir = dir;}
     ::std::string getGnssFileDir() const {return mGnssDataFileDir;}
+
     void setStartPos(const double_t pos[]) {memcpy(mStartPos,pos,IMUDATA_SIZE);}
     const double_t *const getStartPos() const {return mStartPos;}
+
     void setStartV(const double_t v[]) {memcpy(mStartV,v,IMUDATA_SIZE);}
     const double_t *const getStartV() const {return mStartV;}
+
     void setStartEuler(const double_t euler[]) {memcpy(mStartEuler,euler,IMUDATA_SIZE);}
     const double_t *const getStartEuler() const {return mStartEuler;}
+
     void setOutputDir(const ::std::string dir) {moutputResFileDir = dir;}
     ::std::string getOutputDir() const {return moutputResFileDir;}
+
+    void setBeginTime(GPST * tm);
+    GPST * getBeginTime();
+
+    void setEndTime(GPST * tm);
+    GPST * getEndTime();
 };
 
 // 纯惯导解算器
 class PureIns{
-    INSRes_SingleEpoch mStartInfo;   // 初始位置信息
-    double_t mFrequency;   // 采样频率
+    INSRes_SingleEpoch mStartInfo;                  // 初始位置信息
+    double_t mFrequency;                            // 采样频率
+    ::std::deque<IMUData_SingleEpoch> mObsData;     // 观测数据
 
 public:
     PureIns();
     // 设定惯导初始信息
     void setStartInfo(const double pos[], const double speed[]);
-    // 初始粗对准 -- 完成了初始姿态、采样频率的确定
+    // 初始粗对准 -- 完成了初始姿态、采样频率的确定 tested
     void gyrAlignment(const ::std::vector<IMUData_SingleEpoch> & rawData,double *euler);
     // k-2,k-1,k历元的观测数据，k-2,k-1历元的位置、速度、姿态数据，计算的到第k历元的结果
     void updateSinEpoch(const IMUData_SingleEpoch & obs2,const IMUData_SingleEpoch & obs1,
                         const IMUData_SingleEpoch & obs, const INSRes_SingleEpoch & res2,
                         const INSRes_SingleEpoch & res1,INSRes_SingleEpoch & res);
     // 手动配置自己的惯导机械编排算法
-    virtual void standardINSSolver(InsConfigure & configure);
+    // (asc文本、全部读取后处理)
+    virtual void insSolver_asc_all(InsConfigure & configure);
+    // (bin，逐行处理)
+
+
+    // 结果文件输出函数
     // 创建输出结果文件流
     ::std::ofstream * createResFile(const ::std::string & fileDir);
     // 输出结果文件
@@ -112,20 +133,28 @@ public:
 
 // *********************************************读取IMU数据函数***********************************************************
 
+
+// ************************************************ASCII ***************************************************************
 // 得到ASCII观测文件总历元数
 /* input : file_directory
  * output : total epochs
  */
-int measureFileSize(const ::std::string & filename);
+int asc_measureFileSize(const ::std::string & filename);
 
 
-// 读取ASCII观测文件原始观测数据
+// 读取ASCII观测文件原始观测数据  注意轴系
 /* input1 : file_directory
  * output1 : rawData
  */
-bool readASCall(const ::std::string & filename , ::std::vector<IMUData_SingleEpoch> & rawData);
+bool asc_readAll(const ::std::string & filename , ::std::vector<IMUData_SingleEpoch> & rawData);
 
 
+
+// ************************************************ BIN ****************************************************************
+
+
+
+bool bin_readLine();
 
 
 #endif //COMBINEDNAVIGATION_INSDATA_H

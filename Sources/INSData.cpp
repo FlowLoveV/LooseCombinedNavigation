@@ -22,7 +22,9 @@ IMUData_SingleEpoch::IMUData_SingleEpoch(const double *acc, const double *gyr, c
     memcpy(&t,&gpst,GPST_SIZE);
 }
 
-bool readASCall(const ::std::string & filename, ::std::vector<IMUData_SingleEpoch> & rawData){
+IMUData_SingleEpoch::~IMUData_SingleEpoch() = default;
+
+bool asc_readAll(const ::std::string & filename, ::std::vector<IMUData_SingleEpoch> & rawData){
     ::std::fstream file(filename);
     if(!file.is_open()){
         ::std::cerr<<"can't open file:"<<filename;
@@ -59,7 +61,7 @@ bool readASCall(const ::std::string & filename, ::std::vector<IMUData_SingleEpoc
 }
 
 
-int measureFileSize(const ::std::string & filename){
+int asc_measureFileSize(const ::std::string & filename){
     ::std::fstream file(filename);
     if(!file.is_open()){
         ::std::cerr<<"can't open file:"<<filename;
@@ -125,12 +127,12 @@ void PureIns::setStartInfo(const double *pos, const double *speed) {
     memcpy(&mStartInfo.mSpeed,speed,IMUDATA_SIZE);
 }
 
-void PureIns::standardINSSolver(InsConfigure & configure) {
+void PureIns::insSolver_asc_all(InsConfigure & configure) {
     setStartInfo(configure.getStartPos(),configure.getStartV());
     // 读取ASCII文本
-    size_t epoch_num = measureFileSize(configure.getImuFileDir());
+    size_t epoch_num = asc_measureFileSize(configure.getImuFileDir());
     ::std::vector<IMUData_SingleEpoch> imuData(epoch_num);
-    readASCall(configure.getImuFileDir(),imuData);
+    asc_readAll(configure.getImuFileDir(),imuData);
     double_t euler[3];
     gyrAlignment(imuData,euler);
 }
@@ -146,6 +148,8 @@ INSRes_SingleEpoch::INSRes_SingleEpoch(const INSRes_SingleEpoch & another) {
     memcpy(&mQuaternion,&another.mQuaternion,QUATERNION_SIZE);
     memcpy(&mEMatrix,&another.mEMatrix,3*IMUDATA_SIZE);
 }
+
+INSRes_SingleEpoch::~INSRes_SingleEpoch() = default;
 
 InsConfigure::InsConfigure() = default;
 
@@ -217,3 +221,21 @@ void PureIns::releaseFileStream(::std::ofstream *output) {
     output->close();
     delete output;
 }
+
+void InsConfigure::setBeginTime(GPST *tm) {
+    mBeginTime = tm;
+}
+
+GPST *InsConfigure::getBeginTime() {
+    return mBeginTime;
+}
+
+void InsConfigure::setEndTime(GPST * tm) {
+    mEndTime = tm;
+}
+
+GPST *InsConfigure::getEndTime() {
+    return mEndTime;
+}
+
+
