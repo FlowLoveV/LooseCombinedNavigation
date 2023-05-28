@@ -4,8 +4,10 @@
 
 // You may need to build the project (run Qt uic code generator) to get "ui_MainWindow.h" resolved
 
+#include <QtGui/qpainter.h>
 #include "Headers/mainwindow.h"
 #include "UI/ui_MainWindow.h"
+
 
 
 MainWindow::MainWindow(QWidget *parent) :

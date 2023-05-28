@@ -61,7 +61,7 @@ void EMatrix2Euler(const double Cnb[],double Euler[]){
     Euler[1] = atan(-Cnb[6] / sqrt( pow(Cnb[7],2) + pow(Cnb[8],2) ));
     Euler[2] = atan2(Cnb[3],Cnb[0]);
     // 将横滚角范围限定在0-360°
-    Euler[2] = Euler[2] < 0 ? Euler[2] + 2*PI : Euler[2];
+    Euler[2] = Euler[2] < 0 ? Euler[2] + 2 * MY_PROJECT_PI : Euler[2];
 
 }
 

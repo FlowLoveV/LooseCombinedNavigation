@@ -14,11 +14,17 @@ endif()
 if(NOT QT_DEPLOY_QML_DIR)
     set(QT_DEPLOY_QML_DIR "qml")
 endif()
+if(NOT QT_DEPLOY_TRANSLATIONS_DIR)
+    set(QT_DEPLOY_TRANSLATIONS_DIR "translations")
+endif()
 if(NOT QT_DEPLOY_PREFIX)
     set(QT_DEPLOY_PREFIX "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}")
 endif()
 if(QT_DEPLOY_PREFIX STREQUAL "")
     set(QT_DEPLOY_PREFIX .)
+endif()
+if(NOT QT_DEPLOY_IGNORED_LIB_DIRS)
+    set(QT_DEPLOY_IGNORED_LIB_DIRS "")
 endif()
 
 # These are internal implementation details. They may be removed at any time.
@@ -32,10 +38,19 @@ set(__QT_DEPLOY_GENERATOR_IS_MULTI_CONFIG "0")
 set(__QT_DEPLOY_ACTIVE_CONFIG "Debug")
 set(__QT_NO_CREATE_VERSIONLESS_FUNCTIONS "")
 set(__QT_DEFAULT_MAJOR_VERSION "6")
+set(__QT_DEPLOY_QT_ADDITIONAL_PACKAGES_PREFIX_PATH "")
+set(__QT_DEPLOY_QT_INSTALL_PREFIX "/usr/local")
+set(__QT_DEPLOY_QT_INSTALL_BINS "bin")
+set(__QT_DEPLOY_QT_INSTALL_PLUGINS "share/qt/plugins")
+set(__QT_DEPLOY_QT_INSTALL_TRANSLATIONS "share/qt/translations")
+set(__QT_DEPLOY_PLUGINS "")
+set(__QT_DEPLOY_MUST_ADJUST_PLUGINS_RPATH "")
+set(__QT_DEPLOY_USE_PATCHELF "")
+set(__QT_DEPLOY_PATCHELF_EXECUTABLE "")
 
 # Define the CMake commands to be made available during deployment.
 set(__qt_deploy_support_files
-    "/usr/local/Cellar/qt/6.4.3_3/lib/cmake/Qt6Core/Qt6CoreDeploySupport.cmake"
+    "/usr/local/Cellar/qt/6.5.1/lib/cmake/Qt6Core/Qt6CoreDeploySupport.cmake"
 )
 foreach(__qt_deploy_support_file IN LISTS __qt_deploy_support_files)
     include("${__qt_deploy_support_file}")

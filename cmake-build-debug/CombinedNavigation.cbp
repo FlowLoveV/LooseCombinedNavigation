@@ -5,7 +5,7 @@
 		<Option title="CombinedNavigation"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\usr\;CMake Files\..\..\..\..\..\usr\local\;CMake Files\..\..\..\..\..\usr\local\lib\;CMake Files\..\..\..\..\..\usr\local\lib\cmake\;CMake Files\..\..\..\..\..\usr\local\lib\cmake\Qt6\;CMake Files\..\..\..\..\..\usr\local\lib\cmake\Qt6Core\;CMake Files\..\..\..\..\..\usr\local\lib\cmake\Qt6CoreTools\;CMake Files\..\..\..\..\..\usr\local\lib\cmake\Qt6Gui\;CMake Files\..\..\..\..\..\usr\local\lib\cmake\Qt6GuiTools\;CMake Files\..\..\..\..\..\usr\local\lib\cmake\Qt6DBus\;CMake Files\..\..\..\..\..\usr\local\lib\cmake\Qt6DBusTools\;CMake Files\..\..\..\..\..\usr\local\lib\cmake\Qt6Widgets\;CMake Files\..\..\..\..\..\usr\local\lib\cmake\Qt6WidgetsTools\;CMake Files\..\..\..\..\..\usr\local\Cellar\;CMake Files\..\..\..\..\..\usr\local\Cellar\qt\;CMake Files\..\..\..\..\..\usr\local\Cellar\qt\6.4.3_3\;CMake Files\..\..\..\..\..\usr\local\Cellar\qt\6.4.3_3\lib\;CMake Files\..\..\..\..\..\usr\local\Cellar\qt\6.4.3_3\lib\cmake\;CMake Files\..\..\..\..\..\usr\local\Cellar\qt\6.4.3_3\lib\cmake\Qt6\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\usr\;CMake Files\..\..\..\..\..\usr\local\;CMake Files\..\..\..\..\..\usr\local\lib\;CMake Files\..\..\..\..\..\usr\local\lib\cmake\;CMake Files\..\..\..\..\..\usr\local\lib\cmake\Qt6\;CMake Files\..\..\..\..\..\usr\local\lib\cmake\Qt6Core\;CMake Files\..\..\..\..\..\usr\local\lib\cmake\Qt6CoreTools\;CMake Files\..\..\..\..\..\usr\local\lib\cmake\Qt6Gui\;CMake Files\..\..\..\..\..\usr\local\lib\cmake\Qt6GuiTools\;CMake Files\..\..\..\..\..\usr\local\lib\cmake\Qt6DBus\;CMake Files\..\..\..\..\..\usr\local\lib\cmake\Qt6DBusTools\;CMake Files\..\..\..\..\..\usr\local\lib\cmake\Qt6Widgets\;CMake Files\..\..\..\..\..\usr\local\lib\cmake\Qt6WidgetsTools\;CMake Files\..\..\..\..\..\usr\local\Cellar\;CMake Files\..\..\..\..\..\usr\local\Cellar\qt\;CMake Files\..\..\..\..\..\usr\local\Cellar\qt\6.5.1\;CMake Files\..\..\..\..\..\usr\local\Cellar\qt\6.5.1\lib\;CMake Files\..\..\..\..\..\usr\local\Cellar\qt\6.5.1\lib\cmake\;CMake Files\..\..\..\..\..\usr\local\Cellar\qt\6.5.1\lib\cmake\Qt6\;"/>
 		<Build>
 			<Target title="all">
 				<Option working_dir="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/cmake-build-debug"/>
@@ -52,6 +52,9 @@
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/Headers"/>
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/ObsData"/>
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/executable"/>
+					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib"/>
+					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/sciplot"/>
+					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/sciplot/specs"/>
 					<Add directory="/usr/local/lib/QtCore.framework/Headers"/>
 					<Add directory="/usr/local/lib/QtCore.framework"/>
 					<Add directory="/usr/local/share/qt/mkspecs/macx-clang"/>
@@ -88,6 +91,9 @@
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/Headers"/>
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/ObsData"/>
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/executable"/>
+					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib"/>
+					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/sciplot"/>
+					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/sciplot/specs"/>
 					<Add directory="/usr/local/lib/QtCore.framework/Headers"/>
 					<Add directory="/usr/local/lib/QtCore.framework"/>
 					<Add directory="/usr/local/share/qt/mkspecs/macx-clang"/>
@@ -157,6 +163,12 @@
 			<Option target="CombinedNavigation"/>
 		</Unit>
 		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/include/TimeSys.h">
+			<Option target="CombinedNavigation"/>
+		</Unit>
+		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib">
+			<Option target="CombinedNavigation"/>
+		</Unit>
+		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/sciplot/specs">
 			<Option target="CombinedNavigation"/>
 		</Unit>
 		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/CMakeLists.txt">
@@ -240,6 +252,9 @@
 		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/../../../../../usr/local/lib/cmake/Qt6Core/Qt6CoreMacros.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\Qt6Core\"/>
 		</Unit>
+		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/../../../../../usr/local/lib/cmake/Qt6Core/Qt6CorePlugins.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\Qt6Core\"/>
+		</Unit>
 		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/../../../../../usr/local/lib/cmake/Qt6Core/Qt6CoreTargets-release.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\Qt6Core\"/>
 		</Unit>
@@ -247,6 +262,99 @@
 			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\Qt6Core\"/>
 		</Unit>
 		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/../../../../../usr/local/lib/cmake/Qt6Core/Qt6CoreVersionlessTargets.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\Qt6Core\"/>
+		</Unit>
+		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/../../../../../usr/local/lib/cmake/Qt6Core/Qt6QDarwinBluetoothPermissionPluginAdditionalTargetInfo.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\Qt6Core\"/>
+		</Unit>
+		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/../../../../../usr/local/lib/cmake/Qt6Core/Qt6QDarwinBluetoothPermissionPluginConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\Qt6Core\"/>
+		</Unit>
+		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/../../../../../usr/local/lib/cmake/Qt6Core/Qt6QDarwinBluetoothPermissionPluginDependencies.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\Qt6Core\"/>
+		</Unit>
+		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/../../../../../usr/local/lib/cmake/Qt6Core/Qt6QDarwinBluetoothPermissionPluginTargets-release.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\Qt6Core\"/>
+		</Unit>
+		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/../../../../../usr/local/lib/cmake/Qt6Core/Qt6QDarwinBluetoothPermissionPluginTargets.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\Qt6Core\"/>
+		</Unit>
+		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/../../../../../usr/local/lib/cmake/Qt6Core/Qt6QDarwinCalendarPermissionPluginAdditionalTargetInfo.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\Qt6Core\"/>
+		</Unit>
+		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/../../../../../usr/local/lib/cmake/Qt6Core/Qt6QDarwinCalendarPermissionPluginConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\Qt6Core\"/>
+		</Unit>
+		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/../../../../../usr/local/lib/cmake/Qt6Core/Qt6QDarwinCalendarPermissionPluginDependencies.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\Qt6Core\"/>
+		</Unit>
+		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/../../../../../usr/local/lib/cmake/Qt6Core/Qt6QDarwinCalendarPermissionPluginTargets-release.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\Qt6Core\"/>
+		</Unit>
+		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/../../../../../usr/local/lib/cmake/Qt6Core/Qt6QDarwinCalendarPermissionPluginTargets.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\Qt6Core\"/>
+		</Unit>
+		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/../../../../../usr/local/lib/cmake/Qt6Core/Qt6QDarwinCameraPermissionPluginAdditionalTargetInfo.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\Qt6Core\"/>
+		</Unit>
+		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/../../../../../usr/local/lib/cmake/Qt6Core/Qt6QDarwinCameraPermissionPluginConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\Qt6Core\"/>
+		</Unit>
+		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/../../../../../usr/local/lib/cmake/Qt6Core/Qt6QDarwinCameraPermissionPluginDependencies.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\Qt6Core\"/>
+		</Unit>
+		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/../../../../../usr/local/lib/cmake/Qt6Core/Qt6QDarwinCameraPermissionPluginTargets-release.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\Qt6Core\"/>
+		</Unit>
+		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/../../../../../usr/local/lib/cmake/Qt6Core/Qt6QDarwinCameraPermissionPluginTargets.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\Qt6Core\"/>
+		</Unit>
+		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/../../../../../usr/local/lib/cmake/Qt6Core/Qt6QDarwinContactsPermissionPluginAdditionalTargetInfo.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\Qt6Core\"/>
+		</Unit>
+		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/../../../../../usr/local/lib/cmake/Qt6Core/Qt6QDarwinContactsPermissionPluginConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\Qt6Core\"/>
+		</Unit>
+		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/../../../../../usr/local/lib/cmake/Qt6Core/Qt6QDarwinContactsPermissionPluginDependencies.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\Qt6Core\"/>
+		</Unit>
+		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/../../../../../usr/local/lib/cmake/Qt6Core/Qt6QDarwinContactsPermissionPluginTargets-release.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\Qt6Core\"/>
+		</Unit>
+		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/../../../../../usr/local/lib/cmake/Qt6Core/Qt6QDarwinContactsPermissionPluginTargets.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\Qt6Core\"/>
+		</Unit>
+		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/../../../../../usr/local/lib/cmake/Qt6Core/Qt6QDarwinLocationPermissionPluginAdditionalTargetInfo.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\Qt6Core\"/>
+		</Unit>
+		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/../../../../../usr/local/lib/cmake/Qt6Core/Qt6QDarwinLocationPermissionPluginConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\Qt6Core\"/>
+		</Unit>
+		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/../../../../../usr/local/lib/cmake/Qt6Core/Qt6QDarwinLocationPermissionPluginDependencies.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\Qt6Core\"/>
+		</Unit>
+		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/../../../../../usr/local/lib/cmake/Qt6Core/Qt6QDarwinLocationPermissionPluginTargets-release.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\Qt6Core\"/>
+		</Unit>
+		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/../../../../../usr/local/lib/cmake/Qt6Core/Qt6QDarwinLocationPermissionPluginTargets.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\Qt6Core\"/>
+		</Unit>
+		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/../../../../../usr/local/lib/cmake/Qt6Core/Qt6QDarwinMicrophonePermissionPluginAdditionalTargetInfo.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\Qt6Core\"/>
+		</Unit>
+		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/../../../../../usr/local/lib/cmake/Qt6Core/Qt6QDarwinMicrophonePermissionPluginConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\Qt6Core\"/>
+		</Unit>
+		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/../../../../../usr/local/lib/cmake/Qt6Core/Qt6QDarwinMicrophonePermissionPluginDependencies.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\Qt6Core\"/>
+		</Unit>
+		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/../../../../../usr/local/lib/cmake/Qt6Core/Qt6QDarwinMicrophonePermissionPluginTargets-release.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\Qt6Core\"/>
+		</Unit>
+		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/../../../../../usr/local/lib/cmake/Qt6Core/Qt6QDarwinMicrophonePermissionPluginTargets.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\Qt6Core\"/>
+		</Unit>
+		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/../../../../../usr/local/lib/cmake/Qt6Core/QtInstallPaths.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\Qt6Core\"/>
 		</Unit>
 		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/../../../../../usr/local/lib/cmake/Qt6CoreTools/Qt6CoreToolsAdditionalTargetInfo.cmake">
@@ -669,17 +777,17 @@
 		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/../../../../../usr/local/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsVersionlessTargets.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\Qt6WidgetsTools\"/>
 		</Unit>
-		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/../../../../../usr/local/Cellar/qt/6.4.3_3/lib/cmake/Qt6/FindWrapAtomic.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\Cellar\qt\6.4.3_3\lib\cmake\Qt6\"/>
+		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/../../../../../usr/local/Cellar/qt/6.5.1/lib/cmake/Qt6/FindWrapAtomic.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\Cellar\qt\6.5.1\lib\cmake\Qt6\"/>
 		</Unit>
-		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/../../../../../usr/local/Cellar/qt/6.4.3_3/lib/cmake/Qt6/FindWrapOpenGL.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\Cellar\qt\6.4.3_3\lib\cmake\Qt6\"/>
+		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/../../../../../usr/local/Cellar/qt/6.5.1/lib/cmake/Qt6/FindWrapOpenGL.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\Cellar\qt\6.5.1\lib\cmake\Qt6\"/>
 		</Unit>
-		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/../../../../../usr/local/Cellar/qt/6.4.3_3/lib/cmake/Qt6/FindWrapVulkanHeaders.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\Cellar\qt\6.4.3_3\lib\cmake\Qt6\"/>
+		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/../../../../../usr/local/Cellar/qt/6.5.1/lib/cmake/Qt6/FindWrapVulkanHeaders.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\Cellar\qt\6.5.1\lib\cmake\Qt6\"/>
 		</Unit>
-		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/../../../../../usr/local/Cellar/qt/6.4.3_3/lib/cmake/Qt6/QtFeatureCommon.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\Cellar\qt\6.4.3_3\lib\cmake\Qt6\"/>
+		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/../../../../../usr/local/Cellar/qt/6.5.1/lib/cmake/Qt6/QtFeatureCommon.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\Cellar\qt\6.5.1\lib\cmake\Qt6\"/>
 		</Unit>
 	</Project>
 </CodeBlocks_project_file>

@@ -288,6 +288,18 @@ OPENGL_gl_LIBRARY:FILEPATH=/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.s
 OPENGL_glu_LIBRARY:FILEPATH=/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/System/Library/Frameworks/OpenGL.framework
 
 //Path to a program.
+PYTHON_EXECUTABLE:FILEPATH=/usr/bin/python
+
+//Path to a file.
+PYTHON_INCLUDE_DIR:PATH=/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/python2.7
+
+//Path to a library.
+PYTHON_LIBRARY:FILEPATH=/usr/lib/libpython2.7.dylib
+
+//Path to a library.
+PYTHON_LIBRARY_DEBUG:FILEPATH=PYTHON_LIBRARY_DEBUG-NOTFOUND
+
+//Path to a program.
 ProcessorCount_cmd_sysctl:FILEPATH=/usr/sbin/sysctl
 
 //Additional directories where find(Qt6 ...) host Qt components
@@ -338,6 +350,9 @@ Vulkan_LIBRARY:FILEPATH=Vulkan_LIBRARY-NOTFOUND
 
 //Path to a library.
 WrapOpenGL_AGL:FILEPATH=/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/System/Library/Frameworks/AGL.framework
+
+//The directory containing a CMake configuration file for numpy.
+numpy_DIR:PATH=numpy_DIR-NOTFOUND
 
 
 ########################
@@ -525,6 +540,14 @@ CMAKE_UNAME:INTERNAL=/usr/bin/uname
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
 //Details about finding OpenGL
 FIND_PACKAGE_MESSAGE_DETAILS_OpenGL:INTERNAL=[/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/System/Library/Frameworks/OpenGL.framework][/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/System/Library/Frameworks/OpenGL.framework][c ][v()]
+//Details about finding Python
+FIND_PACKAGE_MESSAGE_DETAILS_Python:INTERNAL=[/usr/local/Frameworks/Python.framework/Versions/3.10/bin/python3.10][/usr/local/opt/python@3.10/Frameworks/Python.framework/Versions/3.10/include/python3.10][/usr/local/opt/python@3.10/Frameworks/Python.framework/Versions/3.10/lib/libpython3.10.dylib][cfound components: Interpreter Development Development.Module Development.Embed ][v3.10.11()]
+//Details about finding Python2
+FIND_PACKAGE_MESSAGE_DETAILS_Python2:INTERNAL=[/System/Library/Frameworks/Python.framework/Versions/2.7/bin/python2.7][/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/numpy/core/include][cfound components: Interpreter NumPy Development.Module ][v2.7.16()]
+//Details about finding PythonInterp
+FIND_PACKAGE_MESSAGE_DETAILS_PythonInterp:INTERNAL=[/usr/bin/python][v2.7.16()]
+//Details about finding PythonLibs
+FIND_PACKAGE_MESSAGE_DETAILS_PythonLibs:INTERNAL=[/usr/lib/libpython2.7.dylib][/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/python2.7][v2.7.18(2.7)]
 //Details about finding Threads
 FIND_PACKAGE_MESSAGE_DETAILS_Threads:INTERNAL=[TRUE][v()]
 //Details about finding WrapAtomic
@@ -539,6 +562,14 @@ OPENGL_INCLUDE_DIR-ADVANCED:INTERNAL=1
 OPENGL_gl_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: OPENGL_glu_LIBRARY
 OPENGL_glu_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: PYTHON_EXECUTABLE
+PYTHON_EXECUTABLE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: PYTHON_INCLUDE_DIR
+PYTHON_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: PYTHON_LIBRARY
+PYTHON_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: PYTHON_LIBRARY_DEBUG
+PYTHON_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: ProcessorCount_cmd_sysctl
 ProcessorCount_cmd_sysctl-ADVANCED:INTERNAL=1
 //Qt feature: abstractbutton (from target Qt6::Widgets)
@@ -572,27 +603,27 @@ QT_FEATURE_arm_crypto:INTERNAL=OFF
 //Qt feature: avx (from target Qt6::Core)
 QT_FEATURE_avx:INTERNAL=ON
 //Qt feature: avx2 (from target Qt6::Core)
-QT_FEATURE_avx2:INTERNAL=OFF
+QT_FEATURE_avx2:INTERNAL=ON
 //Qt feature: avx512bw (from target Qt6::Core)
-QT_FEATURE_avx512bw:INTERNAL=OFF
+QT_FEATURE_avx512bw:INTERNAL=ON
 //Qt feature: avx512cd (from target Qt6::Core)
-QT_FEATURE_avx512cd:INTERNAL=OFF
+QT_FEATURE_avx512cd:INTERNAL=ON
 //Qt feature: avx512dq (from target Qt6::Core)
-QT_FEATURE_avx512dq:INTERNAL=OFF
+QT_FEATURE_avx512dq:INTERNAL=ON
 //Qt feature: avx512er (from target Qt6::Core)
-QT_FEATURE_avx512er:INTERNAL=OFF
+QT_FEATURE_avx512er:INTERNAL=ON
 //Qt feature: avx512f (from target Qt6::Core)
-QT_FEATURE_avx512f:INTERNAL=OFF
+QT_FEATURE_avx512f:INTERNAL=ON
 //Qt feature: avx512ifma (from target Qt6::Core)
-QT_FEATURE_avx512ifma:INTERNAL=OFF
+QT_FEATURE_avx512ifma:INTERNAL=ON
 //Qt feature: avx512pf (from target Qt6::Core)
-QT_FEATURE_avx512pf:INTERNAL=OFF
+QT_FEATURE_avx512pf:INTERNAL=ON
 //Qt feature: avx512vbmi (from target Qt6::Core)
-QT_FEATURE_avx512vbmi:INTERNAL=OFF
+QT_FEATURE_avx512vbmi:INTERNAL=ON
 //Qt feature: avx512vbmi2 (from target Qt6::Core)
-QT_FEATURE_avx512vbmi2:INTERNAL=OFF
+QT_FEATURE_avx512vbmi2:INTERNAL=ON
 //Qt feature: avx512vl (from target Qt6::Core)
-QT_FEATURE_avx512vl:INTERNAL=OFF
+QT_FEATURE_avx512vl:INTERNAL=ON
 //Qt feature: backtrace (from target Qt6::Core)
 QT_FEATURE_backtrace:INTERNAL=ON
 //Qt feature: buttongroup (from target Qt6::Widgets)
@@ -641,6 +672,8 @@ QT_FEATURE_cpp_winrt:INTERNAL=OFF
 QT_FEATURE_cross_compile:INTERNAL=OFF
 //Qt feature: cssparser (from target Qt6::Gui)
 QT_FEATURE_cssparser:INTERNAL=ON
+//Qt feature: ctf (from target Qt6::Core)
+QT_FEATURE_ctf:INTERNAL=OFF
 //Qt feature: cursor (from target Qt6::Gui)
 QT_FEATURE_cursor:INTERNAL=ON
 //Qt feature: cxx11 (from target Qt6::Core)
@@ -937,12 +970,22 @@ QT_FEATURE_opengles3:INTERNAL=OFF
 QT_FEATURE_opengles31:INTERNAL=OFF
 //Qt feature: opengles32 (from target Qt6::Gui)
 QT_FEATURE_opengles32:INTERNAL=OFF
+//Qt feature: openssl (from target Qt6::Core)
+QT_FEATURE_openssl:INTERNAL=ON
+//Qt feature: openssl_linked (from target Qt6::Core)
+QT_FEATURE_openssl_linked:INTERNAL=OFF
+//Qt feature: opensslv11 (from target Qt6::Core)
+QT_FEATURE_opensslv11:INTERNAL=ON
+//Qt feature: opensslv30 (from target Qt6::Core)
+QT_FEATURE_opensslv30:INTERNAL=OFF
 //Qt feature: openvg (from target Qt6::Gui)
 QT_FEATURE_openvg:INTERNAL=OFF
 //Qt feature: pcre2 (from target Qt6::Core)
 QT_FEATURE_pcre2:INTERNAL=ON
 //Qt feature: pdf (from target Qt6::Gui)
 QT_FEATURE_pdf:INTERNAL=ON
+//Qt feature: permissions (from target Qt6::Core)
+QT_FEATURE_permissions:INTERNAL=ON
 //Qt feature: picture (from target Qt6::Gui)
 QT_FEATURE_picture:INTERNAL=ON
 //Qt feature: pkg_config (from target Qt6::Core)
@@ -951,6 +994,8 @@ QT_FEATURE_pkg_config:INTERNAL=ON
 QT_FEATURE_plugin_manifest:INTERNAL=ON
 //Qt feature: png (from target Qt6::Gui)
 QT_FEATURE_png:INTERNAL=ON
+//Qt feature: poll_exit_on_error (from target Qt6::Core)
+QT_FEATURE_poll_exit_on_error:INTERNAL=OFF
 //Qt feature: poll_poll (from target Qt6::Core)
 QT_FEATURE_poll_poll:INTERNAL=ON
 //Qt feature: poll_pollts (from target Qt6::Core)
@@ -1192,7 +1237,7 @@ QT_FEATURE_use_lld_linker:INTERNAL=OFF
 //Qt feature: use_mold_linker (from target Qt6::Core)
 QT_FEATURE_use_mold_linker:INTERNAL=OFF
 //Qt feature: vaes (from target Qt6::Core)
-QT_FEATURE_vaes:INTERNAL=OFF
+QT_FEATURE_vaes:INTERNAL=ON
 //Qt feature: validator (from target Qt6::Gui)
 QT_FEATURE_validator:INTERNAL=ON
 //Qt feature: vkgen (from target Qt6::Gui)
@@ -1205,6 +1250,10 @@ QT_FEATURE_vnc:INTERNAL=OFF
 QT_FEATURE_vsp2:INTERNAL=OFF
 //Qt feature: vulkan (from target Qt6::Gui)
 QT_FEATURE_vulkan:INTERNAL=ON
+//Qt feature: wasm_exceptions (from target Qt6::Core)
+QT_FEATURE_wasm_exceptions:INTERNAL=OFF
+//Qt feature: wasm_simd128 (from target Qt6::Core)
+QT_FEATURE_wasm_simd128:INTERNAL=OFF
 //Qt feature: whatsthis (from target Qt6::Gui)
 QT_FEATURE_whatsthis:INTERNAL=ON
 //Qt feature: wheelevent (from target Qt6::Gui)
@@ -1215,6 +1264,8 @@ QT_FEATURE_widgets:INTERNAL=ON
 QT_FEATURE_widgettextcontrol:INTERNAL=ON
 //Qt feature: wizard (from target Qt6::Widgets)
 QT_FEATURE_wizard:INTERNAL=ON
+//Qt feature: x86intrin (from target Qt6::Core)
+QT_FEATURE_x86intrin:INTERNAL=ON
 //Qt feature: xcb (from target Qt6::Gui)
 QT_FEATURE_xcb:INTERNAL=OFF
 //Qt feature: xcb_egl_plugin (from target Qt6::Gui)
@@ -1257,6 +1308,28 @@ Vulkan_INCLUDE_DIR-ADVANCED:INTERNAL=1
 Vulkan_LIBRARY-ADVANCED:INTERNAL=1
 //CMAKE_INSTALL_PREFIX during last run
 _GNUInstallDirs_LAST_CMAKE_INSTALL_PREFIX:INTERNAL=/usr/local
+_Python2_DEVELOPMENT_MODULE_SIGNATURE:INTERNAL=f1cb064c73b75cb75d1db920f73bafe0
+//Path to a program.
+_Python2_EXECUTABLE:INTERNAL=/System/Library/Frameworks/Python.framework/Versions/2.7/bin/python2.7
+//Path to a file.
+_Python2_INCLUDE_DIR:INTERNAL=/System/Library/Frameworks/Python.framework/Versions/2.7/include/python2.7
+//Python2 Properties
+_Python2_INTERPRETER_PROPERTIES:INTERNAL=Python;2;7;16;64;;;/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7;/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7;/Library/Python/2.7/site-packages;/Library/Python/2.7/site-packages
+_Python2_INTERPRETER_SIGNATURE:INTERNAL=0fbb084f1a52a956142935255daaa124
+_Python2_NUMPY_SIGNATURE:INTERNAL=b9b295913a4ac31fa98a19158c6ec96c
+//Path to a file.
+_Python2_NumPy_INCLUDE_DIR:INTERNAL=/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/numpy/core/include
+_Python_DEVELOPMENT_EMBED_SIGNATURE:INTERNAL=e533c6edf84eb2f5419e18265a5a7008
+_Python_DEVELOPMENT_MODULE_SIGNATURE:INTERNAL=eb94ff8bef91da97eb442148cb42e10f
+//Path to a program.
+_Python_EXECUTABLE:INTERNAL=/usr/local/Frameworks/Python.framework/Versions/3.10/bin/python3.10
+//Path to a file.
+_Python_INCLUDE_DIR:INTERNAL=/usr/local/opt/python@3.10/Frameworks/Python.framework/Versions/3.10/include/python3.10
+//Python Properties
+_Python_INTERPRETER_PROPERTIES:INTERNAL=Python;3;10;11;64;;cpython-310-darwin;/usr/local/opt/python@3.10/Frameworks/Python.framework/Versions/3.10/lib/python3.10;/usr/local/opt/python@3.10/Frameworks/Python.framework/Versions/3.10/lib/python3.10;/usr/local/opt/python@3.10/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages;/usr/local/opt/python@3.10/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages
+_Python_INTERPRETER_SIGNATURE:INTERNAL=45d78209cb1e0b3cfcc780c7a2302a26
+//Path to a library.
+_Python_LIBRARY_RELEASE:INTERNAL=/usr/local/opt/python@3.10/Frameworks/Python.framework/Versions/3.10/lib/libpython3.10.dylib
 //Result of TRY_COMPILE
 link_order_matters:INTERNAL=TRUE
 
