@@ -11,14 +11,14 @@
 IMUData_SingleEpoch::IMUData_SingleEpoch() = default ;
 
 IMUData_SingleEpoch::IMUData_SingleEpoch(const IMUData_SingleEpoch & another_epoch) {
-    memcpy(mAcc,another_epoch.mAcc,IMUDATA_SIZE);
-    memcpy(mGyr,another_epoch.mGyr,IMUDATA_SIZE);
+    memcpy(m_pAcc, another_epoch.m_pAcc, IMUDATA_SIZE);
+    memcpy(m_pGyr, another_epoch.m_pGyr, IMUDATA_SIZE);
     memcpy(&t,&another_epoch.t,GPST_SIZE);
 }
 
 IMUData_SingleEpoch::IMUData_SingleEpoch(const double *acc, const double *gyr, const GPST & gpst) {
-    memcpy(mAcc,acc,IMUDATA_SIZE);
-    memcpy(mGyr,gyr,IMUDATA_SIZE);
+    memcpy(m_pAcc, acc, IMUDATA_SIZE);
+    memcpy(m_pGyr, gyr, IMUDATA_SIZE);
     memcpy(&t,&gpst,GPST_SIZE);
 }
 
@@ -45,12 +45,12 @@ bool asc_readAll(const ::std::string & filename, ::std::vector<IMUData_SingleEpo
             token = strtok(NULL,delimiter);      rawData[i].t.weeks = ::std::atof(token);
             token = strtok(NULL,delimiter);      rawData[i].t.second = ::std::atof(token);
             token = strtok(NULL,delimiter);
-            token = strtok(NULL,delimiter);      rawData[i].mAcc[2] = - ::std::atof(token) * NOVATEL_ACC_SCALE;     // +z-U -> +z-D
-            token = strtok(NULL,delimiter);      rawData[i].mAcc[0] = - ::std::atof(token) * NOVATEL_ACC_SCALE;     // -y-N -> +x->N
-            token = strtok(NULL,delimiter);      rawData[i].mAcc[1] = ::std::atof(token) * NOVATEL_ACC_SCALE;       // +x-E -> +y->E
-            token = strtok(NULL,delimiter);      rawData[i].mGyr[2] = - ::std::atof(token) * NOVATEL_GYR_SCALE;
-            token = strtok(NULL,delimiter);      rawData[i].mGyr[0] = - ::std::atof(token) * NOVATEL_GYR_SCALE;
-            token = strtok(NULL,delimiter);      rawData[i].mGyr[1] = ::std::atof(token) * NOVATEL_GYR_SCALE;
+            token = strtok(NULL,delimiter);      rawData[i].m_pAcc[2] = - ::std::atof(token) * NOVATEL_ACC_SCALE;     // +z-U -> +z-D
+            token = strtok(NULL,delimiter);      rawData[i].m_pAcc[0] = - ::std::atof(token) * NOVATEL_ACC_SCALE;     // -y-N -> +x->N
+            token = strtok(NULL,delimiter);      rawData[i].m_pAcc[1] = ::std::atof(token) * NOVATEL_ACC_SCALE;       // +x-E -> +y->E
+            token = strtok(NULL,delimiter);      rawData[i].m_pGyr[2] = - ::std::atof(token) * NOVATEL_GYR_SCALE;
+            token = strtok(NULL,delimiter);      rawData[i].m_pGyr[0] = - ::std::atof(token) * NOVATEL_GYR_SCALE;
+            token = strtok(NULL,delimiter);      rawData[i].m_pGyr[1] = ::std::atof(token) * NOVATEL_GYR_SCALE;
             delete []str;
             i++;
         }
@@ -82,19 +82,19 @@ void PureIns::gyrAlignment(const ::std::vector<IMUData_SingleEpoch> & rawData, d
     double average_f[3] = {0};
     double average_omega[3] = {0};
     for (auto &i : rawData){
-        average_f[0] += i.mAcc[0];
-        average_f[1] += i.mAcc[1];
-        average_f[2] += i.mAcc[2];
-        average_omega[0] += i.mGyr[0];
-        average_omega[1] += i.mGyr[1];
-        average_omega[2] += i.mGyr[2];
+        average_f[0] += i.m_pAcc[0];
+        average_f[1] += i.m_pAcc[1];
+        average_f[2] += i.m_pAcc[2];
+        average_omega[0] += i.m_pGyr[0];
+        average_omega[1] += i.m_pGyr[1];
+        average_omega[2] += i.m_pGyr[2];
     }
     mFrequency = (len - 1) / abs(rawData[0].t - rawData[len-1].t);
     for (int i = 0; i < 3; ++i) {
         average_f[i] = average_f[i] / len * mFrequency;
         average_omega[i] = average_omega[i] / len * mFrequency;
     }
-    double lat = mStartInfo.mPos[0], h = mStartInfo.mPos[2];
+    double lat = mStartInfo.m_pPos[0], h = mStartInfo.m_pPos[2];
     Matrix g_n(3,1,{0,0, calculate_g(lat,h)});
     Matrix omega_n_ie(3,1,{ELLIPSOID_OMEGA*cos(lat),0,-ELLIPSOID_OMEGA*sin(lat)});
     Matrix omega_b_ie(3,1,average_omega);
@@ -118,13 +118,13 @@ void PureIns::gyrAlignment(const ::std::vector<IMUData_SingleEpoch> & rawData, d
     Matrix C = horizontal_stack_array(v,3) * vertical_stack_array(w,3);
     EMatrix2Euler(C.p,euler);
     // 将对准姿态结果存储到初始信息中，以姿态四元数及姿态矩阵的形式
-    Euler2Quaternion(euler,mStartInfo.mQuaternion);
-    Euler2EMatrix(euler,mStartInfo.mEMatrix);
+    Euler2Quaternion(euler,mStartInfo.m_pQuaternion);
+    Euler2EMatrix(euler,mStartInfo.m_pEMatrix);
 }
 
 void PureIns::setStartInfo(const double *pos, const double *speed) {
-    memcpy(&mStartInfo.mPos,pos,IMUDATA_SIZE);
-    memcpy(&mStartInfo.mSpeed,speed,IMUDATA_SIZE);
+    memcpy(&mStartInfo.m_pPos, pos, IMUDATA_SIZE);
+    memcpy(&mStartInfo.m_pSpeed, speed, IMUDATA_SIZE);
 }
 
 void PureIns::insSolver_asc_all(InsConfigure & configure) {
@@ -143,10 +143,10 @@ INSRes_SingleEpoch::INSRes_SingleEpoch() = default;
 
 INSRes_SingleEpoch::INSRes_SingleEpoch(const INSRes_SingleEpoch & another) {
     memcpy(&t,&another.t,GPST_SIZE);
-    memcpy(&mPos,&another.mPos,IMUDATA_SIZE);
-    memcpy(&mSpeed,&another.mSpeed,IMUDATA_SIZE);
-    memcpy(&mQuaternion,&another.mQuaternion,QUATERNION_SIZE);
-    memcpy(&mEMatrix,&another.mEMatrix,3*IMUDATA_SIZE);
+    memcpy(&m_pPos, &another.m_pPos, IMUDATA_SIZE);
+    memcpy(&m_pSpeed, &another.m_pSpeed, IMUDATA_SIZE);
+    memcpy(&m_pQuaternion, &another.m_pQuaternion, QUATERNION_SIZE);
+    memcpy(&m_pEMatrix, &another.m_pEMatrix, 3 * IMUDATA_SIZE);
 }
 
 INSRes_SingleEpoch::~INSRes_SingleEpoch() = default;
@@ -158,14 +158,14 @@ void PureIns::updateSinEpoch(const IMUData_SingleEpoch & obs2,const IMUData_Sing
                              const IMUData_SingleEpoch & obs, const INSRes_SingleEpoch & res2,
                              const INSRes_SingleEpoch & res1,INSRes_SingleEpoch & res) {
     double_t rv[3],qb[4],qn[4];
-    Angle2RV(obs2.mGyr,obs1.mGyr,rv); // 双子样法更新等效旋转矢量
+    Angle2RV(obs2.m_pGyr, obs1.m_pGyr, rv); // 双子样法更新等效旋转矢量
     RV2Quaternion(rv,qb);                         // 等效旋转矢量更新b系
     double_t pos[3],speed[3],wie[3],wen[3],Rm,Rn;
     double_t delta_t = obs.t - obs1.t; // 观测间隔
     // 利用k-2、k-1历元位置、速度外推得到k-0.5历元位置、速度
     for (int i = 0; i < 3; ++i) {
-        pos[i] = linExtrapolateHalf(res2.mPos[i],res1.mPos[i]);
-        speed[i] = linExtrapolateHalf(res2.mSpeed[i],res1.mSpeed[i]);
+        pos[i] = linExtrapolateHalf(res2.m_pPos[i], res1.m_pPos[i]);
+        speed[i] = linExtrapolateHalf(res2.m_pSpeed[i], res1.m_pSpeed[i]);
     }
     calculateRotationSpeed(pos,speed,wie,wen,Rm,Rn);
     Matrix m_wie(3,1,wie),m_wen(3,1,wen);
@@ -177,36 +177,36 @@ void PureIns::updateSinEpoch(const IMUData_SingleEpoch & obs2,const IMUData_Sing
     }
     // 更新姿态 - 姿态四元数及姿态矩阵
     double_t q_temp[4];
-    Multiply_q(qn,res1.mQuaternion,q_temp);
-    Multiply_q(q_temp,qb,res.mQuaternion);
-    Quaternion2EMatrix(res.mQuaternion,res.mEMatrix);
+    Multiply_q(qn, res1.m_pQuaternion, q_temp);
+    Multiply_q(q_temp,qb,res.m_pQuaternion);
+    Quaternion2EMatrix(res.m_pQuaternion, res.m_pEMatrix);
     // 更新速度
     double_t g = calculate_g(pos[0],pos[2]);   // 重力
     Matrix m_g(3,1,{0,0,g}),m_v(3,1,speed);           // 构造重力、k-0.5历元速度矩阵
     Matrix m_cor = ( m_g - cross( ((2 * m_wie) + m_wen),m_v ) ) * delta_t;  // 哥氏积分项矩阵
-    Matrix m_vk(3,1,obs.mAcc),m_thetak(3,1,obs.mGyr); // k历元原始观测值矩阵
-    Matrix m_vk_1(3,1,obs1.mAcc),m_thetak_1(3,1,obs1.mGyr); // k-1历元原始观测值矩阵
+    Matrix m_vk(3,1,obs.m_pAcc),m_thetak(3, 1, obs.m_pGyr); // k历元原始观测值矩阵
+    Matrix m_vk_1(3,1,obs1.m_pAcc),m_thetak_1(3, 1, obs1.m_pGyr); // k-1历元原始观测值矩阵
     Matrix m_v_fk_1_b = m_vk + cross(m_thetak,m_vk) / 2 +
             ( cross(m_thetak_1,m_vk) + cross(m_vk_1,m_thetak) ) / 12;
-    Matrix m_Cnbk_1(3,3,res1.mEMatrix);   // 上一历元姿态矩阵
+    Matrix m_Cnbk_1(3,3,res1.m_pEMatrix);   // 上一历元姿态矩阵
     Matrix m_v_fk_n = (eye(3) - antiVector(m_rv) / 2) * m_Cnbk_1 * m_v_fk_1_b;
-    Matrix m_res_vk = Matrix(3,1,res1.mSpeed) + m_cor + m_v_fk_n;
-    memcpy(res.mSpeed,m_res_vk.p,IMUDATA_SIZE);
+    Matrix m_res_vk = Matrix(3,1,res1.m_pSpeed) + m_cor + m_v_fk_n;
+    memcpy(res.m_pSpeed, m_res_vk.p, IMUDATA_SIZE);
     // 更新位置
-    res.mPos[2] = res1.mPos[1] - (res.mSpeed[2] + res1.mSpeed[2]) / 2 * delta_t;
-    double_t average_h = (res.mPos[2] + res.mPos[2]) / 2;
-    res.mPos[0] = res1.mPos[0] + (res.mSpeed[0] + res1.mSpeed[0]) / 2 / (Rm + average_h) * delta_t;
-    double_t average_lat = (res.mPos[0] + res.mPos[0]) / 2;
-    res.mPos[1] = res1.mPos[1] + (res.mSpeed[1] + res1.mSpeed[1]) / 2 / (Rn + average_h) / cos(average_lat) * delta_t;
+    res.m_pPos[2] = res1.m_pPos[1] - (res.m_pSpeed[2] + res1.m_pSpeed[2]) / 2 * delta_t;
+    double_t average_h = (res.m_pPos[2] + res.m_pPos[2]) / 2;
+    res.m_pPos[0] = res1.m_pPos[0] + (res.m_pSpeed[0] + res1.m_pSpeed[0]) / 2 / (Rm + average_h) * delta_t;
+    double_t average_lat = (res.m_pPos[0] + res.m_pPos[0]) / 2;
+    res.m_pPos[1] = res1.m_pPos[1] + (res.m_pSpeed[1] + res1.m_pSpeed[1]) / 2 / (Rn + average_h) / cos(average_lat) * delta_t;
 }
 
 void PureIns::outputResFile(const INSRes_SingleEpoch & res, ::std::ofstream & outputfile) const {
     double_t euler[3];
-    EMatrix2Euler(res.mEMatrix,euler);
+    EMatrix2Euler(res.m_pEMatrix, euler);
     outputfile << res.t.weeks << "," << res.t.second << "," <<
-    res.mPos[0] << "," << res.mPos[1] << "," << res.mPos[2] << "," <<
-    res.mSpeed[0] << "," << res.mSpeed[1] << "," << res.mSpeed[2] << "," <<
-    euler[2] << "," << euler[1] << "," << euler[0] << '\n';
+               res.m_pPos[0] << "," << res.m_pPos[1] << "," << res.m_pPos[2] << "," <<
+               res.m_pSpeed[0] << "," << res.m_pSpeed[1] << "," << res.m_pSpeed[2] << "," <<
+               euler[2] << "," << euler[1] << "," << euler[0] << '\n';
 }
 
 ::std::ofstream *PureIns::createResFile(const ::std::string & fileDir) {
@@ -223,19 +223,19 @@ void PureIns::releaseFileStream(::std::ofstream *output) {
 }
 
 void InsConfigure::setBeginTime(GPST *tm) {
-    mBeginTime = tm;
+    m_gpstBeginTime = tm;
 }
 
 GPST *InsConfigure::getBeginTime() {
-    return mBeginTime;
+    return m_gpstBeginTime;
 }
 
 void InsConfigure::setEndTime(GPST * tm) {
-    mEndTime = tm;
+    m_gpstEndTime = tm;
 }
 
 GPST *InsConfigure::getEndTime() {
-    return mEndTime;
+    return m_gpstEndTime;
 }
 
 

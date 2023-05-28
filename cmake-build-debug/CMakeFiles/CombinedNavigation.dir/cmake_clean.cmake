@@ -5,10 +5,10 @@ file(REMOVE_RECURSE
   "CMakeFiles/CombinedNavigation.dir/CombinedNavigation_autogen/mocs_compilation.cpp.o"
   "CMakeFiles/CombinedNavigation.dir/Sources/INSData.cpp.o"
   "CMakeFiles/CombinedNavigation.dir/Sources/INSSolution.cpp.o"
-  "CMakeFiles/CombinedNavigation.dir/Sources/Matrix.cpp.o"
-  "CMakeFiles/CombinedNavigation.dir/Sources/TimeSys.cpp.o"
   "CMakeFiles/CombinedNavigation.dir/Sources/main.cpp.o"
   "CMakeFiles/CombinedNavigation.dir/Sources/mainwindow.cpp.o"
+  "CMakeFiles/CombinedNavigation.dir/lib/Matrix/Matrix.cpp.o"
+  "CMakeFiles/CombinedNavigation.dir/lib/TimeSys/TimeSys.cpp.o"
   "CombinedNavigation"
   "CombinedNavigation.pdb"
 )

@@ -35,8 +35,8 @@ class PureIns;
 class IMUData_SingleEpoch{
 public:
     GPST t;                       // 观测时间
-    double mAcc[3] = {0};         // 速度增量 x,y,z  m/s
-    double mGyr[3] = {0};         // 角增量   x,y,z rad/s
+    double m_pAcc[3] = {0};         // 速度增量 x,y,z  m/s
+    double m_pGyr[3] = {0};         // 角增量   x,y,z rad/s
 
     IMUData_SingleEpoch();
     IMUData_SingleEpoch(const IMUData_SingleEpoch &);
@@ -48,10 +48,10 @@ public:
 class INSRes_SingleEpoch{
 public:
     GPST t;
-    double_t mPos[3] = {0};         // 位置 [lat,lon,h]
-    double_t mSpeed[3] = {0};       // 速度 [Vn,Ve,Vd]
-    double_t mQuaternion[4] = {0};  // 姿态四元数
-    double_t mEMatrix[4] = {0};     // 姿态角矩阵
+    double_t m_pPos[3] = {0};         // 位置 [lat,lon,h]
+    double_t m_pSpeed[3] = {0};       // 速度 [Vn,Ve,Vd]
+    double_t m_pQuaternion[4] = {0};  // 姿态四元数
+    double_t m_pEMatrix[4] = {0};     // 姿态角矩阵
 
     INSRes_SingleEpoch();
     INSRes_SingleEpoch(const INSRes_SingleEpoch &);
@@ -60,36 +60,36 @@ public:
 
 // 解算INS配置器
 class InsConfigure{
-    ::std::string mImuDataFileDir;        // Imu数据文件路径
-    ::std::string mGnssDataFileDir;       // Gnss数据文件路径
-    ::std::string moutputResFileDir;      // 输出结果文件路径
-    double_t mStartPos[3] = {0};          // 起始位置信息
-    double_t mStartV[3] = {0};            // 起始速度信息
-    double_t mStartEuler[3] = {0};        // 起始欧拉角组（这个信息不一定可以在配置中给出，因为一般初始姿态需要对准后才能获得）
-    GPST *mBeginTime;                     // 开始处理的时间(nullptr表示默认第一行数据开始)
-    GPST *mEndTime;                       // 结束处理的时间(nullptr表示默认最后一行数据结束)
+    ::std::string m_strImuDataFileDir;        // Imu数据文件路径
+    ::std::string m_strGnssDataFileDir;       // Gnss数据文件路径
+    ::std::string m_strOutputResFileDir;      // 输出结果文件路径
+    double_t m_pStartPos[3] = {0};          // 起始位置信息
+    double_t m_pStartV[3] = {0};            // 起始速度信息
+    double_t m_pStartEuler[3] = {0};        // 起始欧拉角组（这个信息不一定可以在配置中给出，因为一般初始姿态需要对准后才能获得）
+    GPST *m_gpstBeginTime;                     // 开始处理的时间(nullptr表示默认第一行数据开始)
+    GPST *m_gpstEndTime;                       // 结束处理的时间(nullptr表示默认最后一行数据结束)
 
 public:
     InsConfigure();
 
     // set、get函数
-    void setImuFileDir(const ::std::string dir) {mImuDataFileDir = dir;}
-    ::std::string getImuFileDir() const {return mImuDataFileDir;}
+    void setImuFileDir(const ::std::string dir) { m_strImuDataFileDir = dir;}
+    ::std::string getImuFileDir() const {return m_strImuDataFileDir;}
 
-    void setGnssFileDir(const ::std::string dir) {mGnssDataFileDir = dir;}
-    ::std::string getGnssFileDir() const {return mGnssDataFileDir;}
+    void setGnssFileDir(const ::std::string dir) { m_strGnssDataFileDir = dir;}
+    ::std::string getGnssFileDir() const {return m_strGnssDataFileDir;}
 
-    void setStartPos(const double_t pos[]) {memcpy(mStartPos,pos,IMUDATA_SIZE);}
-    const double_t *const getStartPos() const {return mStartPos;}
+    void setStartPos(const double_t pos[]) {memcpy(m_pStartPos, pos, IMUDATA_SIZE);}
+    const double_t *const getStartPos() const {return m_pStartPos;}
 
-    void setStartV(const double_t v[]) {memcpy(mStartV,v,IMUDATA_SIZE);}
-    const double_t *const getStartV() const {return mStartV;}
+    void setStartV(const double_t v[]) {memcpy(m_pStartV, v, IMUDATA_SIZE);}
+    const double_t *const getStartV() const {return m_pStartV;}
 
-    void setStartEuler(const double_t euler[]) {memcpy(mStartEuler,euler,IMUDATA_SIZE);}
-    const double_t *const getStartEuler() const {return mStartEuler;}
+    void setStartEuler(const double_t euler[]) {memcpy(m_pStartEuler, euler, IMUDATA_SIZE);}
+    const double_t *const getStartEuler() const {return m_pStartEuler;}
 
-    void setOutputDir(const ::std::string dir) {moutputResFileDir = dir;}
-    ::std::string getOutputDir() const {return moutputResFileDir;}
+    void setOutputDir(const ::std::string dir) { m_strOutputResFileDir = dir;}
+    ::std::string getOutputDir() const {return m_strOutputResFileDir;}
 
     void setBeginTime(GPST * tm);
     GPST * getBeginTime();
@@ -135,16 +135,22 @@ public:
 
 
 // ************************************************ASCII ***************************************************************
-// 得到ASCII观测文件总历元数
-/* input : file_directory
- * output : total epochs
+/*!
+ *
+ * @param filename input    string     待测量asc文本文件大小
+ * @return                  int        目标文本文件中记录惯导数据的历元数
+ * @note           该函数用于测量asc文本的IMU数据量大小，%RAWIMUSA为每一行开始的标识符，返回值为IMU测量的总历元数
  */
 int asc_measureFileSize(const ::std::string & filename);
 
 
-// 读取ASCII观测文件原始观测数据  注意轴系
-/* input1 : file_directory
- * output1 : rawData
+
+/*!
+ *
+ * @param filename input    string                      待读取asc文本文件的路径
+ * @param rawData  output   vector<IMUData_SingleEpoch> 读取后的结果
+ * @return                  bool                        是否读取成功
+ * @note           该函数用于读取asc文本的IMU数据，%RAWIMUSA为每一行开始的标识符
  */
 bool asc_readAll(const ::std::string & filename , ::std::vector<IMUData_SingleEpoch> & rawData);
 
@@ -154,7 +160,7 @@ bool asc_readAll(const ::std::string & filename , ::std::vector<IMUData_SingleEp
 
 
 
-bool bin_readLine();
+
 
 
 #endif //COMBINEDNAVIGATION_INSDATA_H

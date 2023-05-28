@@ -214,54 +214,6 @@ Sources/INSSolution.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/Sources/INSSolution.cpp.s
 .PHONY : Sources/INSSolution.cpp.s
 
-Sources/Matrix.o: Sources/Matrix.cpp.o
-.PHONY : Sources/Matrix.o
-
-# target to build an object file
-Sources/Matrix.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/Sources/Matrix.cpp.o
-.PHONY : Sources/Matrix.cpp.o
-
-Sources/Matrix.i: Sources/Matrix.cpp.i
-.PHONY : Sources/Matrix.i
-
-# target to preprocess a source file
-Sources/Matrix.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/Sources/Matrix.cpp.i
-.PHONY : Sources/Matrix.cpp.i
-
-Sources/Matrix.s: Sources/Matrix.cpp.s
-.PHONY : Sources/Matrix.s
-
-# target to generate assembly for a file
-Sources/Matrix.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/Sources/Matrix.cpp.s
-.PHONY : Sources/Matrix.cpp.s
-
-Sources/TimeSys.o: Sources/TimeSys.cpp.o
-.PHONY : Sources/TimeSys.o
-
-# target to build an object file
-Sources/TimeSys.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/Sources/TimeSys.cpp.o
-.PHONY : Sources/TimeSys.cpp.o
-
-Sources/TimeSys.i: Sources/TimeSys.cpp.i
-.PHONY : Sources/TimeSys.i
-
-# target to preprocess a source file
-Sources/TimeSys.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/Sources/TimeSys.cpp.i
-.PHONY : Sources/TimeSys.cpp.i
-
-Sources/TimeSys.s: Sources/TimeSys.cpp.s
-.PHONY : Sources/TimeSys.s
-
-# target to generate assembly for a file
-Sources/TimeSys.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/Sources/TimeSys.cpp.s
-.PHONY : Sources/TimeSys.cpp.s
-
 Sources/main.o: Sources/main.cpp.o
 .PHONY : Sources/main.o
 
@@ -310,6 +262,54 @@ Sources/mainwindow.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/Sources/mainwindow.cpp.s
 .PHONY : Sources/mainwindow.cpp.s
 
+lib/Matrix/Matrix.o: lib/Matrix/Matrix.cpp.o
+.PHONY : lib/Matrix/Matrix.o
+
+# target to build an object file
+lib/Matrix/Matrix.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/lib/Matrix/Matrix.cpp.o
+.PHONY : lib/Matrix/Matrix.cpp.o
+
+lib/Matrix/Matrix.i: lib/Matrix/Matrix.cpp.i
+.PHONY : lib/Matrix/Matrix.i
+
+# target to preprocess a source file
+lib/Matrix/Matrix.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/lib/Matrix/Matrix.cpp.i
+.PHONY : lib/Matrix/Matrix.cpp.i
+
+lib/Matrix/Matrix.s: lib/Matrix/Matrix.cpp.s
+.PHONY : lib/Matrix/Matrix.s
+
+# target to generate assembly for a file
+lib/Matrix/Matrix.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/lib/Matrix/Matrix.cpp.s
+.PHONY : lib/Matrix/Matrix.cpp.s
+
+lib/TimeSys/TimeSys.o: lib/TimeSys/TimeSys.cpp.o
+.PHONY : lib/TimeSys/TimeSys.o
+
+# target to build an object file
+lib/TimeSys/TimeSys.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/lib/TimeSys/TimeSys.cpp.o
+.PHONY : lib/TimeSys/TimeSys.cpp.o
+
+lib/TimeSys/TimeSys.i: lib/TimeSys/TimeSys.cpp.i
+.PHONY : lib/TimeSys/TimeSys.i
+
+# target to preprocess a source file
+lib/TimeSys/TimeSys.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/lib/TimeSys/TimeSys.cpp.i
+.PHONY : lib/TimeSys/TimeSys.cpp.i
+
+lib/TimeSys/TimeSys.s: lib/TimeSys/TimeSys.cpp.s
+.PHONY : lib/TimeSys/TimeSys.s
+
+# target to generate assembly for a file
+lib/TimeSys/TimeSys.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/lib/TimeSys/TimeSys.cpp.s
+.PHONY : lib/TimeSys/TimeSys.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -329,18 +329,18 @@ help:
 	@echo "... Sources/INSSolution.o"
 	@echo "... Sources/INSSolution.i"
 	@echo "... Sources/INSSolution.s"
-	@echo "... Sources/Matrix.o"
-	@echo "... Sources/Matrix.i"
-	@echo "... Sources/Matrix.s"
-	@echo "... Sources/TimeSys.o"
-	@echo "... Sources/TimeSys.i"
-	@echo "... Sources/TimeSys.s"
 	@echo "... Sources/main.o"
 	@echo "... Sources/main.i"
 	@echo "... Sources/main.s"
 	@echo "... Sources/mainwindow.o"
 	@echo "... Sources/mainwindow.i"
 	@echo "... Sources/mainwindow.s"
+	@echo "... lib/Matrix/Matrix.o"
+	@echo "... lib/Matrix/Matrix.i"
+	@echo "... lib/Matrix/Matrix.s"
+	@echo "... lib/TimeSys/TimeSys.o"
+	@echo "... lib/TimeSys/TimeSys.i"
+	@echo "... lib/TimeSys/TimeSys.s"
 .PHONY : help
 
 

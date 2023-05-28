@@ -26,18 +26,26 @@ find_package(Qt6 COMPONENTS
 
 include_directories(
         ${PROJECT_SOURCE_DIR}/include
-        ${PROJECT_SOURCE_DIR}/Sources/Headers
-        ${PROJECT_SOURCE_DIR}/ObsData
+        ${PROJECT_SOURCE_DIR}/Sources/UIHeaders
+        ${PROJECT_SOURCE_DIR}/Sources/UI
         ${PROJECT_SOURCE_DIR}/executable
         ${PROJECT_SOURCE_DIR}/lib
         ${PROJECT_SOURCE_DIR}/lib/sciplot
         ${PROJECT_SOURCE_DIR}/lib/sciplot/specs
+        ${PROJECT_SOURCE_DIR}/lib/Matrix
+        ${PROJECT_SOURCE_DIR}/lib/TimeSys
 )
 
-add_executable(CombinedNavigation Sources/main.cpp Sources/mainwindow.cpp Sources/Headers/mainwindow.h Sources/UI/mainwindow.ui
-        include/Matrix.h Sources/Matrix.cpp include/INSData.h Sources/INSData.cpp include/TimeSys.h Sources/TimeSys.cpp
+add_executable(CombinedNavigation Sources/main.cpp
+        # UI文件
+        Sources/mainwindow.cpp Sources/UIHeaders/mainwindow.h Sources/UI/mainwindow.ui
+        # 主文件
+        include/INSData.h Sources/INSData.cpp
         include/INSSolution.h Sources/INSSolution.cpp
+        # 依赖文件
         ${PROJECT_SOURCE_DIR}/lib/sciplot/ ${PROJECT_SOURCE_DIR}/lib/sciplot/specs
+        ${PROJECT_SOURCE_DIR}/lib/Matrix/Matrix.h ${PROJECT_SOURCE_DIR}/lib/Matrix/Matrix.cpp
+        ${PROJECT_SOURCE_DIR}/lib/TimeSys/TimeSys.h ${PROJECT_SOURCE_DIR}/lib/TimeSys/TimeSys.cpp
         )
 
 

@@ -105,22 +105,9 @@ CMakeFiles/CombinedNavigation.dir/Sources/mainwindow.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CombinedNavigation.dir/Sources/mainwindow.cpp.s"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/mainwindow.cpp -o CMakeFiles/CombinedNavigation.dir/Sources/mainwindow.cpp.s
 
-CMakeFiles/CombinedNavigation.dir/Sources/Matrix.cpp.o: CMakeFiles/CombinedNavigation.dir/flags.make
-CMakeFiles/CombinedNavigation.dir/Sources/Matrix.cpp.o: ../Sources/Matrix.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/CombinedNavigation.dir/Sources/Matrix.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CombinedNavigation.dir/Sources/Matrix.cpp.o -c /Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/Matrix.cpp
-
-CMakeFiles/CombinedNavigation.dir/Sources/Matrix.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CombinedNavigation.dir/Sources/Matrix.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/Matrix.cpp > CMakeFiles/CombinedNavigation.dir/Sources/Matrix.cpp.i
-
-CMakeFiles/CombinedNavigation.dir/Sources/Matrix.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CombinedNavigation.dir/Sources/Matrix.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/Matrix.cpp -o CMakeFiles/CombinedNavigation.dir/Sources/Matrix.cpp.s
-
 CMakeFiles/CombinedNavigation.dir/Sources/INSData.cpp.o: CMakeFiles/CombinedNavigation.dir/flags.make
 CMakeFiles/CombinedNavigation.dir/Sources/INSData.cpp.o: ../Sources/INSData.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/CombinedNavigation.dir/Sources/INSData.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/CombinedNavigation.dir/Sources/INSData.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CombinedNavigation.dir/Sources/INSData.cpp.o -c /Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/INSData.cpp
 
 CMakeFiles/CombinedNavigation.dir/Sources/INSData.cpp.i: cmake_force
@@ -131,22 +118,9 @@ CMakeFiles/CombinedNavigation.dir/Sources/INSData.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CombinedNavigation.dir/Sources/INSData.cpp.s"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/INSData.cpp -o CMakeFiles/CombinedNavigation.dir/Sources/INSData.cpp.s
 
-CMakeFiles/CombinedNavigation.dir/Sources/TimeSys.cpp.o: CMakeFiles/CombinedNavigation.dir/flags.make
-CMakeFiles/CombinedNavigation.dir/Sources/TimeSys.cpp.o: ../Sources/TimeSys.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/CombinedNavigation.dir/Sources/TimeSys.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CombinedNavigation.dir/Sources/TimeSys.cpp.o -c /Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/TimeSys.cpp
-
-CMakeFiles/CombinedNavigation.dir/Sources/TimeSys.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CombinedNavigation.dir/Sources/TimeSys.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/TimeSys.cpp > CMakeFiles/CombinedNavigation.dir/Sources/TimeSys.cpp.i
-
-CMakeFiles/CombinedNavigation.dir/Sources/TimeSys.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CombinedNavigation.dir/Sources/TimeSys.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/TimeSys.cpp -o CMakeFiles/CombinedNavigation.dir/Sources/TimeSys.cpp.s
-
 CMakeFiles/CombinedNavigation.dir/Sources/INSSolution.cpp.o: CMakeFiles/CombinedNavigation.dir/flags.make
 CMakeFiles/CombinedNavigation.dir/Sources/INSSolution.cpp.o: ../Sources/INSSolution.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/CombinedNavigation.dir/Sources/INSSolution.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/CombinedNavigation.dir/Sources/INSSolution.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CombinedNavigation.dir/Sources/INSSolution.cpp.o -c /Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/INSSolution.cpp
 
 CMakeFiles/CombinedNavigation.dir/Sources/INSSolution.cpp.i: cmake_force
@@ -157,15 +131,41 @@ CMakeFiles/CombinedNavigation.dir/Sources/INSSolution.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CombinedNavigation.dir/Sources/INSSolution.cpp.s"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/INSSolution.cpp -o CMakeFiles/CombinedNavigation.dir/Sources/INSSolution.cpp.s
 
+CMakeFiles/CombinedNavigation.dir/lib/Matrix/Matrix.cpp.o: CMakeFiles/CombinedNavigation.dir/flags.make
+CMakeFiles/CombinedNavigation.dir/lib/Matrix/Matrix.cpp.o: ../lib/Matrix/Matrix.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/CombinedNavigation.dir/lib/Matrix/Matrix.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CombinedNavigation.dir/lib/Matrix/Matrix.cpp.o -c /Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/Matrix/Matrix.cpp
+
+CMakeFiles/CombinedNavigation.dir/lib/Matrix/Matrix.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CombinedNavigation.dir/lib/Matrix/Matrix.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/Matrix/Matrix.cpp > CMakeFiles/CombinedNavigation.dir/lib/Matrix/Matrix.cpp.i
+
+CMakeFiles/CombinedNavigation.dir/lib/Matrix/Matrix.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CombinedNavigation.dir/lib/Matrix/Matrix.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/Matrix/Matrix.cpp -o CMakeFiles/CombinedNavigation.dir/lib/Matrix/Matrix.cpp.s
+
+CMakeFiles/CombinedNavigation.dir/lib/TimeSys/TimeSys.cpp.o: CMakeFiles/CombinedNavigation.dir/flags.make
+CMakeFiles/CombinedNavigation.dir/lib/TimeSys/TimeSys.cpp.o: ../lib/TimeSys/TimeSys.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/CombinedNavigation.dir/lib/TimeSys/TimeSys.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CombinedNavigation.dir/lib/TimeSys/TimeSys.cpp.o -c /Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/TimeSys/TimeSys.cpp
+
+CMakeFiles/CombinedNavigation.dir/lib/TimeSys/TimeSys.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CombinedNavigation.dir/lib/TimeSys/TimeSys.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/TimeSys/TimeSys.cpp > CMakeFiles/CombinedNavigation.dir/lib/TimeSys/TimeSys.cpp.i
+
+CMakeFiles/CombinedNavigation.dir/lib/TimeSys/TimeSys.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CombinedNavigation.dir/lib/TimeSys/TimeSys.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/TimeSys/TimeSys.cpp -o CMakeFiles/CombinedNavigation.dir/lib/TimeSys/TimeSys.cpp.s
+
 # Object files for target CombinedNavigation
 CombinedNavigation_OBJECTS = \
 "CMakeFiles/CombinedNavigation.dir/CombinedNavigation_autogen/mocs_compilation.cpp.o" \
 "CMakeFiles/CombinedNavigation.dir/Sources/main.cpp.o" \
 "CMakeFiles/CombinedNavigation.dir/Sources/mainwindow.cpp.o" \
-"CMakeFiles/CombinedNavigation.dir/Sources/Matrix.cpp.o" \
 "CMakeFiles/CombinedNavigation.dir/Sources/INSData.cpp.o" \
-"CMakeFiles/CombinedNavigation.dir/Sources/TimeSys.cpp.o" \
-"CMakeFiles/CombinedNavigation.dir/Sources/INSSolution.cpp.o"
+"CMakeFiles/CombinedNavigation.dir/Sources/INSSolution.cpp.o" \
+"CMakeFiles/CombinedNavigation.dir/lib/Matrix/Matrix.cpp.o" \
+"CMakeFiles/CombinedNavigation.dir/lib/TimeSys/TimeSys.cpp.o"
 
 # External object files for target CombinedNavigation
 CombinedNavigation_EXTERNAL_OBJECTS =
@@ -173,10 +173,10 @@ CombinedNavigation_EXTERNAL_OBJECTS =
 CombinedNavigation: CMakeFiles/CombinedNavigation.dir/CombinedNavigation_autogen/mocs_compilation.cpp.o
 CombinedNavigation: CMakeFiles/CombinedNavigation.dir/Sources/main.cpp.o
 CombinedNavigation: CMakeFiles/CombinedNavigation.dir/Sources/mainwindow.cpp.o
-CombinedNavigation: CMakeFiles/CombinedNavigation.dir/Sources/Matrix.cpp.o
 CombinedNavigation: CMakeFiles/CombinedNavigation.dir/Sources/INSData.cpp.o
-CombinedNavigation: CMakeFiles/CombinedNavigation.dir/Sources/TimeSys.cpp.o
 CombinedNavigation: CMakeFiles/CombinedNavigation.dir/Sources/INSSolution.cpp.o
+CombinedNavigation: CMakeFiles/CombinedNavigation.dir/lib/Matrix/Matrix.cpp.o
+CombinedNavigation: CMakeFiles/CombinedNavigation.dir/lib/TimeSys/TimeSys.cpp.o
 CombinedNavigation: CMakeFiles/CombinedNavigation.dir/build.make
 CombinedNavigation: /usr/local/lib/QtWidgets.framework/Versions/A/QtWidgets
 CombinedNavigation: /usr/local/lib/QtGui.framework/Versions/A/QtGui
