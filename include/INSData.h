@@ -6,7 +6,7 @@
 #define COMBINEDNAVIGATION_INSDATA_H
 
 #include "TimeSys.h"
-#include "INSSolution.h"
+#include "BasicFuns.h"
 #include "fstream"
 #include "ostream"
 #include "vector"
@@ -31,43 +31,84 @@ class IMUData_SingleEpoch;
 class INSRes_SingleEpoch;
 class PureIns;
 
-// IMU 原始数据类
+/*!
+ * @brief IMU单历元原始观测数据类
+ */
 class IMUData_SingleEpoch{
 public:
-    GPST t;                       // 观测时间
-    double m_pAcc[3] = {0};         // 速度增量 x,y,z  m/s
-    double m_pGyr[3] = {0};         // 角增量   x,y,z rad/s
+    GPST t;                         /**< 观测时间,GPST */
+    double m_pAcc[3] = {0};         /**< 速度增量 x,y,z  m/s */
+    double m_pGyr[3] = {0};         /**< 角增量   x,y,z rad/s */
 
+    /*!
+     * @brief 默认构造函数
+     */
     IMUData_SingleEpoch();
-    IMUData_SingleEpoch(const IMUData_SingleEpoch &);
-    IMUData_SingleEpoch(const double[],const double[],const GPST &);
+
+    /*!
+     * @brief 实例构造函数
+     * 从另一个IMU原始观测实例构造生成一个相同的IMU原始观测实例
+     * @param another_epoch input   IMUData_SingleEpoch     一个IMU原始观测实例
+     */
+    IMUData_SingleEpoch(const IMUData_SingleEpoch &another_epoch);
+
+    /*!
+     * @brief 成员构造函数
+     * 根据IMU原始观测数据、时间构造一个IMU原始观测实例
+     * @param acc   input       double[3]       原始观测的三轴速度增量，x,y,z m/s
+     * @param gyr   input       double[3]       原始观测的三轴角增量，  x,y,z rad/s
+     * @param gpst  input       GPST            观测时间
+     */
+    IMUData_SingleEpoch(const double *acc, const double *gyr,const GPST &gpst);
+
+    /*!
+     * @brief 默认析构函数
+     */
     ~IMUData_SingleEpoch();
 };
 
 // 惯导机械编排算法解算结果
+/*!
+ * @brief INS单历元解算结果类
+ */
 class INSRes_SingleEpoch{
 public:
-    GPST t;
-    double_t m_pPos[3] = {0};         // 位置 [lat,lon,h]
-    double_t m_pSpeed[3] = {0};       // 速度 [Vn,Ve,Vd]
-    double_t m_pQuaternion[4] = {0};  // 姿态四元数
-    double_t m_pEMatrix[4] = {0};     // 姿态角矩阵
+    GPST t;                           /**< 观测时间 */
+    double_t m_pPos[3] = {0};         /**< 位置 [lat,lon,h] */
+    double_t m_pSpeed[3] = {0};       /**< 速度 [Vn,Ve,Vd] */
+    double_t m_pQuaternion[4] = {0};  /**< 姿态四元数 */
+    double_t m_pEMatrix[4] = {0};     /**< 姿态角矩阵 */
 
+    /*!
+     * @brief 默认构造函数
+     */
     INSRes_SingleEpoch();
-    INSRes_SingleEpoch(const INSRes_SingleEpoch &);
+
+    /*!
+     * @brief 实例构造函数
+     * 从另一个INS单历元解算结果实例构造一个相同的示例
+     * @param another   input   INSRes_SingleEpoch      一个INS单历元解算结果实例
+     */
+    INSRes_SingleEpoch(const INSRes_SingleEpoch & another);
+
+    /*!
+     * @brief 默认析构函数
+     */
     ~INSRes_SingleEpoch();
 };
 
-// 解算INS配置器
+
+/*!
+ * @brief INS解算的配置器
+ */
 class InsConfigure{
-    ::std::string m_strImuDataFileDir;        // Imu数据文件路径
-    ::std::string m_strGnssDataFileDir;       // Gnss数据文件路径
-    ::std::string m_strOutputResFileDir;      // 输出结果文件路径
-    double_t m_pStartPos[3] = {0};          // 起始位置信息
-    double_t m_pStartV[3] = {0};            // 起始速度信息
-    double_t m_pStartEuler[3] = {0};        // 起始欧拉角组（这个信息不一定可以在配置中给出，因为一般初始姿态需要对准后才能获得）
-    GPST *m_gpstBeginTime;                     // 开始处理的时间(nullptr表示默认第一行数据开始)
-    GPST *m_gpstEndTime;                       // 结束处理的时间(nullptr表示默认最后一行数据结束)
+    ::std::string m_strImuDataFileDir;        /**< Imu数据文件路径 */
+    ::std::string m_strOutputResFileDir;      /**< 输出INS结果文件路径 */
+    double_t m_pStartPos[3] = {0};            /**< 起始位置信息 */
+    double_t m_pStartV[3] = {0};              /**< 起始速度信息 */
+    double_t m_pStartEuler[3] = {0};          /**< 起始欧拉角组（这个信息不一定可以在配置中给出，因为一般初始姿态需要对准后才能获得） */
+    GPST *m_gpstBeginTime;                    /**< 开始处理的时间(nullptr表示默认第一行数据开始) */
+    GPST *m_gpstEndTime;                      /**< 结束处理的时间(nullptr表示默认最后一行数据结束) */
 
 public:
     InsConfigure();
@@ -75,9 +116,6 @@ public:
     // set、get函数
     void setImuFileDir(const ::std::string dir) { m_strImuDataFileDir = dir;}
     ::std::string getImuFileDir() const {return m_strImuDataFileDir;}
-
-    void setGnssFileDir(const ::std::string dir) { m_strGnssDataFileDir = dir;}
-    ::std::string getGnssFileDir() const {return m_strGnssDataFileDir;}
 
     void setStartPos(const double_t pos[]) {memcpy(m_pStartPos, pos, IMUDATA_SIZE);}
     const double_t *const getStartPos() const {return m_pStartPos;}
@@ -99,6 +137,9 @@ public:
 };
 
 // 纯惯导解算器
+/*!
+ * @brief 惯性导航-机械编排算法解算类
+ */
 class PureIns{
     INSRes_SingleEpoch mStartInfo;                  // 初始位置信息
     double_t mFrequency;                            // 采样频率
@@ -117,7 +158,7 @@ public:
     // 手动配置自己的惯导机械编排算法
     // (asc文本、全部读取后处理)
     virtual void insSolver_asc_all(InsConfigure & configure);
-    // (bin，逐行处理)
+
 
 
     // 结果文件输出函数

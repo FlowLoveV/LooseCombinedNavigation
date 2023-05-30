@@ -47,7 +47,7 @@ public:
     friend Matrix operator-(const Matrix &, double); //矩阵减常数
 
     friend Matrix operator*(const Matrix &, const Matrix &); //矩阵相乘
-    friend Matrix operator*(const Matrix &, const double_t &); //矩阵相乘
+    friend Matrix operator*(const Matrix &, const double &); //矩阵相乘
     friend Matrix operator*(const double &, const Matrix &); //矩阵相乘
 
     friend Matrix operator^(const Matrix &, const Matrix &); //矩阵点乘

@@ -2,8 +2,8 @@
 // Created by 0-0 mashuo on 2023/5/13.
 //
 
-#ifndef COMBINEDNAVIGATION_INSSOLUTION_H
-#define COMBINEDNAVIGATION_INSSOLUTION_H
+#ifndef COMBINEDNAVIGATION_BASICFUNS_H
+#define COMBINEDNAVIGATION_BASICFUNS_H
 
 #include <cmath>
 #include "INSData.h"
@@ -165,4 +165,4 @@ double calculate_g(const double & lat, const double & h);
 
 
 
-#endif //COMBINEDNAVIGATION_INSSOLUTION_H
+#endif //COMBINEDNAVIGATION_BASICFUNS_H

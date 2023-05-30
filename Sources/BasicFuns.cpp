@@ -4,7 +4,7 @@
 
 
 
-#include "INSSolution.h"
+#include "BasicFuns.h"
 
 
 // 后续需要设置参数配置文件读取
@@ -13,6 +13,7 @@ extern double ELLIPSOID_b = 6356752.3141;
 extern double ELLIPSOID_OMEGA = 7.292115e-5;
 extern double ELLIPSOID_GM = 3.986005e14;
 extern double ELLIPSOID_E2 = (ELLIPSOID_a * ELLIPSOID_a - ELLIPSOID_b * ELLIPSOID_b) / (ELLIPSOID_a * ELLIPSOID_a);
+
 
 void Multiply_q(const double p[],const double q[],double res[]){
     res[0] = p[0]*q[0] - p[1]*q[1] - p[2]*q[2] - p[3]*q[3];

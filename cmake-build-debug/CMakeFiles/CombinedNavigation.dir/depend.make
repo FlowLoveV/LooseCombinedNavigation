@@ -178,6 +178,9 @@ CMakeFiles/CombinedNavigation.dir/Sources/INSSolution.cpp.o: \
  ../lib/Matrix/Matrix.h \
  ../lib/TimeSys/TimeSys.h \
  ../Sources/INSSolution.cpp
+CMakeFiles/CombinedNavigation.dir/Sources/LooseCombination.cpp.o: \
+ ../include/LooseCombination.h \
+ ../Sources/LooseCombination.cpp
 CMakeFiles/CombinedNavigation.dir/Sources/main.cpp.o: \
  ../Sources/UIHeaders/mainwindow.h \
  ../include/INSData.h \
@@ -606,6 +609,10 @@ CMakeFiles/CombinedNavigation.dir/Sources/mainwindow.cpp.o: \
  /usr/local/lib/QtWidgets.framework/Headers/QMainWindow \
  /usr/local/lib/QtWidgets.framework/Headers/qmainwindow.h \
  CombinedNavigation_autogen/include/UI/ui_MainWindow.h
+CMakeFiles/CombinedNavigation.dir/lib/Filter/cKalman.cpp.o: \
+ ../lib/Matrix/Matrix.h \
+ ../lib/Filter/cKalman.cpp \
+ ../lib/Filter/cKalman.h
 CMakeFiles/CombinedNavigation.dir/lib/Matrix/Matrix.cpp.o: \
  ../lib/Matrix/Matrix.cpp \
  ../lib/Matrix/Matrix.h

@@ -332,6 +332,18 @@
 			null
 		],
 		[
+			"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/include/LooseCombination.h",
+			"MU",
+			"6YEA5652QU/moc_LooseCombination.cpp",
+			null
+		],
+		[
+			"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/Filter/cKalman.h",
+			"MU",
+			"2BXXKLXOIG/moc_cKalman.cpp",
+			null
+		],
+		[
 			"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/Matrix/Matrix.h",
 			"MU",
 			"HERSPZJ4PA/moc_Matrix.cpp",
@@ -366,6 +378,7 @@
 		"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/sciplot/specs",
 		"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/Matrix",
 		"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/TimeSys",
+		"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/Filter",
 		"/usr/local/lib/QtCore.framework/Headers",
 		"/usr/local/lib/QtCore.framework",
 		"/usr/local/share/qt/mkspecs/macx-clang",
@@ -421,12 +434,22 @@
 			null
 		],
 		[
+			"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/LooseCombination.cpp",
+			"MU",
+			null
+		],
+		[
 			"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/main.cpp",
 			"MU",
 			null
 		],
 		[
 			"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/mainwindow.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/Filter/cKalman.cpp",
 			"MU",
 			null
 		],

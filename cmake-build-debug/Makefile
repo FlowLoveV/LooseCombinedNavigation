@@ -214,6 +214,30 @@ Sources/INSSolution.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/Sources/INSSolution.cpp.s
 .PHONY : Sources/INSSolution.cpp.s
 
+Sources/LooseCombination.o: Sources/LooseCombination.cpp.o
+.PHONY : Sources/LooseCombination.o
+
+# target to build an object file
+Sources/LooseCombination.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/Sources/LooseCombination.cpp.o
+.PHONY : Sources/LooseCombination.cpp.o
+
+Sources/LooseCombination.i: Sources/LooseCombination.cpp.i
+.PHONY : Sources/LooseCombination.i
+
+# target to preprocess a source file
+Sources/LooseCombination.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/Sources/LooseCombination.cpp.i
+.PHONY : Sources/LooseCombination.cpp.i
+
+Sources/LooseCombination.s: Sources/LooseCombination.cpp.s
+.PHONY : Sources/LooseCombination.s
+
+# target to generate assembly for a file
+Sources/LooseCombination.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/Sources/LooseCombination.cpp.s
+.PHONY : Sources/LooseCombination.cpp.s
+
 Sources/main.o: Sources/main.cpp.o
 .PHONY : Sources/main.o
 
@@ -261,6 +285,30 @@ Sources/mainwindow.s: Sources/mainwindow.cpp.s
 Sources/mainwindow.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/Sources/mainwindow.cpp.s
 .PHONY : Sources/mainwindow.cpp.s
+
+lib/Filter/cKalman.o: lib/Filter/cKalman.cpp.o
+.PHONY : lib/Filter/cKalman.o
+
+# target to build an object file
+lib/Filter/cKalman.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/lib/Filter/cKalman.cpp.o
+.PHONY : lib/Filter/cKalman.cpp.o
+
+lib/Filter/cKalman.i: lib/Filter/cKalman.cpp.i
+.PHONY : lib/Filter/cKalman.i
+
+# target to preprocess a source file
+lib/Filter/cKalman.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/lib/Filter/cKalman.cpp.i
+.PHONY : lib/Filter/cKalman.cpp.i
+
+lib/Filter/cKalman.s: lib/Filter/cKalman.cpp.s
+.PHONY : lib/Filter/cKalman.s
+
+# target to generate assembly for a file
+lib/Filter/cKalman.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/lib/Filter/cKalman.cpp.s
+.PHONY : lib/Filter/cKalman.cpp.s
 
 lib/Matrix/Matrix.o: lib/Matrix/Matrix.cpp.o
 .PHONY : lib/Matrix/Matrix.o
@@ -329,12 +377,18 @@ help:
 	@echo "... Sources/INSSolution.o"
 	@echo "... Sources/INSSolution.i"
 	@echo "... Sources/INSSolution.s"
+	@echo "... Sources/LooseCombination.o"
+	@echo "... Sources/LooseCombination.i"
+	@echo "... Sources/LooseCombination.s"
 	@echo "... Sources/main.o"
 	@echo "... Sources/main.i"
 	@echo "... Sources/main.s"
 	@echo "... Sources/mainwindow.o"
 	@echo "... Sources/mainwindow.i"
 	@echo "... Sources/mainwindow.s"
+	@echo "... lib/Filter/cKalman.o"
+	@echo "... lib/Filter/cKalman.i"
+	@echo "... lib/Filter/cKalman.s"
 	@echo "... lib/Matrix/Matrix.o"
 	@echo "... lib/Matrix/Matrix.i"
 	@echo "... lib/Matrix/Matrix.s"

@@ -167,7 +167,7 @@ Matrix operator*(const Matrix &a, const Matrix &b) {
     return m;
 }
 
-Matrix operator*(const Matrix & b, const double_t & a){
+Matrix operator*(const Matrix & b, const double & a){
     if(b.p == nullptr) return Matrix();
     auto *p = new double[b.row * b.col];
     for (int i = 0; i < b.row * b.col; ++i) {

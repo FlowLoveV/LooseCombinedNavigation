@@ -34,6 +34,7 @@ include_directories(
         ${PROJECT_SOURCE_DIR}/lib/sciplot/specs
         ${PROJECT_SOURCE_DIR}/lib/Matrix
         ${PROJECT_SOURCE_DIR}/lib/TimeSys
+        ${PROJECT_SOURCE_DIR}/lib/Filter
 )
 
 add_executable(CombinedNavigation Sources/main.cpp
@@ -41,12 +42,13 @@ add_executable(CombinedNavigation Sources/main.cpp
         Sources/mainwindow.cpp Sources/UIHeaders/mainwindow.h Sources/UI/mainwindow.ui
         # 主文件
         include/INSData.h Sources/INSData.cpp
-        include/INSSolution.h Sources/INSSolution.cpp
+        include/BasicFuns.h Sources/BasicFuns.cpp
+        include/LooseCombination.h Sources/LooseCombination.cpp
         # 依赖文件
         ${PROJECT_SOURCE_DIR}/lib/sciplot/ ${PROJECT_SOURCE_DIR}/lib/sciplot/specs
         ${PROJECT_SOURCE_DIR}/lib/Matrix/Matrix.h ${PROJECT_SOURCE_DIR}/lib/Matrix/Matrix.cpp
         ${PROJECT_SOURCE_DIR}/lib/TimeSys/TimeSys.h ${PROJECT_SOURCE_DIR}/lib/TimeSys/TimeSys.cpp
-        )
+        ${PROJECT_SOURCE_DIR}/lib/Filter/cKalman.h ${PROJECT_SOURCE_DIR}/lib/Filter/cKalman.cpp)
 
 
 # 链接qt库文件

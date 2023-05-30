@@ -10,7 +10,6 @@ using namespace sciplot;
 
 int main(int argc, char *argv[]) {
     // sciplot使用示例
-    /*
     Vec x = linspace(0.0, 5.0, 200);
     Plot2D plot0;
     plot0.drawCurve(x, std::sin(x)).label("sin(x)");
@@ -21,8 +20,11 @@ int main(int argc, char *argv[]) {
     // plot0 and plot1 will be deep-copied into fig
     Figure fig = {{plot0, plot1}};
     Canvas canvas = {{fig}};
+    Canvas canvas1 = {{fig}};
     canvas.size(750, 750);
-    canvas.show();*/
+    canvas.title("dasdas");
+    canvas.show();
+    canvas1.show();
 
     /*const char * filename = "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/ObsData/IMU.bin";
     FILE *binfile = fopen(filename,"rb");
