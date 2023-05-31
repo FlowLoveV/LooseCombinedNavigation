@@ -166,25 +166,25 @@ CMakeFiles/CombinedNavigation.dir/CombinedNavigation_autogen/mocs_compilation.cp
  /usr/local/lib/QtGui.framework/Headers/qpixmap.h \
  /usr/local/lib/QtWidgets.framework/Headers/QMainWindow \
  /usr/local/lib/QtWidgets.framework/Headers/qmainwindow.h
-CMakeFiles/CombinedNavigation.dir/Sources/INSData.cpp.o: \
+CMakeFiles/CombinedNavigation.dir/Sources/BasicFuns.cpp.o: \
+ ../include/BasicFuns.h \
  ../include/INSData.h \
- ../include/INSSolution.h \
+ ../lib/Matrix/Matrix.h \
+ ../lib/TimeSys/TimeSys.h \
+ ../Sources/BasicFuns.cpp
+CMakeFiles/CombinedNavigation.dir/Sources/INSData.cpp.o: \
+ ../include/BasicFuns.h \
+ ../include/INSData.h \
  ../lib/Matrix/Matrix.h \
  ../lib/TimeSys/TimeSys.h \
  ../Sources/INSData.cpp
-CMakeFiles/CombinedNavigation.dir/Sources/INSSolution.cpp.o: \
- ../include/INSData.h \
- ../include/INSSolution.h \
- ../lib/Matrix/Matrix.h \
- ../lib/TimeSys/TimeSys.h \
- ../Sources/INSSolution.cpp
 CMakeFiles/CombinedNavigation.dir/Sources/LooseCombination.cpp.o: \
  ../include/LooseCombination.h \
  ../Sources/LooseCombination.cpp
 CMakeFiles/CombinedNavigation.dir/Sources/main.cpp.o: \
  ../Sources/UIHeaders/mainwindow.h \
+ ../include/BasicFuns.h \
  ../include/INSData.h \
- ../include/INSSolution.h \
  ../lib/Matrix/Matrix.h \
  ../lib/TimeSys/TimeSys.h \
  ../lib/sciplot/Canvas.hpp \
@@ -226,6 +226,37 @@ CMakeFiles/CombinedNavigation.dir/Sources/main.cpp.o: \
  ../lib/sciplot/specs/TicsSpecsMajor.hpp \
  ../lib/sciplot/specs/TicsSpecsMinor.hpp \
  ../lib/sciplot/specs/TitleSpecsOf.hpp \
+ ../lib/yaml-cpp/include/yaml-cpp/binary.h \
+ ../lib/yaml-cpp/include/yaml-cpp/dll.h \
+ ../lib/yaml-cpp/include/yaml-cpp/emitter.h \
+ ../lib/yaml-cpp/include/yaml-cpp/emitterdef.h \
+ ../lib/yaml-cpp/include/yaml-cpp/emittermanip.h \
+ ../lib/yaml-cpp/include/yaml-cpp/emitterstyle.h \
+ ../lib/yaml-cpp/include/yaml-cpp/exceptions.h \
+ ../lib/yaml-cpp/include/yaml-cpp/mark.h \
+ ../lib/yaml-cpp/include/yaml-cpp/node/convert.h \
+ ../lib/yaml-cpp/include/yaml-cpp/node/detail/impl.h \
+ ../lib/yaml-cpp/include/yaml-cpp/node/detail/iterator.h \
+ ../lib/yaml-cpp/include/yaml-cpp/node/detail/iterator_fwd.h \
+ ../lib/yaml-cpp/include/yaml-cpp/node/detail/memory.h \
+ ../lib/yaml-cpp/include/yaml-cpp/node/detail/node.h \
+ ../lib/yaml-cpp/include/yaml-cpp/node/detail/node_data.h \
+ ../lib/yaml-cpp/include/yaml-cpp/node/detail/node_iterator.h \
+ ../lib/yaml-cpp/include/yaml-cpp/node/detail/node_ref.h \
+ ../lib/yaml-cpp/include/yaml-cpp/node/emit.h \
+ ../lib/yaml-cpp/include/yaml-cpp/node/impl.h \
+ ../lib/yaml-cpp/include/yaml-cpp/node/iterator.h \
+ ../lib/yaml-cpp/include/yaml-cpp/node/node.h \
+ ../lib/yaml-cpp/include/yaml-cpp/node/parse.h \
+ ../lib/yaml-cpp/include/yaml-cpp/node/ptr.h \
+ ../lib/yaml-cpp/include/yaml-cpp/node/type.h \
+ ../lib/yaml-cpp/include/yaml-cpp/noexcept.h \
+ ../lib/yaml-cpp/include/yaml-cpp/null.h \
+ ../lib/yaml-cpp/include/yaml-cpp/ostream_wrapper.h \
+ ../lib/yaml-cpp/include/yaml-cpp/parser.h \
+ ../lib/yaml-cpp/include/yaml-cpp/stlemitter.h \
+ ../lib/yaml-cpp/include/yaml-cpp/traits.h \
+ ../lib/yaml-cpp/include/yaml-cpp/yaml.h \
  ../Sources/main.cpp \
  /usr/local/include/QtCore/QList \
  /usr/local/include/QtCore/QObject \
@@ -613,9 +644,3 @@ CMakeFiles/CombinedNavigation.dir/lib/Filter/cKalman.cpp.o: \
  ../lib/Matrix/Matrix.h \
  ../lib/Filter/cKalman.cpp \
  ../lib/Filter/cKalman.h
-CMakeFiles/CombinedNavigation.dir/lib/Matrix/Matrix.cpp.o: \
- ../lib/Matrix/Matrix.cpp \
- ../lib/Matrix/Matrix.h
-CMakeFiles/CombinedNavigation.dir/lib/TimeSys/TimeSys.cpp.o: \
- ../lib/TimeSys/TimeSys.cpp \
- ../lib/TimeSys/TimeSys.h

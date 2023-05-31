@@ -6,11 +6,22 @@
 #include <fstream>
 #include <Matrix.h>
 #include <sciplot/sciplot.hpp>
+#include "yaml-cpp/include/yaml-cpp/yaml.h"
 using namespace sciplot;
 
 int main(int argc, char *argv[]) {
+    using namespace std;
+    YAML::Node config = YAML::LoadFile("../config.yaml");
+
+    cout << "name:" << config["name"].as<string>() << endl;
+    cout << "sex:" << config["sex"].as<string>() << endl;
+    cout << "age:" << config["age"].as<int>() << endl;
+    cout << config["skills"]["c++"].as<string>() << endl;
+    return 0;
+
+
     // sciplot使用示例
-    Vec x = linspace(0.0, 5.0, 200);
+    /*Vec x = linspace(0.0, 5.0, 200);
     Plot2D plot0;
     plot0.drawCurve(x, std::sin(x)).label("sin(x)");
     Plot2D plot1;
@@ -25,7 +36,7 @@ int main(int argc, char *argv[]) {
     canvas.title("dasdas");
     canvas.show();
     canvas1.show();
-
+*/
     /*const char * filename = "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/ObsData/IMU.bin";
     FILE *binfile = fopen(filename,"rb");
     if(binfile==NULL) ::std::cerr<<"can't open file"<<filename;

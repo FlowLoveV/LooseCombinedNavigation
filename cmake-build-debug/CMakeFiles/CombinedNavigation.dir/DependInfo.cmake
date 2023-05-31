@@ -9,14 +9,12 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/cmake-build-debug/CombinedNavigation_autogen/mocs_compilation.cpp" "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/cmake-build-debug/CMakeFiles/CombinedNavigation.dir/CombinedNavigation_autogen/mocs_compilation.cpp.o"
+  "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/BasicFuns.cpp" "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/cmake-build-debug/CMakeFiles/CombinedNavigation.dir/Sources/BasicFuns.cpp.o"
   "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/INSData.cpp" "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/cmake-build-debug/CMakeFiles/CombinedNavigation.dir/Sources/INSData.cpp.o"
-  "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/INSSolution.cpp" "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/cmake-build-debug/CMakeFiles/CombinedNavigation.dir/Sources/INSSolution.cpp.o"
   "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/LooseCombination.cpp" "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/cmake-build-debug/CMakeFiles/CombinedNavigation.dir/Sources/LooseCombination.cpp.o"
   "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/main.cpp" "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/cmake-build-debug/CMakeFiles/CombinedNavigation.dir/Sources/main.cpp.o"
   "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/mainwindow.cpp" "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/cmake-build-debug/CMakeFiles/CombinedNavigation.dir/Sources/mainwindow.cpp.o"
   "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/Filter/cKalman.cpp" "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/cmake-build-debug/CMakeFiles/CombinedNavigation.dir/lib/Filter/cKalman.cpp.o"
-  "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/Matrix/Matrix.cpp" "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/cmake-build-debug/CMakeFiles/CombinedNavigation.dir/lib/Matrix/Matrix.cpp.o"
-  "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/TimeSys/TimeSys.cpp" "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/cmake-build-debug/CMakeFiles/CombinedNavigation.dir/lib/TimeSys/TimeSys.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "AppleClang")
 
@@ -33,13 +31,13 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../include"
   "../Sources/UIHeaders"
   "../Sources/UI"
-  "../executable"
   "../lib"
   "../lib/sciplot"
   "../lib/sciplot/specs"
-  "../lib/Matrix"
   "../lib/TimeSys"
   "../lib/Filter"
+  "../lib/Matrix"
+  "../lib/yaml-cpp/include"
   "/usr/local/lib/QtCore.framework/Headers"
   "/usr/local/lib/QtCore.framework"
   "/usr/local/share/qt/mkspecs/macx-clang"

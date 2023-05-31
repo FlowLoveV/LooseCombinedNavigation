@@ -17,6 +17,18 @@ set(CMAKE_AUTOUIC ON)
 #find_package(PythonInterp REQUIRED)
 #find_package(PythonLibs ${PYTHON_VERSION_MAJOR}.${PYTHON_VERSION_MINOR} EXACT REQUIRED)
 
+# 第三方库路径设置
+
+# yaml-cpp库路径设置
+set(YAML_CPP_INCLUDE_DIR "${PROJECT_SOURCE_DIR}/lib/yaml-cpp/include")
+set(YAML_CPP_LIB "${PROJECT_SOURCE_DIR}/lib/yaml-cpp/build/libyaml-cpp.a")
+# 矩阵库路径设置
+set(MATRIX_CPP_INCLUDE_DIR "${PROJECT_SOURCE_DIR}/lib/Matrix")
+set(MATRIX_CPP_LIB "${PROJECT_SOURCE_DIR}/lib/Matrix/build/libMatrix.dylib")
+# 时间系统路径设置
+set(TIME_SYSTEM_CPP_INCLUDE_DIR "${PROJECT_SOURCE_DIR}/lib/TimeSys")
+set(TIME_SYSTEM_CPP_LIB "${PROJECT_SOURCE_DIR}/lib/TimeSys/build/libTIME_SYSTEM_CPP.dylib")
+
 # 找到QT解释器
 find_package(Qt6 COMPONENTS
         Core
@@ -28,13 +40,13 @@ include_directories(
         ${PROJECT_SOURCE_DIR}/include
         ${PROJECT_SOURCE_DIR}/Sources/UIHeaders
         ${PROJECT_SOURCE_DIR}/Sources/UI
-        ${PROJECT_SOURCE_DIR}/executable
         ${PROJECT_SOURCE_DIR}/lib
         ${PROJECT_SOURCE_DIR}/lib/sciplot
         ${PROJECT_SOURCE_DIR}/lib/sciplot/specs
-        ${PROJECT_SOURCE_DIR}/lib/Matrix
         ${PROJECT_SOURCE_DIR}/lib/TimeSys
         ${PROJECT_SOURCE_DIR}/lib/Filter
+        ${MATRIX_CPP_INCLUDE_DIR}
+        ${YAML_CPP_INCLUDE_DIR}
 )
 
 add_executable(CombinedNavigation Sources/main.cpp
@@ -46,16 +58,21 @@ add_executable(CombinedNavigation Sources/main.cpp
         include/LooseCombination.h Sources/LooseCombination.cpp
         # 依赖文件
         ${PROJECT_SOURCE_DIR}/lib/sciplot/ ${PROJECT_SOURCE_DIR}/lib/sciplot/specs
-        ${PROJECT_SOURCE_DIR}/lib/Matrix/Matrix.h ${PROJECT_SOURCE_DIR}/lib/Matrix/Matrix.cpp
-        ${PROJECT_SOURCE_DIR}/lib/TimeSys/TimeSys.h ${PROJECT_SOURCE_DIR}/lib/TimeSys/TimeSys.cpp
         ${PROJECT_SOURCE_DIR}/lib/Filter/cKalman.h ${PROJECT_SOURCE_DIR}/lib/Filter/cKalman.cpp)
 
 
 # 链接qt库文件
 target_link_libraries(CombinedNavigation
+        # qt动态库链接
         Qt::Core
         Qt::Gui
         Qt::Widgets
+        # yaml-cpp库链接
+        ${YAML_CPP_LIB}
+        # 矩阵库链接
+        ${MATRIX_CPP_LIB}
+        # 时间系统库链接
+        ${TIME_SYSTEM_CPP_LIB}
         )
 
 

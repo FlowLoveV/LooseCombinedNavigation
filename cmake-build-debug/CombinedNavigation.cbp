@@ -51,13 +51,13 @@
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/include"/>
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/UIHeaders"/>
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/UI"/>
-					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/executable"/>
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib"/>
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/sciplot"/>
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/sciplot/specs"/>
-					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/Matrix"/>
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/TimeSys"/>
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/Filter"/>
+					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/Matrix"/>
+					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/yaml-cpp/include"/>
 					<Add directory="/usr/local/lib/QtCore.framework/Headers"/>
 					<Add directory="/usr/local/lib/QtCore.framework"/>
 					<Add directory="/usr/local/share/qt/mkspecs/macx-clang"/>
@@ -93,13 +93,13 @@
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/include"/>
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/UIHeaders"/>
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/UI"/>
-					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/executable"/>
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib"/>
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/sciplot"/>
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/sciplot/specs"/>
-					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/Matrix"/>
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/TimeSys"/>
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/Filter"/>
+					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/Matrix"/>
+					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/yaml-cpp/include"/>
 					<Add directory="/usr/local/lib/QtCore.framework/Headers"/>
 					<Add directory="/usr/local/lib/QtCore.framework"/>
 					<Add directory="/usr/local/share/qt/mkspecs/macx-clang"/>
@@ -132,10 +132,10 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/INSData.cpp">
+		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/BasicFuns.cpp">
 			<Option target="CombinedNavigation"/>
 		</Unit>
-		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/INSSolution.cpp">
+		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/INSData.cpp">
 			<Option target="CombinedNavigation"/>
 		</Unit>
 		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/LooseCombination.cpp">
@@ -156,10 +156,10 @@
 		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/cmake-build-debug/CombinedNavigation_autogen/mocs_compilation.cpp">
 			<Option target="CombinedNavigation"/>
 		</Unit>
-		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/include/INSData.h">
+		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/include/BasicFuns.h">
 			<Option target="CombinedNavigation"/>
 		</Unit>
-		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/include/INSSolution.h">
+		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/include/INSData.h">
 			<Option target="CombinedNavigation"/>
 		</Unit>
 		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/include/LooseCombination.h">
@@ -172,18 +172,6 @@
 			<Option target="CombinedNavigation"/>
 		</Unit>
 		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/Filter/cKalman.h">
-			<Option target="CombinedNavigation"/>
-		</Unit>
-		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/Matrix/Matrix.cpp">
-			<Option target="CombinedNavigation"/>
-		</Unit>
-		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/Matrix/Matrix.h">
-			<Option target="CombinedNavigation"/>
-		</Unit>
-		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/TimeSys/TimeSys.cpp">
-			<Option target="CombinedNavigation"/>
-		</Unit>
-		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/TimeSys/TimeSys.h">
 			<Option target="CombinedNavigation"/>
 		</Unit>
 		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/sciplot/specs">

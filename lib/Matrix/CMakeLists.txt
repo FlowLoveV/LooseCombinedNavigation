@@ -1,0 +1,15 @@
+cmake_minimum_required(VERSION 3.4)
+project(MATRIX_CPP VERSION 0.1 LANGUAGES CXX)
+
+set(CMAKE_CXX_STANDARD 14)
+
+#  设置头文件和源文件的存储路径
+set(MATRIX_CPP_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR})
+set(MATRIX_CPP_SOURCES_DIR ${CMAKE_CURRENT_SOURCE_DIR})
+# 抓取源文件路径下所有源文件
+file(GLOB MATRIX_CPP_SOURCES "${MATRIX_CPP_SOURCES_DIR}/*.cpp"
+        "${MATRIX_CPP_SOURCES_DIR}/*.cxx" "${MATRIX_CPP_SOURCES_DIR}/*.cc"
+        "${MATRIX_CPP_SOURCES_DIR}/*.c")
+
+include_directories(${MATRIX_CPP_INCLUDE_DIR})
+add_library(Matrix SHARED ${MATRIX_CPP_SOURCES})

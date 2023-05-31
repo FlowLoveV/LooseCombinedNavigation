@@ -166,6 +166,30 @@ CombinedNavigation_autogen/mocs_compilation.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/CombinedNavigation_autogen/mocs_compilation.cpp.s
 .PHONY : CombinedNavigation_autogen/mocs_compilation.cpp.s
 
+Sources/BasicFuns.o: Sources/BasicFuns.cpp.o
+.PHONY : Sources/BasicFuns.o
+
+# target to build an object file
+Sources/BasicFuns.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/Sources/BasicFuns.cpp.o
+.PHONY : Sources/BasicFuns.cpp.o
+
+Sources/BasicFuns.i: Sources/BasicFuns.cpp.i
+.PHONY : Sources/BasicFuns.i
+
+# target to preprocess a source file
+Sources/BasicFuns.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/Sources/BasicFuns.cpp.i
+.PHONY : Sources/BasicFuns.cpp.i
+
+Sources/BasicFuns.s: Sources/BasicFuns.cpp.s
+.PHONY : Sources/BasicFuns.s
+
+# target to generate assembly for a file
+Sources/BasicFuns.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/Sources/BasicFuns.cpp.s
+.PHONY : Sources/BasicFuns.cpp.s
+
 Sources/INSData.o: Sources/INSData.cpp.o
 .PHONY : Sources/INSData.o
 
@@ -189,30 +213,6 @@ Sources/INSData.s: Sources/INSData.cpp.s
 Sources/INSData.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/Sources/INSData.cpp.s
 .PHONY : Sources/INSData.cpp.s
-
-Sources/INSSolution.o: Sources/INSSolution.cpp.o
-.PHONY : Sources/INSSolution.o
-
-# target to build an object file
-Sources/INSSolution.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/Sources/INSSolution.cpp.o
-.PHONY : Sources/INSSolution.cpp.o
-
-Sources/INSSolution.i: Sources/INSSolution.cpp.i
-.PHONY : Sources/INSSolution.i
-
-# target to preprocess a source file
-Sources/INSSolution.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/Sources/INSSolution.cpp.i
-.PHONY : Sources/INSSolution.cpp.i
-
-Sources/INSSolution.s: Sources/INSSolution.cpp.s
-.PHONY : Sources/INSSolution.s
-
-# target to generate assembly for a file
-Sources/INSSolution.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/Sources/INSSolution.cpp.s
-.PHONY : Sources/INSSolution.cpp.s
 
 Sources/LooseCombination.o: Sources/LooseCombination.cpp.o
 .PHONY : Sources/LooseCombination.o
@@ -310,54 +310,6 @@ lib/Filter/cKalman.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/lib/Filter/cKalman.cpp.s
 .PHONY : lib/Filter/cKalman.cpp.s
 
-lib/Matrix/Matrix.o: lib/Matrix/Matrix.cpp.o
-.PHONY : lib/Matrix/Matrix.o
-
-# target to build an object file
-lib/Matrix/Matrix.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/lib/Matrix/Matrix.cpp.o
-.PHONY : lib/Matrix/Matrix.cpp.o
-
-lib/Matrix/Matrix.i: lib/Matrix/Matrix.cpp.i
-.PHONY : lib/Matrix/Matrix.i
-
-# target to preprocess a source file
-lib/Matrix/Matrix.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/lib/Matrix/Matrix.cpp.i
-.PHONY : lib/Matrix/Matrix.cpp.i
-
-lib/Matrix/Matrix.s: lib/Matrix/Matrix.cpp.s
-.PHONY : lib/Matrix/Matrix.s
-
-# target to generate assembly for a file
-lib/Matrix/Matrix.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/lib/Matrix/Matrix.cpp.s
-.PHONY : lib/Matrix/Matrix.cpp.s
-
-lib/TimeSys/TimeSys.o: lib/TimeSys/TimeSys.cpp.o
-.PHONY : lib/TimeSys/TimeSys.o
-
-# target to build an object file
-lib/TimeSys/TimeSys.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/lib/TimeSys/TimeSys.cpp.o
-.PHONY : lib/TimeSys/TimeSys.cpp.o
-
-lib/TimeSys/TimeSys.i: lib/TimeSys/TimeSys.cpp.i
-.PHONY : lib/TimeSys/TimeSys.i
-
-# target to preprocess a source file
-lib/TimeSys/TimeSys.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/lib/TimeSys/TimeSys.cpp.i
-.PHONY : lib/TimeSys/TimeSys.cpp.i
-
-lib/TimeSys/TimeSys.s: lib/TimeSys/TimeSys.cpp.s
-.PHONY : lib/TimeSys/TimeSys.s
-
-# target to generate assembly for a file
-lib/TimeSys/TimeSys.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/lib/TimeSys/TimeSys.cpp.s
-.PHONY : lib/TimeSys/TimeSys.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -371,12 +323,12 @@ help:
 	@echo "... CombinedNavigation_autogen/mocs_compilation.o"
 	@echo "... CombinedNavigation_autogen/mocs_compilation.i"
 	@echo "... CombinedNavigation_autogen/mocs_compilation.s"
+	@echo "... Sources/BasicFuns.o"
+	@echo "... Sources/BasicFuns.i"
+	@echo "... Sources/BasicFuns.s"
 	@echo "... Sources/INSData.o"
 	@echo "... Sources/INSData.i"
 	@echo "... Sources/INSData.s"
-	@echo "... Sources/INSSolution.o"
-	@echo "... Sources/INSSolution.i"
-	@echo "... Sources/INSSolution.s"
 	@echo "... Sources/LooseCombination.o"
 	@echo "... Sources/LooseCombination.i"
 	@echo "... Sources/LooseCombination.s"
@@ -389,12 +341,6 @@ help:
 	@echo "... lib/Filter/cKalman.o"
 	@echo "... lib/Filter/cKalman.i"
 	@echo "... lib/Filter/cKalman.s"
-	@echo "... lib/Matrix/Matrix.o"
-	@echo "... lib/Matrix/Matrix.i"
-	@echo "... lib/Matrix/Matrix.s"
-	@echo "... lib/TimeSys/TimeSys.o"
-	@echo "... lib/TimeSys/TimeSys.i"
-	@echo "... lib/TimeSys/TimeSys.s"
 .PHONY : help
 
 

@@ -89,12 +89,12 @@ void PureIns::gyrAlignment(const ::std::vector<IMUData_SingleEpoch> & rawData, d
         average_omega[1] += i.m_pGyr[1];
         average_omega[2] += i.m_pGyr[2];
     }
-    mFrequency = (len - 1) / abs(rawData[0].t - rawData[len-1].t);
+    m_dSampleFrequency = (len - 1) / abs(rawData[0].t - rawData[len - 1].t);
     for (int i = 0; i < 3; ++i) {
-        average_f[i] = average_f[i] / len * mFrequency;
-        average_omega[i] = average_omega[i] / len * mFrequency;
+        average_f[i] = average_f[i] / len * m_dSampleFrequency;
+        average_omega[i] = average_omega[i] / len * m_dSampleFrequency;
     }
-    double lat = mStartInfo.m_pPos[0], h = mStartInfo.m_pPos[2];
+    double lat = m_StartInfo.m_pPos[0], h = m_StartInfo.m_pPos[2];
     Matrix g_n(3,1,{0,0, calculate_g(lat,h)});
     Matrix omega_n_ie(3,1,{ELLIPSOID_OMEGA*cos(lat),0,-ELLIPSOID_OMEGA*sin(lat)});
     Matrix omega_b_ie(3,1,average_omega);
@@ -118,13 +118,13 @@ void PureIns::gyrAlignment(const ::std::vector<IMUData_SingleEpoch> & rawData, d
     Matrix C = horizontal_stack_array(v,3) * vertical_stack_array(w,3);
     EMatrix2Euler(C.p,euler);
     // 将对准姿态结果存储到初始信息中，以姿态四元数及姿态矩阵的形式
-    Euler2Quaternion(euler,mStartInfo.m_pQuaternion);
-    Euler2EMatrix(euler,mStartInfo.m_pEMatrix);
+    Euler2Quaternion(euler,m_StartInfo.m_pQuaternion);
+    Euler2EMatrix(euler,m_StartInfo.m_pEMatrix);
 }
 
 void PureIns::setStartInfo(const double *pos, const double *speed) {
-    memcpy(&mStartInfo.m_pPos, pos, IMUDATA_SIZE);
-    memcpy(&mStartInfo.m_pSpeed, speed, IMUDATA_SIZE);
+    memcpy(&m_StartInfo.m_pPos, pos, IMUDATA_SIZE);
+    memcpy(&m_StartInfo.m_pSpeed, speed, IMUDATA_SIZE);
 }
 
 void PureIns::insSolver_asc_all(InsConfigure & configure) {

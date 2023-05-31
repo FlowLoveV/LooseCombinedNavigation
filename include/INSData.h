@@ -141,20 +141,47 @@ public:
  * @brief 惯性导航-机械编排算法解算类
  */
 class PureIns{
-    INSRes_SingleEpoch mStartInfo;                  // 初始位置信息
-    double_t mFrequency;                            // 采样频率
-    ::std::deque<IMUData_SingleEpoch> mObsData;     // 观测数据
+    INSRes_SingleEpoch m_StartInfo;                  /**< 初始位置信息 */
+    double_t m_dSampleFrequency;                     /**< 采样频率 */
+    ::std::deque<IMUData_SingleEpoch> m_ObsData;     /**< 观测数据 */
+    ::std::ifstream * m_pDataFileS;                  /**< IMU数据文件流 */
+    ::std::ofstream * m_pResFileS;                   /**< 结果文件流 */
 
 public:
+
+    /*!
+     * @brief 默认构造函数
+     */
     PureIns();
-    // 设定惯导初始信息
+
+    /*!
+     * 设定惯导初始信息 - 初始位置、初始速度
+     * @param pos      input    double[3]       [lat,lon,h]
+     * @param speed    input    double[3]       [n,e,d] m/s
+     */
     void setStartInfo(const double pos[], const double speed[]);
-    // 初始粗对准 -- 完成了初始姿态、采样频率的确定 tested
+
+    /*!
+     * 初始粗对准 -- 确定初始姿态
+     * @param rawData   input       std::vector<IMUData_SingleEpoch>    IMU原始观测数据向量
+     * @param euler     output      double[3]                           欧拉角组[roll,pitch,yaw] rad
+     */
     void gyrAlignment(const ::std::vector<IMUData_SingleEpoch> & rawData,double *euler);
-    // k-2,k-1,k历元的观测数据，k-2,k-1历元的位置、速度、姿态数据，计算的到第k历元的结果
+
+    /*!
+     * 惯性导航机械编排算法单历元更新函数
+     * @param obs2      input       IMUData_SingleEpoch     k-2历元IMU原始观测数据
+     * @param obs1      input       IMUData_SingleEpoch     k-1历元IMU原始观测数据
+     * @param obs       input       IMUData_SingleEpoch     k历元IMU原始观测数据
+     * @param res2      input       INSRes_SingleEpoch      k-2历元INS解算结果(位置、速度，姿态)
+     * @param res1      input       INSRes_SingleEpoch      k-1历元INS解算结果(位置、速度，姿态)
+     * @param res       output      INSRes_SingleEpoch      K历元INS解算结果(位置、速度，姿态)
+     */
     void updateSinEpoch(const IMUData_SingleEpoch & obs2,const IMUData_SingleEpoch & obs1,
                         const IMUData_SingleEpoch & obs, const INSRes_SingleEpoch & res2,
                         const INSRes_SingleEpoch & res1,INSRes_SingleEpoch & res);
+
+
     // 手动配置自己的惯导机械编排算法
     // (asc文本、全部读取后处理)
     virtual void insSolver_asc_all(InsConfigure & configure);

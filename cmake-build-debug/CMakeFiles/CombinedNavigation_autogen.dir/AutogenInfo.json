@@ -320,15 +320,15 @@
 			null
 		],
 		[
-			"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/include/INSData.h",
+			"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/include/BasicFuns.h",
 			"MU",
-			"6YEA5652QU/moc_INSData.cpp",
+			"6YEA5652QU/moc_BasicFuns.cpp",
 			null
 		],
 		[
-			"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/include/INSSolution.h",
+			"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/include/INSData.h",
 			"MU",
-			"6YEA5652QU/moc_INSSolution.cpp",
+			"6YEA5652QU/moc_INSData.cpp",
 			null
 		],
 		[
@@ -341,18 +341,6 @@
 			"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/Filter/cKalman.h",
 			"MU",
 			"2BXXKLXOIG/moc_cKalman.cpp",
-			null
-		],
-		[
-			"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/Matrix/Matrix.h",
-			"MU",
-			"HERSPZJ4PA/moc_Matrix.cpp",
-			null
-		],
-		[
-			"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/TimeSys/TimeSys.h",
-			"MU",
-			"KM76DKD3XK/moc_TimeSys.cpp",
 			null
 		]
 	],
@@ -372,13 +360,13 @@
 		"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/include",
 		"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/UIHeaders",
 		"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/UI",
-		"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/executable",
 		"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib",
 		"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/sciplot",
 		"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/sciplot/specs",
-		"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/Matrix",
 		"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/TimeSys",
 		"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/Filter",
+		"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/Matrix",
+		"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/yaml-cpp/include",
 		"/usr/local/lib/QtCore.framework/Headers",
 		"/usr/local/lib/QtCore.framework",
 		"/usr/local/share/qt/mkspecs/macx-clang",
@@ -424,12 +412,12 @@
 	"SOURCES" : 
 	[
 		[
-			"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/INSData.cpp",
+			"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/BasicFuns.cpp",
 			"MU",
 			null
 		],
 		[
-			"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/INSSolution.cpp",
+			"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/INSData.cpp",
 			"MU",
 			null
 		],
@@ -450,16 +438,6 @@
 		],
 		[
 			"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/Filter/cKalman.cpp",
-			"MU",
-			null
-		],
-		[
-			"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/Matrix/Matrix.cpp",
-			"MU",
-			null
-		],
-		[
-			"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/TimeSys/TimeSys.cpp",
 			"MU",
 			null
 		]
