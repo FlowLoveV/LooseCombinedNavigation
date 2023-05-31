@@ -1,0 +1,1 @@
+/Library/Developer/CommandLineTools/usr/bin/c++  -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk -mmacosx-version-min=11.7 -dynamiclib -Wl,-headerpad_max_install_names -o libTIME_SYSTEM_CPP.dylib -install_name @rpath/libTIME_SYSTEM_CPP.dylib CMakeFiles/TIME_SYSTEM_CPP.dir/TimeSys.cpp.o 

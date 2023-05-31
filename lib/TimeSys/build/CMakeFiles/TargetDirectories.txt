@@ -1,0 +1,3 @@
+/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/TimeSys/build/CMakeFiles/rebuild_cache.dir
+/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/TimeSys/build/CMakeFiles/edit_cache.dir
+/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/TimeSys/build/CMakeFiles/TIME_SYSTEM_CPP.dir

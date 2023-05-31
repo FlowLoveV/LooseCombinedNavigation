@@ -1,0 +1,1 @@
+/Library/Developer/CommandLineTools/usr/bin/c++  -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk -mmacosx-version-min=11.7 -dynamiclib -Wl,-headerpad_max_install_names -o libMatrix.dylib -install_name @rpath/libMatrix.dylib CMakeFiles/Matrix.dir/Matrix.cpp.o 
