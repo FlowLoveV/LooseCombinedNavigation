@@ -168,23 +168,17 @@ CMakeFiles/CombinedNavigation.dir/CombinedNavigation_autogen/mocs_compilation.cp
  /usr/local/lib/QtWidgets.framework/Headers/qmainwindow.h
 CMakeFiles/CombinedNavigation.dir/Sources/BasicFuns.cpp.o: \
  ../include/BasicFuns.h \
- ../include/INSData.h \
  ../lib/Matrix/Matrix.h \
  ../lib/TimeSys/TimeSys.h \
+ ../src/INS/INSData.h \
  ../Sources/BasicFuns.cpp
-CMakeFiles/CombinedNavigation.dir/Sources/INSData.cpp.o: \
- ../include/BasicFuns.h \
- ../include/INSData.h \
- ../lib/Matrix/Matrix.h \
- ../lib/TimeSys/TimeSys.h \
- ../Sources/INSData.cpp
 CMakeFiles/CombinedNavigation.dir/Sources/LooseCombination.cpp.o: \
  ../include/LooseCombination.h \
  ../Sources/LooseCombination.cpp
 CMakeFiles/CombinedNavigation.dir/Sources/main.cpp.o: \
  ../Sources/UIHeaders/mainwindow.h \
  ../include/BasicFuns.h \
- ../include/INSData.h \
+ ../lib/Filter/cKalman.h \
  ../lib/Matrix/Matrix.h \
  ../lib/TimeSys/TimeSys.h \
  ../lib/sciplot/Canvas.hpp \
@@ -257,6 +251,8 @@ CMakeFiles/CombinedNavigation.dir/Sources/main.cpp.o: \
  ../lib/yaml-cpp/include/yaml-cpp/stlemitter.h \
  ../lib/yaml-cpp/include/yaml-cpp/traits.h \
  ../lib/yaml-cpp/include/yaml-cpp/yaml.h \
+ ../src/FileIO/cfileBase.h \
+ ../src/INS/INSData.h \
  ../Sources/main.cpp \
  /usr/local/include/QtCore/QList \
  /usr/local/include/QtCore/QObject \

@@ -326,12 +326,6 @@
 			null
 		],
 		[
-			"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/include/INSData.h",
-			"MU",
-			"6YEA5652QU/moc_INSData.cpp",
-			null
-		],
-		[
 			"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/include/LooseCombination.h",
 			"MU",
 			"6YEA5652QU/moc_LooseCombination.cpp",
@@ -341,6 +335,12 @@
 			"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/Filter/cKalman.h",
 			"MU",
 			"2BXXKLXOIG/moc_cKalman.cpp",
+			null
+		],
+		[
+			"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cfileSaver.h",
+			"MU",
+			"ZN5A7IICA7/moc_cfileSaver.cpp",
 			null
 		]
 	],
@@ -367,6 +367,9 @@
 		"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/Filter",
 		"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/Matrix",
 		"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/yaml-cpp/include",
+		"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src",
+		"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO",
+		"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/INS",
 		"/usr/local/lib/QtCore.framework/Headers",
 		"/usr/local/lib/QtCore.framework",
 		"/usr/local/share/qt/mkspecs/macx-clang",
@@ -417,11 +420,6 @@
 			null
 		],
 		[
-			"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/INSData.cpp",
-			"MU",
-			null
-		],
-		[
 			"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/LooseCombination.cpp",
 			"MU",
 			null
@@ -438,6 +436,11 @@
 		],
 		[
 			"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/Filter/cKalman.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cfileSaver.cpp",
 			"MU",
 			null
 		]

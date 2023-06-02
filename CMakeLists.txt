@@ -17,6 +17,17 @@ set(CMAKE_AUTOUIC ON)
 #find_package(PythonInterp REQUIRED)
 #find_package(PythonLibs ${PYTHON_VERSION_MAJOR}.${PYTHON_VERSION_MINOR} EXACT REQUIRED)
 
+# 设置资源路径
+set(SRC_DIR "${PROJECT_SOURCE_DIR}/src")
+# IO
+set(FILEIO_CPP_DIR "${SRC_DIR}/FileIO/")
+file(GLOB FILEIO_CPP_SOURCES "${FILEIO_CPP_DIR}/*.cpp" "${FILEIO_CPP_DIR}/*.cxx"
+        "${FILEIO_CPP_DIR}/*.cc" "${FILEIO_CPP_DIR}/*.c")
+# INS
+set(INS_CPP_DIR "${SRC_DIR}/INS")
+file(GLOB INS_CPP_SOURCES "${INS_CPP_DIR}/*.cpp" "${INS_CPP_DIR}/*.cxx"
+        "${INS_CPP_DIR}/*.cc" "${INS_CPP_DIR}/*.c")
+
 # 第三方库路径设置
 
 # yaml-cpp库路径设置
@@ -47,18 +58,22 @@ include_directories(
         ${PROJECT_SOURCE_DIR}/lib/Filter
         ${MATRIX_CPP_INCLUDE_DIR}
         ${YAML_CPP_INCLUDE_DIR}
+        ${SRC_DIR}
+        ${FILEIO_CPP_DIR}
+        ${INS_CPP_DIR}
 )
 
 add_executable(CombinedNavigation Sources/main.cpp
         # UI文件
         Sources/mainwindow.cpp Sources/UIHeaders/mainwindow.h Sources/UI/mainwindow.ui
-        # 主文件
-        include/INSData.h Sources/INSData.cpp
+        # 资源文件
+        ${FILEIO_SOURCES} ${INS_SOURCES}
         include/BasicFuns.h Sources/BasicFuns.cpp
         include/LooseCombination.h Sources/LooseCombination.cpp
         # 依赖文件
         ${PROJECT_SOURCE_DIR}/lib/sciplot/ ${PROJECT_SOURCE_DIR}/lib/sciplot/specs
-        ${PROJECT_SOURCE_DIR}/lib/Filter/cKalman.h ${PROJECT_SOURCE_DIR}/lib/Filter/cKalman.cpp)
+        ${PROJECT_SOURCE_DIR}/lib/Filter/cKalman.h ${PROJECT_SOURCE_DIR}/lib/Filter/cKalman.cpp
+        src/FileIO/cfileSaver.cpp src/FileIO/cfileSaver.h)
 
 
 # 链接qt库文件

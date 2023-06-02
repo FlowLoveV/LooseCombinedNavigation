@@ -62,10 +62,21 @@ public:
     IMUData_SingleEpoch(const double *acc, const double *gyr,const GPST &gpst);
 
     /*!
+     * 使用存储连续的数组来构造一个IMU原始观测实例
+     * @tparam T 模板类，可以是任意存储连续的，长度为8（至少）的数组
+     * @param t  模板类的实例
+     */
+    template<class T>
+    explicit IMUData_SingleEpoch(T &t);
+
+    /*!
      * @brief 默认析构函数
      */
     ~IMUData_SingleEpoch();
 };
+
+
+
 
 // 惯导机械编排算法解算结果
 /*!

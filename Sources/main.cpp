@@ -2,6 +2,10 @@
 
 #include "mainwindow.h"
 #include "INSData.h"
+#include "BasicFuns.h"
+#include "cfileBase.h"
+#include "cfileReader.h"
+#include "cKalman.h"
 #include "iostream"
 #include <fstream>
 #include <Matrix.h>

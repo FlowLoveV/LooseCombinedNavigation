@@ -190,30 +190,6 @@ Sources/BasicFuns.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/Sources/BasicFuns.cpp.s
 .PHONY : Sources/BasicFuns.cpp.s
 
-Sources/INSData.o: Sources/INSData.cpp.o
-.PHONY : Sources/INSData.o
-
-# target to build an object file
-Sources/INSData.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/Sources/INSData.cpp.o
-.PHONY : Sources/INSData.cpp.o
-
-Sources/INSData.i: Sources/INSData.cpp.i
-.PHONY : Sources/INSData.i
-
-# target to preprocess a source file
-Sources/INSData.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/Sources/INSData.cpp.i
-.PHONY : Sources/INSData.cpp.i
-
-Sources/INSData.s: Sources/INSData.cpp.s
-.PHONY : Sources/INSData.s
-
-# target to generate assembly for a file
-Sources/INSData.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/Sources/INSData.cpp.s
-.PHONY : Sources/INSData.cpp.s
-
 Sources/LooseCombination.o: Sources/LooseCombination.cpp.o
 .PHONY : Sources/LooseCombination.o
 
@@ -310,6 +286,30 @@ lib/Filter/cKalman.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/lib/Filter/cKalman.cpp.s
 .PHONY : lib/Filter/cKalman.cpp.s
 
+src/FileIO/cfileSaver.o: src/FileIO/cfileSaver.cpp.o
+.PHONY : src/FileIO/cfileSaver.o
+
+# target to build an object file
+src/FileIO/cfileSaver.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/src/FileIO/cfileSaver.cpp.o
+.PHONY : src/FileIO/cfileSaver.cpp.o
+
+src/FileIO/cfileSaver.i: src/FileIO/cfileSaver.cpp.i
+.PHONY : src/FileIO/cfileSaver.i
+
+# target to preprocess a source file
+src/FileIO/cfileSaver.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/src/FileIO/cfileSaver.cpp.i
+.PHONY : src/FileIO/cfileSaver.cpp.i
+
+src/FileIO/cfileSaver.s: src/FileIO/cfileSaver.cpp.s
+.PHONY : src/FileIO/cfileSaver.s
+
+# target to generate assembly for a file
+src/FileIO/cfileSaver.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/src/FileIO/cfileSaver.cpp.s
+.PHONY : src/FileIO/cfileSaver.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -326,9 +326,6 @@ help:
 	@echo "... Sources/BasicFuns.o"
 	@echo "... Sources/BasicFuns.i"
 	@echo "... Sources/BasicFuns.s"
-	@echo "... Sources/INSData.o"
-	@echo "... Sources/INSData.i"
-	@echo "... Sources/INSData.s"
 	@echo "... Sources/LooseCombination.o"
 	@echo "... Sources/LooseCombination.i"
 	@echo "... Sources/LooseCombination.s"
@@ -341,6 +338,9 @@ help:
 	@echo "... lib/Filter/cKalman.o"
 	@echo "... lib/Filter/cKalman.i"
 	@echo "... lib/Filter/cKalman.s"
+	@echo "... src/FileIO/cfileSaver.o"
+	@echo "... src/FileIO/cfileSaver.i"
+	@echo "... src/FileIO/cfileSaver.s"
 .PHONY : help
 
 

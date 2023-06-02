@@ -4,11 +4,11 @@ file(REMOVE_RECURSE
   "CombinedNavigation_autogen"
   "CMakeFiles/CombinedNavigation.dir/CombinedNavigation_autogen/mocs_compilation.cpp.o"
   "CMakeFiles/CombinedNavigation.dir/Sources/BasicFuns.cpp.o"
-  "CMakeFiles/CombinedNavigation.dir/Sources/INSData.cpp.o"
   "CMakeFiles/CombinedNavigation.dir/Sources/LooseCombination.cpp.o"
   "CMakeFiles/CombinedNavigation.dir/Sources/main.cpp.o"
   "CMakeFiles/CombinedNavigation.dir/Sources/mainwindow.cpp.o"
   "CMakeFiles/CombinedNavigation.dir/lib/Filter/cKalman.cpp.o"
+  "CMakeFiles/CombinedNavigation.dir/src/FileIO/cfileSaver.cpp.o"
   "CombinedNavigation"
   "CombinedNavigation.pdb"
 )
