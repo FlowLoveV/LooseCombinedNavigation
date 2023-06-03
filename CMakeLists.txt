@@ -19,17 +19,13 @@ set(CMAKE_AUTOUIC ON)
 
 ############################################ 设置资源路径 ###############################################################
 set(SRC_DIR "${PROJECT_SOURCE_DIR}/src")
-set(SRC_DIR_LIST "${SRC_DIR}")
-set(SRC_SOURCES_LIST "${SRC_DIR}")
+file(GLOB SRC_SUB_DIR "${SRC_DIR}/*")
 # IO
 set(FILEIO_CPP_DIR "${SRC_DIR}/FileIO/")
-list(APPEND ${SRC_DIR_LIST} ${FILEIO_CPP_DIR})
 file(GLOB FILEIO_CPP_SOURCES "${FILEIO_CPP_DIR}/*.cpp" "${FILEIO_CPP_DIR}/*.cxx"
         "${FILEIO_CPP_DIR}/*.cc" "${FILEIO_CPP_DIR}/*.c")
-list(APPEND ${SRC_SOURCES_LIST} ${FILEIO_CPP_SOURCES})
 # INS
 set(INS_CPP_DIR "${SRC_DIR}/INS")
-list(APPEND ${SRC_DIR_LIST} ${INS_CPP_DIR})
 file(GLOB INS_CPP_SOURCES "${INS_CPP_DIR}/*.cpp" "${INS_CPP_DIR}/*.cxx"
         "${INS_CPP_DIR}/*.cc" "${INS_CPP_DIR}/*.c")
 
@@ -38,6 +34,8 @@ set(COMMON_CPP_DIR "${SRC_DIR}/Common")
 
 
 ########################################### 第三方库路径设置 #############################################################
+set(THIRD_LIB_DIR "${PROJECT_SOURCE_DIR}/lib")
+file(GLOB THIRD_LIB_SUB_DIR "${THIRD_LIB_DIR}/*")
 # yaml-cpp库路径设置
 set(YAML_CPP_INCLUDE_DIR "${PROJECT_SOURCE_DIR}/lib/yaml-cpp/include")
 set(YAML_CPP_LIB "${PROJECT_SOURCE_DIR}/lib/yaml-cpp/build/libyaml-cpp.a")
@@ -64,18 +62,15 @@ include_directories(
         ${PROJECT_SOURCE_DIR}/include
         ${PROJECT_SOURCE_DIR}/Sources/UIHeaders
         ${PROJECT_SOURCE_DIR}/Sources/UI
+        # 第三方库
         ${PROJECT_SOURCE_DIR}/lib
-        ${PROJECT_SOURCE_DIR}/lib/sciplot
-        ${PROJECT_SOURCE_DIR}/lib/sciplot/specs
-        ${PROJECT_SOURCE_DIR}/lib/TimeSys
-        ${PROJECT_SOURCE_DIR}/lib/Filter
-        ${MATRIX_CPP_INCLUDE_DIR}
+        ${THIRD_LIB_SUB_DIR}
         ${YAML_CPP_INCLUDE_DIR}
+        # 资源库
+        ${SRC_SUB_DIR}
         ${SRC_DIR}
-        ${FILEIO_CPP_DIR}
-        ${INS_CPP_DIR}
-        ${COMMON_CPP_DIR}
-        ${COORSYSTEM_CPP_INCLUDE_DIR}
+
+
 )
 
 add_executable(CombinedNavigation Sources/main.cpp
@@ -90,7 +85,7 @@ add_executable(CombinedNavigation Sources/main.cpp
         ${PROJECT_SOURCE_DIR}/lib/Filter/cKalman.h ${PROJECT_SOURCE_DIR}/lib/Filter/cKalman.cpp
         # 其他文件
         src/GNSS/GNSS_Type.h src/Common/Rotation.h
-        src/Common/Angle.h src/Common/Earth.h)
+        src/Common/Angle.h src/Common/Earth.h src/FileIO/cFileConvertor.h src/FileIO/cFileConvertor.cpp)
 
 
 # 链接qt库文件

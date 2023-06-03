@@ -16,8 +16,6 @@ public:
 
     ~cFileBase();
 
-    bool open(const std::string &filename,const int &fileType = ASCII);
-
     void close();
 
     bool is_open();
@@ -28,8 +26,6 @@ public:
 
 protected:
     std::string fileFormat;             /**< 记录文件的编码格式       */
-
-private:
     std::fstream fileFp;                /**< 文件流                 */
     int fileType = ASCII;               /**< 文件格式ASCII文本或者二进制 */
 };

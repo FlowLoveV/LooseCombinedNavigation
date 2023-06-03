@@ -77,8 +77,8 @@ rebuild_cache/fast: rebuild_cache
 
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
-	/usr/local/Cellar/cmake/3.26.4/bin/ccmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -286,6 +286,30 @@ lib/Filter/cKalman.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/lib/Filter/cKalman.cpp.s
 .PHONY : lib/Filter/cKalman.cpp.s
 
+src/FileIO/cFileConvertor.o: src/FileIO/cFileConvertor.cpp.o
+.PHONY : src/FileIO/cFileConvertor.o
+
+# target to build an object file
+src/FileIO/cFileConvertor.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/src/FileIO/cFileConvertor.cpp.o
+.PHONY : src/FileIO/cFileConvertor.cpp.o
+
+src/FileIO/cFileConvertor.i: src/FileIO/cFileConvertor.cpp.i
+.PHONY : src/FileIO/cFileConvertor.i
+
+# target to preprocess a source file
+src/FileIO/cFileConvertor.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/src/FileIO/cFileConvertor.cpp.i
+.PHONY : src/FileIO/cFileConvertor.cpp.i
+
+src/FileIO/cFileConvertor.s: src/FileIO/cFileConvertor.cpp.s
+.PHONY : src/FileIO/cFileConvertor.s
+
+# target to generate assembly for a file
+src/FileIO/cFileConvertor.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/src/FileIO/cFileConvertor.cpp.s
+.PHONY : src/FileIO/cFileConvertor.cpp.s
+
 src/FileIO/cfileBase.o: src/FileIO/cfileBase.cpp.o
 .PHONY : src/FileIO/cfileBase.o
 
@@ -410,6 +434,9 @@ help:
 	@echo "... lib/Filter/cKalman.o"
 	@echo "... lib/Filter/cKalman.i"
 	@echo "... lib/Filter/cKalman.s"
+	@echo "... src/FileIO/cFileConvertor.o"
+	@echo "... src/FileIO/cFileConvertor.i"
+	@echo "... src/FileIO/cFileConvertor.s"
 	@echo "... src/FileIO/cfileBase.o"
 	@echo "... src/FileIO/cfileBase.i"
 	@echo "... src/FileIO/cfileBase.s"

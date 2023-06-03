@@ -241,11 +241,10 @@ GPST *InsConfigure::getEndTime() {
 }
 
 
-template<class T>
-IMUData_SingleEpoch::IMUData_SingleEpoch(T &vec) {
+IMUData_SingleEpoch::IMUData_SingleEpoch(std::vector<double> &vec) {
     t = GPST(vec[0],vec[1]);
-    m_pAcc = &vec[2];
-    m_pGyr = &vec[5];
+    memcpy(m_pAcc,&vec[2],IMUDATA_SIZE);
+    memcpy(m_pGyr,&vec[5],IMUDATA_SIZE);
 }
 
 

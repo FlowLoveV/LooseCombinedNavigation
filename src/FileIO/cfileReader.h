@@ -25,9 +25,9 @@ public:
 
     explicit cfileReader(const std::string &filename,const int type = ASCII,const std::string &format = "default");
 
-    std::vector<double>& readline();
+    bool open(const std::string &filename,const int &filetype = ASCII);
 
-    IMUData_SingleEpoch move();
+    virtual std::vector<double>& readline();
 
 private:
     std::vector<double> data;

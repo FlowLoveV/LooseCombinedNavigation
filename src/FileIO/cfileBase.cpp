@@ -28,9 +28,4 @@ std::fstream &cFileBase::getFstream() {
     return fileFp;
 }
 
-bool cFileBase::open(const std::string &filename, const int &filetype) {
-    auto mode = filetype == ASCII ? std::ios_base::in : (std::ios_base::in | std::ios_base::binary);
-    fileFp.open(filename,mode);
-    fileType = filetype;
-    return is_open();
-}
+

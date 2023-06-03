@@ -62,12 +62,11 @@ public:
     IMUData_SingleEpoch(const double *acc, const double *gyr,const GPST &gpst);
 
     /*!
-     * 使用存储连续的数组来构造一个IMU原始观测实例
-     * @tparam T 模板类，可以是任意存储连续的，长度为8（至少）的数组
-     * @param t  模板类的实例
+     * 根据长度为8，依次记录了GPST-week,GPST-second,delta_v_x,delta_v_y,delta_v_z,delta_w_x,delta_w_y,delta_w_z
+     * 的vector构造一个IMU_Data_SingleEpoch实例
+     * @param t     input       std::vector<double>     
      */
-    template<class T>
-    IMUData_SingleEpoch(T &t);
+    IMUData_SingleEpoch(std::vector<double> &t);
 
     /*!
      * @brief 默认析构函数
