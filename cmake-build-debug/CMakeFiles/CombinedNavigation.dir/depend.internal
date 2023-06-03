@@ -251,7 +251,10 @@ CMakeFiles/CombinedNavigation.dir/Sources/main.cpp.o
  ../lib/yaml-cpp/include/yaml-cpp/stlemitter.h
  ../lib/yaml-cpp/include/yaml-cpp/traits.h
  ../lib/yaml-cpp/include/yaml-cpp/yaml.h
+ ../src/Common/Angle.h
  ../src/FileIO/cfileBase.h
+ ../src/FileIO/cfileReader.h
+ ../src/FileIO/cfileSaver.h
  ../src/INS/INSData.h
  /Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/main.cpp
  /usr/local/include/QtCore/QList
@@ -640,3 +643,16 @@ CMakeFiles/CombinedNavigation.dir/lib/Filter/cKalman.cpp.o
  ../lib/Matrix/Matrix.h
  /Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/Filter/cKalman.cpp
  /Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/Filter/cKalman.h
+CMakeFiles/CombinedNavigation.dir/src/FileIO/cfileSaver.cpp.o
+ /Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cfileBase.h
+ /Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cfileSaver.cpp
+ /Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cfileSaver.h
+CMakeFiles/CombinedNavigation.dir/src/INS/INSData.cpp.o
+ ../include/BasicFuns.h
+ ../lib/Matrix/Matrix.h
+ ../lib/TimeSys/TimeSys.h
+ ../src/Common/Angle.h
+ ../src/Common/Earth.h
+ ../src/Common/Rotation.h
+ /Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/INS/INSData.cpp
+ /Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/INS/INSData.h

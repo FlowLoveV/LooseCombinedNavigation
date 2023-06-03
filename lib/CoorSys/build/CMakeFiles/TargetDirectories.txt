@@ -1,0 +1,3 @@
+/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/CoorSys/build/CMakeFiles/COORSYSTEM.dir
+/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/CoorSys/build/CMakeFiles/edit_cache.dir
+/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/CoorSys/build/CMakeFiles/rebuild_cache.dir

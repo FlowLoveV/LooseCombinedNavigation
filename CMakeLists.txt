@@ -17,19 +17,27 @@ set(CMAKE_AUTOUIC ON)
 #find_package(PythonInterp REQUIRED)
 #find_package(PythonLibs ${PYTHON_VERSION_MAJOR}.${PYTHON_VERSION_MINOR} EXACT REQUIRED)
 
-# 设置资源路径
+############################################ 设置资源路径 ###############################################################
 set(SRC_DIR "${PROJECT_SOURCE_DIR}/src")
+set(SRC_DIR_LIST "${SRC_DIR}")
+set(SRC_SOURCES_LIST "${SRC_DIR}")
 # IO
 set(FILEIO_CPP_DIR "${SRC_DIR}/FileIO/")
+list(APPEND ${SRC_DIR_LIST} ${FILEIO_CPP_DIR})
 file(GLOB FILEIO_CPP_SOURCES "${FILEIO_CPP_DIR}/*.cpp" "${FILEIO_CPP_DIR}/*.cxx"
         "${FILEIO_CPP_DIR}/*.cc" "${FILEIO_CPP_DIR}/*.c")
+list(APPEND ${SRC_SOURCES_LIST} ${FILEIO_CPP_SOURCES})
 # INS
 set(INS_CPP_DIR "${SRC_DIR}/INS")
+list(APPEND ${SRC_DIR_LIST} ${INS_CPP_DIR})
 file(GLOB INS_CPP_SOURCES "${INS_CPP_DIR}/*.cpp" "${INS_CPP_DIR}/*.cxx"
         "${INS_CPP_DIR}/*.cc" "${INS_CPP_DIR}/*.c")
 
-# 第三方库路径设置
+# Common
+set(COMMON_CPP_DIR "${SRC_DIR}/Common")
 
+
+########################################### 第三方库路径设置 #############################################################
 # yaml-cpp库路径设置
 set(YAML_CPP_INCLUDE_DIR "${PROJECT_SOURCE_DIR}/lib/yaml-cpp/include")
 set(YAML_CPP_LIB "${PROJECT_SOURCE_DIR}/lib/yaml-cpp/build/libyaml-cpp.a")
@@ -39,6 +47,11 @@ set(MATRIX_CPP_LIB "${PROJECT_SOURCE_DIR}/lib/Matrix/build/libMatrix.dylib")
 # 时间系统路径设置
 set(TIME_SYSTEM_CPP_INCLUDE_DIR "${PROJECT_SOURCE_DIR}/lib/TimeSys")
 set(TIME_SYSTEM_CPP_LIB "${PROJECT_SOURCE_DIR}/lib/TimeSys/build/libTIME_SYSTEM_CPP.dylib")
+# 坐标系统路径设置
+set(COORSYSTEM_CPP_INCLUDE_DIR "${PROJECT_SOURCE_DIR}/lib/CoorSys")
+set(COORSYSTEM_CPP_LIB "${PROJECT_SOURCE_DIR}/lib/CoorSys/build/libCOORSYSTEM.dylib")
+
+
 
 # 找到QT解释器
 find_package(Qt6 COMPONENTS
@@ -61,19 +74,23 @@ include_directories(
         ${SRC_DIR}
         ${FILEIO_CPP_DIR}
         ${INS_CPP_DIR}
+        ${COMMON_CPP_DIR}
+        ${COORSYSTEM_CPP_INCLUDE_DIR}
 )
 
 add_executable(CombinedNavigation Sources/main.cpp
         # UI文件
         Sources/mainwindow.cpp Sources/UIHeaders/mainwindow.h Sources/UI/mainwindow.ui
         # 资源文件
-        ${FILEIO_SOURCES} ${INS_SOURCES}
+        ${FILEIO_CPP_SOURCES} ${INS_CPP_SOURCES}
         include/BasicFuns.h Sources/BasicFuns.cpp
         include/LooseCombination.h Sources/LooseCombination.cpp
         # 依赖文件
         ${PROJECT_SOURCE_DIR}/lib/sciplot/ ${PROJECT_SOURCE_DIR}/lib/sciplot/specs
         ${PROJECT_SOURCE_DIR}/lib/Filter/cKalman.h ${PROJECT_SOURCE_DIR}/lib/Filter/cKalman.cpp
-        src/FileIO/cfileSaver.cpp src/FileIO/cfileSaver.h)
+        # 其他文件
+        src/GNSS/GNSS_Type.h src/Common/Rotation.h
+        src/Common/Angle.h src/Common/Earth.h)
 
 
 # 链接qt库文件
@@ -88,6 +105,8 @@ target_link_libraries(CombinedNavigation
         ${MATRIX_CPP_LIB}
         # 时间系统库链接
         ${TIME_SYSTEM_CPP_LIB}
+        # 坐标系统库链接
+        ${COORSYSTEM_CPP_LIB}
         )
 
 

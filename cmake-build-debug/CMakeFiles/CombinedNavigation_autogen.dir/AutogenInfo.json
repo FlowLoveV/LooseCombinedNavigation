@@ -338,9 +338,39 @@
 			null
 		],
 		[
+			"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/Common/Angle.h",
+			"MU",
+			"DT26BDOIJQ/moc_Angle.cpp",
+			null
+		],
+		[
+			"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/Common/Earth.h",
+			"MU",
+			"DT26BDOIJQ/moc_Earth.cpp",
+			null
+		],
+		[
+			"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/Common/Rotation.h",
+			"MU",
+			"DT26BDOIJQ/moc_Rotation.cpp",
+			null
+		],
+		[
 			"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cfileSaver.h",
 			"MU",
 			"ZN5A7IICA7/moc_cfileSaver.cpp",
+			null
+		],
+		[
+			"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/GNSS/GNSS_Type.h",
+			"MU",
+			"2UURJNM5AV/moc_GNSS_Type.cpp",
+			null
+		],
+		[
+			"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/INS/INSData.h",
+			"MU",
+			"Z3CVQJW5MN/moc_INSData.cpp",
 			null
 		]
 	],
@@ -370,6 +400,8 @@
 		"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src",
 		"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO",
 		"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/INS",
+		"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/Common",
+		"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/CoorSys",
 		"/usr/local/lib/QtCore.framework/Headers",
 		"/usr/local/lib/QtCore.framework",
 		"/usr/local/share/qt/mkspecs/macx-clang",
@@ -441,6 +473,11 @@
 		],
 		[
 			"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cfileSaver.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/INS/INSData.cpp",
 			"MU",
 			null
 		]

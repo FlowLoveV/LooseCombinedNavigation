@@ -6,6 +6,8 @@
 #include "INSData.h"
 #include "cstring"
 #include "iostream"
+#include "Rotation.h"
+#include "Earth.h"
 
 
 IMUData_SingleEpoch::IMUData_SingleEpoch() = default ;
@@ -95,7 +97,7 @@ void PureIns::gyrAlignment(const ::std::vector<IMUData_SingleEpoch> & rawData, d
         average_omega[i] = average_omega[i] / len * m_dSampleFrequency;
     }
     double lat = m_StartInfo.m_pPos[0], h = m_StartInfo.m_pPos[2];
-    Matrix g_n(3,1,{0,0, calculate_g(lat,h)});
+    Matrix g_n(3,1,{0,0, Earth::calculate_g(lat,h)});
     Matrix omega_n_ie(3,1,{ELLIPSOID_OMEGA*cos(lat),0,-ELLIPSOID_OMEGA*sin(lat)});
     Matrix omega_b_ie(3,1,average_omega);
     Matrix g_b(3,1,average_f);
@@ -116,10 +118,10 @@ void PureIns::gyrAlignment(const ::std::vector<IMUData_SingleEpoch> & rawData, d
     w[1].reshape(1,3);
     w[2].reshape(1,3);
     Matrix C = horizontal_stack_array(v,3) * vertical_stack_array(w,3);
-    EMatrix2Euler(C.p,euler);
+    Rotation::EMatrix2Euler(C.p,euler);
     // 将对准姿态结果存储到初始信息中，以姿态四元数及姿态矩阵的形式
-    Euler2Quaternion(euler,m_StartInfo.m_pQuaternion);
-    Euler2EMatrix(euler,m_StartInfo.m_pEMatrix);
+    Rotation::Euler2Quaternion(euler,m_StartInfo.m_pQuaternion);
+    Rotation::Euler2EMatrix(euler,m_StartInfo.m_pEMatrix);
 }
 
 void PureIns::setStartInfo(const double *pos, const double *speed) {
@@ -159,7 +161,7 @@ void PureIns::updateSinEpoch(const IMUData_SingleEpoch & obs2,const IMUData_Sing
                              const INSRes_SingleEpoch & res1,INSRes_SingleEpoch & res) {
     double_t rv[3],qb[4],qn[4];
     Angle2RV(obs2.m_pGyr, obs1.m_pGyr, rv); // 双子样法更新等效旋转矢量
-    RV2Quaternion(rv,qb);                         // 等效旋转矢量更新b系
+    Rotation::RV2Quaternion(rv,qb);                         // 等效旋转矢量更新b系
     double_t pos[3],speed[3],wie[3],wen[3],Rm,Rn;
     double_t delta_t = obs.t - obs1.t; // 观测间隔
     // 利用k-2、k-1历元位置、速度外推得到k-0.5历元位置、速度
@@ -167,10 +169,10 @@ void PureIns::updateSinEpoch(const IMUData_SingleEpoch & obs2,const IMUData_Sing
         pos[i] = linExtrapolateHalf(res2.m_pPos[i], res1.m_pPos[i]);
         speed[i] = linExtrapolateHalf(res2.m_pSpeed[i], res1.m_pSpeed[i]);
     }
-    calculateRotationSpeed(pos,speed,wie,wen,Rm,Rn);
+    Earth::calculateRotationSpeed(pos,speed,wie,wen,Rm,Rn);
     Matrix m_wie(3,1,wie),m_wen(3,1,wen);
     Matrix m_rv = (m_wie + m_wen) ^ delta_t;
-    RV2Quaternion(m_rv.p,qn);
+    Rotation::RV2Quaternion(m_rv.p,qn);
     // 需要将qn的虚部反号
     for (int i = 1; i < 4; ++i) {
         qn[i] = -qn[i];
@@ -179,9 +181,9 @@ void PureIns::updateSinEpoch(const IMUData_SingleEpoch & obs2,const IMUData_Sing
     double_t q_temp[4];
     Multiply_q(qn, res1.m_pQuaternion, q_temp);
     Multiply_q(q_temp,qb,res.m_pQuaternion);
-    Quaternion2EMatrix(res.m_pQuaternion, res.m_pEMatrix);
+    Rotation::Quaternion2EMatrix(res.m_pQuaternion, res.m_pEMatrix);
     // 更新速度
-    double_t g = calculate_g(pos[0],pos[2]);   // 重力
+    double_t g = Earth::calculate_g(pos[0],pos[2]);   // 重力
     Matrix m_g(3,1,{0,0,g}),m_v(3,1,speed);           // 构造重力、k-0.5历元速度矩阵
     Matrix m_cor = ( m_g - cross( ((2 * m_wie) + m_wen),m_v ) ) * delta_t;  // 哥氏积分项矩阵
     Matrix m_vk(3,1,obs.m_pAcc),m_thetak(3, 1, obs.m_pGyr); // k历元原始观测值矩阵
@@ -202,7 +204,7 @@ void PureIns::updateSinEpoch(const IMUData_SingleEpoch & obs2,const IMUData_Sing
 
 void PureIns::outputResFile(const INSRes_SingleEpoch & res, ::std::ofstream & outputfile) const {
     double_t euler[3];
-    EMatrix2Euler(res.m_pEMatrix, euler);
+    Rotation::EMatrix2Euler(res.m_pEMatrix, euler);
     outputfile << res.t.weeks << "," << res.t.second << "," <<
                res.m_pPos[0] << "," << res.m_pPos[1] << "," << res.m_pPos[2] << "," <<
                res.m_pSpeed[0] << "," << res.m_pSpeed[1] << "," << res.m_pSpeed[2] << "," <<

@@ -9,6 +9,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/CombinedNavigation.dir/Sources/mainwindow.cpp.o"
   "CMakeFiles/CombinedNavigation.dir/lib/Filter/cKalman.cpp.o"
   "CMakeFiles/CombinedNavigation.dir/src/FileIO/cfileSaver.cpp.o"
+  "CMakeFiles/CombinedNavigation.dir/src/INS/INSData.cpp.o"
   "CombinedNavigation"
   "CombinedNavigation.pdb"
 )

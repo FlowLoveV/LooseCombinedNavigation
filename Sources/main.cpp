@@ -5,42 +5,24 @@
 #include "BasicFuns.h"
 #include "cfileBase.h"
 #include "cfileReader.h"
+#include "cfileSaver.h"
 #include "cKalman.h"
 #include "iostream"
 #include <fstream>
 #include <Matrix.h>
 #include <sciplot/sciplot.hpp>
 #include "yaml-cpp/include/yaml-cpp/yaml.h"
+#include "Angle.h"
 using namespace sciplot;
 
 int main(int argc, char *argv[]) {
     using namespace std;
-    YAML::Node config = YAML::LoadFile("../config.yaml");
-
-    cout << "name:" << config["name"].as<string>() << endl;
-    cout << "sex:" << config["sex"].as<string>() << endl;
-    cout << "age:" << config["age"].as<int>() << endl;
-    cout << config["skills"]["c++"].as<string>() << endl;
-    return 0;
+    cfileReader reader1;
+    cfileSaver saver1;
+    INSRes_SingleEpoch res1;
 
 
-    // sciplot使用示例
-    /*Vec x = linspace(0.0, 5.0, 200);
-    Plot2D plot0;
-    plot0.drawCurve(x, std::sin(x)).label("sin(x)");
-    Plot2D plot1;
-    plot1.drawCurve(x, std::cos(x)).label("cos(x)");
 
-    // Use the previous plots as sub-figures in a larger figure. Note that
-    // plot0 and plot1 will be deep-copied into fig
-    Figure fig = {{plot0, plot1}};
-    Canvas canvas = {{fig}};
-    Canvas canvas1 = {{fig}};
-    canvas.size(750, 750);
-    canvas.title("dasdas");
-    canvas.show();
-    canvas1.show();
-*/
     /*const char * filename = "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/ObsData/IMU.bin";
     FILE *binfile = fopen(filename,"rb");
     if(binfile==NULL) ::std::cerr<<"can't open file"<<filename;

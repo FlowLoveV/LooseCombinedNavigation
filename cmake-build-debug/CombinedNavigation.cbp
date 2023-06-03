@@ -61,6 +61,8 @@
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src"/>
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO"/>
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/INS"/>
+					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/Common"/>
+					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/CoorSys"/>
 					<Add directory="/usr/local/lib/QtCore.framework/Headers"/>
 					<Add directory="/usr/local/lib/QtCore.framework"/>
 					<Add directory="/usr/local/share/qt/mkspecs/macx-clang"/>
@@ -106,6 +108,8 @@
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src"/>
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO"/>
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/INS"/>
+					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/Common"/>
+					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/CoorSys"/>
 					<Add directory="/usr/local/lib/QtCore.framework/Headers"/>
 					<Add directory="/usr/local/lib/QtCore.framework"/>
 					<Add directory="/usr/local/share/qt/mkspecs/macx-clang"/>
@@ -177,10 +181,28 @@
 		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/sciplot/specs">
 			<Option target="CombinedNavigation"/>
 		</Unit>
+		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/Common/Angle.h">
+			<Option target="CombinedNavigation"/>
+		</Unit>
+		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/Common/Earth.h">
+			<Option target="CombinedNavigation"/>
+		</Unit>
+		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/Common/Rotation.h">
+			<Option target="CombinedNavigation"/>
+		</Unit>
 		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cfileSaver.cpp">
 			<Option target="CombinedNavigation"/>
 		</Unit>
 		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cfileSaver.h">
+			<Option target="CombinedNavigation"/>
+		</Unit>
+		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/GNSS/GNSS_Type.h">
+			<Option target="CombinedNavigation"/>
+		</Unit>
+		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/INS/INSData.cpp">
+			<Option target="CombinedNavigation"/>
+		</Unit>
+		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/INS/INSData.h">
 			<Option target="CombinedNavigation"/>
 		</Unit>
 		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/CMakeLists.txt">

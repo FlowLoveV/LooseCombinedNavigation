@@ -16,8 +16,9 @@ void cfileReader::deleteData() {
     if(!data.empty()) data.clear();
 }
 
-IMUData_SingleEpoch &cfileReader::move() {
-    return IMUData_SingleEpoch(data);
+IMUData_SingleEpoch cfileReader::move() {
+    IMUData_SingleEpoch imu(data);
+    return imu;
 }
 
 std::vector<double> &cfileReader::readline() {

@@ -840,9 +840,23 @@ yaml-cpp/node/parse.h
 yaml-cpp/node/emit.h
 ../lib/yaml-cpp/include/yaml-cpp/yaml-cpp/node/emit.h
 
+../src/Common/Angle.h
+
 ../src/FileIO/cfileBase.h
 fstream
 ../src/FileIO/fstream
+
+../src/FileIO/cfileReader.h
+vector
+-
+cfileBase.h
+../src/FileIO/cfileBase.h
+INSData.h
+../src/FileIO/INSData.h
+
+../src/FileIO/cfileSaver.h
+cfileBase.h
+../src/FileIO/cfileBase.h
 
 ../src/INS/INSData.h
 TimeSys.h
@@ -871,6 +885,10 @@ BasicFuns.h
 /Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/BasicFuns.h
 cfileBase.h
 /Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/cfileBase.h
+cfileReader.h
+/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/cfileReader.h
+cfileSaver.h
+/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/cfileSaver.h
 cKalman.h
 /Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/cKalman.h
 iostream
@@ -883,6 +901,8 @@ sciplot/sciplot.hpp
 -
 yaml-cpp/include/yaml-cpp/yaml.h
 /Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/yaml-cpp/include/yaml-cpp/yaml.h
+Angle.h
+/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/Angle.h
 
 /usr/local/include/QtCore/QList
 qlist.h

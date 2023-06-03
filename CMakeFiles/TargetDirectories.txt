@@ -1,0 +1,4 @@
+/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/CMakeFiles/rebuild_cache.dir
+/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/CMakeFiles/edit_cache.dir
+/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/CMakeFiles/CombinedNavigation.dir
+/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/CMakeFiles/CombinedNavigation_autogen.dir

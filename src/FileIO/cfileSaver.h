@@ -11,7 +11,7 @@ class cfileSaver : public cFileBase{
 public:
     cfileSaver();
 
-    cfileSaver(const std::string & filename,const int & type = ASCII,const std::string & format = "default");
+    explicit cfileSaver(const std::string & filename,const int & type = ASCII,const std::string & format = "default");
 
     bool write();
 };

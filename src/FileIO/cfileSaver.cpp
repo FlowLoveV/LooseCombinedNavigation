@@ -3,3 +3,15 @@
 //
 
 #include "cfileSaver.h"
+
+cfileSaver::cfileSaver() {
+
+}
+
+cfileSaver::cfileSaver(const std::string &filename, const int &type, const std::string &format) {
+
+}
+
+bool cfileSaver::write() {
+    return false;
+}

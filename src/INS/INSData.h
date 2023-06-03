@@ -38,7 +38,7 @@ class IMUData_SingleEpoch{
 public:
     GPST t;                         /**< 观测时间,GPST */
     double m_pAcc[3] = {0};         /**< 速度增量 x,y,z  m/s */
-    double m_pGyr[3] = {0};         /**< 角增量   x,y,z rad/s */
+    double m_pGyr[3] = {0};         /**< 角增量  x,y,z rad/s */
 
     /*!
      * @brief 默认构造函数
@@ -67,7 +67,7 @@ public:
      * @param t  模板类的实例
      */
     template<class T>
-    explicit IMUData_SingleEpoch(T &t);
+    IMUData_SingleEpoch(T &t);
 
     /*!
      * @brief 默认析构函数

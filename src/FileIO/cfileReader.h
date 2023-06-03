@@ -27,7 +27,7 @@ public:
 
     std::vector<double>& readline();
 
-    IMUData_SingleEpoch& move();
+    IMUData_SingleEpoch move();
 
 private:
     std::vector<double> data;

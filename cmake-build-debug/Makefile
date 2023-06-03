@@ -310,6 +310,30 @@ src/FileIO/cfileSaver.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/src/FileIO/cfileSaver.cpp.s
 .PHONY : src/FileIO/cfileSaver.cpp.s
 
+src/INS/INSData.o: src/INS/INSData.cpp.o
+.PHONY : src/INS/INSData.o
+
+# target to build an object file
+src/INS/INSData.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/src/INS/INSData.cpp.o
+.PHONY : src/INS/INSData.cpp.o
+
+src/INS/INSData.i: src/INS/INSData.cpp.i
+.PHONY : src/INS/INSData.i
+
+# target to preprocess a source file
+src/INS/INSData.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/src/INS/INSData.cpp.i
+.PHONY : src/INS/INSData.cpp.i
+
+src/INS/INSData.s: src/INS/INSData.cpp.s
+.PHONY : src/INS/INSData.s
+
+# target to generate assembly for a file
+src/INS/INSData.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/src/INS/INSData.cpp.s
+.PHONY : src/INS/INSData.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -341,6 +365,9 @@ help:
 	@echo "... src/FileIO/cfileSaver.o"
 	@echo "... src/FileIO/cfileSaver.i"
 	@echo "... src/FileIO/cfileSaver.s"
+	@echo "... src/INS/INSData.o"
+	@echo "... src/INS/INSData.i"
+	@echo "... src/INS/INSData.s"
 .PHONY : help
 
 

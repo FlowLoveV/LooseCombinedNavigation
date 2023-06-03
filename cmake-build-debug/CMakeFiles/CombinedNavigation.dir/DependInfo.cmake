@@ -15,6 +15,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/mainwindow.cpp" "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/cmake-build-debug/CMakeFiles/CombinedNavigation.dir/Sources/mainwindow.cpp.o"
   "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/Filter/cKalman.cpp" "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/cmake-build-debug/CMakeFiles/CombinedNavigation.dir/lib/Filter/cKalman.cpp.o"
   "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cfileSaver.cpp" "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/cmake-build-debug/CMakeFiles/CombinedNavigation.dir/src/FileIO/cfileSaver.cpp.o"
+  "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/INS/INSData.cpp" "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/cmake-build-debug/CMakeFiles/CombinedNavigation.dir/src/INS/INSData.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "AppleClang")
 
@@ -41,6 +42,8 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../src"
   "../src/FileIO"
   "../src/INS"
+  "../src/Common"
+  "../lib/CoorSys"
   "/usr/local/lib/QtCore.framework/Headers"
   "/usr/local/lib/QtCore.framework"
   "/usr/local/share/qt/mkspecs/macx-clang"

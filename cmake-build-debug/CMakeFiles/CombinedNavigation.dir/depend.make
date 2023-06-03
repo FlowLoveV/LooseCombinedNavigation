@@ -251,7 +251,10 @@ CMakeFiles/CombinedNavigation.dir/Sources/main.cpp.o: \
  ../lib/yaml-cpp/include/yaml-cpp/stlemitter.h \
  ../lib/yaml-cpp/include/yaml-cpp/traits.h \
  ../lib/yaml-cpp/include/yaml-cpp/yaml.h \
+ ../src/Common/Angle.h \
  ../src/FileIO/cfileBase.h \
+ ../src/FileIO/cfileReader.h \
+ ../src/FileIO/cfileSaver.h \
  ../src/INS/INSData.h \
  ../Sources/main.cpp \
  /usr/local/include/QtCore/QList \
@@ -640,3 +643,16 @@ CMakeFiles/CombinedNavigation.dir/lib/Filter/cKalman.cpp.o: \
  ../lib/Matrix/Matrix.h \
  ../lib/Filter/cKalman.cpp \
  ../lib/Filter/cKalman.h
+CMakeFiles/CombinedNavigation.dir/src/FileIO/cfileSaver.cpp.o: \
+ ../src/FileIO/cfileBase.h \
+ ../src/FileIO/cfileSaver.cpp \
+ ../src/FileIO/cfileSaver.h
+CMakeFiles/CombinedNavigation.dir/src/INS/INSData.cpp.o: \
+ ../include/BasicFuns.h \
+ ../lib/Matrix/Matrix.h \
+ ../lib/TimeSys/TimeSys.h \
+ ../src/Common/Angle.h \
+ ../src/Common/Earth.h \
+ ../src/Common/Rotation.h \
+ ../src/INS/INSData.cpp \
+ ../src/INS/INSData.h
