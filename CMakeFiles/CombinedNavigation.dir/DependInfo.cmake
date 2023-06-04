@@ -10,7 +10,6 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/CombinedNavigation_autogen/mocs_compilation.cpp" "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/CMakeFiles/CombinedNavigation.dir/CombinedNavigation_autogen/mocs_compilation.cpp.o"
   "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/BasicFuns.cpp" "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/CMakeFiles/CombinedNavigation.dir/Sources/BasicFuns.cpp.o"
-  "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/LooseCombination.cpp" "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/CMakeFiles/CombinedNavigation.dir/Sources/LooseCombination.cpp.o"
   "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/main.cpp" "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/CMakeFiles/CombinedNavigation.dir/Sources/main.cpp.o"
   "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/mainwindow.cpp" "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/CMakeFiles/CombinedNavigation.dir/Sources/mainwindow.cpp.o"
   "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/Filter/cKalman.cpp" "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/CMakeFiles/CombinedNavigation.dir/lib/Filter/cKalman.cpp.o"
@@ -18,7 +17,9 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cfileBase.cpp" "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/CMakeFiles/CombinedNavigation.dir/src/FileIO/cfileBase.cpp.o"
   "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cfileReader.cpp" "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/CMakeFiles/CombinedNavigation.dir/src/FileIO/cfileReader.cpp.o"
   "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cfileSaver.cpp" "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/CMakeFiles/CombinedNavigation.dir/src/FileIO/cfileSaver.cpp.o"
+  "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/GNSS/GNSSType.cpp" "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/CMakeFiles/CombinedNavigation.dir/src/GNSS/GNSSType.cpp.o"
   "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/INS/INSData.cpp" "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/CMakeFiles/CombinedNavigation.dir/src/INS/INSData.cpp.o"
+  "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/LC/LooseCombination.cpp" "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/CMakeFiles/CombinedNavigation.dir/src/LC/LooseCombination.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "AppleClang")
 

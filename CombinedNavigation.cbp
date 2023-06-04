@@ -142,9 +142,6 @@
 		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/BasicFuns.cpp">
 			<Option target="CombinedNavigation"/>
 		</Unit>
-		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/LooseCombination.cpp">
-			<Option target="CombinedNavigation"/>
-		</Unit>
 		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/UI/mainwindow.ui">
 			<Option target="CombinedNavigation"/>
 		</Unit>
@@ -160,9 +157,6 @@
 		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/include/BasicFuns.h">
 			<Option target="CombinedNavigation"/>
 		</Unit>
-		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/include/LooseCombination.h">
-			<Option target="CombinedNavigation"/>
-		</Unit>
 		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib">
 			<Option target="CombinedNavigation"/>
 		</Unit>
@@ -173,15 +167,6 @@
 			<Option target="CombinedNavigation"/>
 		</Unit>
 		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/sciplot/specs">
-			<Option target="CombinedNavigation"/>
-		</Unit>
-		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/Common/Angle.h">
-			<Option target="CombinedNavigation"/>
-		</Unit>
-		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/Common/Earth.h">
-			<Option target="CombinedNavigation"/>
-		</Unit>
-		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/Common/Rotation.h">
 			<Option target="CombinedNavigation"/>
 		</Unit>
 		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cFileConvertor.cpp">
@@ -208,13 +193,22 @@
 		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cfileSaver.h">
 			<Option target="CombinedNavigation"/>
 		</Unit>
-		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/GNSS/GNSS_Type.h">
+		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/GNSS/GNSSType.cpp">
+			<Option target="CombinedNavigation"/>
+		</Unit>
+		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/GNSS/GNSSType.h">
 			<Option target="CombinedNavigation"/>
 		</Unit>
 		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/INS/INSData.cpp">
 			<Option target="CombinedNavigation"/>
 		</Unit>
 		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/INS/INSData.h">
+			<Option target="CombinedNavigation"/>
+		</Unit>
+		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/LC/LooseCombination.cpp">
+			<Option target="CombinedNavigation"/>
+		</Unit>
+		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/LC/LooseCombination.h">
 			<Option target="CombinedNavigation"/>
 		</Unit>
 		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/CMakeLists.txt">

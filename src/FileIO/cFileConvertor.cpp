@@ -6,9 +6,13 @@
 
 
 IMUData_SingleEpoch cFileConvertor::toImuData(std::vector<double> &vec) {
-    return IMUData_SingleEpoch();
+    GPST gpst(vec[0],vec[1]);
+    double acc[3],gyr[3];
+    memcpy(acc,&vec[2],IMUDATA_SIZE);
+    memcpy(gyr,&vec[5],IMUDATA_SIZE);
+    return {acc,gyr,gpst};
 }
 
-tagGnssRes cFileConvertor::toGnssResData(std::vector<double> &vec) {
-    return tagGnssRes();
+GnssRes cFileConvertor::toGnssResData(std::vector<double> &vec) {
+    return GnssRes();
 }

@@ -7,7 +7,6 @@
 
 #include <vector>
 #include "cfileBase.h"
-#include "INSData.h"
 
 
 /**< 对读取文件格式的记录 */
@@ -23,14 +22,17 @@ class cfileReader : public cFileBase{
 public:
     cfileReader();
 
-    explicit cfileReader(const std::string &filename,const int type = ASCII,const std::string &format = "default");
+    explicit cfileReader(const std::string &filename, const int type = cFileBase::ASCIITYPE, const std::string &format = "default");
 
-    bool open(const std::string &filename,const int &filetype = ASCII);
+    bool open(const std::string &filename,const int &filetype = cFileBase::ASCIITYPE);
 
-    virtual std::vector<double>& readline();
+    virtual std::vector<double>& readline(const int & col);
+
+protected:
+    std::string m_sfileName;
 
 private:
-    std::vector<double> data;
+    std::vector<double> m_vdata;
 
     void deleteData();
 };

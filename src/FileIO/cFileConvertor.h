@@ -6,14 +6,14 @@
 #define COMBINEDNAVIGATION_CFILECONVERTOR_H
 
 #include "INSData.h"
-#include "GNSS_Type.h"
+#include "GNSSType.h"
 
 // 文件转换器
 class cFileConvertor{
 public:
     static IMUData_SingleEpoch toImuData(std::vector<double> & vec);
 
-    static tagGnssRes toGnssResData(std::vector<double> & vec);
+    static GnssRes toGnssResData(std::vector<double> & vec);
 
 protected:
 

@@ -323,33 +323,9 @@
 			null
 		],
 		[
-			"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/include/LooseCombination.h",
-			"MU",
-			"6YEA5652QU/moc_LooseCombination.cpp",
-			null
-		],
-		[
 			"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/Filter/cKalman.h",
 			"MU",
 			"2BXXKLXOIG/moc_cKalman.cpp",
-			null
-		],
-		[
-			"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/Common/Angle.h",
-			"MU",
-			"DT26BDOIJQ/moc_Angle.cpp",
-			null
-		],
-		[
-			"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/Common/Earth.h",
-			"MU",
-			"DT26BDOIJQ/moc_Earth.cpp",
-			null
-		],
-		[
-			"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/Common/Rotation.h",
-			"MU",
-			"DT26BDOIJQ/moc_Rotation.cpp",
 			null
 		],
 		[
@@ -377,15 +353,21 @@
 			null
 		],
 		[
-			"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/GNSS/GNSS_Type.h",
+			"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/GNSS/GNSSType.h",
 			"MU",
-			"2UURJNM5AV/moc_GNSS_Type.cpp",
+			"2UURJNM5AV/moc_GNSSType.cpp",
 			null
 		],
 		[
 			"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/INS/INSData.h",
 			"MU",
 			"Z3CVQJW5MN/moc_INSData.cpp",
+			null
+		],
+		[
+			"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/LC/LooseCombination.h",
+			"MU",
+			"VRJSDRMHCI/moc_LooseCombination.cpp",
 			null
 		]
 	],
@@ -469,11 +451,6 @@
 			null
 		],
 		[
-			"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/LooseCombination.cpp",
-			"MU",
-			null
-		],
-		[
 			"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/main.cpp",
 			"MU",
 			null
@@ -509,7 +486,17 @@
 			null
 		],
 		[
+			"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/GNSS/GNSSType.cpp",
+			"MU",
+			null
+		],
+		[
 			"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/INS/INSData.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/LC/LooseCombination.cpp",
 			"MU",
 			null
 		]

@@ -13,19 +13,19 @@ cFileBase::~cFileBase() {
 }
 
 void cFileBase::close() {
-    fileFp.close();
+    m_fileFp.close();
 }
 
 bool cFileBase::is_open() {
-    return fileFp.is_open();
+    return m_fileFp.is_open();
 }
 
 bool cFileBase::is_eof() {
-    return fileFp.eof();
+    return m_fileFp.eof();
 }
 
 std::fstream &cFileBase::getFstream() {
-    return fileFp;
+    return m_fileFp;
 }
 
 

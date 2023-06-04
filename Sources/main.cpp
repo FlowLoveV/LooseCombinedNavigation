@@ -1,11 +1,8 @@
 #include <QApplication>
-
+#include "QString"
 #include "mainwindow.h"
 #include "INSData.h"
 #include "BasicFuns.h"
-#include "cfileBase.h"
-#include "cfileReader.h"
-#include "cfileSaver.h"
 #include "cKalman.h"
 #include "iostream"
 #include <fstream>
@@ -13,17 +10,16 @@
 #include <sciplot/sciplot.hpp>
 #include "yaml-cpp/include/yaml-cpp/yaml.h"
 #include "Angle.h"
+#include "sstream"
 using namespace sciplot;
 
 int main(int argc, char *argv[]) {
     using namespace std;
-    cfileReader reader1;
-    cfileSaver saver1;
-    INSRes_SingleEpoch res1;
 
 
+    return 0;
 
-    /*const char * filename = "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/ObsData/IMU.bin";
+    /*const char * filename = "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Dataset/IMU.bin";
     FILE *binfile = fopen(filename,"rb");
     if(binfile==NULL) ::std::cerr<<"can't open file"<<filename;
     double_t data[7];
@@ -31,8 +27,6 @@ int main(int argc, char *argv[]) {
         fread(&data, 8, 7,binfile);
         printf("%.3f %.3f %.3f %.3f %.3f %.3f %.3f\n",data[0],data[1],data[2],data[3],data[4],data[5],data[6]);
     }*/
-
-
 
     // qt 界面 最后编写
     /*

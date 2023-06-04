@@ -190,30 +190,6 @@ Sources/BasicFuns.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/Sources/BasicFuns.cpp.s
 .PHONY : Sources/BasicFuns.cpp.s
 
-Sources/LooseCombination.o: Sources/LooseCombination.cpp.o
-.PHONY : Sources/LooseCombination.o
-
-# target to build an object file
-Sources/LooseCombination.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/Sources/LooseCombination.cpp.o
-.PHONY : Sources/LooseCombination.cpp.o
-
-Sources/LooseCombination.i: Sources/LooseCombination.cpp.i
-.PHONY : Sources/LooseCombination.i
-
-# target to preprocess a source file
-Sources/LooseCombination.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/Sources/LooseCombination.cpp.i
-.PHONY : Sources/LooseCombination.cpp.i
-
-Sources/LooseCombination.s: Sources/LooseCombination.cpp.s
-.PHONY : Sources/LooseCombination.s
-
-# target to generate assembly for a file
-Sources/LooseCombination.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/Sources/LooseCombination.cpp.s
-.PHONY : Sources/LooseCombination.cpp.s
-
 Sources/main.o: Sources/main.cpp.o
 .PHONY : Sources/main.o
 
@@ -382,6 +358,30 @@ src/FileIO/cfileSaver.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/src/FileIO/cfileSaver.cpp.s
 .PHONY : src/FileIO/cfileSaver.cpp.s
 
+src/GNSS/GNSSType.o: src/GNSS/GNSSType.cpp.o
+.PHONY : src/GNSS/GNSSType.o
+
+# target to build an object file
+src/GNSS/GNSSType.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/src/GNSS/GNSSType.cpp.o
+.PHONY : src/GNSS/GNSSType.cpp.o
+
+src/GNSS/GNSSType.i: src/GNSS/GNSSType.cpp.i
+.PHONY : src/GNSS/GNSSType.i
+
+# target to preprocess a source file
+src/GNSS/GNSSType.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/src/GNSS/GNSSType.cpp.i
+.PHONY : src/GNSS/GNSSType.cpp.i
+
+src/GNSS/GNSSType.s: src/GNSS/GNSSType.cpp.s
+.PHONY : src/GNSS/GNSSType.s
+
+# target to generate assembly for a file
+src/GNSS/GNSSType.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/src/GNSS/GNSSType.cpp.s
+.PHONY : src/GNSS/GNSSType.cpp.s
+
 src/INS/INSData.o: src/INS/INSData.cpp.o
 .PHONY : src/INS/INSData.o
 
@@ -406,6 +406,30 @@ src/INS/INSData.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/src/INS/INSData.cpp.s
 .PHONY : src/INS/INSData.cpp.s
 
+src/LC/LooseCombination.o: src/LC/LooseCombination.cpp.o
+.PHONY : src/LC/LooseCombination.o
+
+# target to build an object file
+src/LC/LooseCombination.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/src/LC/LooseCombination.cpp.o
+.PHONY : src/LC/LooseCombination.cpp.o
+
+src/LC/LooseCombination.i: src/LC/LooseCombination.cpp.i
+.PHONY : src/LC/LooseCombination.i
+
+# target to preprocess a source file
+src/LC/LooseCombination.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/src/LC/LooseCombination.cpp.i
+.PHONY : src/LC/LooseCombination.cpp.i
+
+src/LC/LooseCombination.s: src/LC/LooseCombination.cpp.s
+.PHONY : src/LC/LooseCombination.s
+
+# target to generate assembly for a file
+src/LC/LooseCombination.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/src/LC/LooseCombination.cpp.s
+.PHONY : src/LC/LooseCombination.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -422,9 +446,6 @@ help:
 	@echo "... Sources/BasicFuns.o"
 	@echo "... Sources/BasicFuns.i"
 	@echo "... Sources/BasicFuns.s"
-	@echo "... Sources/LooseCombination.o"
-	@echo "... Sources/LooseCombination.i"
-	@echo "... Sources/LooseCombination.s"
 	@echo "... Sources/main.o"
 	@echo "... Sources/main.i"
 	@echo "... Sources/main.s"
@@ -446,9 +467,15 @@ help:
 	@echo "... src/FileIO/cfileSaver.o"
 	@echo "... src/FileIO/cfileSaver.i"
 	@echo "... src/FileIO/cfileSaver.s"
+	@echo "... src/GNSS/GNSSType.o"
+	@echo "... src/GNSS/GNSSType.i"
+	@echo "... src/GNSS/GNSSType.s"
 	@echo "... src/INS/INSData.o"
 	@echo "... src/INS/INSData.i"
 	@echo "... src/INS/INSData.s"
+	@echo "... src/LC/LooseCombination.o"
+	@echo "... src/LC/LooseCombination.i"
+	@echo "... src/LC/LooseCombination.s"
 .PHONY : help
 
 

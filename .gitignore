@@ -31,6 +31,6 @@
 *.out
 *.app
 
-ObsData/
+Dataset/
 
 cmake-build-degbug/

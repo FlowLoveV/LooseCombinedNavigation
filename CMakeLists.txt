@@ -28,9 +28,18 @@ file(GLOB FILEIO_CPP_SOURCES "${FILEIO_CPP_DIR}/*.cpp" "${FILEIO_CPP_DIR}/*.cxx"
 set(INS_CPP_DIR "${SRC_DIR}/INS")
 file(GLOB INS_CPP_SOURCES "${INS_CPP_DIR}/*.cpp" "${INS_CPP_DIR}/*.cxx"
         "${INS_CPP_DIR}/*.cc" "${INS_CPP_DIR}/*.c")
-
 # Common
 set(COMMON_CPP_DIR "${SRC_DIR}/Common")
+file(GLOB COMMON_CPP_SOURCES "${COMMON_CPP_DIR}/*.cpp" "${COMMON_CPP_DIR}/*.cxx"
+        "${COMMON_CPP_DIR}/*.cc" "${COMMON_CPP_DIR}/*.c")
+# GNSS
+set(GNSS_CPP_DIR "${SRC_DIR}/GNSS")
+file(GLOB GNSS_CPP_SOURCES "${GNSS_CPP_DIR}/*.cpp" "${GNSS_CPP_DIR}/*.cxx"
+        "${GNSS_CPP_DIR}/*.cc" "${GNSS_CPP_DIR}/*.c")
+# LC
+set(LC_CPP_DIR "${SRC_DIR}/LC")
+file(GLOB LC_CPP_SOURCES "${LC_CPP_DIR}/*.cpp" "${LC_CPP_DIR}/*.cxx"
+        "${LC_CPP_DIR}/*.cc" "${LC_CPP_DIR}/*.c")
 
 
 ########################################### 第三方库路径设置 #############################################################
@@ -77,15 +86,12 @@ add_executable(CombinedNavigation Sources/main.cpp
         # UI文件
         Sources/mainwindow.cpp Sources/UIHeaders/mainwindow.h Sources/UI/mainwindow.ui
         # 资源文件
-        ${FILEIO_CPP_SOURCES} ${INS_CPP_SOURCES}
+        ${FILEIO_CPP_SOURCES} ${INS_CPP_SOURCES} ${COMMON_CPP_SOURCES} ${GNSS_CPP_SOURCES} ${LC_CPP_SOURCES}
         include/BasicFuns.h Sources/BasicFuns.cpp
-        include/LooseCombination.h Sources/LooseCombination.cpp
         # 依赖文件
         ${PROJECT_SOURCE_DIR}/lib/sciplot/ ${PROJECT_SOURCE_DIR}/lib/sciplot/specs
         ${PROJECT_SOURCE_DIR}/lib/Filter/cKalman.h ${PROJECT_SOURCE_DIR}/lib/Filter/cKalman.cpp
-        # 其他文件
-        src/GNSS/GNSS_Type.h src/Common/Rotation.h
-        src/Common/Angle.h src/Common/Earth.h src/FileIO/cFileConvertor.h src/FileIO/cFileConvertor.cpp)
+        )
 
 
 # 链接qt库文件
