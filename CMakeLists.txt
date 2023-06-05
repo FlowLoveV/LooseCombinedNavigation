@@ -78,8 +78,6 @@ include_directories(
         # 资源库
         ${SRC_SUB_DIR}
         ${SRC_DIR}
-
-
 )
 
 add_executable(CombinedNavigation Sources/main.cpp

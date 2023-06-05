@@ -8,6 +8,7 @@
 #include "INSData.h"
 #include "GNSSType.h"
 
+
 /**< 组合导航命名空间 */
 namespace ns_GINS{
     class LooseCombination {

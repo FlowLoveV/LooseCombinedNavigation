@@ -406,6 +406,30 @@ src/INS/INSData.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/src/INS/INSData.cpp.s
 .PHONY : src/INS/INSData.cpp.s
 
+src/LC/GINSType.o: src/LC/GINSType.cpp.o
+.PHONY : src/LC/GINSType.o
+
+# target to build an object file
+src/LC/GINSType.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/src/LC/GINSType.cpp.o
+.PHONY : src/LC/GINSType.cpp.o
+
+src/LC/GINSType.i: src/LC/GINSType.cpp.i
+.PHONY : src/LC/GINSType.i
+
+# target to preprocess a source file
+src/LC/GINSType.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/src/LC/GINSType.cpp.i
+.PHONY : src/LC/GINSType.cpp.i
+
+src/LC/GINSType.s: src/LC/GINSType.cpp.s
+.PHONY : src/LC/GINSType.s
+
+# target to generate assembly for a file
+src/LC/GINSType.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/src/LC/GINSType.cpp.s
+.PHONY : src/LC/GINSType.cpp.s
+
 src/LC/LooseCombination.o: src/LC/LooseCombination.cpp.o
 .PHONY : src/LC/LooseCombination.o
 
@@ -473,6 +497,9 @@ help:
 	@echo "... src/INS/INSData.o"
 	@echo "... src/INS/INSData.i"
 	@echo "... src/INS/INSData.s"
+	@echo "... src/LC/GINSType.o"
+	@echo "... src/LC/GINSType.i"
+	@echo "... src/LC/GINSType.s"
 	@echo "... src/LC/LooseCombination.o"
 	@echo "... src/LC/LooseCombination.i"
 	@echo "... src/LC/LooseCombination.s"

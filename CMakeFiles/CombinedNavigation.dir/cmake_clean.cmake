@@ -13,6 +13,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/CombinedNavigation.dir/src/FileIO/cfileSaver.cpp.o"
   "CMakeFiles/CombinedNavigation.dir/src/GNSS/GNSSType.cpp.o"
   "CMakeFiles/CombinedNavigation.dir/src/INS/INSData.cpp.o"
+  "CMakeFiles/CombinedNavigation.dir/src/LC/GINSType.cpp.o"
   "CMakeFiles/CombinedNavigation.dir/src/LC/LooseCombination.cpp.o"
   "CombinedNavigation"
   "CombinedNavigation.pdb"

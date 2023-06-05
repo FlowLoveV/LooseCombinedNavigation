@@ -205,6 +205,12 @@
 		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/INS/INSData.h">
 			<Option target="CombinedNavigation"/>
 		</Unit>
+		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/LC/GINSType.cpp">
+			<Option target="CombinedNavigation"/>
+		</Unit>
+		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/LC/GINSType.h">
+			<Option target="CombinedNavigation"/>
+		</Unit>
 		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/LC/LooseCombination.cpp">
 			<Option target="CombinedNavigation"/>
 		</Unit>

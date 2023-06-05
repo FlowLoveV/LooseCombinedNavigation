@@ -183,9 +183,22 @@ CMakeFiles/CombinedNavigation.dir/src/GNSS/GNSSType.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CombinedNavigation.dir/src/GNSS/GNSSType.cpp.s"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/GNSS/GNSSType.cpp -o CMakeFiles/CombinedNavigation.dir/src/GNSS/GNSSType.cpp.s
 
+CMakeFiles/CombinedNavigation.dir/src/LC/GINSType.cpp.o: CMakeFiles/CombinedNavigation.dir/flags.make
+CMakeFiles/CombinedNavigation.dir/src/LC/GINSType.cpp.o: src/LC/GINSType.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/CombinedNavigation.dir/src/LC/GINSType.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CombinedNavigation.dir/src/LC/GINSType.cpp.o -c /Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/LC/GINSType.cpp
+
+CMakeFiles/CombinedNavigation.dir/src/LC/GINSType.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CombinedNavigation.dir/src/LC/GINSType.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/LC/GINSType.cpp > CMakeFiles/CombinedNavigation.dir/src/LC/GINSType.cpp.i
+
+CMakeFiles/CombinedNavigation.dir/src/LC/GINSType.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CombinedNavigation.dir/src/LC/GINSType.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/LC/GINSType.cpp -o CMakeFiles/CombinedNavigation.dir/src/LC/GINSType.cpp.s
+
 CMakeFiles/CombinedNavigation.dir/src/LC/LooseCombination.cpp.o: CMakeFiles/CombinedNavigation.dir/flags.make
 CMakeFiles/CombinedNavigation.dir/src/LC/LooseCombination.cpp.o: src/LC/LooseCombination.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/CombinedNavigation.dir/src/LC/LooseCombination.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/CombinedNavigation.dir/src/LC/LooseCombination.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CombinedNavigation.dir/src/LC/LooseCombination.cpp.o -c /Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/LC/LooseCombination.cpp
 
 CMakeFiles/CombinedNavigation.dir/src/LC/LooseCombination.cpp.i: cmake_force
@@ -198,7 +211,7 @@ CMakeFiles/CombinedNavigation.dir/src/LC/LooseCombination.cpp.s: cmake_force
 
 CMakeFiles/CombinedNavigation.dir/Sources/BasicFuns.cpp.o: CMakeFiles/CombinedNavigation.dir/flags.make
 CMakeFiles/CombinedNavigation.dir/Sources/BasicFuns.cpp.o: Sources/BasicFuns.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/CombinedNavigation.dir/Sources/BasicFuns.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/CombinedNavigation.dir/Sources/BasicFuns.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CombinedNavigation.dir/Sources/BasicFuns.cpp.o -c /Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/BasicFuns.cpp
 
 CMakeFiles/CombinedNavigation.dir/Sources/BasicFuns.cpp.i: cmake_force
@@ -211,7 +224,7 @@ CMakeFiles/CombinedNavigation.dir/Sources/BasicFuns.cpp.s: cmake_force
 
 CMakeFiles/CombinedNavigation.dir/lib/Filter/cKalman.cpp.o: CMakeFiles/CombinedNavigation.dir/flags.make
 CMakeFiles/CombinedNavigation.dir/lib/Filter/cKalman.cpp.o: lib/Filter/cKalman.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/CombinedNavigation.dir/lib/Filter/cKalman.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/CombinedNavigation.dir/lib/Filter/cKalman.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CombinedNavigation.dir/lib/Filter/cKalman.cpp.o -c /Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/Filter/cKalman.cpp
 
 CMakeFiles/CombinedNavigation.dir/lib/Filter/cKalman.cpp.i: cmake_force
@@ -233,6 +246,7 @@ CombinedNavigation_OBJECTS = \
 "CMakeFiles/CombinedNavigation.dir/src/FileIO/cfileSaver.cpp.o" \
 "CMakeFiles/CombinedNavigation.dir/src/INS/INSData.cpp.o" \
 "CMakeFiles/CombinedNavigation.dir/src/GNSS/GNSSType.cpp.o" \
+"CMakeFiles/CombinedNavigation.dir/src/LC/GINSType.cpp.o" \
 "CMakeFiles/CombinedNavigation.dir/src/LC/LooseCombination.cpp.o" \
 "CMakeFiles/CombinedNavigation.dir/Sources/BasicFuns.cpp.o" \
 "CMakeFiles/CombinedNavigation.dir/lib/Filter/cKalman.cpp.o"
@@ -249,6 +263,7 @@ CombinedNavigation: CMakeFiles/CombinedNavigation.dir/src/FileIO/cfileReader.cpp
 CombinedNavigation: CMakeFiles/CombinedNavigation.dir/src/FileIO/cfileSaver.cpp.o
 CombinedNavigation: CMakeFiles/CombinedNavigation.dir/src/INS/INSData.cpp.o
 CombinedNavigation: CMakeFiles/CombinedNavigation.dir/src/GNSS/GNSSType.cpp.o
+CombinedNavigation: CMakeFiles/CombinedNavigation.dir/src/LC/GINSType.cpp.o
 CombinedNavigation: CMakeFiles/CombinedNavigation.dir/src/LC/LooseCombination.cpp.o
 CombinedNavigation: CMakeFiles/CombinedNavigation.dir/Sources/BasicFuns.cpp.o
 CombinedNavigation: CMakeFiles/CombinedNavigation.dir/lib/Filter/cKalman.cpp.o
@@ -261,7 +276,7 @@ CombinedNavigation: /usr/local/lib/QtWidgets.framework/Versions/A/QtWidgets
 CombinedNavigation: /usr/local/lib/QtGui.framework/Versions/A/QtGui
 CombinedNavigation: /usr/local/lib/QtCore.framework/Versions/A/QtCore
 CombinedNavigation: CMakeFiles/CombinedNavigation.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Linking CXX executable CombinedNavigation"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Linking CXX executable CombinedNavigation"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/CombinedNavigation.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

@@ -19,6 +19,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cfileSaver.cpp" "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/CMakeFiles/CombinedNavigation.dir/src/FileIO/cfileSaver.cpp.o"
   "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/GNSS/GNSSType.cpp" "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/CMakeFiles/CombinedNavigation.dir/src/GNSS/GNSSType.cpp.o"
   "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/INS/INSData.cpp" "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/CMakeFiles/CombinedNavigation.dir/src/INS/INSData.cpp.o"
+  "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/LC/GINSType.cpp" "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/CMakeFiles/CombinedNavigation.dir/src/LC/GINSType.cpp.o"
   "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/LC/LooseCombination.cpp" "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/CMakeFiles/CombinedNavigation.dir/src/LC/LooseCombination.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "AppleClang")

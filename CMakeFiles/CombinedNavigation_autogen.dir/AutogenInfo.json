@@ -365,6 +365,12 @@
 			null
 		],
 		[
+			"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/LC/GINSType.h",
+			"MU",
+			"VRJSDRMHCI/moc_GINSType.cpp",
+			null
+		],
+		[
 			"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/LC/LooseCombination.h",
 			"MU",
 			"VRJSDRMHCI/moc_LooseCombination.cpp",
@@ -492,6 +498,11 @@
 		],
 		[
 			"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/INS/INSData.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/LC/GINSType.cpp",
 			"MU",
 			null
 		],
