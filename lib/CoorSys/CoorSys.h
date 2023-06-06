@@ -10,7 +10,7 @@
 #define F_WGS84  1.0/298.257223563  /* Flattening; WGS-84   */
 #define R_CGS2K  6378137.0          /* Radius Earth [m]; CGCS2000  */
 #define F_CGS2K  1.0/298.257222101  /* Flattening; CGCS2000   */
-#define pi 3.1415926535897932384626433832795028841971
+
 
 #include <iostream>
 #include "Matrix.h"

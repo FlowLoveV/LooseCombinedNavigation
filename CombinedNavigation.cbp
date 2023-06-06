@@ -175,6 +175,12 @@
 		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cFileConvertor.h">
 			<Option target="CombinedNavigation"/>
 		</Unit>
+		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cImuDataReader.cpp">
+			<Option target="CombinedNavigation"/>
+		</Unit>
+		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cImuDataReader.h">
+			<Option target="CombinedNavigation"/>
+		</Unit>
 		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cfileBase.cpp">
 			<Option target="CombinedNavigation"/>
 		</Unit>
@@ -199,10 +205,10 @@
 		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/GNSS/GNSSType.h">
 			<Option target="CombinedNavigation"/>
 		</Unit>
-		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/INS/INSData.cpp">
+		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/INS/INSType.cpp">
 			<Option target="CombinedNavigation"/>
 		</Unit>
-		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/INS/INSData.h">
+		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/INS/INSType.h">
 			<Option target="CombinedNavigation"/>
 		</Unit>
 		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/LC/GINSType.cpp">

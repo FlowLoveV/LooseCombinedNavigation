@@ -2,8 +2,8 @@
 // Created by 0-0 mashuo on 2023/5/12.
 //
 
-#ifndef COMBINEDNAVIGATION_INSDATA_H
-#define COMBINEDNAVIGATION_INSDATA_H
+#ifndef COMBINEDNAVIGATION_INSTYPE_H
+#define COMBINEDNAVIGATION_INSTYPE_H
 
 #include "TimeSys.h"
 #include "BasicFuns.h"
@@ -12,6 +12,7 @@
 #include "vector"
 #include "Matrix.h"
 #include <deque>
+#include "GINSType.h"
 
 const int IMUDATA_SIZE = 3*sizeof(double);  // 一组加速度或者陀螺仪数据量大小
 const int GPST_SIZE = sizeof(GPST);         // 一个GPST结构体的大小
@@ -72,6 +73,22 @@ public:
      * @brief 默认析构函数
      */
     ~IMUData_SingleEpoch();
+
+    /*!
+     * 根据两个历元的IMU数据，线型内插出指定时刻的IMU数据
+     * @param data0         input       IMUData_SingleEpoch         上一历元数据
+     * @param data          output      IMUData_SingleEpoch         指定时刻内插得到的IMU数据
+     * @param timestamp     input       GPST                        指定时刻
+     */
+    void interpolationImuData(const IMUData_SingleEpoch & data0,IMUData_SingleEpoch & data,const GPST & timestamp);
+
+    /*!
+     * 补偿IMU原始数据的误差
+     * @param error         input       ImuError                    imu零偏、比例因子误差类
+     * @param dt            input       double                      补偿时间
+     */
+    void compensate(const ImuError & error,const double & dt);
+
 };
 
 
@@ -83,11 +100,12 @@ public:
  */
 class INSRes_SingleEpoch{
 public:
-    GPST t;                           /**< 观测时间 */
-    double_t m_pPos[3] = {0};         /**< 位置 [lat,lon,h] */
-    double_t m_pSpeed[3] = {0};       /**< 速度 [Vn,Ve,Vd] */
-    double_t m_pQuaternion[4] = {0};  /**< 姿态四元数 */
-    double_t m_pEMatrix[4] = {0};     /**< 姿态角矩阵 */
+    GPST t;                           /**< 观测时间            */
+    double_t m_pPos[3] = {0};         /**< 位置 [lat,lon,h]   */
+    double_t m_pSpeed[3] = {0};       /**< 速度 [Vn,Ve,Vd]    */
+    double_t m_pQuaternion[4] = {0};  /**< 姿态四元数          */
+    double_t m_pEMatrix[4] = {0};     /**< 姿态角矩阵          */
+    double_t m_pEuler[3]{};           /**< 欧拉角组            */
 
     /*!
      * @brief 默认构造函数
@@ -105,6 +123,12 @@ public:
      * @brief 默认析构函数
      */
     ~INSRes_SingleEpoch();
+
+    /*!
+     * 将INS状态转为一个vector向量
+     * @return [GPST-week,GPST-second,pos-lat,pos-lon,pos-h,vel-n,vel-e,vel-d,euler-roll,euler-pitch,euler-yaw];
+     */
+    std::vector<double> toVector();
 };
 
 
@@ -154,8 +178,6 @@ class PureIns{
     INSRes_SingleEpoch m_StartInfo;                  /**< 初始位置信息 */
     double_t m_dSampleFrequency;                     /**< 采样频率 */
     ::std::deque<IMUData_SingleEpoch> m_ObsData;     /**< 观测数据 */
-    ::std::ifstream * m_pDataFileS;                  /**< IMU数据文件流 */
-    ::std::ofstream * m_pResFileS;                   /**< 结果文件流 */
 
 public:
 
@@ -179,7 +201,7 @@ public:
     void gyrAlignment(const ::std::vector<IMUData_SingleEpoch> & rawData,double *euler);
 
     /*!
-     * 惯性导航机械编排算法单历元更新函数
+     * 惯性导航机械编排算法单历元更新函数，静态函数
      * @param obs2      input       IMUData_SingleEpoch     k-2历元IMU原始观测数据
      * @param obs1      input       IMUData_SingleEpoch     k-1历元IMU原始观测数据
      * @param obs       input       IMUData_SingleEpoch     k历元IMU原始观测数据
@@ -187,7 +209,7 @@ public:
      * @param res1      input       INSRes_SingleEpoch      k-1历元INS解算结果(位置、速度，姿态)
      * @param res       output      INSRes_SingleEpoch      K历元INS解算结果(位置、速度，姿态)
      */
-    void updateSinEpoch(const IMUData_SingleEpoch & obs2,const IMUData_SingleEpoch & obs1,
+    static void updateSinEpoch(const IMUData_SingleEpoch & obs2,const IMUData_SingleEpoch & obs1,
                         const IMUData_SingleEpoch & obs, const INSRes_SingleEpoch & res2,
                         const INSRes_SingleEpoch & res1,INSRes_SingleEpoch & res);
 
@@ -198,14 +220,10 @@ public:
 
 
 
-    // 结果文件输出函数
-    // 创建输出结果文件流
-    ::std::ofstream * createResFile(const ::std::string & fileDir);
-    // 输出结果文件
-    void outputResFile(const INSRes_SingleEpoch & res,::std::ofstream & outputfile) const;
-    // 销毁输出结果的文件流
-    void releaseFileStream(::std::ofstream * output);
 };
+
+
+
 
 
 
@@ -241,4 +259,4 @@ bool asc_readAll(const ::std::string & filename , ::std::vector<IMUData_SingleEp
 
 
 
-#endif //COMBINEDNAVIGATION_INSDATA_H
+#endif //COMBINEDNAVIGATION_INSTYPE_H

@@ -9,10 +9,10 @@
 #include "QDebug"
 
 
-cfileReader::cfileReader(const std::string &filename, const int type, const std::string &format) {
+cfileReader::cfileReader(const std::string &filename, const int type, const int &format) {
     open(filename,type);
     m_sfileName = filename;
-    m_sfileFormat = format;
+    m_ifileFormat = format;
     if(!is_open()) std::cerr << "can't open file : " << filename << '\n';
 }
 

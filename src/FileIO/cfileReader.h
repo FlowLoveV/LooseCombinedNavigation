@@ -14,7 +14,7 @@
 /*!
  * NOVATEL OME7板卡输出数据，使用NOVATEL CONVERTOR 转换得到的 ASCII文本格式的IMU数据
  */
-#define NOVATEL_OME7_IMU_ACSII "NOVATEL_OME7_IMU_ACSII"
+
 
 
 
@@ -22,7 +22,7 @@ class cfileReader : public cFileBase{
 public:
     cfileReader();
 
-    explicit cfileReader(const std::string &filename, const int type = cFileBase::ASCIITYPE, const std::string &format = "default");
+    explicit cfileReader(const std::string &filename, const int type = cFileBase::ASCIITYPE, const int & format = 22);
 
     bool open(const std::string &filename,const int &filetype = cFileBase::ASCIITYPE);
 

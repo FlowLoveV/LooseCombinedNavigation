@@ -335,6 +335,12 @@
 			null
 		],
 		[
+			"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cImuDataReader.h",
+			"MU",
+			"ZN5A7IICA7/moc_cImuDataReader.cpp",
+			null
+		],
+		[
 			"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cfileBase.h",
 			"MU",
 			"ZN5A7IICA7/moc_cfileBase.cpp",
@@ -359,9 +365,9 @@
 			null
 		],
 		[
-			"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/INS/INSData.h",
+			"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/INS/INSType.h",
 			"MU",
-			"Z3CVQJW5MN/moc_INSData.cpp",
+			"Z3CVQJW5MN/moc_INSType.cpp",
 			null
 		],
 		[
@@ -477,6 +483,11 @@
 			null
 		],
 		[
+			"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cImuDataReader.cpp",
+			"MU",
+			null
+		],
+		[
 			"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cfileBase.cpp",
 			"MU",
 			null
@@ -497,7 +508,7 @@
 			null
 		],
 		[
-			"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/INS/INSData.cpp",
+			"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/INS/INSType.cpp",
 			"MU",
 			null
 		],

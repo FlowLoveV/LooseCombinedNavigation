@@ -14,11 +14,12 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/mainwindow.cpp" "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/CMakeFiles/CombinedNavigation.dir/Sources/mainwindow.cpp.o"
   "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/Filter/cKalman.cpp" "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/CMakeFiles/CombinedNavigation.dir/lib/Filter/cKalman.cpp.o"
   "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cFileConvertor.cpp" "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/CMakeFiles/CombinedNavigation.dir/src/FileIO/cFileConvertor.cpp.o"
+  "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cImuDataReader.cpp" "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/CMakeFiles/CombinedNavigation.dir/src/FileIO/cImuDataReader.cpp.o"
   "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cfileBase.cpp" "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/CMakeFiles/CombinedNavigation.dir/src/FileIO/cfileBase.cpp.o"
   "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cfileReader.cpp" "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/CMakeFiles/CombinedNavigation.dir/src/FileIO/cfileReader.cpp.o"
   "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cfileSaver.cpp" "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/CMakeFiles/CombinedNavigation.dir/src/FileIO/cfileSaver.cpp.o"
   "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/GNSS/GNSSType.cpp" "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/CMakeFiles/CombinedNavigation.dir/src/GNSS/GNSSType.cpp.o"
-  "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/INS/INSData.cpp" "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/CMakeFiles/CombinedNavigation.dir/src/INS/INSData.cpp.o"
+  "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/INS/INSType.cpp" "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/CMakeFiles/CombinedNavigation.dir/src/INS/INSType.cpp.o"
   "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/LC/GINSType.cpp" "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/CMakeFiles/CombinedNavigation.dir/src/LC/GINSType.cpp.o"
   "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/LC/LooseCombination.cpp" "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/CMakeFiles/CombinedNavigation.dir/src/LC/LooseCombination.cpp.o"
   )

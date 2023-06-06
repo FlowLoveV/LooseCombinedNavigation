@@ -3,7 +3,7 @@
 //
 
 #include <sstream>
-#include "INSData.h"
+#include "INSType.h"
 #include "cstring"
 #include "iostream"
 #include "Rotation.h"
@@ -151,6 +151,16 @@ INSRes_SingleEpoch::INSRes_SingleEpoch(const INSRes_SingleEpoch & another) {
     memcpy(&m_pEMatrix, &another.m_pEMatrix, 3 * IMUDATA_SIZE);
 }
 
+std::vector<double> INSRes_SingleEpoch::toVector() {
+    std::vector<double> v;
+    v.reserve(11);
+    v.push_back(t.weeks) , v.push_back(t.second);
+    memcpy(v.data()+2*sizeof(double),m_pPos,3*sizeof(double));
+    memcpy(v.data()+5*sizeof(double),m_pSpeed,3*sizeof(double));
+    memcpy(v.data()+8*sizeof(double),m_pEuler,3*sizeof(double));
+    return v;
+}
+
 INSRes_SingleEpoch::~INSRes_SingleEpoch() = default;
 
 InsConfigure::InsConfigure() = default;
@@ -202,27 +212,6 @@ void PureIns::updateSinEpoch(const IMUData_SingleEpoch & obs2,const IMUData_Sing
     res.m_pPos[1] = res1.m_pPos[1] + (res.m_pSpeed[1] + res1.m_pSpeed[1]) / 2 / (Rn + average_h) / cos(average_lat) * delta_t;
 }
 
-void PureIns::outputResFile(const INSRes_SingleEpoch & res, ::std::ofstream & outputfile) const {
-    double_t euler[3];
-    Rotation::EMatrix2Euler(res.m_pEMatrix, euler);
-    outputfile << res.t.weeks << "," << res.t.second << "," <<
-               res.m_pPos[0] << "," << res.m_pPos[1] << "," << res.m_pPos[2] << "," <<
-               res.m_pSpeed[0] << "," << res.m_pSpeed[1] << "," << res.m_pSpeed[2] << "," <<
-               euler[2] << "," << euler[1] << "," << euler[0] << '\n';
-}
-
-::std::ofstream *PureIns::createResFile(const ::std::string & fileDir) {
-    // 创建文件流，设定输出格式
-    ::std::ofstream* output = new std::ofstream(fileDir);
-    *output << ::std::fixed << ::std::setprecision(5);
-    return output;
-}
-
-
-void PureIns::releaseFileStream(::std::ofstream *output) {
-    output->close();
-    delete output;
-}
 
 void InsConfigure::setBeginTime(GPST *tm) {
     m_gpstBeginTime = tm;
@@ -245,6 +234,33 @@ IMUData_SingleEpoch::IMUData_SingleEpoch(std::vector<double> &vec) {
     t = GPST(vec[0],vec[1]);
     memcpy(m_pAcc,&vec[2],IMUDATA_SIZE);
     memcpy(m_pGyr,&vec[5],IMUDATA_SIZE);
+}
+
+void IMUData_SingleEpoch::interpolationImuData(const IMUData_SingleEpoch &data0, IMUData_SingleEpoch &data,
+                                               const GPST &timestamp) {
+    // 容错
+    if (data0.t - this->t >0){
+        std::cerr << "输入data0对应数据时刻应在本历元之前!\n";
+    }
+    if (data0.t - this->t ==0){
+        std::cerr << "data0数据对应历元与本数据对应历元相等,无法实现内插!\n";
+    }
+    double dx = this->t - data0.t;
+    double x = timestamp - data0.t;
+    data.t = timestamp;
+    for (int i = 0; i < 3; ++i) {
+        data.m_pAcc[i] = data0.m_pAcc[i] + (this->m_pAcc[i] - data0.m_pAcc[i]) / dx * x;
+        data.m_pGyr[i] = data0.m_pGyr[i] + (this->m_pGyr[i] - data0.m_pGyr[i]) / dx * x;
+    }
+}
+
+void IMUData_SingleEpoch::compensate(const ImuError &error, const double & dt) {
+    for (int i = 0; i < 3; ++i) {
+        m_pAcc[i] -= error.aBias[i] * dt;
+        m_pGyr[i] -= error.gBias[i] * dt;
+        m_pAcc[i] /= error.aScale[i] + 1;
+        m_pGyr[i] /= error.gScale[i] + 1;
+    }
 }
 
 

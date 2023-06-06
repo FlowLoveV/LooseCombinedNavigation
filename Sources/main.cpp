@@ -1,7 +1,7 @@
 #include <QApplication>
 #include "QString"
 #include "mainwindow.h"
-#include "INSData.h"
+#include "INSType.h"
 #include "BasicFuns.h"
 #include "cKalman.h"
 #include "iostream"
@@ -17,13 +17,6 @@ using namespace sciplot;
 
 int main(int argc, char *argv[]) {
     using namespace std;
-    std::valarray<double> a(1,10);
-    a = a * 10;
-
-
-    YAML::Node config = YAML::LoadFile("/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/config.yaml");
-    GinsOptions options1(config);
-    options1.print();
 
     return 0;
 

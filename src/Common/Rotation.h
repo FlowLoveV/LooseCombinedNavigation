@@ -111,5 +111,11 @@ public:
 
 };
 
+struct Attitude{
+    double euler[3];
+    double quaternion[4];
+    double eMatrix[9];
+};
+
 
 #endif //COMBINEDNAVIGATION_ROTATION_H

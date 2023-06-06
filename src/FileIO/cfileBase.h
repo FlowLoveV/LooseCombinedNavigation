@@ -25,7 +25,7 @@ public:
     std::fstream & getFstream();
 
 protected:
-    std::string m_sfileFormat;             /**< 记录文件的编码格式       */
+    int m_ifileFormat;             /**< 记录文件的编码格式       */
     std::fstream m_fileFp;                 /**< 文件流                 */
     int m_ifileType = cFileBase::ASCIITYPE;               /**< 文件格式ASCII文本或者二进制 */
 };

@@ -5,10 +5,6 @@
 #ifndef COMBINEDNAVIGATION_GINSTYPE_H
 #define COMBINEDNAVIGATION_GINSTYPE_H
 
-
-#include "GNSSType.h"
-#include "yaml-cpp/include/yaml-cpp/yaml.h"
-
 // 本文件中定义结构体中IMU误差、噪声及其标准差的单位如下，方便程序中计算
 /**< 陀螺仪零偏               rad/s            */
 /**< 加速度计零偏               m/s            */
@@ -16,6 +12,10 @@
 /**< 角度随机游走            rad/sqrt(s)       */
 /**< 加速度随机游走            m/sqrt(s)       */
 /**< 相关时间                   s             */
+
+#include "GNSSType.h"
+#include "yaml-cpp/include/yaml-cpp/yaml.h"
+
 
 struct ImuError{
     double gBias[3];       /**< 陀螺仪零偏                   */

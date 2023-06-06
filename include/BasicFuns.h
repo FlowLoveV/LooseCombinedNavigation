@@ -6,7 +6,7 @@
 #define COMBINEDNAVIGATION_BASICFUNS_H
 
 #include <cmath>
-#include "INSData.h"
+#include "INSType.h"
 
 // 常量的定义
 extern double ELLIPSOID_a;

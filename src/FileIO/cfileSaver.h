@@ -13,7 +13,7 @@ class cfileSaver : public cFileBase{
 public:
     cfileSaver();
 
-    explicit cfileSaver(const std::string & filename, const int & type = 0, const std::string & format = "default");
+    explicit cfileSaver(const std::string & filename, const int & type = 0, const int & format = 22);
 
     bool open(const std::string & filename,const int & type = 0);
 

@@ -286,6 +286,30 @@ src/FileIO/cFileConvertor.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/src/FileIO/cFileConvertor.cpp.s
 .PHONY : src/FileIO/cFileConvertor.cpp.s
 
+src/FileIO/cImuDataReader.o: src/FileIO/cImuDataReader.cpp.o
+.PHONY : src/FileIO/cImuDataReader.o
+
+# target to build an object file
+src/FileIO/cImuDataReader.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/src/FileIO/cImuDataReader.cpp.o
+.PHONY : src/FileIO/cImuDataReader.cpp.o
+
+src/FileIO/cImuDataReader.i: src/FileIO/cImuDataReader.cpp.i
+.PHONY : src/FileIO/cImuDataReader.i
+
+# target to preprocess a source file
+src/FileIO/cImuDataReader.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/src/FileIO/cImuDataReader.cpp.i
+.PHONY : src/FileIO/cImuDataReader.cpp.i
+
+src/FileIO/cImuDataReader.s: src/FileIO/cImuDataReader.cpp.s
+.PHONY : src/FileIO/cImuDataReader.s
+
+# target to generate assembly for a file
+src/FileIO/cImuDataReader.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/src/FileIO/cImuDataReader.cpp.s
+.PHONY : src/FileIO/cImuDataReader.cpp.s
+
 src/FileIO/cfileBase.o: src/FileIO/cfileBase.cpp.o
 .PHONY : src/FileIO/cfileBase.o
 
@@ -382,29 +406,29 @@ src/GNSS/GNSSType.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/src/GNSS/GNSSType.cpp.s
 .PHONY : src/GNSS/GNSSType.cpp.s
 
-src/INS/INSData.o: src/INS/INSData.cpp.o
-.PHONY : src/INS/INSData.o
+src/INS/INSType.o: src/INS/INSType.cpp.o
+.PHONY : src/INS/INSType.o
 
 # target to build an object file
-src/INS/INSData.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/src/INS/INSData.cpp.o
-.PHONY : src/INS/INSData.cpp.o
+src/INS/INSType.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/src/INS/INSType.cpp.o
+.PHONY : src/INS/INSType.cpp.o
 
-src/INS/INSData.i: src/INS/INSData.cpp.i
-.PHONY : src/INS/INSData.i
+src/INS/INSType.i: src/INS/INSType.cpp.i
+.PHONY : src/INS/INSType.i
 
 # target to preprocess a source file
-src/INS/INSData.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/src/INS/INSData.cpp.i
-.PHONY : src/INS/INSData.cpp.i
+src/INS/INSType.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/src/INS/INSType.cpp.i
+.PHONY : src/INS/INSType.cpp.i
 
-src/INS/INSData.s: src/INS/INSData.cpp.s
-.PHONY : src/INS/INSData.s
+src/INS/INSType.s: src/INS/INSType.cpp.s
+.PHONY : src/INS/INSType.s
 
 # target to generate assembly for a file
-src/INS/INSData.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/src/INS/INSData.cpp.s
-.PHONY : src/INS/INSData.cpp.s
+src/INS/INSType.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/src/INS/INSType.cpp.s
+.PHONY : src/INS/INSType.cpp.s
 
 src/LC/GINSType.o: src/LC/GINSType.cpp.o
 .PHONY : src/LC/GINSType.o
@@ -482,6 +506,9 @@ help:
 	@echo "... src/FileIO/cFileConvertor.o"
 	@echo "... src/FileIO/cFileConvertor.i"
 	@echo "... src/FileIO/cFileConvertor.s"
+	@echo "... src/FileIO/cImuDataReader.o"
+	@echo "... src/FileIO/cImuDataReader.i"
+	@echo "... src/FileIO/cImuDataReader.s"
 	@echo "... src/FileIO/cfileBase.o"
 	@echo "... src/FileIO/cfileBase.i"
 	@echo "... src/FileIO/cfileBase.s"
@@ -494,9 +521,9 @@ help:
 	@echo "... src/GNSS/GNSSType.o"
 	@echo "... src/GNSS/GNSSType.i"
 	@echo "... src/GNSS/GNSSType.s"
-	@echo "... src/INS/INSData.o"
-	@echo "... src/INS/INSData.i"
-	@echo "... src/INS/INSData.s"
+	@echo "... src/INS/INSType.o"
+	@echo "... src/INS/INSType.i"
+	@echo "... src/INS/INSType.s"
 	@echo "... src/LC/GINSType.o"
 	@echo "... src/LC/GINSType.i"
 	@echo "... src/LC/GINSType.s"
