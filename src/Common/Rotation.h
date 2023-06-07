@@ -31,8 +31,6 @@ public:
     }
 
 
-
-
     /*!
      * 姿态矩阵转为欧拉角  tested
      * @param Cnb   input       double[9]     姿态矩阵，按行排列[c11,c12,c13,c21,c22,c23,c31,c32,c33]
@@ -86,7 +84,6 @@ public:
     }
 
 
-
     /*!
      * 姿态四元数转姿态矩阵函数
      * @param q input       double[4]     姿态四元数[q0,q1,q2,a3]
@@ -109,13 +106,11 @@ public:
     }
 
 
+
+
 };
 
-struct Attitude{
-    double euler[3];
-    double quaternion[4];
-    double eMatrix[9];
-};
+
 
 
 #endif //COMBINEDNAVIGATION_ROTATION_H

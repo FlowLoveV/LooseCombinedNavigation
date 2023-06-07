@@ -106,6 +106,8 @@ public:
     double_t m_pQuaternion[4] = {0};  /**< 姿态四元数          */
     double_t m_pEMatrix[4] = {0};     /**< 姿态角矩阵          */
     double_t m_pEuler[3]{};           /**< 欧拉角组            */
+    ImuError m_error{};                   /**< IMU零偏、比例因子误差 */
+
 
     /*!
      * @brief 默认构造函数
@@ -129,6 +131,13 @@ public:
      * @return [GPST-week,GPST-second,pos-lat,pos-lon,pos-h,vel-n,vel-e,vel-d,euler-roll,euler-pitch,euler-yaw];
      */
     std::vector<double> toVector();
+
+    /*!
+     * 根据松组合系统状态反馈IMU状态
+     * dx =  [delta_pos delta_v delta_attitude delta_Bg delta_Ba delta_Sg delta_Sa]
+     * @param dx        input       Matrix          松组合系统状态向量
+     */
+    void stateFeedback(const Matrix & dx);
 };
 
 
@@ -176,7 +185,7 @@ public:
  */
 class PureIns{
     INSRes_SingleEpoch m_StartInfo;                  /**< 初始位置信息 */
-    double_t m_dSampleFrequency;                     /**< 采样频率 */
+    double_t m_dSampleFrequency{};                     /**< 采样频率 */
     ::std::deque<IMUData_SingleEpoch> m_ObsData;     /**< 观测数据 */
 
 public:

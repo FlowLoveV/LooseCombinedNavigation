@@ -21,7 +21,7 @@ IMUData_SingleEpoch::IMUData_SingleEpoch(const IMUData_SingleEpoch & another_epo
 IMUData_SingleEpoch::IMUData_SingleEpoch(const double *acc, const double *gyr, const GPST & gpst) {
     memcpy(m_pAcc, acc, IMUDATA_SIZE);
     memcpy(m_pGyr, gyr, IMUDATA_SIZE);
-    memcpy(&t,&gpst,GPST_SIZE);
+    t = gpst;
 }
 
 IMUData_SingleEpoch::~IMUData_SingleEpoch() = default;
@@ -144,11 +144,13 @@ PureIns::PureIns() = default;
 INSRes_SingleEpoch::INSRes_SingleEpoch() = default;
 
 INSRes_SingleEpoch::INSRes_SingleEpoch(const INSRes_SingleEpoch & another) {
-    memcpy(&t,&another.t,GPST_SIZE);
-    memcpy(&m_pPos, &another.m_pPos, IMUDATA_SIZE);
-    memcpy(&m_pSpeed, &another.m_pSpeed, IMUDATA_SIZE);
-    memcpy(&m_pQuaternion, &another.m_pQuaternion, QUATERNION_SIZE);
-    memcpy(&m_pEMatrix, &another.m_pEMatrix, 3 * IMUDATA_SIZE);
+    t = another.t;
+    memcpy(m_pPos, another.m_pPos, IMUDATA_SIZE);
+    memcpy(m_pSpeed, another.m_pSpeed, IMUDATA_SIZE);
+    memcpy(m_pQuaternion, another.m_pQuaternion, QUATERNION_SIZE);
+    memcpy(m_pEMatrix, another.m_pEMatrix, 3 * IMUDATA_SIZE);
+    memcpy(m_pEuler,another.m_pEuler,IMUDATA_SIZE);
+    m_error = another.m_error;
 }
 
 std::vector<double> INSRes_SingleEpoch::toVector() {
@@ -159,6 +161,39 @@ std::vector<double> INSRes_SingleEpoch::toVector() {
     memcpy(v.data()+5*sizeof(double),m_pSpeed,3*sizeof(double));
     memcpy(v.data()+8*sizeof(double),m_pEuler,3*sizeof(double));
     return v;
+}
+
+void INSRes_SingleEpoch::stateFeedback(const Matrix &dx) {
+    Matrix vector3;
+    // 位置误差反馈
+    vector3 = dx.min_matrix(1,3,1,1);
+    Matrix DR_inv = Earth::toDRi(m_pPos[0],m_pPos[2]);
+    vector3 = DR_inv * vector3;
+    for (int i = 0; i < 3; ++i)  m_pPos[i] -= vector3.p[i];
+
+    // 速度误差反馈
+    vector3 = dx.min_matrix(4,6,1,1);
+    for (int i = 0; i < 3; ++i) m_pSpeed[i] -= vector3.p[i];
+
+    // 姿态误差反馈
+    vector3 = dx.min_matrix(7,9,1,1);
+    Matrix Cpn = eye(3) - antiVector(vector3);      // 失准姿态矩阵
+    Matrix Cbn = Cpn.inv() * Matrix(3,3,m_pEMatrix);
+    memcpy(m_pEMatrix,Cbn.p,9*sizeof(double));
+    Rotation::EMatrix2Euler(m_pEMatrix,m_pEuler);
+    Rotation::Euler2Quaternion(m_pEuler,m_pQuaternion);
+
+    // IMU零偏误差反馈
+    vector3 = dx.min_matrix(10,12,1,1);
+    for (int i = 0; i < 3; ++i) m_error.gBias[i] += vector3.p[i];
+    vector3 = dx.min_matrix(13,15,1,1);
+    for (int i = 0; i < 3; ++i) m_error.aBias[i] += vector3.p[i];
+
+    // IMU比例因子误差反馈
+    vector3 = dx.min_matrix(16,18,1,1);
+    for (int i = 0; i < 3; ++i) m_error.gScale[i] += vector3.p[i];
+    vector3 = dx.min_matrix(19,21,1,1);
+    for (int i = 0; i < 3; ++i) m_error.aScale[i] += vector3.p[i];
 }
 
 INSRes_SingleEpoch::~INSRes_SingleEpoch() = default;

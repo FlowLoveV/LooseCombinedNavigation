@@ -40,7 +40,7 @@ public:
 
 protected:
     // 在此定义读取每种格式文件的函数
-    virtual void read_NOVATEL_OME7_IMU_ACSII_line();
+    virtual void read_NOVATEL_OME7_IMU_ACSII_line(IMUData_SingleEpoch & data);
 
 
     IMUData_SingleEpoch m_imuData;
