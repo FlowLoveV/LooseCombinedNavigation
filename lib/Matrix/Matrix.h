@@ -72,6 +72,8 @@ public:
 
     Matrix min_matrix(int, int, int, int) const;   // 构建矩阵的一个分块矩阵
 
+    void allSet(const double & num);
+
     void print() const; //打印矩阵
 };
 
@@ -94,6 +96,7 @@ Matrix diag(double *,int);
 Matrix diag(Matrix *,int);
 
 Matrix antiVector(Matrix &);
+
 
 
 

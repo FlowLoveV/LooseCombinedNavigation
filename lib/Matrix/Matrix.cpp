@@ -635,4 +635,10 @@ Matrix antiVector(Matrix & m){
 }
 
 
+void Matrix::allSet(const double & num) {
+    for (int i = 0; i < col*row; ++i) {
+        p[i] = num;
+    }
+}
+
 
