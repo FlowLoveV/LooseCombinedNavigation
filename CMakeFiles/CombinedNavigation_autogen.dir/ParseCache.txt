@@ -6,10 +6,6 @@
 /Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/mainwindow.cpp
  uic:UI/ui_MainWindow.h
 /Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/Filter/cKalman.h
-/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cfileReader.h
-/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/GNSS/GNSSType.cpp
-/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/INS/INSType.cpp
-/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/BasicFuns.cpp
 /Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/UIHeaders/mainwindow.h
  mmc:Q_OBJECT
  mdp:/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/UIHeaders/mainwindow.h
@@ -276,6 +272,10 @@
  mdp:/usr/local/Cellar/qt/6.5.1/lib/QtWidgets.framework/Versions/A/Headers/qtwidgetsexports.h
  mdp:/usr/local/Cellar/qt/6.5.1/lib/QtWidgets.framework/Versions/A/Headers/qtwidgetsglobal.h
  mdp:/usr/local/Cellar/qt/6.5.1/lib/QtWidgets.framework/Versions/A/Headers/qwidget.h
+/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/INS/INSType.cpp
+/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/BasicFuns.cpp
+/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/GNSS/GNSSType.cpp
+/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cfileReader.h
 /Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/LC/LooseCombination.h
 /Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cfileBase.h
 /Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cFileConvertor.cpp

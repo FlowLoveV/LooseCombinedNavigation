@@ -36,7 +36,7 @@ public:
 
     Matrix& reshape(const int &,const int &);
 
-    Matrix &operator=(const Matrix &); //矩阵赋值运算符重载,仅允许空矩阵或者类型相同矩阵赋值
+    Matrix &operator=(const Matrix &); //矩阵赋值运算符重载
 
     friend Matrix operator+(const Matrix &, const Matrix &); //矩阵相加
     friend Matrix operator+(double, const Matrix &); //矩阵加常数
@@ -72,9 +72,14 @@ public:
 
     Matrix min_matrix(int, int, int, int) const;   // 构建矩阵的一个分块矩阵
 
-    void allSet(const double & num);
+    void allSet(const double & num) const;  // 将矩阵的值全部设定为num
+
+    bool checkDiagPositive() const;    // 检查方阵的对角线元素是否为正
+
+    bool isSquare() const;             // 检查矩阵是否为方阵
 
     void print() const; //打印矩阵
+
 };
 
 Matrix cross(const Matrix & m1,const Matrix & m2);    // 矩阵叉乘

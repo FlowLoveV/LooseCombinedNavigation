@@ -73,4 +73,40 @@ bool ns_filter::cKalman::upDate() {
     return true;
 }
 
+void ns_filter::cKalman::changeState(const Matrix &state, const Matrix &state_variance) {
+    m_State_k_1 = state;
+    m_StateVariance_k_1 = state_variance;
+}
+
+void ns_filter::cKalman::Predict(const Matrix &phi, const Matrix &system_noise_variance,
+                                    const Matrix &system_noise_drive) {
+    // 赋值状态转移矩阵，系统噪声方差矩阵和系统噪声驱动矩阵
+    m_StateTrans = phi;
+    m_SystemNoise = system_noise_variance;
+    m_SystemNoiseDrive = system_noise_drive;
+    // 开始进行一步预测
+    m_State_estimated = phi * m_State_k_1;
+    m_StateVariance_estimated = m_StateTrans * m_StateVariance_k_1 * m_StateTrans.T() +
+                                m_SystemNoiseDrive * m_SystemNoise * m_SystemNoiseDrive.T();
+}
+
+void ns_filter::cKalman::Update(const Matrix &obs, const Matrix &H, const Matrix &R) {
+    // 赋值观测值向量、量测矩阵和量测噪声矩阵
+    m_Observation = obs;
+    m_Measurement = H;
+    m_MeasureNoise = R;
+    // 进行测量更新
+    m_Gain = m_StateVariance_estimated * m_Measurement.T() * (m_Measurement *
+                                                              m_StateVariance_estimated * m_Measurement.T() +
+                                                              m_MeasureNoise).inv();
+    m_State_k = m_State_estimated + m_Gain * (m_Observation - m_Measurement * m_State_estimated);
+    int row = m_State_k.row;
+    Matrix I = eye(row);
+    m_StateVariance_k = (I - m_Gain * m_Measurement) * m_StateVariance_estimated *
+                        (I - m_Gain * m_Measurement).T() + m_Gain * m_MeasureNoise * m_Gain.T();
+    // 对系统状态进行转移，便于下一次滤波开始
+    TransStateMatrix();
+    TransStateVariance();
+}
+
 ns_filter::cKalman::cKalman() = default;

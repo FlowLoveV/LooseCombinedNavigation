@@ -41,15 +41,49 @@ namespace ns_filter{
         void setMMeasureNoise(const Matrix &mMeasureNoise);
 
         /*!
+         * 改变系统状态
+         * @param state             input       Matrix          系统状态向量
+         * @param state_variance    input       Matrix          系统状态向量方差
+         */
+        void changeState(const Matrix & state,const Matrix & state_variance);
+
+
+        // 一步预测准备
+        /*!
+         * 进行一步预测
+         * @param phi                       input           Matrix          状态转移矩阵
+         * @param system_noise_variance     input           Matrix          系统噪声方差矩阵
+         * @param system_noise_drive        input           Matrix          系统噪声驱动矩阵
+         */
+        void Predict(const Matrix & phi,const Matrix & system_noise_variance,const Matrix & system_noise_drive);
+
+
+        // 测量更新准备
+        /*!
+         * 进行量测更新
+         * @param obs                       input           Matrix          观测值
+         * @param H                         input           Matrix          量测矩阵
+         * @param R                         input           Matrix          量测噪声
+         */
+        void Update(const Matrix & obs,const Matrix & H,const Matrix & R);
+
+
+
+        /*!
          * 进行一次预测和量测更新
          * @return bool 滤波更新是否成功
          */
         virtual bool upDate();
+
+
         /*!
          * 转移状态向量，这个函数用于在进行一次滤波更新后，将实例中的成员m_State_k赋值给m_State_k_1，便于
          * 下一次滤波更新的开始。
          */
         void TransStateMatrix();
+
+
+
         /*!
          * 转移状态向量的方差阵，这个函数用于在进行一次滤波更新后，将实例中的成员m_StateVariance_k赋值给
          * m_StateVariance_k_1，便于下一次滤波更新的开始

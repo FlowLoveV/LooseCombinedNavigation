@@ -83,8 +83,14 @@ Matrix &Matrix::operator=(const Matrix &b) {
         }
         return *this;
     }
-    // 不符合上述情况时
-    std::cerr<<"矩阵大小不相等，无法进行赋值操作";
+    // 矩阵大小不相等时，需要另外赋值
+    col = b.col , row = b.row;
+    delete []p;
+    p = new double[col*row];
+    for (int i = 0; i <col*row; ++i) {
+        *(p + i) = b.p[i];
+    }
+    return *this;
 }
 
 Matrix operator+(const Matrix &a, const Matrix &b) {
@@ -635,9 +641,25 @@ Matrix antiVector(Matrix & m){
 }
 
 
-void Matrix::allSet(const double & num) {
+void Matrix::allSet(const double & num) const {
     for (int i = 0; i < col*row; ++i) {
         p[i] = num;
+    }
+}
+
+bool Matrix::isSquare() const {
+    if(col == row && col != 0) return true;
+    return false;
+}
+
+bool Matrix::checkDiagPositive() const {
+    if(isSquare()) {
+        for (int i = 1; i < col+1; ++i) {
+            if((*this)(i,i) <= 0) return false;
+        }
+        return true;
+    }else{
+        std::cerr << "error in Matrix::checkDiagPositive() ： 矩阵非方阵!";
     }
 }
 
