@@ -44,6 +44,7 @@ public:
 
     friend Matrix operator-(const Matrix &, const Matrix &); //矩阵相减
     friend Matrix operator-(double, const Matrix &); //矩阵减常数
+    friend Matrix operator-(const Matrix &);         // 矩阵去负号
     friend Matrix operator-(const Matrix &, double); //矩阵减常数
 
     friend Matrix operator*(const Matrix &, const Matrix &); //矩阵相乘
@@ -84,23 +85,23 @@ public:
 
 Matrix cross(const Matrix & m1,const Matrix & m2);    // 矩阵叉乘
 
-Matrix eye(int); //生成单位矩阵
+Matrix eye(const int &); //生成单位矩阵
 
-Matrix zero(int,int); //生成a行b列的全零矩阵
+Matrix zero(const int &,const int &); //生成a行b列的全零矩阵
 
-Matrix horizontal_stack(Matrix m1,Matrix m2);
+Matrix horizontal_stack(const Matrix & m1,const Matrix & m2);
 
-Matrix vertical_stack(Matrix m1,Matrix m2);
+Matrix vertical_stack(const Matrix & m1,const Matrix & m2);
 
-Matrix horizontal_stack_array(Matrix * , int);
+Matrix horizontal_stack_array(Matrix * ,const  int &);
 
-Matrix vertical_stack_array(Matrix *, int);
+Matrix vertical_stack_array(Matrix *,const int &);
 
-Matrix diag(double *,int);
+Matrix diag(double *,const int &);
 
-Matrix diag(Matrix *,int);
+Matrix diag(Matrix *,const int &);
 
-Matrix antiVector(Matrix &);
+Matrix antiVector(const Matrix &);
 
 
 

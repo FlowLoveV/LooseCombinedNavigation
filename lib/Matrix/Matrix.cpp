@@ -146,6 +146,15 @@ Matrix operator-(const double a, const Matrix &b) {
     return m;
 }
 
+Matrix operator-(const Matrix & b){
+    auto *p = new double[b.row * b.col];
+    for (int i = 0; i < b.row * b.col; ++i) {
+        *(p + i) =  - *(b.p + i);
+    }
+    Matrix m(b.row, b.col, p);
+    return m;
+}
+
 Matrix operator-(const Matrix &b, const double a) {
     auto *p = new double[b.row * b.col];
     for (int i = 0; i < b.row * b.col; ++i) {
@@ -251,7 +260,7 @@ Matrix Matrix::T() const{
     return m;
 }
 
-Matrix eye(const int n) {
+Matrix eye(const int & n) {
     if(n<=0) return Matrix();
     Matrix m;
     m.col = m.row = n;
@@ -389,7 +398,7 @@ Matrix& Matrix::reshape(const int & newrow, const int & newcol) {
 }
 
 
-Matrix horizontal_stack(Matrix m1, Matrix m2) {
+Matrix horizontal_stack(const Matrix  & m1,const Matrix & m2) {
     // 兼容处理
     if(m1.row == 0 && m2.row == 0) return Matrix();
     if(m1.row == 0) return m2;
@@ -413,7 +422,7 @@ Matrix horizontal_stack(Matrix m1, Matrix m2) {
     return m;
 }
 
-Matrix vertical_stack(Matrix m1,Matrix m2){
+Matrix vertical_stack(const Matrix & m1,const Matrix & m2){
     // 兼容处理
     if(m1.col == 0 && m2.col == 0) return Matrix();
     if(m1.col == 0) return m2;
@@ -544,7 +553,7 @@ int MatrixInv(int n,const double a[], double b[]) {
     return (1);
 }
 
-Matrix zero(int a, int b) {
+Matrix zero(const int & a,const int & b) {
     std::vector<double> v(a*b,0);
     auto *p = new double[a*b];
     p=&v[0];
@@ -552,7 +561,7 @@ Matrix zero(int a, int b) {
 }
 
 
-Matrix horizontal_stack_array(Matrix *m,int n){
+Matrix horizontal_stack_array(Matrix *m,const int & n){
     // 容错处理
     for (int i = 0; i < n-1; ++i) {
         if(m[i].row != m[i+1].row && !m[i].row && !m[i+1].row){
@@ -568,7 +577,7 @@ Matrix horizontal_stack_array(Matrix *m,int n){
 }
 
 
-Matrix vertical_stack_array(Matrix *m,int n){
+Matrix vertical_stack_array(Matrix *m,const int & n){
     // 容错处理
     for (int i = 0; i < n-1; ++i) {
         if(m[i].col != m[i+1].col && !m[i].row && !m[i+1].row){
@@ -583,7 +592,7 @@ Matrix vertical_stack_array(Matrix *m,int n){
     return v[n-2];
 }
 
-Matrix diag(double *p,int n){
+Matrix diag(double *p,const int & n){
     std::vector<double> v;
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j <n; ++j) {
@@ -598,7 +607,7 @@ Matrix diag(double *p,int n){
     return {n,n,new_p};
 }
 
-Matrix diag(Matrix *m,int n){
+Matrix diag(Matrix *m,const int & n){
     // 错误处理
     for (int i = 0; i < n; ++i) {
         if(m[i].col != m[i].row){
@@ -632,7 +641,7 @@ Matrix cross(const Matrix & m1,const Matrix & m2){
     return {3,1,res};
 }
 
-Matrix antiVector(Matrix & m){
+Matrix antiVector(const Matrix & m){
     if(m.row == 3 && m.col == 1){
         return {3,3,{0,-m.p[2],m.p[1],
                                  m.p[2],0,-m.p[0],
