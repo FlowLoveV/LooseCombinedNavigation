@@ -13,15 +13,15 @@
 class GnssRes{
 public:
     GPST m_gpst;
-    XYZ m_XYZ;
-    double m_pXYZStd[3]{};
-    double m_pV[3]{};
-    double m_pVStd[3]{};
+    double m_pBLH[3]{};
+    double m_pBLHStd[3]{};
+    double m_pVned[3]{};
+    double m_pVnedStd[3]{};
     bool m_isvalid = true;
 
     GnssRes();
 
-    GnssRes(GPST &gpst,double *xyz,double *xyz_std,double *v_xyz,double *v_xyz_std,bool valid = true);
+    GnssRes(GPST &gpst,double *blh,double *blh_std,double *v_ned,double *v_ned_std,bool valid = true);
 
 
 } ;

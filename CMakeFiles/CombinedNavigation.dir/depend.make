@@ -1009,5 +1009,8 @@ CMakeFiles/CombinedNavigation.dir/src/LC/LooseCombination.cpp.o: \
  lib/yaml-cpp/include/yaml-cpp/stlemitter.h \
  lib/yaml-cpp/include/yaml-cpp/traits.h \
  lib/yaml-cpp/include/yaml-cpp/yaml.h \
+ src/Common/Angle.h \
+ src/Common/Earth.h \
+ src/Common/Rotation.h \
  src/GNSS/GNSSType.h \
  src/INS/INSType.h

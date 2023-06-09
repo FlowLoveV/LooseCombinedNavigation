@@ -3,6 +3,12 @@
 imupath: "asd"
 gnsspath: "sa"
 
+# 观测模型:
+# 1 :  GNSS位置观测
+# 2 :  GNSS位置、速度观测
+# 3 :  GNSS位置、速度及里程计观测
+obsmodel: 1
+
 # 输出文件夹路径
 # output folder path
 outputpath: "das"

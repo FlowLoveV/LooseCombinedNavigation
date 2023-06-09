@@ -106,7 +106,8 @@ public:
     double_t m_pQuaternion[4] = {0};  /**< 姿态四元数          */
     double_t m_pEMatrix[4] = {0};     /**< 姿态角矩阵          */
     double_t m_pEuler[3]{};           /**< 欧拉角组            */
-    ImuError m_error{};                   /**< IMU零偏、比例因子误差 */
+    ImuError m_error;                 /**< IMU误差系数         */
+
 
 
     /*!

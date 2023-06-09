@@ -222,11 +222,12 @@ void PureIns::updateSinEpoch(const IMUData_SingleEpoch & obs2,const IMUData_Sing
     for (int i = 1; i < 4; ++i) {
         qn[i] = -qn[i];
     }
-    // 更新姿态 - 姿态四元数及姿态矩阵
+    // 更新姿态 - 姿态四元数、姿态矩阵和欧拉角
     double_t q_temp[4];
     Multiply_q(qn, res1.m_pQuaternion, q_temp);
     Multiply_q(q_temp,qb,res.m_pQuaternion);
     Rotation::Quaternion2EMatrix(res.m_pQuaternion, res.m_pEMatrix);
+    Rotation::EMatrix2Euler(res.m_pEMatrix,res.m_pEuler);
     // 更新速度
     double_t g = Earth::calculate_g(pos[0],pos[2]);   // 重力
     Matrix m_g(3,1,{0,0,g}),m_v(3,1,speed);           // 构造重力、k-0.5历元速度矩阵
@@ -284,8 +285,11 @@ void IMUData_SingleEpoch::interpolationImuData(const IMUData_SingleEpoch &data0,
     double x = timestamp - data0.t;
     data.t = timestamp;
     for (int i = 0; i < 3; ++i) {
-        data.m_pAcc[i] = data0.m_pAcc[i] + (this->m_pAcc[i] - data0.m_pAcc[i]) / dx * x;
-        data.m_pGyr[i] = data0.m_pGyr[i] + (this->m_pGyr[i] - data0.m_pGyr[i]) / dx * x;
+        data.m_pAcc[i] = this->m_pAcc[i] / dx * x;
+        data.m_pGyr[i] = this->m_pGyr[i] / dx * x;
+        // 同时改变本历元IMU观测值
+        this->m_pAcc[i] -= data.m_pAcc[i];
+        this->m_pGyr[i] -= data.m_pGyr[i];
     }
 }
 

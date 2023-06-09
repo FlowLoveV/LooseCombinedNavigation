@@ -130,3 +130,5 @@ void GinsOptions::adjustUnit() {
     for ( auto &it: initState.euler) it *= DEG2RAD;
     for ( auto &it: initStateStd.euler) it *= DEG2RAD;
 }
+
+GinsOptions::GinsOptions() = default;

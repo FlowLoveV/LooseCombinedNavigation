@@ -59,12 +59,25 @@
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/sciplot"/>
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/yaml-cpp"/>
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/yaml-cpp/include"/>
-					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/Common"/>
-					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO"/>
-					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/GNSS"/>
-					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/INS"/>
-					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/LC"/>
-					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src"/>
+					<Add directory="/.VolumeIcon.icns"/>
+					<Add directory="/.file"/>
+					<Add directory="/.vol"/>
+					<Add directory="/Applications"/>
+					<Add directory="/Library"/>
+					<Add directory="/System"/>
+					<Add directory="/Users"/>
+					<Add directory="/Volumes"/>
+					<Add directory="/bin"/>
+					<Add directory="/cores"/>
+					<Add directory="/dev"/>
+					<Add directory="/etc"/>
+					<Add directory="/home"/>
+					<Add directory="/opt"/>
+					<Add directory="/private"/>
+					<Add directory="/sbin"/>
+					<Add directory="/tmp"/>
+					<Add directory="/usr"/>
+					<Add directory="/var"/>
 					<Add directory="/usr/local/lib/QtCore.framework/Headers"/>
 					<Add directory="/usr/local/lib/QtCore.framework"/>
 					<Add directory="/usr/local/share/qt/mkspecs/macx-clang"/>
@@ -103,12 +116,25 @@
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/sciplot"/>
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/yaml-cpp"/>
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/yaml-cpp/include"/>
-					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/Common"/>
-					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO"/>
-					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/GNSS"/>
-					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/INS"/>
-					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/LC"/>
-					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src"/>
+					<Add directory="/.VolumeIcon.icns"/>
+					<Add directory="/.file"/>
+					<Add directory="/.vol"/>
+					<Add directory="/Applications"/>
+					<Add directory="/Library"/>
+					<Add directory="/System"/>
+					<Add directory="/Users"/>
+					<Add directory="/Volumes"/>
+					<Add directory="/bin"/>
+					<Add directory="/cores"/>
+					<Add directory="/dev"/>
+					<Add directory="/etc"/>
+					<Add directory="/home"/>
+					<Add directory="/opt"/>
+					<Add directory="/private"/>
+					<Add directory="/sbin"/>
+					<Add directory="/tmp"/>
+					<Add directory="/usr"/>
+					<Add directory="/var"/>
 					<Add directory="/usr/local/lib/QtCore.framework/Headers"/>
 					<Add directory="/usr/local/lib/QtCore.framework"/>
 					<Add directory="/usr/local/share/qt/mkspecs/macx-clang"/>
@@ -167,60 +193,6 @@
 			<Option target="CombinedNavigation"/>
 		</Unit>
 		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/sciplot/specs">
-			<Option target="CombinedNavigation"/>
-		</Unit>
-		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cFileConvertor.cpp">
-			<Option target="CombinedNavigation"/>
-		</Unit>
-		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cFileConvertor.h">
-			<Option target="CombinedNavigation"/>
-		</Unit>
-		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cImuDataReader.cpp">
-			<Option target="CombinedNavigation"/>
-		</Unit>
-		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cImuDataReader.h">
-			<Option target="CombinedNavigation"/>
-		</Unit>
-		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cfileBase.cpp">
-			<Option target="CombinedNavigation"/>
-		</Unit>
-		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cfileBase.h">
-			<Option target="CombinedNavigation"/>
-		</Unit>
-		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cfileReader.cpp">
-			<Option target="CombinedNavigation"/>
-		</Unit>
-		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cfileReader.h">
-			<Option target="CombinedNavigation"/>
-		</Unit>
-		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cfileSaver.cpp">
-			<Option target="CombinedNavigation"/>
-		</Unit>
-		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cfileSaver.h">
-			<Option target="CombinedNavigation"/>
-		</Unit>
-		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/GNSS/GNSSType.cpp">
-			<Option target="CombinedNavigation"/>
-		</Unit>
-		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/GNSS/GNSSType.h">
-			<Option target="CombinedNavigation"/>
-		</Unit>
-		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/INS/INSType.cpp">
-			<Option target="CombinedNavigation"/>
-		</Unit>
-		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/INS/INSType.h">
-			<Option target="CombinedNavigation"/>
-		</Unit>
-		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/LC/GINSType.cpp">
-			<Option target="CombinedNavigation"/>
-		</Unit>
-		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/LC/GINSType.h">
-			<Option target="CombinedNavigation"/>
-		</Unit>
-		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/LC/LooseCombination.cpp">
-			<Option target="CombinedNavigation"/>
-		</Unit>
-		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/LC/LooseCombination.h">
 			<Option target="CombinedNavigation"/>
 		</Unit>
 		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/CMakeLists.txt">

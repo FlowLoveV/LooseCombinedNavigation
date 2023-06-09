@@ -33,7 +33,6 @@ struct ImuErrorNoise{
     double gScaleStd[3];   /**< 三轴角速度比例因子白噪声标准差 */
     double aScaleStd[3];   /**< 三轴加速度比例因子白噪声标准差 */
     double corrTime[4];    /**< gB,aB,gS,aS随机游走相关时间  */
-
 };
 
 struct NavState{
@@ -51,6 +50,8 @@ struct GinsOptions{
     ImuErrorNoise imuNoise;         /**< imu误差噪声参数                   */
 
     double AntennaLeverArm[3]{};    /**< 安装参数：天线杆臂                 */
+
+    GinsOptions();
 
     /*!
      * 根据配置信息直接得到GNSS/INS解算配置参数

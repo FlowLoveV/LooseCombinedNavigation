@@ -8,11 +8,11 @@
 
 GnssRes::GnssRes() = default;
 
-GnssRes::GnssRes(GPST &gpst, double *xyz, double *xyz_std, double *v_xyz, double *v_xyz_std, bool valid) {
+GnssRes::GnssRes(GPST &gpst, double *blh, double *blh_std, double *v_ned, double *v_ned_std, bool valid) {
     m_gpst = gpst;
-    m_XYZ  = XYZ(xyz);
-    memcpy(m_pXYZStd,xyz_std,3*sizeof(double));
-    memcpy(m_pV,v_xyz,3*sizeof(double));
-    memcpy(m_pVStd,v_xyz_std,3*sizeof(double));
+    memcpy(m_pBLH,blh,3*sizeof(double));
+    memcpy(m_pBLHStd,blh_std,3*sizeof(double));
+    memcpy(m_pVned,v_ned,3*sizeof(double));
+    memcpy(m_pVnedStd,v_ned_std,3*sizeof(double));
     m_isvalid = valid;
 }

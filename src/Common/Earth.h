@@ -43,6 +43,36 @@ public:
         wen[2] = -v[1] * tlat / (Rn + pos[2]);
     }
 
+
+    /*!
+     * 计算win_n
+     * @param pos           input       double[3]       blh
+     * @param v             input       double[3]       v-ned
+     * @param win_n         output      double[3]       n系相对i系旋转速度在n系下的投影
+     */
+    static void calculateOmega_in_n(const double pos[],const double v[],double win_n[]){
+        double slat = sin(pos[0]), clat = cos(pos[0]), tlat = tan(pos[0]);
+        double wie[3],wen[3],Rm,Rn;
+        // wie
+        wie[0] = ELLIPSOID_OMEGA * clat;
+        wie[1] = 0;
+        wie[2] = -ELLIPSOID_OMEGA * slat;
+        // Rm,Rn
+        double t = sqrt(1 - ELLIPSOID_E2 * pow(slat,2));
+        Rm = ELLIPSOID_a * (1 - ELLIPSOID_E2) / pow(t,3);
+        Rn = ELLIPSOID_a / t;
+        // wen
+        wen[0] = v[1] / (Rn + pos[2]);
+        wen[1] = -v[0] / (Rm + pos[2]);
+        wen[2] = -v[1] * tlat / (Rn + pos[2]);
+        // 输出win_n
+        for (int i = 0; i < 3; ++i) {
+            win_n[i] = wie[i] + wen[i];
+        }
+    }
+
+
+
     /*!
      * GRS80 地球椭球模型正常重力的计算  tested
      * @param lat input     double      纬度[rad]
@@ -74,15 +104,30 @@ public:
 
     /*!
      * 将n系坐标相对误差转为e系中blh坐标下相对误差
-     * @param lat
-     * @param h
-     * @return
+     * @param lat           input       double      纬度rad
+     * @param h             input       double      高程
+     * @return  Matrix      转换矩阵
      */
     static Matrix toDRi(const double & lat,const double & h){
         double Rm,Rn,p[3];
         calculateRmRn(lat,Rm,Rn);
         p[0] = 1 / (Rm + h);
         p[1] = 1 / ((Rn + h) * cos(lat));
+        p[2] = -1;
+        return diag(p,3);
+    }
+
+    /*!
+     * 将e系blh坐标下的相对误差转为n系下的
+     * @param lat           input       double      纬度rad
+     * @param h             input       double      高程
+     * @return  Matrix      转换矩阵
+     */
+    static Matrix toDR(const double & lat,const double & h){
+        double Rm,Rn,p[3];
+        calculateRmRn(lat,Rm,Rn);
+        p[0] = Rm + h;
+        p[1] = (Rn + h) * cos(lat);
         p[2] = -1;
         return diag(p,3);
     }
