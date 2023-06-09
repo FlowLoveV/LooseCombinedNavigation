@@ -1,24 +1,23 @@
+
+
 #include <QApplication>
-#include "QString"
 #include "mainwindow.h"
-#include "INSType.h"
-#include "BasicFuns.h"
-#include "cKalman.h"
-#include "iostream"
-#include <fstream>
-#include <Matrix.h>
 #include <sciplot/sciplot.hpp>
-#include "yaml-cpp/include/yaml-cpp/yaml.h"
-#include "GINSType.h"
-#include "Angle.h"
-#include "sstream"
-#include "valarray"
+#include "ncurses.h"
+
 using namespace sciplot;
+
+
+
 
 int main(int argc, char *argv[]) {
     using namespace std;
 
+
+    // 结束ncurses
+
     return 0;
+
 
     /*const char * filename = "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Dataset/IMU.bin";
     FILE *binfile = fopen(filename,"rb");

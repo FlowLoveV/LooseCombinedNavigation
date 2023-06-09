@@ -20,25 +20,66 @@ namespace ns_GINS{
          */
         explicit LooseCombination(const YAML::Node & config);
 
+        /*!
+         * 增加imu观测值
+         * @param imudata           input       IMUData_SingleEpoch     imuData
+         * @param ifconpensate      input       bool                    是否对imu数据进行补偿 default = false
+         */
         void addImuData(const IMUData_SingleEpoch & imudata,bool ifconpensate = false);
 
+        /*!
+         * 增加GNSS观测值
+         * @param gnssres           input        GnssRes        gnss定位结果
+         */
         void addGnssResData(const GnssRes & gnssres);
 
+        /*!
+         * 开始新一历元的处理过程
+         */
         void newProcess();
 
+        /*!
+         * 获得当前组合导航定位结果
+         * @return      NavState    组合导航定位结果信息
+         */
         NavState getState();
 
     protected:
 
-        void preForPredict();
+        /*!
+         * 根据上一历元IMU状态和本历元IMU观测值，构建状态转移矩阵Phi和噪声驱动阵G
+         * @param res       input       INSRes_SingleEpoch      待更新历元的上一历元IMU状态
+         * @param obs       input       IMUData_SingleEpoch     待更新历元IMU观测值
+         * @param dt        input       double                  历元间隔
+         */
+        void preForPredict(const INSRes_SingleEpoch & res,const IMUData_SingleEpoch & obs,const double &dt);
 
-        virtual void preForUpdate();
 
+        /*!
+         * 根据更新历元IMU的状态构建构建Z、H、R矩阵
+         * @param res       input       INSRes_SingleEpoch      待更新历元IMU状态（该状态由机械编排算法推导得来）
+         * @param obs       input       IMUData_SingleEpoch     待更新历元IMU观测值
+         * @param dt        input       double                  历元间隔
+         */
+        virtual void preForUpdate(const INSRes_SingleEpoch & res,const IMUData_SingleEpoch & obs,const double &dt);
+
+        // 初始化状态向量x，和初始方差P0以及过程噪声阵Q
         void initialize();
+
+        // ins更新单历元
+        virtual void mesh();
 
     private:
 
-        int isToUpdate();
+        /*!
+         * 判断下一步是否进行更新或者其他操作
+         * @param updateTime        input       GPST        GNSS定位时间
+         * @return  -1 : 更新上一历元状态
+         *          0  : 更新本历元状态
+         *          1  : 在上一历元和本历元间插值更新状态
+         *          2  : 不更新状态，只进行机械编排递推
+         */
+        int ifUpdate(GPST updateTime);
 
 
     private:

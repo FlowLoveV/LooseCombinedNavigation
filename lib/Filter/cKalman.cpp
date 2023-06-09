@@ -109,4 +109,12 @@ void ns_filter::cKalman::Update(const Matrix &obs, const Matrix &H, const Matrix
     TransStateVariance();
 }
 
+const Matrix &ns_filter::cKalman::getMStateK() const {
+    return m_State_k;
+}
+
+const Matrix &ns_filter::cKalman::getMStateVarianceK() const {
+    return m_StateVariance_k;
+}
+
 ns_filter::cKalman::cKalman() = default;

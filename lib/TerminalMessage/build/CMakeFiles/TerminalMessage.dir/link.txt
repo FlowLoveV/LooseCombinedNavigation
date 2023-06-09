@@ -1,0 +1,1 @@
+/Library/Developer/CommandLineTools/usr/bin/c++  -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk -mmacosx-version-min=11.7 -dynamiclib -Wl,-headerpad_max_install_names -o libTerminalMessage.dylib -install_name @rpath/libTerminalMessage.dylib CMakeFiles/TerminalMessage.dir/TerminalMessage.cpp.o 

@@ -28,10 +28,16 @@ public:
 
     virtual std::vector<double>& readline(const int & col);
 
+
+
 protected:
     std::string m_sfileName;
 
+
 private:
+    std::streampos m_lastPos;
+    std::streampos m_CurPos;
+
     std::vector<double> m_vdata;
 
     void deleteData();

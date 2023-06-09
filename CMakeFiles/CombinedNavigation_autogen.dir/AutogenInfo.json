@@ -327,6 +327,60 @@
 			"MU",
 			"2BXXKLXOIG/moc_cKalman.cpp",
 			null
+		],
+		[
+			"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cFileConvertor.h",
+			"MU",
+			"ZN5A7IICA7/moc_cFileConvertor.cpp",
+			null
+		],
+		[
+			"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cImuDataReader.h",
+			"MU",
+			"ZN5A7IICA7/moc_cImuDataReader.cpp",
+			null
+		],
+		[
+			"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cfileBase.h",
+			"MU",
+			"ZN5A7IICA7/moc_cfileBase.cpp",
+			null
+		],
+		[
+			"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cfileReader.h",
+			"MU",
+			"ZN5A7IICA7/moc_cfileReader.cpp",
+			null
+		],
+		[
+			"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cfileSaver.h",
+			"MU",
+			"ZN5A7IICA7/moc_cfileSaver.cpp",
+			null
+		],
+		[
+			"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/GNSS/GNSSType.h",
+			"MU",
+			"2UURJNM5AV/moc_GNSSType.cpp",
+			null
+		],
+		[
+			"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/INS/INSType.h",
+			"MU",
+			"Z3CVQJW5MN/moc_INSType.cpp",
+			null
+		],
+		[
+			"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/LC/GINSType.h",
+			"MU",
+			"VRJSDRMHCI/moc_GINSType.cpp",
+			null
+		],
+		[
+			"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/LC/LooseCombination.h",
+			"MU",
+			"VRJSDRMHCI/moc_LooseCombination.cpp",
+			null
 		]
 	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
@@ -349,29 +403,18 @@
 		"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/CoorSys",
 		"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/Filter",
 		"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/Matrix",
+		"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/TerminalMessage",
 		"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/TimeSys",
 		"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/sciplot",
 		"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/yaml-cpp",
 		"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/yaml-cpp/include",
-		"/.VolumeIcon.icns",
-		"/.file",
-		"/.vol",
-		"/Applications",
-		"/Library",
-		"/System",
-		"/Users",
-		"/Volumes",
-		"/bin",
-		"/cores",
-		"/dev",
-		"/etc",
-		"/home",
-		"/opt",
-		"/private",
-		"/sbin",
-		"/tmp",
-		"/usr",
-		"/var",
+		"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/Common",
+		"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO",
+		"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/GNSS",
+		"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/INS",
+		"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/LC",
+		"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/Process",
+		"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src",
 		"/usr/local/lib/QtCore.framework/Headers",
 		"/usr/local/lib/QtCore.framework",
 		"/usr/local/share/qt/mkspecs/macx-clang",
@@ -433,6 +476,51 @@
 		],
 		[
 			"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/Filter/cKalman.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cFileConvertor.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cImuDataReader.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cfileBase.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cfileReader.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cfileSaver.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/GNSS/GNSSType.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/INS/INSType.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/LC/GINSType.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/LC/LooseCombination.cpp",
 			"MU",
 			null
 		]

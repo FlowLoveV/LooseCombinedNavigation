@@ -61,7 +61,5 @@ void cImuDataReader::read_NOVATEL_OME7_IMU_ACSII_line(IMUData_SingleEpoch & data
             empty = true;
         }
     }
-
-
 }
 

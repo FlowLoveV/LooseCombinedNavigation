@@ -48,9 +48,9 @@ void ns_GINS::LooseCombination::initialize() {
     Rotation::Euler2EMatrix(res1.m_pEuler,res1.m_pEMatrix);
     res1.m_error = options_.initState.imuError;
     imuError_ = options_.initState.imuError;
+    // 设置初始状态
+    insState_.assign(3,res1);
 
-    insState_.push_back(res1); // 将初始状态数据加入
-    insState_.push_back(res1); // 初始状态需要推入两次，便于进行机械编排算法
 
     // 初始化状态方差阵
     // 创建一个lambda表达式
@@ -75,8 +75,10 @@ void ns_GINS::LooseCombination::initialize() {
 
 void ns_GINS::LooseCombination::addImuData(const IMUData_SingleEpoch &imudata, bool ifconpensate) {
     // 清除第k-2历元数据,增加新数据
-    imuData_.erase(imuData_.begin());
     imuData_.push_back(imudata);
+    if(imuData_.size() > 3 ){
+        imuData_.erase(imuData_.begin());
+    }
     // imu误差补偿
     if(ifconpensate){
         double dt = imuData_[2].t - imuData_[1].t;
@@ -90,7 +92,86 @@ void ns_GINS::LooseCombination::addGnssResData(const GnssRes &gnssres) {
 }
 
 void ns_GINS::LooseCombination::newProcess() {
+    GPST updateTime = gnssRes_.m_isvalid ? gnssRes_.m_gpst : GPST();
+    int flag = ifUpdate(updateTime);
+    double dt;
+    IMUData_SingleEpoch midImuData;
+    INSRes_SingleEpoch midInsRes;
+    switch (flag) {
+        // 在上一历元更新
+        case -1:
+            // 先更新上一历元的IMU状态，反馈误差后再机械编排算法更新本历元IMU状态
+            dt = imuData_[1].t - imuData_[0].t;
+            // 为滤波构建矩阵
+            preForPredict(insState_[0],imuData_[1],dt);
+            preForUpdate(insState_[1],imuData_[1],dt);
+            // 滤波更新一次
+            filter_.upDate();
+            // 误差反馈给上一历元IMU
+            insState_[1].stateFeedback(filter_.getMStateK());
+            // 反馈误差后，机械编排算法更新IMU状态
+            mesh();
+            // 滤波误差置零
+            filter_.setMState0(zero(RANK,1));
+            break;
 
+        // 更新本历元
+        case 0:
+            dt = imuData_[2].t - imuData_[1].t;
+            // 首先更新本历元IMU状态
+            mesh();
+            preForPredict(insState_[1],imuData_[2],dt);
+            preForUpdate(insState_[2],imuData_[2],dt);
+            // 滤波更新
+            filter_.upDate();
+            // 误差反馈给本历元IMU状态
+            insState_[2].stateFeedback(filter_.getMStateK());
+            // 滤波误差置零
+            filter_.setMState0(zero(RANK,1));
+            break;
+
+        // 插值更新
+        case 1:
+            // 此时待更新历元在两个历元间,首先根据更新时间插值得到对应历元IMU数据
+            imuData_[2].interpolationImuData(imuData_[1],midImuData,updateTime);
+            // 这里不能使用mesh()函数
+            // 首先补偿插值IMU数据
+            dt = updateTime - imuData_[1].t;
+            midImuData.compensate(imuError_,dt);
+            // 机械编排算法更新IMU状态,并传递imu误差
+            PureIns::updateSinEpoch(imuData_[0],imuData_[1],midImuData,
+                                    insState_[0],insState_[1],midInsRes);
+            midInsRes.m_error = imuError_;
+            // 滤波更新状态
+            preForPredict(insState_[1],midImuData,dt);
+            preForUpdate(midInsRes,midImuData,dt);
+            filter_.upDate();
+            // 误差反馈
+            midInsRes.stateFeedback(filter_.getMStateK());
+            imuError_ = midInsRes.m_error;
+            // 滤波误差置零
+            filter_.setMState0(zero(RANK,1));
+            // 接下来需要机械编排算法更新本历元IMU状态
+            dt = imuData_[2].t - midImuData.t;
+            imuData_[2].compensate(imuError_,dt);
+            PureIns::updateSinEpoch(imuData_[1],midImuData,imuData_[2],
+                                    insState_[1],midInsRes,insState_[2]);
+            // 传递imu误差
+            insState_[2].m_error = imuError_;
+            break;
+        // 机械编排推导
+        case 2:
+            mesh();
+            break;
+        default:
+            std::exit(-1);
+            break;
+    }
+    // 数据前推
+    insState_[0] = insState_[1];
+    insState_[1] = insState_[2];
+    imuData_[0] = imuData_[1];
+    imuData_[1] = imuData_[2];
 }
 
 NavState ns_GINS::LooseCombination::getState() {
@@ -102,10 +183,8 @@ NavState ns_GINS::LooseCombination::getState() {
     return state;
 }
 
-void ns_GINS::LooseCombination::preForPredict() {
+void ns_GINS::LooseCombination::preForPredict(const INSRes_SingleEpoch & res,const IMUData_SingleEpoch & obs,const double &dt) {
     // 构建状态转移矩阵和系统噪声阵，进行一步预测
-    // 使用上一历元数据构建F和G矩阵
-    INSRes_SingleEpoch res = insState_[1];
 
     // 姿态矩阵
     Matrix Cnb(3,3,res.m_pEMatrix);
@@ -134,8 +213,8 @@ void ns_GINS::LooseCombination::preForPredict() {
     double sinLat = sin(res.m_pPos[0]), cosLat = cos(res.m_pPos[0]);
     double tanLat = tan(res.m_pPos[0]), secLat = 1 / cosLat;
     // 比力，旋转角速度向量
-    Matrix vector_fb = Matrix(3,1,imuData_[2].m_pAcc);
-    Matrix vector_wib_b = Matrix(3,1,imuData_[2].m_pGyr);
+    Matrix vector_fb = Matrix(3,1,obs.m_pAcc);
+    Matrix vector_wib_b = Matrix(3,1,obs.m_pGyr);
     // 正常重力
     double gp = Earth::calculate_g(res.m_pPos[0],res.m_pPos[2]);
 
@@ -223,11 +302,10 @@ void ns_GINS::LooseCombination::preForPredict() {
     change_F(7,7,- 1/options_.imuNoise.corrTime[3] * I3);
 
     // 状态转移矩阵
-    double dt = imuData_[2].t - imuData_[1].t;
     filter_.setMStateTrans(eye(RANK) + F * dt);
 }
 
-void ns_GINS::LooseCombination::preForUpdate() {
+void ns_GINS::LooseCombination::preForUpdate(const INSRes_SingleEpoch & res,const IMUData_SingleEpoch & obs,const double &dt) {
     // lambda函数，构建矩阵
     // lambda函数--用于改变分块矩阵的值
     auto changeBlock = [](Matrix & F,int && row,int && col,const Matrix & m){
@@ -250,11 +328,10 @@ void ns_GINS::LooseCombination::preForUpdate() {
     Matrix dz[obs_model],H[obs_model],R[obs_model];
     // 预备矩阵
     Matrix I3 = eye(3);
-    Matrix Cnb(3,3,insState_[2].m_pEMatrix);
+    Matrix Cnb(3,3,res.m_pEMatrix);
     Matrix lb(3,1,options_.AntennaLeverArm);
     Matrix Cnb_multiply_lb = Cnb * lb;
     // 使用本历元IMU状态
-    INSRes_SingleEpoch res = insState_[3];
 
     // 构建GNSS位置观测方程
     // 将IMU位置转到GNSS天线相位中心位置
@@ -282,8 +359,7 @@ void ns_GINS::LooseCombination::preForUpdate() {
         Matrix vector_win_n(3,1,p_win_n);
         Matrix anti_win_n = antiVector(vector_win_n);
         // imu三轴旋转角速度
-        double dt = imuData_[2].t - imuData_[1].t;
-        Matrix omega_ib_b = Matrix(3,1,imuData_[2].m_pGyr) / dt;
+        Matrix omega_ib_b = Matrix(3,1,obs.m_pGyr) / dt;
         // lb的反对称矩阵
         Matrix anti_lb = antiVector(lb);
 
@@ -307,10 +383,34 @@ void ns_GINS::LooseCombination::preForUpdate() {
 
     // 生成里程计观测值的新息、矩阵和方差阵
     if(obs_model > POS_VEL){
-
+        // 在这里添加代码
     }
     // 生成观测矩阵
     filter_.setMObservation(vertical_stack_array(dz,obs_model));
     filter_.setMMeasurement(vertical_stack_array(H,obs_model));
     filter_.setMMeasureNoise(diag(R,obs_model));
+}
+
+void ns_GINS::LooseCombination::mesh() {
+    double dt = imuData_[2].t - imuData_[1].t;
+    // 先补偿数据，然后机械编排算法更新
+    imuData_[2].compensate(imuError_,dt);
+    PureIns::updateSinEpoch(imuData_[0],imuData_[1],imuData_[2],insState_[0],insState_[1],insState_[2]);
+    // 传递IMU误差,将IMU误差设为本历元的IMU误差，便于下一次IMU数据补偿
+    insState_[2].m_error = insState_[1].m_error;
+    imuError_ = insState_[2].m_error;
+}
+
+int ns_GINS::LooseCombination::ifUpdate(GPST updateTime) {
+    GPST lastT = imuData_[1].t, curT = imuData_[2].t;
+    if(abs(lastT - updateTime) <= TIME_ALIGN_ERROR){
+        return -1;
+    }
+    else if(abs(curT - updateTime) <=TIME_ALIGN_ERROR){
+        return 0;
+    }
+    else if(lastT - updateTime < 0 && updateTime - curT < 0){
+        return 1;
+    }
+    else return 2;
 }

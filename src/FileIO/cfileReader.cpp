@@ -68,3 +68,4 @@ bool cfileReader::open(const std::string &filename, const int &filetype) {
     m_ifileType = filetype;
     return is_open();
 }
+

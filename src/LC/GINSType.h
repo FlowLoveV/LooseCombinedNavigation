@@ -22,7 +22,6 @@ struct ImuError{
     double aBias[3];       /**< 加速度计零偏                 */
     double gScale[3];      /**< 陀螺仪比例因子误差            */
     double aScale[3];      /**< 加速度计比例因子误差          */
-
 };
 
 struct ImuErrorNoise{

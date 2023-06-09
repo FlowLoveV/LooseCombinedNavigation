@@ -130,6 +130,19 @@ CombinedNavigation/fast:
 .PHONY : CombinedNavigation/fast
 
 #=============================================================================
+# Target rules for targets named LC
+
+# Build rule for target.
+LC: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 LC
+.PHONY : LC
+
+# fast build rule for target.
+LC/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LC.dir/build.make CMakeFiles/LC.dir/build
+.PHONY : LC/fast
+
+#=============================================================================
 # Target rules for targets named CombinedNavigation_autogen
 
 # Build rule for target.
@@ -141,6 +154,19 @@ CombinedNavigation_autogen: cmake_check_build_system
 CombinedNavigation_autogen/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation_autogen.dir/build.make CMakeFiles/CombinedNavigation_autogen.dir/build
 .PHONY : CombinedNavigation_autogen/fast
+
+#=============================================================================
+# Target rules for targets named LC_autogen
+
+# Build rule for target.
+LC_autogen: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 LC_autogen
+.PHONY : LC_autogen
+
+# fast build rule for target.
+LC_autogen/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LC_autogen.dir/build.make CMakeFiles/LC_autogen.dir/build
+.PHONY : LC_autogen/fast
 
 CombinedNavigation_autogen/mocs_compilation.o: CombinedNavigation_autogen/mocs_compilation.cpp.o
 .PHONY : CombinedNavigation_autogen/mocs_compilation.o
@@ -166,12 +192,37 @@ CombinedNavigation_autogen/mocs_compilation.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/CombinedNavigation_autogen/mocs_compilation.cpp.s
 .PHONY : CombinedNavigation_autogen/mocs_compilation.cpp.s
 
+LC_autogen/mocs_compilation.o: LC_autogen/mocs_compilation.cpp.o
+.PHONY : LC_autogen/mocs_compilation.o
+
+# target to build an object file
+LC_autogen/mocs_compilation.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LC.dir/build.make CMakeFiles/LC.dir/LC_autogen/mocs_compilation.cpp.o
+.PHONY : LC_autogen/mocs_compilation.cpp.o
+
+LC_autogen/mocs_compilation.i: LC_autogen/mocs_compilation.cpp.i
+.PHONY : LC_autogen/mocs_compilation.i
+
+# target to preprocess a source file
+LC_autogen/mocs_compilation.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LC.dir/build.make CMakeFiles/LC.dir/LC_autogen/mocs_compilation.cpp.i
+.PHONY : LC_autogen/mocs_compilation.cpp.i
+
+LC_autogen/mocs_compilation.s: LC_autogen/mocs_compilation.cpp.s
+.PHONY : LC_autogen/mocs_compilation.s
+
+# target to generate assembly for a file
+LC_autogen/mocs_compilation.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LC.dir/build.make CMakeFiles/LC.dir/LC_autogen/mocs_compilation.cpp.s
+.PHONY : LC_autogen/mocs_compilation.cpp.s
+
 Sources/BasicFuns.o: Sources/BasicFuns.cpp.o
 .PHONY : Sources/BasicFuns.o
 
 # target to build an object file
 Sources/BasicFuns.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/Sources/BasicFuns.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LC.dir/build.make CMakeFiles/LC.dir/Sources/BasicFuns.cpp.o
 .PHONY : Sources/BasicFuns.cpp.o
 
 Sources/BasicFuns.i: Sources/BasicFuns.cpp.i
@@ -180,6 +231,7 @@ Sources/BasicFuns.i: Sources/BasicFuns.cpp.i
 # target to preprocess a source file
 Sources/BasicFuns.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/Sources/BasicFuns.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LC.dir/build.make CMakeFiles/LC.dir/Sources/BasicFuns.cpp.i
 .PHONY : Sources/BasicFuns.cpp.i
 
 Sources/BasicFuns.s: Sources/BasicFuns.cpp.s
@@ -188,6 +240,7 @@ Sources/BasicFuns.s: Sources/BasicFuns.cpp.s
 # target to generate assembly for a file
 Sources/BasicFuns.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/Sources/BasicFuns.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LC.dir/build.make CMakeFiles/LC.dir/Sources/BasicFuns.cpp.s
 .PHONY : Sources/BasicFuns.cpp.s
 
 Sources/main.o: Sources/main.cpp.o
@@ -244,6 +297,7 @@ lib/Filter/cKalman.o: lib/Filter/cKalman.cpp.o
 # target to build an object file
 lib/Filter/cKalman.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/lib/Filter/cKalman.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LC.dir/build.make CMakeFiles/LC.dir/lib/Filter/cKalman.cpp.o
 .PHONY : lib/Filter/cKalman.cpp.o
 
 lib/Filter/cKalman.i: lib/Filter/cKalman.cpp.i
@@ -252,6 +306,7 @@ lib/Filter/cKalman.i: lib/Filter/cKalman.cpp.i
 # target to preprocess a source file
 lib/Filter/cKalman.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/lib/Filter/cKalman.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LC.dir/build.make CMakeFiles/LC.dir/lib/Filter/cKalman.cpp.i
 .PHONY : lib/Filter/cKalman.cpp.i
 
 lib/Filter/cKalman.s: lib/Filter/cKalman.cpp.s
@@ -260,7 +315,275 @@ lib/Filter/cKalman.s: lib/Filter/cKalman.cpp.s
 # target to generate assembly for a file
 lib/Filter/cKalman.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/lib/Filter/cKalman.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LC.dir/build.make CMakeFiles/LC.dir/lib/Filter/cKalman.cpp.s
 .PHONY : lib/Filter/cKalman.cpp.s
+
+src/FileIO/cFileConvertor.o: src/FileIO/cFileConvertor.cpp.o
+.PHONY : src/FileIO/cFileConvertor.o
+
+# target to build an object file
+src/FileIO/cFileConvertor.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/src/FileIO/cFileConvertor.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LC.dir/build.make CMakeFiles/LC.dir/src/FileIO/cFileConvertor.cpp.o
+.PHONY : src/FileIO/cFileConvertor.cpp.o
+
+src/FileIO/cFileConvertor.i: src/FileIO/cFileConvertor.cpp.i
+.PHONY : src/FileIO/cFileConvertor.i
+
+# target to preprocess a source file
+src/FileIO/cFileConvertor.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/src/FileIO/cFileConvertor.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LC.dir/build.make CMakeFiles/LC.dir/src/FileIO/cFileConvertor.cpp.i
+.PHONY : src/FileIO/cFileConvertor.cpp.i
+
+src/FileIO/cFileConvertor.s: src/FileIO/cFileConvertor.cpp.s
+.PHONY : src/FileIO/cFileConvertor.s
+
+# target to generate assembly for a file
+src/FileIO/cFileConvertor.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/src/FileIO/cFileConvertor.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LC.dir/build.make CMakeFiles/LC.dir/src/FileIO/cFileConvertor.cpp.s
+.PHONY : src/FileIO/cFileConvertor.cpp.s
+
+src/FileIO/cImuDataReader.o: src/FileIO/cImuDataReader.cpp.o
+.PHONY : src/FileIO/cImuDataReader.o
+
+# target to build an object file
+src/FileIO/cImuDataReader.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/src/FileIO/cImuDataReader.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LC.dir/build.make CMakeFiles/LC.dir/src/FileIO/cImuDataReader.cpp.o
+.PHONY : src/FileIO/cImuDataReader.cpp.o
+
+src/FileIO/cImuDataReader.i: src/FileIO/cImuDataReader.cpp.i
+.PHONY : src/FileIO/cImuDataReader.i
+
+# target to preprocess a source file
+src/FileIO/cImuDataReader.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/src/FileIO/cImuDataReader.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LC.dir/build.make CMakeFiles/LC.dir/src/FileIO/cImuDataReader.cpp.i
+.PHONY : src/FileIO/cImuDataReader.cpp.i
+
+src/FileIO/cImuDataReader.s: src/FileIO/cImuDataReader.cpp.s
+.PHONY : src/FileIO/cImuDataReader.s
+
+# target to generate assembly for a file
+src/FileIO/cImuDataReader.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/src/FileIO/cImuDataReader.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LC.dir/build.make CMakeFiles/LC.dir/src/FileIO/cImuDataReader.cpp.s
+.PHONY : src/FileIO/cImuDataReader.cpp.s
+
+src/FileIO/cfileBase.o: src/FileIO/cfileBase.cpp.o
+.PHONY : src/FileIO/cfileBase.o
+
+# target to build an object file
+src/FileIO/cfileBase.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/src/FileIO/cfileBase.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LC.dir/build.make CMakeFiles/LC.dir/src/FileIO/cfileBase.cpp.o
+.PHONY : src/FileIO/cfileBase.cpp.o
+
+src/FileIO/cfileBase.i: src/FileIO/cfileBase.cpp.i
+.PHONY : src/FileIO/cfileBase.i
+
+# target to preprocess a source file
+src/FileIO/cfileBase.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/src/FileIO/cfileBase.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LC.dir/build.make CMakeFiles/LC.dir/src/FileIO/cfileBase.cpp.i
+.PHONY : src/FileIO/cfileBase.cpp.i
+
+src/FileIO/cfileBase.s: src/FileIO/cfileBase.cpp.s
+.PHONY : src/FileIO/cfileBase.s
+
+# target to generate assembly for a file
+src/FileIO/cfileBase.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/src/FileIO/cfileBase.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LC.dir/build.make CMakeFiles/LC.dir/src/FileIO/cfileBase.cpp.s
+.PHONY : src/FileIO/cfileBase.cpp.s
+
+src/FileIO/cfileReader.o: src/FileIO/cfileReader.cpp.o
+.PHONY : src/FileIO/cfileReader.o
+
+# target to build an object file
+src/FileIO/cfileReader.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/src/FileIO/cfileReader.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LC.dir/build.make CMakeFiles/LC.dir/src/FileIO/cfileReader.cpp.o
+.PHONY : src/FileIO/cfileReader.cpp.o
+
+src/FileIO/cfileReader.i: src/FileIO/cfileReader.cpp.i
+.PHONY : src/FileIO/cfileReader.i
+
+# target to preprocess a source file
+src/FileIO/cfileReader.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/src/FileIO/cfileReader.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LC.dir/build.make CMakeFiles/LC.dir/src/FileIO/cfileReader.cpp.i
+.PHONY : src/FileIO/cfileReader.cpp.i
+
+src/FileIO/cfileReader.s: src/FileIO/cfileReader.cpp.s
+.PHONY : src/FileIO/cfileReader.s
+
+# target to generate assembly for a file
+src/FileIO/cfileReader.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/src/FileIO/cfileReader.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LC.dir/build.make CMakeFiles/LC.dir/src/FileIO/cfileReader.cpp.s
+.PHONY : src/FileIO/cfileReader.cpp.s
+
+src/FileIO/cfileSaver.o: src/FileIO/cfileSaver.cpp.o
+.PHONY : src/FileIO/cfileSaver.o
+
+# target to build an object file
+src/FileIO/cfileSaver.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/src/FileIO/cfileSaver.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LC.dir/build.make CMakeFiles/LC.dir/src/FileIO/cfileSaver.cpp.o
+.PHONY : src/FileIO/cfileSaver.cpp.o
+
+src/FileIO/cfileSaver.i: src/FileIO/cfileSaver.cpp.i
+.PHONY : src/FileIO/cfileSaver.i
+
+# target to preprocess a source file
+src/FileIO/cfileSaver.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/src/FileIO/cfileSaver.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LC.dir/build.make CMakeFiles/LC.dir/src/FileIO/cfileSaver.cpp.i
+.PHONY : src/FileIO/cfileSaver.cpp.i
+
+src/FileIO/cfileSaver.s: src/FileIO/cfileSaver.cpp.s
+.PHONY : src/FileIO/cfileSaver.s
+
+# target to generate assembly for a file
+src/FileIO/cfileSaver.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/src/FileIO/cfileSaver.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LC.dir/build.make CMakeFiles/LC.dir/src/FileIO/cfileSaver.cpp.s
+.PHONY : src/FileIO/cfileSaver.cpp.s
+
+src/GNSS/GNSSType.o: src/GNSS/GNSSType.cpp.o
+.PHONY : src/GNSS/GNSSType.o
+
+# target to build an object file
+src/GNSS/GNSSType.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/src/GNSS/GNSSType.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LC.dir/build.make CMakeFiles/LC.dir/src/GNSS/GNSSType.cpp.o
+.PHONY : src/GNSS/GNSSType.cpp.o
+
+src/GNSS/GNSSType.i: src/GNSS/GNSSType.cpp.i
+.PHONY : src/GNSS/GNSSType.i
+
+# target to preprocess a source file
+src/GNSS/GNSSType.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/src/GNSS/GNSSType.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LC.dir/build.make CMakeFiles/LC.dir/src/GNSS/GNSSType.cpp.i
+.PHONY : src/GNSS/GNSSType.cpp.i
+
+src/GNSS/GNSSType.s: src/GNSS/GNSSType.cpp.s
+.PHONY : src/GNSS/GNSSType.s
+
+# target to generate assembly for a file
+src/GNSS/GNSSType.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/src/GNSS/GNSSType.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LC.dir/build.make CMakeFiles/LC.dir/src/GNSS/GNSSType.cpp.s
+.PHONY : src/GNSS/GNSSType.cpp.s
+
+src/INS/INSType.o: src/INS/INSType.cpp.o
+.PHONY : src/INS/INSType.o
+
+# target to build an object file
+src/INS/INSType.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/src/INS/INSType.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LC.dir/build.make CMakeFiles/LC.dir/src/INS/INSType.cpp.o
+.PHONY : src/INS/INSType.cpp.o
+
+src/INS/INSType.i: src/INS/INSType.cpp.i
+.PHONY : src/INS/INSType.i
+
+# target to preprocess a source file
+src/INS/INSType.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/src/INS/INSType.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LC.dir/build.make CMakeFiles/LC.dir/src/INS/INSType.cpp.i
+.PHONY : src/INS/INSType.cpp.i
+
+src/INS/INSType.s: src/INS/INSType.cpp.s
+.PHONY : src/INS/INSType.s
+
+# target to generate assembly for a file
+src/INS/INSType.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/src/INS/INSType.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LC.dir/build.make CMakeFiles/LC.dir/src/INS/INSType.cpp.s
+.PHONY : src/INS/INSType.cpp.s
+
+src/LC/GINSType.o: src/LC/GINSType.cpp.o
+.PHONY : src/LC/GINSType.o
+
+# target to build an object file
+src/LC/GINSType.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/src/LC/GINSType.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LC.dir/build.make CMakeFiles/LC.dir/src/LC/GINSType.cpp.o
+.PHONY : src/LC/GINSType.cpp.o
+
+src/LC/GINSType.i: src/LC/GINSType.cpp.i
+.PHONY : src/LC/GINSType.i
+
+# target to preprocess a source file
+src/LC/GINSType.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/src/LC/GINSType.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LC.dir/build.make CMakeFiles/LC.dir/src/LC/GINSType.cpp.i
+.PHONY : src/LC/GINSType.cpp.i
+
+src/LC/GINSType.s: src/LC/GINSType.cpp.s
+.PHONY : src/LC/GINSType.s
+
+# target to generate assembly for a file
+src/LC/GINSType.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/src/LC/GINSType.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LC.dir/build.make CMakeFiles/LC.dir/src/LC/GINSType.cpp.s
+.PHONY : src/LC/GINSType.cpp.s
+
+src/LC/LooseCombination.o: src/LC/LooseCombination.cpp.o
+.PHONY : src/LC/LooseCombination.o
+
+# target to build an object file
+src/LC/LooseCombination.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/src/LC/LooseCombination.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LC.dir/build.make CMakeFiles/LC.dir/src/LC/LooseCombination.cpp.o
+.PHONY : src/LC/LooseCombination.cpp.o
+
+src/LC/LooseCombination.i: src/LC/LooseCombination.cpp.i
+.PHONY : src/LC/LooseCombination.i
+
+# target to preprocess a source file
+src/LC/LooseCombination.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/src/LC/LooseCombination.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LC.dir/build.make CMakeFiles/LC.dir/src/LC/LooseCombination.cpp.i
+.PHONY : src/LC/LooseCombination.cpp.i
+
+src/LC/LooseCombination.s: src/LC/LooseCombination.cpp.s
+.PHONY : src/LC/LooseCombination.s
+
+# target to generate assembly for a file
+src/LC/LooseCombination.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/src/LC/LooseCombination.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LC.dir/build.make CMakeFiles/LC.dir/src/LC/LooseCombination.cpp.s
+.PHONY : src/LC/LooseCombination.cpp.s
+
+src/Process/lc.o: src/Process/lc.cpp.o
+.PHONY : src/Process/lc.o
+
+# target to build an object file
+src/Process/lc.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LC.dir/build.make CMakeFiles/LC.dir/src/Process/lc.cpp.o
+.PHONY : src/Process/lc.cpp.o
+
+src/Process/lc.i: src/Process/lc.cpp.i
+.PHONY : src/Process/lc.i
+
+# target to preprocess a source file
+src/Process/lc.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LC.dir/build.make CMakeFiles/LC.dir/src/Process/lc.cpp.i
+.PHONY : src/Process/lc.cpp.i
+
+src/Process/lc.s: src/Process/lc.cpp.s
+.PHONY : src/Process/lc.s
+
+# target to generate assembly for a file
+src/Process/lc.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LC.dir/build.make CMakeFiles/LC.dir/src/Process/lc.cpp.s
+.PHONY : src/Process/lc.cpp.s
 
 # Help Target
 help:
@@ -271,10 +594,15 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... CombinedNavigation_autogen"
+	@echo "... LC_autogen"
 	@echo "... CombinedNavigation"
+	@echo "... LC"
 	@echo "... CombinedNavigation_autogen/mocs_compilation.o"
 	@echo "... CombinedNavigation_autogen/mocs_compilation.i"
 	@echo "... CombinedNavigation_autogen/mocs_compilation.s"
+	@echo "... LC_autogen/mocs_compilation.o"
+	@echo "... LC_autogen/mocs_compilation.i"
+	@echo "... LC_autogen/mocs_compilation.s"
 	@echo "... Sources/BasicFuns.o"
 	@echo "... Sources/BasicFuns.i"
 	@echo "... Sources/BasicFuns.s"
@@ -287,6 +615,36 @@ help:
 	@echo "... lib/Filter/cKalman.o"
 	@echo "... lib/Filter/cKalman.i"
 	@echo "... lib/Filter/cKalman.s"
+	@echo "... src/FileIO/cFileConvertor.o"
+	@echo "... src/FileIO/cFileConvertor.i"
+	@echo "... src/FileIO/cFileConvertor.s"
+	@echo "... src/FileIO/cImuDataReader.o"
+	@echo "... src/FileIO/cImuDataReader.i"
+	@echo "... src/FileIO/cImuDataReader.s"
+	@echo "... src/FileIO/cfileBase.o"
+	@echo "... src/FileIO/cfileBase.i"
+	@echo "... src/FileIO/cfileBase.s"
+	@echo "... src/FileIO/cfileReader.o"
+	@echo "... src/FileIO/cfileReader.i"
+	@echo "... src/FileIO/cfileReader.s"
+	@echo "... src/FileIO/cfileSaver.o"
+	@echo "... src/FileIO/cfileSaver.i"
+	@echo "... src/FileIO/cfileSaver.s"
+	@echo "... src/GNSS/GNSSType.o"
+	@echo "... src/GNSS/GNSSType.i"
+	@echo "... src/GNSS/GNSSType.s"
+	@echo "... src/INS/INSType.o"
+	@echo "... src/INS/INSType.i"
+	@echo "... src/INS/INSType.s"
+	@echo "... src/LC/GINSType.o"
+	@echo "... src/LC/GINSType.i"
+	@echo "... src/LC/GINSType.s"
+	@echo "... src/LC/LooseCombination.o"
+	@echo "... src/LC/LooseCombination.i"
+	@echo "... src/LC/LooseCombination.s"
+	@echo "... src/Process/lc.o"
+	@echo "... src/Process/lc.i"
+	@echo "... src/Process/lc.s"
 .PHONY : help
 
 

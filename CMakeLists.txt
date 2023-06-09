@@ -6,17 +6,6 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
-# 设置C标准
-#set(CMAKE_C_STANDARD 99)
-#set(CMAKE_C_EXTENSIONS OFF)
-#set(CMAKE_C_STANDARD_REQUIRED ON)
-
-# 找到Python解释器
-#find_package (Python2 COMPONENTS Interpreter NumPy)
-#find_package (Python COMPONENTS Interpreter Development)
-#find_package(PythonInterp REQUIRED)
-#find_package(PythonLibs ${PYTHON_VERSION_MAJOR}.${PYTHON_VERSION_MINOR} EXACT REQUIRED)
-
 ############################################ 设置资源路径 ###############################################################
 set(SRC_DIR "${PROJECT_SOURCE_DIR}/src")
 file(GLOB SRC_SUB_DIR "${SRC_DIR}/*")
@@ -57,6 +46,8 @@ set(TIME_SYSTEM_CPP_LIB "${PROJECT_SOURCE_DIR}/lib/TimeSys/build/libTIME_SYSTEM_
 # 坐标系统路径设置
 set(COORSYSTEM_CPP_INCLUDE_DIR "${PROJECT_SOURCE_DIR}/lib/CoorSys")
 set(COORSYSTEM_CPP_LIB "${PROJECT_SOURCE_DIR}/lib/CoorSys/build/libCOORSYSTEM.dylib")
+# 终端输出库路径设置
+set(TERMINAL_CPP_LIB "${THIRD_LIB_DIR}/TerminalMessage/build/libTerminalMessage.dylib")
 
 
 
@@ -80,6 +71,14 @@ include_directories(
         ${SRC_DIR}
 )
 
+add_executable(LC src/Process/lc.cpp
+        # 资源文件
+        ${FILEIO_CPP_SOURCES} ${INS_CPP_SOURCES} ${COMMON_CPP_SOURCES} ${GNSS_CPP_SOURCES} ${LC_CPP_SOURCES}
+        include/BasicFuns.h Sources/BasicFuns.cpp
+        # 依赖文件
+        ${PROJECT_SOURCE_DIR}/lib/Filter/cKalman.h ${PROJECT_SOURCE_DIR}/lib/Filter/cKalman.cpp
+        )
+
 add_executable(CombinedNavigation Sources/main.cpp
         # UI文件
         Sources/mainwindow.cpp Sources/UIHeaders/mainwindow.h Sources/UI/mainwindow.ui
@@ -89,6 +88,24 @@ add_executable(CombinedNavigation Sources/main.cpp
         # 依赖文件
         ${PROJECT_SOURCE_DIR}/lib/sciplot/ ${PROJECT_SOURCE_DIR}/lib/sciplot/specs
         ${PROJECT_SOURCE_DIR}/lib/Filter/cKalman.h ${PROJECT_SOURCE_DIR}/lib/Filter/cKalman.cpp
+        )
+
+set_target_properties(LC PROPERTIES
+        RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin
+        )
+
+target_link_libraries(LC
+        Qt::Core
+        # yaml-cpp库链接
+        ${YAML_CPP_LIB}
+        # 矩阵库链接
+        ${MATRIX_CPP_LIB}
+        # 时间系统库链接
+        ${TIME_SYSTEM_CPP_LIB}
+        # 坐标系统库链接
+        ${COORSYSTEM_CPP_LIB}
+        # 终端输出库
+        ${TERMINAL_CPP_LIB}
         )
 
 

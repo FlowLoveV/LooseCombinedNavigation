@@ -16,9 +16,9 @@ public:
      * @param vec
      * @return
      */
-    static IMUData_SingleEpoch toImuData(std::vector<double> & vec);
+    static IMUData_SingleEpoch toImuData(const std::vector<double> & vec);
 
-    static GnssRes toGnssResData(std::vector<double> & vec);
+    static GnssRes toGnssResData(const std::vector<double> & vec);
 
 protected:
 

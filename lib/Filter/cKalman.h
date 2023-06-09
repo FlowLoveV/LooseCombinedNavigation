@@ -90,6 +90,10 @@ namespace ns_filter{
          */
         void TransStateVariance();
 
+        const Matrix &getMStateK() const;
+
+        const Matrix &getMStateVarianceK() const;
+
 
     protected:
         Matrix m_State0;                      /**< 初始时刻状态向量 */

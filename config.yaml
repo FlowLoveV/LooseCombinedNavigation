@@ -1,23 +1,29 @@
 # IMU和GNSS数据文件路径
 # imudata and gnssdata filepath
-imupath: "asd"
-gnsspath: "sa"
+imupath: "./Dataset/imu.ASC"
+gnsspath: "./Dataset/rtk_res.pos"
 
 # 观测模型:
 # 1 :  GNSS位置观测
 # 2 :  GNSS位置、速度观测
 # 3 :  GNSS位置、速度及里程计观测
-obsmodel: 1
+obsmodel: 2
 
 # 输出文件夹路径
 # output folder path
-outputpath: "das"
+outputpath: "./Dataset/"
 
 # IMU文件格式
-imudatalen: "dsa"
+# 22 - novatel ascii 文本
+# 33 - imr文件
+imufileformat: 22
 # IMU原始数据频率
 # IMU datarate [Hz]
-imudatarate: 200
+imudatarate: 100
+
+# GNSS 结果文件格式
+# 1 - gpst-week gpst-second d-lat d-lon d-h lat-std lon-std h-std v-n v-e v-d vn-std ve-std vd-std
+gnssfileformat: 1
 
 # 处理时间段，结束时间设置为-1时则处理至IMU文件结束
 # processing interval[s]
