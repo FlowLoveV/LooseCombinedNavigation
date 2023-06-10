@@ -132,3 +132,24 @@ void GinsOptions::adjustUnit() {
 }
 
 GinsOptions::GinsOptions() = default;
+
+std::vector<double> NavState::toVector(const GPST &t) {
+    std::vector<double> vec;
+    int offset = 0;
+    if (t != GPST()){
+        vec.reserve(23);
+        vec.push_back(t.weeks);
+        vec.push_back(t.second);
+        offset += 2;
+    }else{
+        vec.reserve(21);
+    }
+    memcpy(&vec[offset],this->pos,3*sizeof(double));
+    memcpy(&vec[offset+3],this->vel,3*sizeof(double));
+    memcpy(&vec[offset+6],this->euler,3*sizeof(double));
+    memcpy(&vec[offset+9],this->imuError.gBias,3*sizeof(double));
+    memcpy(&vec[offset+12],this->imuError.aBias,3*sizeof(double));
+    memcpy(&vec[offset+15],this->imuError.gScale,3*sizeof(double));
+    memcpy(&vec[offset+18],this->imuError.aScale,3*sizeof(double));
+    return vec;
+}

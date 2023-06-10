@@ -39,10 +39,22 @@ namespace ns_GINS{
         void newProcess();
 
         /*!
-         * 获得当前组合导航定位结果
-         * @return      NavState    组合导航定位结果信息
+         * 获得当前IMU状态
+         * @return      NavState    IMU状态
          */
-        NavState getState();
+        NavState getNavState();
+
+        /*!
+         * 得到当前定位的时间
+         * @return      GPST        当前时间
+         */
+        GPST getTime();
+
+        /*!
+         * 获得当前IMU状态方差
+         * @return      Matrix      IMU状态协方差阵
+         */
+        Matrix getStateVariance();
 
     protected:
 

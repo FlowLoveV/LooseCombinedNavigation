@@ -40,6 +40,8 @@ struct NavState{
     double euler[3];       /**< 姿态角-欧拉角组 roll pitch yaw rad */
     ImuError imuError;     /**< IMU 误差                         */
 
+    std::vector<double> toVector(const GPST & t = GPST());
+
 };
 
 struct GinsOptions{

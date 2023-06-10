@@ -174,7 +174,7 @@ void ns_GINS::LooseCombination::newProcess() {
     imuData_[1] = imuData_[2];
 }
 
-NavState ns_GINS::LooseCombination::getState() {
+NavState ns_GINS::LooseCombination::getNavState() {
     NavState state;
     memcpy(state.pos,insState_[2].m_pPos,3*sizeof(double));
     memcpy(state.vel,insState_[2].m_pSpeed,3*sizeof(double));
@@ -413,4 +413,12 @@ int ns_GINS::LooseCombination::ifUpdate(GPST updateTime) {
         return 1;
     }
     else return 2;
+}
+
+GPST ns_GINS::LooseCombination::getTime() {
+    return imuData_[2].t;
+}
+
+Matrix ns_GINS::LooseCombination::getStateVariance() {
+    return filter_.getMStateVarianceK();
 }

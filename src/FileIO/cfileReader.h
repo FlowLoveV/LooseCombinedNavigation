@@ -35,8 +35,6 @@ protected:
 
 
 private:
-    std::streampos m_lastPos;
-    std::streampos m_CurPos;
 
     std::vector<double> m_vdata;
 

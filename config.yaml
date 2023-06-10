@@ -1,7 +1,7 @@
 # IMU和GNSS数据文件路径
 # imudata and gnssdata filepath
 imupath: "./Dataset/imu.ASC"
-gnsspath: "./Dataset/rtk_res.pos"
+gnsspath: "./Dataset/开阔rtkRes.pos"
 
 # 观测模型:
 # 1 :  GNSS位置观测

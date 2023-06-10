@@ -52,7 +52,7 @@ std::vector<double> &cfileReader::readline(const int & col) {
         }
         catch(const std::exception & e){
             deleteData();
-            std::cerr << "读取" << m_sfileName << "时发生错误!\n" << "请检验文件格式是否正确。";
+            //std::cerr << "读取" << m_sfileName << "时发生错误!\n" << "请检验文件格式是否正确。";
             return m_vdata;
         }
     }else{
