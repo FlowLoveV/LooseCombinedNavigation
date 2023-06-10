@@ -16,22 +16,25 @@
 
 
 int main(int argc, char *argv[]){
+
     // 参数限定
-    if(argc !=2){
+    /*if(argc !=2){
         TerminalMessage::displayErrorMessage("参数数目应为两个!");
         return -1;
-    }
+    }*/
     // 获得时间
     auto timeBegin = getCurrentTime();
     auto timeStyle = "%Y-%m-%d %H:%M:%S";
     // 读取配置文件
     YAML::Node config;
     try {
-        config = YAML::LoadFile(argv[1]);
+        config = YAML::LoadFile("/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/config.yaml");
     }catch (const std::exception & e){
         TerminalMessage::displayErrorMessage("读取配置文件失败!请检查文件路径和配置文件格式.");
         return -1;
     }
+
+
 
     // 读取文件路径配置
     std::string imupath, gnsspath, outputpath;
@@ -108,6 +111,11 @@ int main(int argc, char *argv[]){
         TerminalMessage::displayErrorMessage("处理时间端设置错误!请重新设置");
     }
 
+    // 生成LC处理器
+    using namespace ns_GINS;
+    LooseCombination LC(config);
+    LC.printConfig();
+
     // 时间对齐
     while(startTime > imudata.t.second){
         imuReader.readline(imudata);
@@ -115,13 +123,13 @@ int main(int argc, char *argv[]){
     do{
         auto vec = gnssReader.readline(14);
         // 读取到非格式化的行，则重新读取下一行（一般在文件开头可能会遇到）
-        if(vec.empty()) continue;
+        if(vec.empty())
+            continue;
         gnssRes = cFileConvertor::toGnssResData(vec);
     }while(gnssRes.m_gpst.second <= startTime);
 
-    // 生成LC处理器
-    using namespace ns_GINS;
-    LooseCombination LC(config);
+
+
     // 前两历元数据填充
     LC.addImuData(imudata);
     LC.addImuData(imudata);
@@ -161,6 +169,7 @@ int main(int argc, char *argv[]){
         imuStateStd = LC.getStateVariance();
 
         if(!imuStateStd.checkDiagPositive()){
+            imuStateStd.print();
             TerminalMessage::displayErrorMessage("运行过程中状态方差阵非正定!");
             std::exit(EXIT_FAILURE);
         }

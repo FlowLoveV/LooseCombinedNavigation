@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cfileBase.h
+fstream
+/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/fstream
+
+/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cfileSaver.cpp
+cfileSaver.h
+/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cfileSaver.h
+iostream
+/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/iostream
+
+/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cfileSaver.h
+vector
+/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/vector
+cfileBase.h
+/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cfileBase.h
+

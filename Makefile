@@ -143,6 +143,19 @@ LC/fast:
 .PHONY : LC/fast
 
 #=============================================================================
+# Target rules for targets named INS
+
+# Build rule for target.
+INS: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 INS
+.PHONY : INS
+
+# fast build rule for target.
+INS/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/INS.dir/build.make CMakeFiles/INS.dir/build
+.PHONY : INS/fast
+
+#=============================================================================
 # Target rules for targets named CombinedNavigation_autogen
 
 # Build rule for target.
@@ -168,6 +181,19 @@ LC_autogen/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LC_autogen.dir/build.make CMakeFiles/LC_autogen.dir/build
 .PHONY : LC_autogen/fast
 
+#=============================================================================
+# Target rules for targets named INS_autogen
+
+# Build rule for target.
+INS_autogen: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 INS_autogen
+.PHONY : INS_autogen
+
+# fast build rule for target.
+INS_autogen/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/INS_autogen.dir/build.make CMakeFiles/INS_autogen.dir/build
+.PHONY : INS_autogen/fast
+
 CombinedNavigation_autogen/mocs_compilation.o: CombinedNavigation_autogen/mocs_compilation.cpp.o
 .PHONY : CombinedNavigation_autogen/mocs_compilation.o
 
@@ -191,6 +217,30 @@ CombinedNavigation_autogen/mocs_compilation.s: CombinedNavigation_autogen/mocs_c
 CombinedNavigation_autogen/mocs_compilation.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/CombinedNavigation_autogen/mocs_compilation.cpp.s
 .PHONY : CombinedNavigation_autogen/mocs_compilation.cpp.s
+
+INS_autogen/mocs_compilation.o: INS_autogen/mocs_compilation.cpp.o
+.PHONY : INS_autogen/mocs_compilation.o
+
+# target to build an object file
+INS_autogen/mocs_compilation.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/INS.dir/build.make CMakeFiles/INS.dir/INS_autogen/mocs_compilation.cpp.o
+.PHONY : INS_autogen/mocs_compilation.cpp.o
+
+INS_autogen/mocs_compilation.i: INS_autogen/mocs_compilation.cpp.i
+.PHONY : INS_autogen/mocs_compilation.i
+
+# target to preprocess a source file
+INS_autogen/mocs_compilation.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/INS.dir/build.make CMakeFiles/INS.dir/INS_autogen/mocs_compilation.cpp.i
+.PHONY : INS_autogen/mocs_compilation.cpp.i
+
+INS_autogen/mocs_compilation.s: INS_autogen/mocs_compilation.cpp.s
+.PHONY : INS_autogen/mocs_compilation.s
+
+# target to generate assembly for a file
+INS_autogen/mocs_compilation.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/INS.dir/build.make CMakeFiles/INS.dir/INS_autogen/mocs_compilation.cpp.s
+.PHONY : INS_autogen/mocs_compilation.cpp.s
 
 LC_autogen/mocs_compilation.o: LC_autogen/mocs_compilation.cpp.o
 .PHONY : LC_autogen/mocs_compilation.o
@@ -223,6 +273,7 @@ Sources/BasicFuns.o: Sources/BasicFuns.cpp.o
 Sources/BasicFuns.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/Sources/BasicFuns.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LC.dir/build.make CMakeFiles/LC.dir/Sources/BasicFuns.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/INS.dir/build.make CMakeFiles/INS.dir/Sources/BasicFuns.cpp.o
 .PHONY : Sources/BasicFuns.cpp.o
 
 Sources/BasicFuns.i: Sources/BasicFuns.cpp.i
@@ -232,6 +283,7 @@ Sources/BasicFuns.i: Sources/BasicFuns.cpp.i
 Sources/BasicFuns.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/Sources/BasicFuns.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LC.dir/build.make CMakeFiles/LC.dir/Sources/BasicFuns.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/INS.dir/build.make CMakeFiles/INS.dir/Sources/BasicFuns.cpp.i
 .PHONY : Sources/BasicFuns.cpp.i
 
 Sources/BasicFuns.s: Sources/BasicFuns.cpp.s
@@ -241,6 +293,7 @@ Sources/BasicFuns.s: Sources/BasicFuns.cpp.s
 Sources/BasicFuns.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/Sources/BasicFuns.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LC.dir/build.make CMakeFiles/LC.dir/Sources/BasicFuns.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/INS.dir/build.make CMakeFiles/INS.dir/Sources/BasicFuns.cpp.s
 .PHONY : Sources/BasicFuns.cpp.s
 
 Sources/main.o: Sources/main.cpp.o
@@ -325,6 +378,7 @@ src/FileIO/cFileConvertor.o: src/FileIO/cFileConvertor.cpp.o
 src/FileIO/cFileConvertor.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/src/FileIO/cFileConvertor.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LC.dir/build.make CMakeFiles/LC.dir/src/FileIO/cFileConvertor.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/INS.dir/build.make CMakeFiles/INS.dir/src/FileIO/cFileConvertor.cpp.o
 .PHONY : src/FileIO/cFileConvertor.cpp.o
 
 src/FileIO/cFileConvertor.i: src/FileIO/cFileConvertor.cpp.i
@@ -334,6 +388,7 @@ src/FileIO/cFileConvertor.i: src/FileIO/cFileConvertor.cpp.i
 src/FileIO/cFileConvertor.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/src/FileIO/cFileConvertor.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LC.dir/build.make CMakeFiles/LC.dir/src/FileIO/cFileConvertor.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/INS.dir/build.make CMakeFiles/INS.dir/src/FileIO/cFileConvertor.cpp.i
 .PHONY : src/FileIO/cFileConvertor.cpp.i
 
 src/FileIO/cFileConvertor.s: src/FileIO/cFileConvertor.cpp.s
@@ -343,6 +398,7 @@ src/FileIO/cFileConvertor.s: src/FileIO/cFileConvertor.cpp.s
 src/FileIO/cFileConvertor.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/src/FileIO/cFileConvertor.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LC.dir/build.make CMakeFiles/LC.dir/src/FileIO/cFileConvertor.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/INS.dir/build.make CMakeFiles/INS.dir/src/FileIO/cFileConvertor.cpp.s
 .PHONY : src/FileIO/cFileConvertor.cpp.s
 
 src/FileIO/cImuDataReader.o: src/FileIO/cImuDataReader.cpp.o
@@ -352,6 +408,7 @@ src/FileIO/cImuDataReader.o: src/FileIO/cImuDataReader.cpp.o
 src/FileIO/cImuDataReader.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/src/FileIO/cImuDataReader.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LC.dir/build.make CMakeFiles/LC.dir/src/FileIO/cImuDataReader.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/INS.dir/build.make CMakeFiles/INS.dir/src/FileIO/cImuDataReader.cpp.o
 .PHONY : src/FileIO/cImuDataReader.cpp.o
 
 src/FileIO/cImuDataReader.i: src/FileIO/cImuDataReader.cpp.i
@@ -361,6 +418,7 @@ src/FileIO/cImuDataReader.i: src/FileIO/cImuDataReader.cpp.i
 src/FileIO/cImuDataReader.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/src/FileIO/cImuDataReader.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LC.dir/build.make CMakeFiles/LC.dir/src/FileIO/cImuDataReader.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/INS.dir/build.make CMakeFiles/INS.dir/src/FileIO/cImuDataReader.cpp.i
 .PHONY : src/FileIO/cImuDataReader.cpp.i
 
 src/FileIO/cImuDataReader.s: src/FileIO/cImuDataReader.cpp.s
@@ -370,6 +428,7 @@ src/FileIO/cImuDataReader.s: src/FileIO/cImuDataReader.cpp.s
 src/FileIO/cImuDataReader.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/src/FileIO/cImuDataReader.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LC.dir/build.make CMakeFiles/LC.dir/src/FileIO/cImuDataReader.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/INS.dir/build.make CMakeFiles/INS.dir/src/FileIO/cImuDataReader.cpp.s
 .PHONY : src/FileIO/cImuDataReader.cpp.s
 
 src/FileIO/cfileBase.o: src/FileIO/cfileBase.cpp.o
@@ -379,6 +438,7 @@ src/FileIO/cfileBase.o: src/FileIO/cfileBase.cpp.o
 src/FileIO/cfileBase.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/src/FileIO/cfileBase.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LC.dir/build.make CMakeFiles/LC.dir/src/FileIO/cfileBase.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/INS.dir/build.make CMakeFiles/INS.dir/src/FileIO/cfileBase.cpp.o
 .PHONY : src/FileIO/cfileBase.cpp.o
 
 src/FileIO/cfileBase.i: src/FileIO/cfileBase.cpp.i
@@ -388,6 +448,7 @@ src/FileIO/cfileBase.i: src/FileIO/cfileBase.cpp.i
 src/FileIO/cfileBase.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/src/FileIO/cfileBase.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LC.dir/build.make CMakeFiles/LC.dir/src/FileIO/cfileBase.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/INS.dir/build.make CMakeFiles/INS.dir/src/FileIO/cfileBase.cpp.i
 .PHONY : src/FileIO/cfileBase.cpp.i
 
 src/FileIO/cfileBase.s: src/FileIO/cfileBase.cpp.s
@@ -397,6 +458,7 @@ src/FileIO/cfileBase.s: src/FileIO/cfileBase.cpp.s
 src/FileIO/cfileBase.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/src/FileIO/cfileBase.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LC.dir/build.make CMakeFiles/LC.dir/src/FileIO/cfileBase.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/INS.dir/build.make CMakeFiles/INS.dir/src/FileIO/cfileBase.cpp.s
 .PHONY : src/FileIO/cfileBase.cpp.s
 
 src/FileIO/cfileReader.o: src/FileIO/cfileReader.cpp.o
@@ -406,6 +468,7 @@ src/FileIO/cfileReader.o: src/FileIO/cfileReader.cpp.o
 src/FileIO/cfileReader.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/src/FileIO/cfileReader.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LC.dir/build.make CMakeFiles/LC.dir/src/FileIO/cfileReader.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/INS.dir/build.make CMakeFiles/INS.dir/src/FileIO/cfileReader.cpp.o
 .PHONY : src/FileIO/cfileReader.cpp.o
 
 src/FileIO/cfileReader.i: src/FileIO/cfileReader.cpp.i
@@ -415,6 +478,7 @@ src/FileIO/cfileReader.i: src/FileIO/cfileReader.cpp.i
 src/FileIO/cfileReader.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/src/FileIO/cfileReader.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LC.dir/build.make CMakeFiles/LC.dir/src/FileIO/cfileReader.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/INS.dir/build.make CMakeFiles/INS.dir/src/FileIO/cfileReader.cpp.i
 .PHONY : src/FileIO/cfileReader.cpp.i
 
 src/FileIO/cfileReader.s: src/FileIO/cfileReader.cpp.s
@@ -424,6 +488,7 @@ src/FileIO/cfileReader.s: src/FileIO/cfileReader.cpp.s
 src/FileIO/cfileReader.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/src/FileIO/cfileReader.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LC.dir/build.make CMakeFiles/LC.dir/src/FileIO/cfileReader.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/INS.dir/build.make CMakeFiles/INS.dir/src/FileIO/cfileReader.cpp.s
 .PHONY : src/FileIO/cfileReader.cpp.s
 
 src/FileIO/cfileSaver.o: src/FileIO/cfileSaver.cpp.o
@@ -433,6 +498,7 @@ src/FileIO/cfileSaver.o: src/FileIO/cfileSaver.cpp.o
 src/FileIO/cfileSaver.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/src/FileIO/cfileSaver.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LC.dir/build.make CMakeFiles/LC.dir/src/FileIO/cfileSaver.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/INS.dir/build.make CMakeFiles/INS.dir/src/FileIO/cfileSaver.cpp.o
 .PHONY : src/FileIO/cfileSaver.cpp.o
 
 src/FileIO/cfileSaver.i: src/FileIO/cfileSaver.cpp.i
@@ -442,6 +508,7 @@ src/FileIO/cfileSaver.i: src/FileIO/cfileSaver.cpp.i
 src/FileIO/cfileSaver.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/src/FileIO/cfileSaver.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LC.dir/build.make CMakeFiles/LC.dir/src/FileIO/cfileSaver.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/INS.dir/build.make CMakeFiles/INS.dir/src/FileIO/cfileSaver.cpp.i
 .PHONY : src/FileIO/cfileSaver.cpp.i
 
 src/FileIO/cfileSaver.s: src/FileIO/cfileSaver.cpp.s
@@ -451,6 +518,7 @@ src/FileIO/cfileSaver.s: src/FileIO/cfileSaver.cpp.s
 src/FileIO/cfileSaver.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/src/FileIO/cfileSaver.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LC.dir/build.make CMakeFiles/LC.dir/src/FileIO/cfileSaver.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/INS.dir/build.make CMakeFiles/INS.dir/src/FileIO/cfileSaver.cpp.s
 .PHONY : src/FileIO/cfileSaver.cpp.s
 
 src/GNSS/GNSSType.o: src/GNSS/GNSSType.cpp.o
@@ -460,6 +528,7 @@ src/GNSS/GNSSType.o: src/GNSS/GNSSType.cpp.o
 src/GNSS/GNSSType.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/src/GNSS/GNSSType.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LC.dir/build.make CMakeFiles/LC.dir/src/GNSS/GNSSType.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/INS.dir/build.make CMakeFiles/INS.dir/src/GNSS/GNSSType.cpp.o
 .PHONY : src/GNSS/GNSSType.cpp.o
 
 src/GNSS/GNSSType.i: src/GNSS/GNSSType.cpp.i
@@ -469,6 +538,7 @@ src/GNSS/GNSSType.i: src/GNSS/GNSSType.cpp.i
 src/GNSS/GNSSType.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/src/GNSS/GNSSType.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LC.dir/build.make CMakeFiles/LC.dir/src/GNSS/GNSSType.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/INS.dir/build.make CMakeFiles/INS.dir/src/GNSS/GNSSType.cpp.i
 .PHONY : src/GNSS/GNSSType.cpp.i
 
 src/GNSS/GNSSType.s: src/GNSS/GNSSType.cpp.s
@@ -478,6 +548,7 @@ src/GNSS/GNSSType.s: src/GNSS/GNSSType.cpp.s
 src/GNSS/GNSSType.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/src/GNSS/GNSSType.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LC.dir/build.make CMakeFiles/LC.dir/src/GNSS/GNSSType.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/INS.dir/build.make CMakeFiles/INS.dir/src/GNSS/GNSSType.cpp.s
 .PHONY : src/GNSS/GNSSType.cpp.s
 
 src/INS/INSType.o: src/INS/INSType.cpp.o
@@ -487,6 +558,7 @@ src/INS/INSType.o: src/INS/INSType.cpp.o
 src/INS/INSType.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/src/INS/INSType.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LC.dir/build.make CMakeFiles/LC.dir/src/INS/INSType.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/INS.dir/build.make CMakeFiles/INS.dir/src/INS/INSType.cpp.o
 .PHONY : src/INS/INSType.cpp.o
 
 src/INS/INSType.i: src/INS/INSType.cpp.i
@@ -496,6 +568,7 @@ src/INS/INSType.i: src/INS/INSType.cpp.i
 src/INS/INSType.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/src/INS/INSType.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LC.dir/build.make CMakeFiles/LC.dir/src/INS/INSType.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/INS.dir/build.make CMakeFiles/INS.dir/src/INS/INSType.cpp.i
 .PHONY : src/INS/INSType.cpp.i
 
 src/INS/INSType.s: src/INS/INSType.cpp.s
@@ -505,6 +578,7 @@ src/INS/INSType.s: src/INS/INSType.cpp.s
 src/INS/INSType.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CombinedNavigation.dir/build.make CMakeFiles/CombinedNavigation.dir/src/INS/INSType.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LC.dir/build.make CMakeFiles/LC.dir/src/INS/INSType.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/INS.dir/build.make CMakeFiles/INS.dir/src/INS/INSType.cpp.s
 .PHONY : src/INS/INSType.cpp.s
 
 src/LC/GINSType.o: src/LC/GINSType.cpp.o
@@ -561,6 +635,30 @@ src/LC/LooseCombination.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LC.dir/build.make CMakeFiles/LC.dir/src/LC/LooseCombination.cpp.s
 .PHONY : src/LC/LooseCombination.cpp.s
 
+src/Process/ins.o: src/Process/ins.cpp.o
+.PHONY : src/Process/ins.o
+
+# target to build an object file
+src/Process/ins.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/INS.dir/build.make CMakeFiles/INS.dir/src/Process/ins.cpp.o
+.PHONY : src/Process/ins.cpp.o
+
+src/Process/ins.i: src/Process/ins.cpp.i
+.PHONY : src/Process/ins.i
+
+# target to preprocess a source file
+src/Process/ins.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/INS.dir/build.make CMakeFiles/INS.dir/src/Process/ins.cpp.i
+.PHONY : src/Process/ins.cpp.i
+
+src/Process/ins.s: src/Process/ins.cpp.s
+.PHONY : src/Process/ins.s
+
+# target to generate assembly for a file
+src/Process/ins.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/INS.dir/build.make CMakeFiles/INS.dir/src/Process/ins.cpp.s
+.PHONY : src/Process/ins.cpp.s
+
 src/Process/lc.o: src/Process/lc.cpp.o
 .PHONY : src/Process/lc.o
 
@@ -594,12 +692,17 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... CombinedNavigation_autogen"
+	@echo "... INS_autogen"
 	@echo "... LC_autogen"
 	@echo "... CombinedNavigation"
+	@echo "... INS"
 	@echo "... LC"
 	@echo "... CombinedNavigation_autogen/mocs_compilation.o"
 	@echo "... CombinedNavigation_autogen/mocs_compilation.i"
 	@echo "... CombinedNavigation_autogen/mocs_compilation.s"
+	@echo "... INS_autogen/mocs_compilation.o"
+	@echo "... INS_autogen/mocs_compilation.i"
+	@echo "... INS_autogen/mocs_compilation.s"
 	@echo "... LC_autogen/mocs_compilation.o"
 	@echo "... LC_autogen/mocs_compilation.i"
 	@echo "... LC_autogen/mocs_compilation.s"
@@ -642,6 +745,9 @@ help:
 	@echo "... src/LC/LooseCombination.o"
 	@echo "... src/LC/LooseCombination.i"
 	@echo "... src/LC/LooseCombination.s"
+	@echo "... src/Process/ins.o"
+	@echo "... src/Process/ins.i"
+	@echo "... src/Process/ins.s"
 	@echo "... src/Process/lc.o"
 	@echo "... src/Process/lc.i"
 	@echo "... src/Process/lc.s"

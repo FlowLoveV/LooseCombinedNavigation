@@ -110,11 +110,11 @@ void ns_filter::cKalman::Update(const Matrix &obs, const Matrix &H, const Matrix
 }
 
 const Matrix &ns_filter::cKalman::getMStateK() const {
-    return m_State_k;
+    return m_State_k.row==0 ? m_State_k_1 : m_State_k;
 }
 
 const Matrix &ns_filter::cKalman::getMStateVarianceK() const {
-    return m_StateVariance_k;
+    return m_StateVariance_k.row==0 ? m_StateVariance_k_1 : m_StateVariance_k;
 }
 
 ns_filter::cKalman::cKalman() = default;

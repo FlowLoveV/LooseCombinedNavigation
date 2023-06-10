@@ -85,6 +85,7 @@ CMakeFiles/LC.dir/src/FileIO/cFileConvertor.cpp.o
  lib/yaml-cpp/include/yaml-cpp/stlemitter.h
  lib/yaml-cpp/include/yaml-cpp/traits.h
  lib/yaml-cpp/include/yaml-cpp/yaml.h
+ src/Common/Angle.h
  src/GNSS/GNSSType.h
  src/INS/INSType.h
  src/LC/GINSType.h
@@ -424,6 +425,7 @@ CMakeFiles/LC.dir/src/Process/lc.cpp.o
  lib/yaml-cpp/include/yaml-cpp/stlemitter.h
  lib/yaml-cpp/include/yaml-cpp/traits.h
  lib/yaml-cpp/include/yaml-cpp/yaml.h
+ src/FileIO/cFileConvertor.h
  src/FileIO/cImuDataReader.h
  src/FileIO/cfileBase.h
  src/FileIO/cfileReader.h

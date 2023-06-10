@@ -1,7 +1,7 @@
 # IMU和GNSS数据文件路径
 # imudata and gnssdata filepath
-imupath: "./Dataset/imu.ASC"
-gnsspath: "./Dataset/开阔rtkRes.pos"
+imupath: "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Dataset/imu.ASC"
+gnsspath: "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Dataset/开阔rtkRes.pos"
 
 # 观测模型:
 # 1 :  GNSS位置观测
@@ -11,7 +11,7 @@ obsmodel: 2
 
 # 输出文件夹路径
 # output folder path
-outputpath: "./Dataset/"
+outputpath: "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Dataset/"
 
 # IMU文件格式
 # 22 - novatel ascii 文本
@@ -28,22 +28,22 @@ gnssfileformat: 1
 # 处理时间段，结束时间设置为-1时则处理至IMU文件结束
 # processing interval[s]
 # process until the imufile end if set endtime to -1
-starttime: 0
-endtime: 0
+starttime: 360555.25
+endtime: 361495.99
 
 # 初始状态
 # initial state
 # 初始位置, 纬度 经度 高程
 # initial position, latitude, longitude, altitude. [deg, deg, m]
-initpos: [ 30.5, 114, 20 ]
+initpos: [ 30.5281113284 ,114.3557629661 ,22.440 ]
 
 # 初始速度, 北向速度, 东向速度, 垂向速度
 # initial velocity, speed in the directions of north, east and down. [m/s, m/s, m/s]
-initvel: [ 0.0, 0.0, 0.0 ]
+initvel: [ -0.062 , 1.026 , 0.010 ]
 
 # 初始姿态, 欧拉角(ZYX旋转顺序), 横滚, 俯仰, 航向
 # initial attitude, euler angle(ZYX rotation), roll, pitch, yaw [deg, deg, deg]
-initatt: [ 0.0, 0.0, 0.0 ]
+initatt: [ -0.7838703327 ,-0.1439787743 ,93.8217170742 ]
 
 # 初始IMU零偏和比例因子, IMU的三个轴(前、右、下)
 # initial IMU bias and scale error, three axes of the imu (forward, right and down)
@@ -56,22 +56,22 @@ initaccscale: [ 0, 0, 0 ]   # [ppm]
 # initial state std
 # 初始位置标准差, 导航坐标系下 北向, 东向和垂向
 # initial position std, north, east and down in n-frame. [m, m, m]
-initposstd: [ 0.1, 0.1, 0.2 ]
+initposstd: [ 0.003 ,0.003  ,0.006 ]
 
 # 初始速度标准差, 导航坐标系下北向、东向和垂向速度
 # initial velocity std, north, east and down speed in n-frame. [m/s, m/s, m/s]
-initvelstd: [ 0.05, 0.05, 0.05 ]
+initvelstd: [ 0.001, 0.001 , 0.001 ]
 
 # 初始姿态标准差, 横滚、俯仰、航向角标准差
 # initial attitude std, roll, pitch and yaw std. [deg, deg, deg]
-initattstd: [ 0.5, 0.5, 1.0 ]
+initattstd: [ 0.001, 0.001, 0.001 ]
 
 # 初始IMU零偏和比例因子标准差, IMU的三个轴
 # initial IMU bias and scale error std, thrss axes of the imu
 # 如果不指定，默认按照IMU零偏和比例因子误差参数设定
 # default to the noise parameters of IMU bias and scale error.
-initbgstd: [ 50, 50, 50 ]          # [deg/h]
-initbastd: [ 250, 250, 250 ]       # [mGal]
+initbgstd: [ 900, 900, 900 ]          # [deg/h]
+initbastd: [ 98, 98, 98 ]          # [mGal]
 initsgstd: [ 1000, 1000, 1000 ]    # [ppm]
 initsastd: [ 1000, 1000, 1000 ]    # [ppm]
 
@@ -88,4 +88,4 @@ imunoise:
 
 # 天线杆臂, IMU坐标系前右下方向
 # antenna lever, forward, right and down in the imu frame. [m]
-antlever: [ 0.136, -0.301, -0.184 ]
+antlever: [ 0.1090, -0.0325, 0.9160 ]

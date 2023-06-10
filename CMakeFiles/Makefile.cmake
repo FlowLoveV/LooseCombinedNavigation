@@ -265,6 +265,7 @@ set(CMAKE_MAKEFILE_OUTPUTS
 set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CombinedNavigation_autogen.dir/AutogenInfo.json"
   "CMakeFiles/LC_autogen.dir/AutogenInfo.json"
+  "CMakeFiles/INS_autogen.dir/AutogenInfo.json"
   ".qt/QtDeploySupport.cmake"
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   )
@@ -273,6 +274,8 @@ set(CMAKE_MAKEFILE_PRODUCTS
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/CombinedNavigation.dir/DependInfo.cmake"
   "CMakeFiles/LC.dir/DependInfo.cmake"
+  "CMakeFiles/INS.dir/DependInfo.cmake"
   "CMakeFiles/CombinedNavigation_autogen.dir/DependInfo.cmake"
   "CMakeFiles/LC_autogen.dir/DependInfo.cmake"
+  "CMakeFiles/INS_autogen.dir/DependInfo.cmake"
   )

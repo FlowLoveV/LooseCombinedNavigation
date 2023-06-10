@@ -593,18 +593,17 @@ Matrix vertical_stack_array(Matrix *m,const int & n){
 }
 
 Matrix diag(double *p,const int & n){
-    std::vector<double> v;
+    auto newp = new double[n*n];
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j <n; ++j) {
             if(i==j){
-                v.push_back(p[i]);
+                newp[i*n+j] = p[i];
+            }else{
+                newp[i*n+j] = 0;
             }
-            v.push_back(0);
         }
     }
-    auto new_p = new double[n*n];
-    new_p = &v[0];
-    return {n,n,new_p};
+    return {n,n,newp};
 }
 
 Matrix diag(Matrix *m,const int & n){

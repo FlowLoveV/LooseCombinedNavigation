@@ -104,7 +104,7 @@ public:
     double_t m_pPos[3] = {0};         /**< 位置 [lat,lon,h]   */
     double_t m_pSpeed[3] = {0};       /**< 速度 [Vn,Ve,Vd]    */
     double_t m_pQuaternion[4] = {0};  /**< 姿态四元数          */
-    double_t m_pEMatrix[4] = {0};     /**< 姿态角矩阵          */
+    double_t m_pEMatrix[9] = {0};     /**< 姿态角矩阵          */
     double_t m_pEuler[3]{};           /**< 欧拉角组            */
     ImuError m_error;                 /**< IMU误差系数         */
 
@@ -139,6 +139,19 @@ public:
      * @param dx        input       Matrix          松组合系统状态向量
      */
     void stateFeedback(const Matrix & dx);
+
+
+    /*!
+     * 改变单位
+     * b l roll pitch yaw单位由 deg 转为 rad
+     */
+    void changeUnitD2R();
+
+    /*!
+     * 改变单位
+     * b l roll pitch yaw单位由 rad 转为 deg
+     */
+    void changeUnitR2D();
 };
 
 
@@ -211,7 +224,7 @@ public:
     void gyrAlignment(const ::std::vector<IMUData_SingleEpoch> & rawData,double *euler);
 
     /*!
-     * 惯性导航机械编排算法单历元更新函数，静态函数
+     * 惯性导航机械编排算法单历元更新函数，静态函数 经过检验，绝对可信
      * @param obs2      input       IMUData_SingleEpoch     k-2历元IMU原始观测数据
      * @param obs1      input       IMUData_SingleEpoch     k-1历元IMU原始观测数据
      * @param obs       input       IMUData_SingleEpoch     k历元IMU原始观测数据

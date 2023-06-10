@@ -46,13 +46,22 @@ std::vector<double> &cfileReader::readline(const int & col) {
             QStringList parts = str.split(RegExp);
             for (const auto &item: parts) {
                 if(!item.isEmpty() && !item.contains(" "))
-                    m_vdata.push_back(std::stod(item.toStdString()));
-            }
+                    // 防止转换失败导致程序停滞
+                    try{
+                        m_vdata.push_back(std::stod(item.toStdString()));
+                    }catch (const std::exception & e){
 
+                    }
+            }
+            // 如果行数不对，则抛出异常
+            if(m_vdata.size() != col){
+                throw std::runtime_error("本行数据有误!");
+            }
         }
         catch(const std::exception & e){
             deleteData();
-            //std::cerr << "读取" << m_sfileName << "时发生错误!\n" << "请检验文件格式是否正确。";
+            std::cout << e.what() << std::endl;
+            std::cerr << "读取" << m_sfileName << "时发生错误!\n" << "请检验文件格式是否正确。\n";
             return m_vdata;
         }
     }else{

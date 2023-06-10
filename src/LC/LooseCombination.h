@@ -56,6 +56,12 @@ namespace ns_GINS{
          */
         Matrix getStateVariance();
 
+
+        /*!
+         * 打印当前配置
+         */
+        void printConfig();
+
     protected:
 
         /*!

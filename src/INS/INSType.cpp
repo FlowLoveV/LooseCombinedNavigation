@@ -157,9 +157,9 @@ std::vector<double> INSRes_SingleEpoch::toVector() {
     std::vector<double> v;
     v.reserve(11);
     v.push_back(t.weeks) , v.push_back(t.second);
-    memcpy(v.data()+2*sizeof(double),m_pPos,3*sizeof(double));
-    memcpy(v.data()+5*sizeof(double),m_pSpeed,3*sizeof(double));
-    memcpy(v.data()+8*sizeof(double),m_pEuler,3*sizeof(double));
+    v.insert(v.end(),m_pPos,m_pPos+3);
+    v.insert(v.end(),m_pSpeed,m_pSpeed+3);
+    v.insert(v.end(),m_pEuler,m_pEuler+3);
     return v;
 }
 
@@ -196,6 +196,22 @@ void INSRes_SingleEpoch::stateFeedback(const Matrix &dx) {
     for (int i = 0; i < 3; ++i) m_error.aScale[i] += vector3.p[i];
 }
 
+void INSRes_SingleEpoch::changeUnitD2R() {
+    m_pPos[0] *= DEG2RAD;
+    m_pPos[1] *= DEG2RAD;
+    for (auto &item: m_pEuler) {
+        item *= DEG2RAD;
+    }
+}
+
+void INSRes_SingleEpoch::changeUnitR2D() {
+    m_pPos[0] *= RAD2DEG;
+    m_pPos[1] *= RAD2DEG;
+    for (auto &item: m_pEuler) {
+        item *= RAD2DEG;
+    }
+}
+
 INSRes_SingleEpoch::~INSRes_SingleEpoch() = default;
 
 InsConfigure::InsConfigure() = default;
@@ -205,20 +221,24 @@ void PureIns::updateSinEpoch(const IMUData_SingleEpoch & obs2,const IMUData_Sing
                              const IMUData_SingleEpoch & obs, const INSRes_SingleEpoch & res2,
                              const INSRes_SingleEpoch & res1,INSRes_SingleEpoch & res) {
     double_t rv[3],qb[4],qn[4];
-    Angle2RV(obs2.m_pGyr, obs1.m_pGyr, rv); // 双子样法更新等效旋转矢量
-    Rotation::RV2Quaternion(rv,qb);                         // 等效旋转矢量更新b系
+    // 双子样法更新等效旋转矢量
+    Angle2RV(obs1.m_pGyr, obs.m_pGyr, rv);
+    // 等效旋转矢量更新b系
+    Rotation::RV2Quaternion(rv,qb);
+    // k-1 到 k历元中间时刻的值
     double_t pos[3],speed[3],wie[3],wen[3],Rm,Rn;
-    double_t delta_t = obs.t - obs1.t; // 观测间隔
+    // 观测间隔
+    double_t delta_t = obs.t - obs1.t;
     // 利用k-2、k-1历元位置、速度外推得到k-0.5历元位置、速度
     for (int i = 0; i < 3; ++i) {
         pos[i] = linExtrapolateHalf(res2.m_pPos[i], res1.m_pPos[i]);
         speed[i] = linExtrapolateHalf(res2.m_pSpeed[i], res1.m_pSpeed[i]);
     }
-    Earth::calculateRotationSpeed(pos,speed,wie,wen,Rm,Rn);
+    Earth::calculateRotationSpeed(pos,speed,wie,wen,Rm,Rn);   // un
     Matrix m_wie(3,1,wie),m_wen(3,1,wen);
-    Matrix m_rv = (m_wie + m_wen) ^ delta_t;
+    Matrix m_rv = (m_wie + m_wen) * delta_t;
     Rotation::RV2Quaternion(m_rv.p,qn);
-    // 需要将qn的虚部反号
+    // k-1 时刻n系 -> k时刻n系  姿态四元数
     for (int i = 1; i < 4; ++i) {
         qn[i] = -qn[i];
     }
@@ -241,7 +261,7 @@ void PureIns::updateSinEpoch(const IMUData_SingleEpoch & obs2,const IMUData_Sing
     Matrix m_res_vk = Matrix(3,1,res1.m_pSpeed) + m_cor + m_v_fk_n;
     memcpy(res.m_pSpeed, m_res_vk.p, IMUDATA_SIZE);
     // 更新位置
-    res.m_pPos[2] = res1.m_pPos[1] - (res.m_pSpeed[2] + res1.m_pSpeed[2]) / 2 * delta_t;
+    res.m_pPos[2] = res1.m_pPos[2] - (res.m_pSpeed[2] + res1.m_pSpeed[2]) / 2 * delta_t;
     double_t average_h = (res.m_pPos[2] + res.m_pPos[2]) / 2;
     res.m_pPos[0] = res1.m_pPos[0] + (res.m_pSpeed[0] + res1.m_pSpeed[0]) / 2 / (Rm + average_h) * delta_t;
     double_t average_lat = (res.m_pPos[0] + res.m_pPos[0]) / 2;

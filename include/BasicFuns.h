@@ -18,12 +18,12 @@ extern double ELLIPSOID_E2;
 
 
 /*!
- * 线型外推半历元函数
+ * 线型外推半历元函数 bug已修改 tested
  * @param v_2   input       double          k-2历元时刻值
  * @param v_1   input       double          k-1历元时刻值
  * @return                  double          k-0.5历元时刻值
  */
-inline double linExtrapolateHalf(const double & v_2,const double & v_1) {return 1.5*v_2 - 0.5*v_1;}
+inline double linExtrapolateHalf(const double & v_2,const double & v_1) {return 1.5*v_1 - 0.5*v_2;}
 
 /*!
  * 求出三维向量模的函数

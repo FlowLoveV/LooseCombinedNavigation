@@ -422,3 +422,7 @@ GPST ns_GINS::LooseCombination::getTime() {
 Matrix ns_GINS::LooseCombination::getStateVariance() {
     return filter_.getMStateVarianceK();
 }
+
+void ns_GINS::LooseCombination::printConfig() {
+    this->options_.print();
+}

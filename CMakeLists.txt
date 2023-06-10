@@ -71,6 +71,10 @@ include_directories(
         ${SRC_DIR}
 )
 
+add_executable(INS src/Process/ins.cpp
+        ${FILEIO_CPP_SOURCES} ${INS_CPP_SOURCES} ${COMMON_CPP_SOURCES} ${GNSS_CPP_SOURCES}
+        include/BasicFuns.h Sources/BasicFuns.cpp)
+
 add_executable(LC src/Process/lc.cpp
         # 资源文件
         ${FILEIO_CPP_SOURCES} ${INS_CPP_SOURCES} ${COMMON_CPP_SOURCES} ${GNSS_CPP_SOURCES} ${LC_CPP_SOURCES}
@@ -90,11 +94,25 @@ add_executable(CombinedNavigation Sources/main.cpp
         ${PROJECT_SOURCE_DIR}/lib/Filter/cKalman.h ${PROJECT_SOURCE_DIR}/lib/Filter/cKalman.cpp
         )
 
-set_target_properties(LC PROPERTIES
-        RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin
-        )
+set_target_properties(INS PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+
+set_target_properties(LC PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
 target_link_libraries(LC
+        Qt::Core
+        # yaml-cpp库链接
+        ${YAML_CPP_LIB}
+        # 矩阵库链接
+        ${MATRIX_CPP_LIB}
+        # 时间系统库链接
+        ${TIME_SYSTEM_CPP_LIB}
+        # 坐标系统库链接
+        ${COORSYSTEM_CPP_LIB}
+        # 终端输出库
+        ${TERMINAL_CPP_LIB}
+        )
+
+target_link_libraries(INS
         Qt::Core
         # yaml-cpp库链接
         ${YAML_CPP_LIB}

@@ -118,7 +118,7 @@ void GPST::minus_sec(double sec) {
 }
 
 void GPST::print() {
-    std::cout << "GPST:" << std::setprecision(15) << weeks << " " << second << '\n';
+    std::cout << "GPST:" << std::setprecision(15) << weeks << " " << std::setprecision(15) <<second << '\n';
 }
 
 

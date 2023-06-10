@@ -41,7 +41,8 @@ bool cfileSaver::write(const std::vector<double> vec) {
     // 将数据输出
     if(is_open()){
         for (const auto &item: m_vdata) {
-            m_fileFp << item << " ";
+            m_fileFp << std::setprecision(14);
+            m_fileFp << std::setw(14) << std::left << item << " ";
         }
         m_fileFp << '\n';
         return true;

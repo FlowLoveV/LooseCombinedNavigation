@@ -23,7 +23,7 @@ public:
         if(mod==0) {q[0] = 1;q[1] = q[2] = q[3] = 0;}
         else{
             q[0] = cos(mod);
-            double t = sin(mod) / mod / 2;
+            double t = sin(mod) / mod / 2.0;
             q[1] = RV[0] * t;
             q[2] = RV[1] * t;
             q[3] = RV[2] * t;

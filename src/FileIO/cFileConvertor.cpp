@@ -3,7 +3,7 @@
 //
 
 #include "cFileConvertor.h"
-
+#include "Angle.h"
 
 IMUData_SingleEpoch cFileConvertor::toImuData(const std::vector<double> &vec) {
     GPST gpst(vec[0],vec[1]);
@@ -35,5 +35,8 @@ GnssRes cFileConvertor::toGnssResData(const std::vector<double> &vec) {
             std::cerr << "error in cFileConvertor::toGnssResData(const std::vector<double> &vec)\n"
             << "输入数组的大小应该为7或者13!";
     }
+    // 单位转换
+    res.m_pBLH[0] *= DEG2RAD;
+    res.m_pBLH[1] *= DEG2RAD;
     return res;
 }
