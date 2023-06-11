@@ -79,7 +79,7 @@ public:
 
     bool isSquare() const;             // 检查矩阵是否为方阵
 
-    void print() const; //打印矩阵
+    void print(const int & precision = 6) const; //打印矩阵
 
 };
 

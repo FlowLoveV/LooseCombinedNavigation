@@ -7,6 +7,9 @@
 #include "typeinfo"
 #include "cmath"
 #include "Matrix.h"
+#include "iomanip"
+#include "sstream"
+#include "stdio.h"
 
 
 Matrix::Matrix() {
@@ -34,13 +37,53 @@ Matrix::Matrix(const Matrix &b) {
     memcpy(p, b.p, b.col * b.row * sizeof(double));
 }
 
-void Matrix::print() const{
-    std::cout << this->row << '\t' << this->col << '\n';
+void Matrix::print(const int & precision) const{
+    /*std::cout << this->row << '\t' << this->col << '\n';
     for (int i = 0; i < this->row; ++i) {
         for (int j = 0; j < this->col; ++j) {
             std::cout << *(this->p + i * this->col + j) << "    ";
         }
         std::cout << '\n';
+    }*/
+
+    /*// 找到每列的最大宽度
+    std::vector<int> maxColWidth(this->col, 0);
+    for (int j = 0; j < this->col; ++j) {
+        for (int i = 0; i < this->row; ++i) {
+            std::stringstream ss;
+            ss << *(this->p + i * this->col + j);
+            int width = ss.str().length();
+            maxColWidth[j] = std::max(maxColWidth[j], width);
+        }
+    }
+    // 打印矩阵大小
+    std::cout << this->row << '\t' << this->col << '\n';
+    // 打印矩阵内容
+    for (int i = 0; i < this->row; ++i) {
+        for (int j = 0; j < this->col; ++j) {
+            std::cout << std::setprecision(precision) << std::fixed << std::left<< std::setw(maxColWidth[j] + 7)
+            << *(this->p + i * this->col + j);
+        }
+        std::cout << '\n';
+    }
+*/
+    std::vector<int> maxColWidth(this->col, 0);
+    for (int j = 0; j < this->col; ++j) {
+        for (int i = 0; i < this->row; ++i) {
+            std::stringstream ss;
+            ss << *(this->p + i * this->col + j);
+            int width = ss.str().length();
+            maxColWidth[j] = std::max(maxColWidth[j], width);
+        }
+    }
+    // 打印矩阵大小
+    printf("%d\t%d\n", this->row, this->col);
+    // 打印矩阵内容
+    for (int i = 0; i < this->row; ++i) {
+        for (int j = 0; j < this->col; ++j) {
+            printf("%*.*e    ", maxColWidth[j] + 7, precision, *(this->p + i * this->col + j));
+        }
+        printf("\n");
     }
 }
 
