@@ -10,6 +10,8 @@
 
 /**< NOVATEL格式的imu数据文件           */
 #define NOVATEL_OME7_IMU_ACSII 22
+#define IMR_BINARY             33
+#define LINE_TXT_ASCII         44
 
 class cImuDataReader : public cfileReader{
 public:

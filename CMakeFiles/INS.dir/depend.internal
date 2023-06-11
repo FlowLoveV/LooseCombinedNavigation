@@ -86,6 +86,7 @@ CMakeFiles/INS.dir/src/FileIO/cFileConvertor.cpp.o
  src/INS/INSType.h
  src/LC/GINSType.h
 CMakeFiles/INS.dir/src/FileIO/cImuDataReader.cpp.o
+ /Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cFileConvertor.h
  /Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cImuDataReader.cpp
  /Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cImuDataReader.h
  /Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cfileBase.h

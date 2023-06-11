@@ -3,6 +3,7 @@
 //
 
 #include "cImuDataReader.h"
+#include "cFileConvertor.h"
 
 cImuDataReader::cImuDataReader()  = default;
 
@@ -23,7 +24,13 @@ bool cImuDataReader::readline(IMUData_SingleEpoch &date) {
             read_NOVATEL_OME7_IMU_ACSII_line(date);
             break;
         // 其他格式...
-
+        case IMR_BINARY:
+            std::cerr << "程序目前尚未添加解码imr文件的功能!";
+            break;
+        case LINE_TXT_ASCII:
+            // 行排列的
+            date = cFileConvertor::toImuData(cfileReader::readline(7));
+            break;
         default:
             std::cerr << "无输入类型的文本，请选择正确类型的文本!\n";
             break;

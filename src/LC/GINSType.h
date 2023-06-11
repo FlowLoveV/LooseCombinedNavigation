@@ -40,7 +40,21 @@ struct NavState{
     double euler[3];       /**< 姿态角-欧拉角组 roll pitch yaw rad */
     ImuError imuError;     /**< IMU 误差                         */
 
+    /*!
+     * 将状态转为vector数组，便于输出文件
+     * @param t     input       GPST            状态对应时间戳
+     * @return      std::vector<double>
+     *              lat lon h   v-n v-e v-d    roll pitch yaw   gb-xyz   ab-xyz     gs-xyz  as-xyz
+     *              deg     m       m/s             deg         deg/h     mGal       ppm      ppm
+     */
     std::vector<double> toVector(const GPST & t = GPST());
+
+
+    /*!
+     * 将单位转为便于直观展示的单位具体如下:
+     * rad->deg    rad/s->deg/h     m/s/s->mGal     比例因子单位转为ppm
+     */
+    void changeUintToShow();
 
 };
 

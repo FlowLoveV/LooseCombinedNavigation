@@ -16,6 +16,7 @@ outputpath: "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Dataset/"
 # IMU文件格式
 # 22 - novatel ascii 文本
 # 33 - imr文件
+# 44 - 按行排列的ascii文件  second theta-x theta-y theta-z dv-x dv-y dv-z 默认轴系ned
 imufileformat: 22
 # IMU原始数据频率
 # IMU datarate [Hz]
@@ -47,8 +48,8 @@ initatt: [ -0.7838703327 ,-0.1439787743 ,93.8217170742 ]
 
 # 初始IMU零偏和比例因子, IMU的三个轴(前、右、下)
 # initial IMU bias and scale error, three axes of the imu (forward, right and down)
-initgyrbias: [ 0, 0, 0 ]    # [deg/h]
-initaccbias: [ 0, 0, 0 ]    # [mGal]
+initgyrbias: [ 6.944e-5,6.944e-5,6.944e-5 ]    # [deg/h]
+initaccbias: [ 98, 98, 98]    # [mGal]
 initgyrscale: [ 0, 0, 0 ]   # [ppm]
 initaccscale: [ 0, 0, 0 ]   # [ppm]
 
@@ -66,25 +67,25 @@ initvelstd: [ 0.001, 0.001 , 0.001 ]
 # initial attitude std, roll, pitch and yaw std. [deg, deg, deg]
 initattstd: [ 0.001, 0.001, 0.001 ]
 
-# 初始IMU零偏和比例因子标准差, IMU的三个轴
+# 初始IMU零偏和比例因子标准差, IMU的三个轴(这里设置为初始状态的0.1倍)
 # initial IMU bias and scale error std, thrss axes of the imu
 # 如果不指定，默认按照IMU零偏和比例因子误差参数设定
 # default to the noise parameters of IMU bias and scale error.
-initbgstd: [ 900, 900, 900 ]          # [deg/h]
-initbastd: [ 98, 98, 98 ]          # [mGal]
-initsgstd: [ 1000, 1000, 1000 ]    # [ppm]
-initsastd: [ 1000, 1000, 1000 ]    # [ppm]
+initbgstd: [ 6.944e-6,6.944e-6,6.944e-6 ]       # [deg/h]
+initbastd: [ 9.8, 9.8, 9.8 ]                    # [mGal]
+initsgstd: [ 0, 0, 0 ]                          # [ppm]
+initsastd: [ 0, 0, 0 ]                          # [ppm]
 
 # IMU噪声建模参数, IMU的三个轴
 # IMU noise parameters
 imunoise:
-  arw: [0.24, 0.24, 0.24]          # [deg/sqrt(hr)]
-  vrw: [0.24, 0.24, 0.24]          # [m/s/sqrt(hr)]
-  gbstd: [50.0, 50.0, 50.0]        # [deg/hr]
-  abstd: [250.0, 250.0, 250.0]     # [mGal]
-  gsstd: [1000.0, 1000.0, 1000.0]  # [ppm]
-  asstd: [1000.0, 1000.0, 1000.0]  # [ppm]
-  corrtime: [1.0, 1.0, 1.0, 1.0]   # [Tgb,Tab,Tgs,Tas] [h]
+  arw: [9.17e-6, 9.17e-6, 9.17e-6]           # [deg/sqrt(hr)]
+  vrw: [1.67e-5, 1.67e-5, 1.67e-5]          # [m/s/sqrt(hr)]
+  gbstd: [0.5, 0.5, 0.5]                    # [deg/hr]
+  abstd: [2.5, 2.5, 2.5]                    # [mGal]
+  gsstd: [0, 0, 0]                          # [ppm]
+  asstd: [0, 0, 0]                          # [ppm]
+  corrtime: [1.0, 1.0, 1.0, 1.0]            # [Tgb,Tab,Tgs,Tas] [h]
 
 # 天线杆臂, IMU坐标系前右下方向
 # antenna lever, forward, right and down in the imu frame. [m]

@@ -34,7 +34,7 @@ public:
         wie[1] = 0;
         wie[2] = -ELLIPSOID_OMEGA * slat;
         // 输出Rm,Rn
-        double t = sqrt(1 - ELLIPSOID_E2 * pow(slat,2));
+        double t = sqrt(1 -ELLIPSOID_E2 * pow(slat,2));
         Rm = ELLIPSOID_a * (1 - ELLIPSOID_E2) / pow(t,3);
         Rn = ELLIPSOID_a / t;
         // 输出wen
@@ -54,13 +54,13 @@ public:
         double slat = sin(pos[0]), clat = cos(pos[0]), tlat = tan(pos[0]);
         double wie[3],wen[3],Rm,Rn;
         // wie
-        wie[0] = ELLIPSOID_OMEGA * clat;
+        wie[0] = WGS84_WIE * clat;
         wie[1] = 0;
-        wie[2] = -ELLIPSOID_OMEGA * slat;
+        wie[2] = -WGS84_WIE * slat;
         // Rm,Rn
-        double t = sqrt(1 - ELLIPSOID_E2 * pow(slat,2));
-        Rm = ELLIPSOID_a * (1 - ELLIPSOID_E2) / pow(t,3);
-        Rn = ELLIPSOID_a / t;
+        double t = sqrt(1 - WGS84_E2 * pow(slat,2));
+        Rm = WGS84_RA * (1 - WGS84_E2) / pow(t,3);
+        Rn = WGS84_RA / t;
         // wen
         wen[0] = v[1] / (Rn + pos[2]);
         wen[1] = -v[0] / (Rm + pos[2]);

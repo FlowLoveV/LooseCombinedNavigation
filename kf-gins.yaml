@@ -5,25 +5,44 @@
 
 # IMU和GNSS数据文件路径
 # imudata and gnssdata filepath
-imupath: "./dataset/Leador-A15.txt"
-gnsspath: "./dataset/GNSS-RTK.txt"
+imupath: "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Dataset/Leador-A15.txt"
+gnsspath: "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Dataset/GNSS-RTK.txt"
+
+# 观测模型:
+# 1 :  GNSS位置观测
+# 2 :  GNSS位置、速度观测
+# 3 :  GNSS位置、速度及里程计观测
+obsmodel: 2
 
 # 输出文件夹路径
 # output folder path
-outputpath: "./dataset"
+outputpath: "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Dataset/"
 
-# IMU文件列数 (只会用前7列IMU数据)
-# IMU data columns, only use the first seven columns
-imudatalen: 7
+# IMU文件格式
+# 22 - novatel ascii 文本
+# 33 - imr文件
+# 44 - 按行排列的ascii文件  second theta-x theta-y theta-z dv-x dv-y dv-z 默认轴系ned
+imufileformat: 44
 # IMU原始数据频率
 # IMU datarate [Hz]
-imudatarate: 200
+imudatarate: 100
+
+# GNSS 结果文件格式
+# 1 - gpst-week gpst-second d-lat d-lon d-h lat-std lon-std h-std v-n v-e v-d vn-std ve-std vd-std
+gnssfileformat: 1
+# gnss文件行数
+# 7 - gpst-second d-lat d-lon d-h lat-std lon-std h-std
+# 8 - gpst-week gpst-second d-lat d-lon d-h lat-std lon-std h-std
+# 13 - gpst-second d-lat d-lon d-h lat-std lon-std h-std v-n v-e v-d vn-std ve-std vd-std
+# 14 - gpst-week gpst-second d-lat d-lon d-h lat-std lon-std h-std v-n v-e v-d vn-std ve-std vd-std
+gnssfilecol: 7
+
 
 # 处理时间段，结束时间设置为-1时则处理至IMU文件结束
 # processing interval[s]
 # process until the imufile end if set endtime to -1
 starttime: 456300
-endtime: -1
+endtime: 459664.620611019
 
 # 初始状态
 # initial state
@@ -64,10 +83,10 @@ initattstd: [ 0.003, 0.003, 0.023 ]
 # initial IMU bias and scale error std, thrss axes of the imu
 # 如果不指定，默认按照IMU零偏和比例因子误差参数设定
 # default to the noise parameters of IMU bias and scale error.
-#initbgstd: [ 1, 1, 1 ]          # [deg/h]
-#initbastd: [ 50, 50, 50 ]       # [mGal]
-#initsgstd: [ 300, 300, 300 ]    # [ppm]
-#initsastd: [ 300, 300, 300 ]    # [ppm]
+initbgstd: [ 1, 1, 1 ]          # [deg/h]
+initbastd: [ 50, 50, 50 ]       # [mGal]
+initsgstd: [ 300, 300, 300 ]    # [ppm]
+initsastd: [ 300, 300, 300 ]    # [ppm]
 
 # IMU噪声建模参数, IMU的三个轴
 # IMU noise parameters
@@ -78,7 +97,7 @@ imunoise:
   abstd: [15.0, 15.0, 15.0]           # [mGal]
   gsstd: [300.0, 300.0, 300.0]        # [ppm]
   asstd: [300.0, 300.0, 300.0]        # [ppm]
-  corrtime: 4.0                       # [hr]
+  corrtime: [4.0, 4.0, 4.0, 4.0]      # [hr]
 
 # 天线杆臂, IMU坐标系前右下方向
 # antenna lever, forward, right and down in the imu frame. [m]

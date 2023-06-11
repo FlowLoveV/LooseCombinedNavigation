@@ -85,7 +85,7 @@ namespace ns_GINS{
         void initialize();
 
         // ins更新单历元
-        virtual void mesh();
+        virtual void mech();
 
     private:
 
@@ -114,6 +114,8 @@ namespace ns_GINS{
         GnssRes gnssRes_;
         // 滤波器
         ns_filter::cKalman filter_;
+        // imu过程噪声
+        Matrix q_;
         // 观测模型参数
         enum OBSERVATION_MODEL {POS = 1, POS_VEL = 2, POS_VEL_ODO = 3};
         int obs_model = 0;

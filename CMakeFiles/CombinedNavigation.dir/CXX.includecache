@@ -17,8 +17,6 @@ mainwindow.h
 /Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/mainwindow.h
 sciplot/sciplot.hpp
 -
-ncurses.h
-/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/ncurses.h
 INSType.h
 /Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/INSType.h
 Rotation.h
@@ -27,6 +25,16 @@ cfileSaver.h
 /Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/cfileSaver.h
 iostream
 /Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/iostream
+
+/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/Filter/cKalman.cpp
+cKalman.h
+/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/Filter/cKalman.h
+
+/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/Filter/cKalman.h
+Matrix.h
+/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/Filter/Matrix.h
+iostream
+-
 
 /Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cFileConvertor.cpp
 cFileConvertor.h
@@ -43,6 +51,8 @@ GNSSType.h
 /Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cImuDataReader.cpp
 cImuDataReader.h
 /Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cImuDataReader.h
+cFileConvertor.h
+/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cFileConvertor.h
 
 /Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cImuDataReader.h
 cfileReader.h
@@ -59,6 +69,16 @@ vector
 -
 cfileBase.h
 /Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cfileBase.h
+
+/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/GNSS/GNSSType.cpp
+GNSSType.h
+/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/GNSS/GNSSType.h
+
+/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/GNSS/GNSSType.h
+TimeSys.h
+/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/GNSS/TimeSys.h
+CoorSys.h
+/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/GNSS/CoorSys.h
 
 /Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/INS/INSType.cpp
 sstream
@@ -91,6 +111,14 @@ deque
 -
 GINSType.h
 /Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/INS/GINSType.h
+
+/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/LC/GINSType.cpp
+iomanip
+-
+GINSType.h
+/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/LC/GINSType.h
+Angle.h
+/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/LC/Angle.h
 
 /Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/LC/GINSType.h
 GNSSType.h

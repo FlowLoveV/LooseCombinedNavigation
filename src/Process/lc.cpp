@@ -13,7 +13,7 @@
 #include "cfileReader.h"
 #include "cfileSaver.h"
 #include "cFileConvertor.h"
-
+#include "Angle.h"
 
 int main(int argc, char *argv[]){
 
@@ -28,7 +28,7 @@ int main(int argc, char *argv[]){
     // 读取配置文件
     YAML::Node config;
     try {
-        config = YAML::LoadFile("/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/config.yaml");
+        config = YAML::LoadFile("/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/kf-gins.yaml");
     }catch (const std::exception & e){
         TerminalMessage::displayErrorMessage("读取配置文件失败!请检查文件路径和配置文件格式.");
         return -1;
@@ -38,13 +38,14 @@ int main(int argc, char *argv[]){
 
     // 读取文件路径配置
     std::string imupath, gnsspath, outputpath;
-    int imu_file_format,gnss_file_format,imu_encode,gnss_encode;
+    int imu_file_format,gnss_file_format,imu_encode,gnss_encode,gnssLine;
     try {
         imupath    = config["imupath"].as<std::string>();
         gnsspath   = config["gnsspath"].as<std::string>();
         outputpath = config["outputpath"].as<std::string>();
         imu_file_format = config["imufileformat"].as<int>();
         gnss_file_format = config["gnssfileformat"].as<int>();
+        gnssLine = config["gnssfilecol"].as<int>();
     } catch (YAML::Exception &exception) {
         std::cout << "读取配置文件失败!请检查配置数据路径配置是否正确" << std::endl;
         return -1;
@@ -56,6 +57,9 @@ int main(int argc, char *argv[]){
             break;
         case 33:
             imu_encode = cFileBase::BINARYTYPE;
+            break;
+        case 44:
+            imu_encode = cFileBase::ASCIITYPE;
             break;
         default:
             TerminalMessage::displayErrorMessage("imu文件格式设置错误!");
@@ -121,7 +125,7 @@ int main(int argc, char *argv[]){
         imuReader.readline(imudata);
     }
     do{
-        auto vec = gnssReader.readline(14);
+        auto vec = gnssReader.readline(gnssLine);
         // 读取到非格式化的行，则重新读取下一行（一般在文件开头可能会遇到）
         if(vec.empty())
             continue;
@@ -151,7 +155,7 @@ int main(int argc, char *argv[]){
     while(1){
         // 当gnss时间落后当前IMU历元时，需要读取
         if(gnssRes.m_gpst.second < imudata.t.second && !gnssReader.is_eof()){
-            gnssRes = cFileConvertor::toGnssResData(gnssReader.readline(14));
+            gnssRes = cFileConvertor::toGnssResData(gnssReader.readline(gnssLine));
             LC.addGnssResData(gnssRes);
         }
 
@@ -175,6 +179,7 @@ int main(int argc, char *argv[]){
         }
 
         // 将结果写入文件
+        imuState.changeUintToShow();
         vecImuState = imuState.toVector(resTime);
         navSaver.write(vecImuState);
 

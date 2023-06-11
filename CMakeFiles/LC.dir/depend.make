@@ -90,6 +90,7 @@ CMakeFiles/LC.dir/src/FileIO/cFileConvertor.cpp.o: \
  src/INS/INSType.h \
  src/LC/GINSType.h
 CMakeFiles/LC.dir/src/FileIO/cImuDataReader.cpp.o: \
+ src/FileIO/cFileConvertor.h \
  src/FileIO/cImuDataReader.cpp \
  src/FileIO/cImuDataReader.h \
  src/FileIO/cfileBase.h \
@@ -425,6 +426,7 @@ CMakeFiles/LC.dir/src/Process/lc.cpp.o: \
  lib/yaml-cpp/include/yaml-cpp/stlemitter.h \
  lib/yaml-cpp/include/yaml-cpp/traits.h \
  lib/yaml-cpp/include/yaml-cpp/yaml.h \
+ src/Common/Angle.h \
  src/FileIO/cFileConvertor.h \
  src/FileIO/cImuDataReader.h \
  src/FileIO/cfileBase.h \

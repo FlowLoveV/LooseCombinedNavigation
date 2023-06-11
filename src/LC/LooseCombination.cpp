@@ -30,9 +30,9 @@ ns_GINS::LooseCombination::LooseCombination(const YAML::Node & config) {
     buildQ(BASTD_ID,options_.imuNoise.aBiasStd,2/options_.imuNoise.corrTime[1]);
     buildQ(SGSTD_ID,options_.imuNoise.gScaleStd,2/options_.imuNoise.corrTime[2]);
     buildQ(SASTD_ID,options_.imuNoise.aScaleStd,2/options_.imuNoise.corrTime[3]);
-    // 加入滤波器状态初值和系统过程噪声
+    // 加入滤波器状态初值和imu过程噪声阵
     filter_.setMState0(dx);
-    filter_.setMSystemNoise(Q);
+    q_ = Q;
 
     // 初始化导航状态(位置、速度、姿态和IMU误差等信息)及其方差
     initialize();
@@ -75,10 +75,12 @@ void ns_GINS::LooseCombination::initialize() {
 
 void ns_GINS::LooseCombination::addImuData(const IMUData_SingleEpoch &imudata, bool ifconpensate) {
     // 清除第k-2历元数据,增加新数据
-    imuData_.push_back(imudata);
+    if(imuData_.size() < 3) imuData_.push_back(imudata);
+    else imuData_[2] = imudata;
+    /*imuData_.push_back(imudata);
     if(imuData_.size() > 3 ){
         imuData_.erase(imuData_.begin());
-    }
+    }*/
     // imu误差补偿
     if(ifconpensate){
         double dt = imuData_[2].t - imuData_[1].t;
@@ -110,7 +112,7 @@ void ns_GINS::LooseCombination::newProcess() {
             // 误差反馈给上一历元IMU
             insState_[1].stateFeedback(filter_.getMStateK());
             // 反馈误差后，机械编排算法更新IMU状态
-            mesh();
+            mech();
             // 滤波误差置零
             filter_.setMState0(zero(RANK,1));
             break;
@@ -119,7 +121,7 @@ void ns_GINS::LooseCombination::newProcess() {
         case 0:
             dt = imuData_[2].t - imuData_[1].t;
             // 首先更新本历元IMU状态
-            mesh();
+            mech();
             preForPredict(insState_[1],imuData_[2],dt);
             preForUpdate(insState_[2],imuData_[2],dt);
             // 滤波更新
@@ -161,7 +163,7 @@ void ns_GINS::LooseCombination::newProcess() {
             break;
         // 机械编排推导
         case 2:
-            mesh();
+            mech();
             break;
         default:
             std::exit(-1);
@@ -172,6 +174,8 @@ void ns_GINS::LooseCombination::newProcess() {
     insState_[1] = insState_[2];
     imuData_[0] = imuData_[1];
     imuData_[1] = imuData_[2];
+
+    // test
 }
 
 NavState ns_GINS::LooseCombination::getNavState() {
@@ -194,7 +198,7 @@ void ns_GINS::LooseCombination::preForPredict(const INSRes_SingleEpoch & res,con
     G_down[0] = G_down[1] = Cnb;
     G_down[2] = G_down[3] = G_down[4] = G_down[5] = eye(3);
     Matrix G = vertical_stack(G_up, diag(G_down,6));
-    filter_.setMSystemNoiseDrive(G);
+
 
     // F矩阵构建
     // 关于Rm,Rn的变量
@@ -213,8 +217,8 @@ void ns_GINS::LooseCombination::preForPredict(const INSRes_SingleEpoch & res,con
     double sinLat = sin(res.m_pPos[0]), cosLat = cos(res.m_pPos[0]);
     double tanLat = tan(res.m_pPos[0]), secLat = 1 / cosLat;
     // 比力，旋转角速度向量
-    Matrix vector_fb = Matrix(3,1,obs.m_pAcc);
-    Matrix vector_wib_b = Matrix(3,1,obs.m_pGyr);
+    Matrix vector_fb = Matrix(3,1,obs.m_pAcc) / dt;
+    Matrix vector_wib_b = Matrix(3,1,obs.m_pGyr) / dt;
     // 正常重力
     double gp = Earth::calculate_g(res.m_pPos[0],res.m_pPos[2]);
 
@@ -301,8 +305,13 @@ void ns_GINS::LooseCombination::preForPredict(const INSRes_SingleEpoch & res,con
     change_F(6,6,- 1/options_.imuNoise.corrTime[2] * I3);
     change_F(7,7,- 1/options_.imuNoise.corrTime[3] * I3);
 
+
     // 状态转移矩阵
-    filter_.setMStateTrans(eye(RANK) + F * dt);
+    Matrix phi =  F * dt + eye(RANK) ;
+    filter_.setMStateTrans(phi);
+    // 系统噪声矩阵
+    Matrix Q = 0.5 * dt * (G * q_ * G.T() + phi * G * q_ * G.T() * phi.T());
+    filter_.setMSystemNoise(Q);
 }
 
 void ns_GINS::LooseCombination::preForUpdate(const INSRes_SingleEpoch & res,const IMUData_SingleEpoch & obs,const double &dt) {
@@ -349,8 +358,12 @@ void ns_GINS::LooseCombination::preForUpdate(const INSRes_SingleEpoch & res,cons
     buildR(pos_R,gnssRes_.m_pBLHStd);
     // 将位置观测相关矩阵放入矩阵数组
     dz[POS-1] = pos_dz;     H[POS-1] = pos_H;       R[POS-1] = pos_R;
-
-
+    std::cout << "Z矩阵\n";
+    pos_dz.print(12);
+    std::cout << "H矩阵\n";
+    pos_H.print(12);
+    std::cout << "R矩阵\n";
+    pos_R.print(12);
     // 生成速度观测值的新息、矩阵和方差阵
     if(obs_model > POS){
         // n系相对于i系旋转角速度在n系下投影
@@ -391,7 +404,7 @@ void ns_GINS::LooseCombination::preForUpdate(const INSRes_SingleEpoch & res,cons
     filter_.setMMeasureNoise(diag(R,obs_model));
 }
 
-void ns_GINS::LooseCombination::mesh() {
+void ns_GINS::LooseCombination::mech() {
     double dt = imuData_[2].t - imuData_[1].t;
     // 先补偿数据，然后机械编排算法更新
     imuData_[2].compensate(imuError_,dt);

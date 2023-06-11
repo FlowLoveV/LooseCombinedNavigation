@@ -32,8 +32,6 @@ namespace ns_filter{
 
         void setMSystemNoise(const Matrix &mSystemNoise);
 
-        void setMSystemNoiseDrive(const Matrix &mSystemNoiseDrive);
-
         void setMMeasurement(const Matrix &mMeasurement);
 
         void setMObservation(const Matrix &mObservation);
@@ -53,9 +51,8 @@ namespace ns_filter{
          * 进行一步预测
          * @param phi                       input           Matrix          状态转移矩阵
          * @param system_noise_variance     input           Matrix          系统噪声方差矩阵
-         * @param system_noise_drive        input           Matrix          系统噪声驱动矩阵
          */
-        void Predict(const Matrix & phi,const Matrix & system_noise_variance,const Matrix & system_noise_drive);
+        void Predict(const Matrix & phi,const Matrix & system_noise_variance);
 
 
         // 测量更新准备
@@ -106,8 +103,7 @@ namespace ns_filter{
         Matrix m_StateVariance_k_1;           /**< 上一历元状态向量方差阵 */
         Matrix m_StateVariance_estimated;     /**< 状态向量方差阵的预测值 */
         Matrix m_StateVariance_k;             /**< 状态向量方差阵的更新值 */
-        Matrix m_SystemNoise;                 /**< 系统噪声方差阵 */
-        Matrix m_SystemNoiseDrive;            /**< 系统噪声驱动阵 */
+        Matrix m_SystemNoiseVariance;         /**< 系统噪声方差阵 */
         Matrix m_Measurement;                 /**< 量测矩阵 */
         Matrix m_Observation;                 /**< 观测值向量 */
         Matrix m_MeasureNoise;                /**< 观测噪声矩阵 */

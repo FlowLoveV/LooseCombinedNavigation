@@ -18,7 +18,7 @@ void GinsOptions::print(std::ostream &stream) {
            << "," << initState.vel[1] << "," << initState.vel[2] << "] # [m/s m/s m/s]\n";
     stream << "\t" << "initial attitude [Roll Pitch Yaw]: [" << std::setprecision(9) << initState.euler[0] * RAD2DEG
            << "," << initState.euler[1] * RAD2DEG << "," << initState.euler[2] * RAD2DEG << "] # [deg deg deg]\n";
-    double t1 = RAD2DEG * 3600;
+    double t1 = RAD2DEG / 3600;
     stream << "\t" << "initial gyrbias [x y z]: [" << std::setprecision(6) << initState.imuError.gBias[0] * t1
            << "," << initState.imuError.gBias[1] * t1 << "," << initState.imuError.gBias[2] * t1 << "] # [deg/h deg/h deg/h]\n";
     stream << "\t" << "initial accbias [x y z]: [" << std::setprecision(6) << initState.imuError.aBias[0] * 1e5
@@ -69,7 +69,6 @@ void GinsOptions::print(std::ostream &stream) {
 }
 
 GinsOptions::GinsOptions(const YAML::Node &config) {
-    double t1 = RAD2DEG / 3600;
     // 初始状态初始化
     memcpy(initState.pos,config["initpos"].as<std::vector<double>>().data(),3*sizeof(double));
     memcpy(initState.vel,config["initvel"].as<std::vector<double>>().data(),3*sizeof(double));
@@ -135,21 +134,34 @@ GinsOptions::GinsOptions() = default;
 
 std::vector<double> NavState::toVector(const GPST &t) {
     std::vector<double> vec;
-    int offset = 0;
     if (t != GPST()){
         vec.reserve(23);
         vec.push_back(t.weeks);
         vec.push_back(t.second);
-        offset += 2;
     }else{
         vec.reserve(21);
     }
-    memcpy(&vec[offset],this->pos,3*sizeof(double));
-    memcpy(&vec[offset+3],this->vel,3*sizeof(double));
-    memcpy(&vec[offset+6],this->euler,3*sizeof(double));
-    memcpy(&vec[offset+9],this->imuError.gBias,3*sizeof(double));
-    memcpy(&vec[offset+12],this->imuError.aBias,3*sizeof(double));
-    memcpy(&vec[offset+15],this->imuError.gScale,3*sizeof(double));
-    memcpy(&vec[offset+18],this->imuError.aScale,3*sizeof(double));
+    // 尾部插入其他数据
+    vec.insert(vec.end(),pos,pos+3);
+    vec.insert(vec.end(),vel,vel+3);
+    vec.insert(vec.end(),euler,euler+3);
+    vec.insert(vec.end(),imuError.gBias,imuError.gBias+3);
+    vec.insert(vec.end(),imuError.aBias,imuError.aBias+3);
+    vec.insert(vec.end(),imuError.gScale,imuError.gScale+3);
+    vec.insert(vec.end(),imuError.aScale,imuError.aScale+3);
     return vec;
+}
+
+void NavState::changeUintToShow() {
+    // rad->deg
+    pos[0] *= RAD2DEG,  pos[1] *= RAD2DEG;
+    for (auto &item: euler) item *= RAD2DEG;
+    // gb
+    double gbFactor = RAD2DEG * 3600;
+    double abFactor = 1e5;
+    double sFactor = 1e6;
+    for (auto &item: imuError.gBias) item *= gbFactor;
+    for (auto &item: imuError.aBias) item *= abFactor;
+    for (auto &item: imuError.gScale) item *= sFactor;
+    for (auto &item: imuError.aScale) item *= sFactor;
 }

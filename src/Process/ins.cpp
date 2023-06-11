@@ -11,14 +11,14 @@
 // 纯惯导程序
 
 int main(int argc,char *argv[]){
-    /*if(argc !=2){
+    if(argc !=2){
         TerminalMessage::displayErrorMessage("参数数目应为两个!");
         return -1;
-    }*/
+    }
     // 读取配置文件
     YAML::Node config;
     try{
-        config = YAML::LoadFile("/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/config.yaml");
+        config = YAML::LoadFile(argv[1]);
     } catch (const std::exception & e) {
         TerminalMessage::displayErrorMessage("读取配置文件失败!请检查配置文件路径及格式");
     }
@@ -39,6 +39,9 @@ int main(int argc,char *argv[]){
             break;
         case 33:
             imu_encode = cFileBase::BINARYTYPE;
+            break;
+        case 44:
+            imu_encode = cFileBase::ASCIITYPE;
             break;
         default:
             TerminalMessage::displayErrorMessage("imu文件格式设置错误!");
@@ -75,6 +78,17 @@ int main(int argc,char *argv[]){
     }catch (const std::exception & e){
         TerminalMessage::displayErrorMessage("起始位置、姿态、速度字段无法获取!");
     }
+    // 输出配置信息
+    std::cout << "INS机械编排解算信息如下:" << std::endl;
+    std::cout << "IMU数据文件:" << inPath << std::endl;
+    std::cout << "解算配置信息:" << std::endl;
+    std::cout << "\t" << "解算起始历元 : " << std::setprecision(9) << startTime << std::endl;
+    std::cout << "\t" << "解算终止历元 : " << std::setprecision(9) << endTime << std::endl;
+    std::cout << "\t" << "起始位置 : " << std::setprecision(14) << res0.m_pPos[0] << "deg , " << res0.m_pPos[1] << "deg , " << res0.m_pPos[2] << "m ——[lat lon H]\n";
+    std::cout << "\t" << "起始速度 : " << res0.m_pSpeed[0] << "m/s , "
+    << res0.m_pSpeed[1] << "m/s , " << res0.m_pSpeed[2] << "m/s ——[North East Down]\n";
+    std::cout << "\t" << "起始姿态 : " << res0.m_pEuler[0] << "deg , " << res0.m_pEuler[1] << "deg , " <<
+    res0.m_pEuler[2] << "deg ——[Roll Pitch Yaw]\n";
     // 改变单位，便于计算
     res0.changeUnitD2R();
     Rotation::Euler2Quaternion(res0.m_pEuler,res0.m_pQuaternion);
@@ -85,6 +99,10 @@ int main(int argc,char *argv[]){
     res0.t = imuData.t;
     res.assign(3,res0);
     std::vector<double> v(11);
+
+    double TotalTime = endTime - startTime;
+    int thisPercent = 0 , lastPercent = 0;
+    std::cout << std::endl;
     while(true){
         // 文件到达结尾或者处理时间段完成
         if(imuReader.is_eof() || imuData.t.second > endTime){
@@ -103,8 +121,19 @@ int main(int argc,char *argv[]){
         // 输出后，需将单位转回来
         res[2].changeUnitD2R();
 
+        thisPercent = int((imuData.t.second - startTime) / TotalTime * 100);
+
+        if (thisPercent - lastPercent >= 1) {
+            std::cout << "当前处理进度: " << std::setw(3) << thisPercent << "%\r" << std::flush;
+            lastPercent = thisPercent;
+        }
+
     }
-    TerminalMessage::displaySuccessMessage("文件处理完成!");
+    TerminalMessage::displaySuccessMessage("\n处理完成!\n");
+    TerminalMessage::displaySuccessMessage("结果文件保存在"+outPath+"pureins.txt");
+    std::string formatMessage = "结果文件格式如下:\nGPST-week\tGPST-second(s)\tLatitude(deg)\tLongitude(deg)\tHeight(m)"
+                                "\tV-north(m/s)\tV-east(m/s)\tV-down(m/s)\tRoll(deg)\tPitch(deg)\tYaw(deg)\n";
+    TerminalMessage::displaySuccessMessage(formatMessage);
 }
 
 

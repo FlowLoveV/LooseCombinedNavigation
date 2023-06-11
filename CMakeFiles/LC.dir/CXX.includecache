@@ -6,21 +6,29 @@
 
 #IncludeRegexTransform: 
 
-/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/Process/lc.cpp
+/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/LC/GINSType.h
+GNSSType.h
+/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/LC/GNSSType.h
+yaml-cpp/include/yaml-cpp/yaml.h
+/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/LC/yaml-cpp/include/yaml-cpp/yaml.h
+
+/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/LC/LooseCombination.cpp
 LooseCombination.h
-/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/Process/LooseCombination.h
-TimeSys.h
-/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/Process/TimeSys.h
-TerminalMessage/TerminalMessage.h
-/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/Process/TerminalMessage/TerminalMessage.h
-cImuDataReader.h
-/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/Process/cImuDataReader.h
-cfileReader.h
-/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/Process/cfileReader.h
-cfileSaver.h
-/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/Process/cfileSaver.h
-cFileConvertor.h
-/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/Process/cFileConvertor.h
+/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/LC/LooseCombination.h
+Rotation.h
+/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/LC/Rotation.h
+Earth.h
+/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/LC/Earth.h
+
+/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/LC/LooseCombination.h
+INSType.h
+/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/LC/INSType.h
+GNSSType.h
+/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/LC/GNSSType.h
+GINSType.h
+/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/LC/GINSType.h
+Filter/cKalman.h
+/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/LC/Filter/cKalman.h
 
 include/BasicFuns.h
 cmath
@@ -43,10 +51,6 @@ iostream
 lib/Matrix/Matrix.h
 vector
 lib/Matrix/vector
-
-lib/TerminalMessage/TerminalMessage.h
-iostream
-lib/TerminalMessage/iostream
 
 lib/TimeSys/TimeSys.h
 ctime
@@ -404,33 +408,17 @@ lib/yaml-cpp/include/yaml-cpp/yaml-cpp/node/parse.h
 yaml-cpp/node/emit.h
 lib/yaml-cpp/include/yaml-cpp/yaml-cpp/node/emit.h
 
-src/FileIO/cFileConvertor.h
-INSType.h
-src/FileIO/INSType.h
-GNSSType.h
-src/FileIO/GNSSType.h
+src/Common/Angle.h
 
-src/FileIO/cImuDataReader.h
-cfileReader.h
-src/FileIO/cfileReader.h
-INSType.h
-src/FileIO/INSType.h
+src/Common/Earth.h
+Matrix.h
+src/Common/Matrix.h
 
-src/FileIO/cfileBase.h
-fstream
-src/FileIO/fstream
-
-src/FileIO/cfileReader.h
-vector
--
-cfileBase.h
-src/FileIO/cfileBase.h
-
-src/FileIO/cfileSaver.h
-vector
-src/FileIO/vector
-cfileBase.h
-src/FileIO/cfileBase.h
+src/Common/Rotation.h
+BasicFuns.h
+src/Common/BasicFuns.h
+Angle.h
+src/Common/Angle.h
 
 src/GNSS/GNSSType.h
 TimeSys.h
@@ -455,20 +443,4 @@ deque
 -
 GINSType.h
 src/INS/GINSType.h
-
-src/LC/GINSType.h
-GNSSType.h
-src/LC/GNSSType.h
-yaml-cpp/include/yaml-cpp/yaml.h
-src/LC/yaml-cpp/include/yaml-cpp/yaml.h
-
-src/LC/LooseCombination.h
-INSType.h
-src/LC/INSType.h
-GNSSType.h
-src/LC/GNSSType.h
-GINSType.h
-src/LC/GINSType.h
-Filter/cKalman.h
-src/LC/Filter/cKalman.h
 
