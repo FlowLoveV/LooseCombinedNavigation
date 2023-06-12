@@ -611,6 +611,9 @@ Matrix horizontal_stack_array(Matrix *m,const int & n){
             std::cerr<<"error in horizontal_stack_array(): not all matrix in matrix array have the same row!";
         }
     }
+    if(n==1){
+        return *m;
+    }
     // 矩阵连接
     std::vector<Matrix> v={horizontal_stack(m[0],m[1])};
     for (int i = 0; i < n-2; ++i) {
@@ -626,6 +629,9 @@ Matrix vertical_stack_array(Matrix *m,const int & n){
         if(m[i].col != m[i+1].col && !m[i].row && !m[i+1].row){
             std::cerr<<"error in vertical_stack_array(): not all matrix in matrix array have the same col!";
         }
+    }
+    if(n==1){
+        return *m;
     }
     // 矩阵连接
     std::vector<Matrix> v={vertical_stack(m[0],m[1])};
@@ -655,6 +661,9 @@ Matrix diag(Matrix *m,const int & n){
         if(m[i].col != m[i].row){
             std::cerr<<"error in diag(): m数组中的矩阵必须均为方阵";
         }
+    }
+    if(n==1){
+        return *m;
     }
     int col = 0;   // 总列数
     for (int i = 0; i < n; ++i) {

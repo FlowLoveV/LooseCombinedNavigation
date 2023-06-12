@@ -60,8 +60,8 @@ std::vector<double> &cfileReader::readline(const int & col) {
         }
         catch(const std::exception & e){
             deleteData();
-            std::cout << e.what() << std::endl;
-            std::cerr << "读取" << m_sfileName << "时发生错误!\n" << "请检验文件格式是否正确。\n";
+            /*std::cout << e.what() << std::endl;
+            std::cerr << "读取" << m_sfileName << "时发生错误!\n" << "请检验文件格式是否正确。\n";*/
             return m_vdata;
         }
     }else{

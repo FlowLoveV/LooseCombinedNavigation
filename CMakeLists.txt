@@ -83,6 +83,13 @@ add_executable(LC src/Process/lc.cpp
         ${PROJECT_SOURCE_DIR}/lib/Filter/cKalman.h ${PROJECT_SOURCE_DIR}/lib/Filter/cKalman.cpp
         )
 
+add_executable(plt src/Process/plt.cpp
+        # 读取文件
+        ${FILEIO_CPP_SOURCES} ${INS_CPP_SOURCES} ${COMMON_CPP_SOURCES} ${GNSS_CPP_SOURCES}
+        include/BasicFuns.h Sources/BasicFuns.cpp
+        # 画图依赖
+        ${PROJECT_SOURCE_DIR}/lib/sciplot/ ${PROJECT_SOURCE_DIR}/lib/sciplot/specs)
+
 add_executable(CombinedNavigation Sources/main.cpp
         # UI文件
         Sources/mainwindow.cpp Sources/UIHeaders/mainwindow.h Sources/UI/mainwindow.ui
@@ -97,6 +104,8 @@ add_executable(CombinedNavigation Sources/main.cpp
 set_target_properties(INS PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
 set_target_properties(LC PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+
+set_target_properties(plt PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
 target_link_libraries(LC
         Qt::Core
@@ -125,6 +134,19 @@ target_link_libraries(INS
         # 终端输出库
         ${TERMINAL_CPP_LIB}
         )
+
+target_link_libraries(plt
+        Qt::Core
+        # yaml-cpp库链接
+        ${YAML_CPP_LIB}
+        # 终端输出库
+        ${TERMINAL_CPP_LIB}
+        # 矩阵库链接
+        ${MATRIX_CPP_LIB}
+        # 时间系统库链接
+        ${TIME_SYSTEM_CPP_LIB}
+        # 坐标系统库链接
+        ${COORSYSTEM_CPP_LIB})
 
 
 # 链接qt库文件

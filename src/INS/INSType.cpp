@@ -176,24 +176,30 @@ void INSRes_SingleEpoch::stateFeedback(const Matrix &dx) {
     for (int i = 0; i < 3; ++i) m_pSpeed[i] -= vector3.p[i];
 
     // 姿态误差反馈
-    vector3 = dx.min_matrix(7,9,1,1);
-    Matrix Cpn = eye(3) - antiVector(vector3);      // 失准姿态矩阵
-    Matrix Cbn = Cpn.inv() * Matrix(3,3,m_pEMatrix);
-    memcpy(m_pEMatrix,Cbn.p,9*sizeof(double));
+    /*vector3 = dx.min_matrix(7,9,1,1);
+    Matrix Cnb = (eye(3) - antiVector(vector3)).inv() * Matrix(3,3,m_pEMatrix);
+    memcpy(m_pEMatrix,Cnb.p,9*sizeof(double));
     Rotation::EMatrix2Euler(m_pEMatrix,m_pEuler);
-    Rotation::Euler2Quaternion(m_pEuler,m_pQuaternion);
-
+    Rotation::Euler2Quaternion(m_pEuler,m_pQuaternion);*/
+    // 失准角对应姿态四元数
+    /*double qpn[4];
+    Rotation::RV2Quaternion(vector3.p,qpn);
+    double qbn[4];
+    Multiply_q(qpn,m_pQuaternion,qbn);
+    memcpy(m_pQuaternion,qbn,4*sizeof(double));
+    Rotation::Quaternion2EMatrix(m_pQuaternion,m_pEMatrix);
+    Rotation::EMatrix2Euler(m_pEMatrix,m_pEuler);*/
     // IMU零偏误差反馈
     vector3 = dx.min_matrix(10,12,1,1);
-    for (int i = 0; i < 3; ++i) m_error.gBias[i] += vector3.p[i];
+    for (int i = 0; i < 3; ++i) m_error.gBias[i] = vector3.p[i];
     vector3 = dx.min_matrix(13,15,1,1);
-    for (int i = 0; i < 3; ++i) m_error.aBias[i] += vector3.p[i];
+    for (int i = 0; i < 3; ++i) m_error.aBias[i] = vector3.p[i];
 
     // IMU比例因子误差反馈
     vector3 = dx.min_matrix(16,18,1,1);
-    for (int i = 0; i < 3; ++i) m_error.gScale[i] += vector3.p[i];
+    for (int i = 0; i < 3; ++i) m_error.gScale[i] = vector3.p[i];
     vector3 = dx.min_matrix(19,21,1,1);
-    for (int i = 0; i < 3; ++i) m_error.aScale[i] += vector3.p[i];
+    for (int i = 0; i < 3; ++i) m_error.aScale[i] = vector3.p[i];
 }
 
 void INSRes_SingleEpoch::changeUnitD2R() {
@@ -317,8 +323,8 @@ void IMUData_SingleEpoch::compensate(const ImuError &error, const double & dt) {
     for (int i = 0; i < 3; ++i) {
         m_pAcc[i] -= error.aBias[i] * dt;
         m_pGyr[i] -= error.gBias[i] * dt;
-        m_pAcc[i] /= error.aScale[i] + 1;
-        m_pGyr[i] /= error.gScale[i] + 1;
+        m_pAcc[i] *= error.aScale[i] + 1;
+        m_pGyr[i] *= error.gScale[i] + 1;
     }
 }
 

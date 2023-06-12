@@ -423,7 +423,8 @@
 	"MOC_SKIP" : 
 	[
 		"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/CombinedNavigation_autogen/mocs_compilation.cpp",
-		"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/LC_autogen/mocs_compilation.cpp"
+		"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/LC_autogen/mocs_compilation.cpp",
+		"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/plt_autogen/mocs_compilation.cpp"
 	],
 	"MULTI_CONFIG" : false,
 	"PARALLEL" : 4,
@@ -486,7 +487,8 @@
 	"UIC_SKIP" : 
 	[
 		"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/CombinedNavigation_autogen/mocs_compilation.cpp",
-		"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/LC_autogen/mocs_compilation.cpp"
+		"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/LC_autogen/mocs_compilation.cpp",
+		"/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/plt_autogen/mocs_compilation.cpp"
 	],
 	"UIC_UI_FILES" : [],
 	"VERBOSITY" : 0

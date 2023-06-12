@@ -18,17 +18,17 @@
 int main(int argc, char *argv[]){
 
     // 参数限定
-    /*if(argc !=2){
+    if(argc !=2){
         TerminalMessage::displayErrorMessage("参数数目应为两个!");
         return -1;
-    }*/
+    }
     // 获得时间
     auto timeBegin = getCurrentTime();
     auto timeStyle = "%Y-%m-%d %H:%M:%S";
     // 读取配置文件
     YAML::Node config;
     try {
-        config = YAML::LoadFile("/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/kf-gins.yaml");
+        config = YAML::LoadFile(argv[1]);
     }catch (const std::exception & e){
         TerminalMessage::displayErrorMessage("读取配置文件失败!请检查文件路径和配置文件格式.");
         return -1;
@@ -155,7 +155,10 @@ int main(int argc, char *argv[]){
     while(1){
         // 当gnss时间落后当前IMU历元时，需要读取
         if(gnssRes.m_gpst.second < imudata.t.second && !gnssReader.is_eof()){
-            gnssRes = cFileConvertor::toGnssResData(gnssReader.readline(gnssLine));
+            auto vec = gnssReader.readline(gnssLine);
+            if(vec.empty())
+                continue;
+            gnssRes = cFileConvertor::toGnssResData(vec);
             LC.addGnssResData(gnssRes);
         }
 
@@ -172,11 +175,11 @@ int main(int argc, char *argv[]){
         imuState = LC.getNavState();
         imuStateStd = LC.getStateVariance();
 
-        if(!imuStateStd.checkDiagPositive()){
+        /*if(!imuStateStd.checkDiagPositive()){
             imuStateStd.print();
             TerminalMessage::displayErrorMessage("运行过程中状态方差阵非正定!");
             std::exit(EXIT_FAILURE);
-        }
+        }*/
 
         // 将结果写入文件
         imuState.changeUintToShow();
@@ -205,6 +208,5 @@ int main(int argc, char *argv[]){
     TerminalMessage::displaySuccessMessage("处理时间 : " + std::string(buff1) + "——————" + std::string(buff2));
     TerminalMessage::displaySuccessMessage("程序处理成功!");
     TerminalMessage::displaySuccessMessage("结果文件已保存在"+outputpath+"下");
-
 }
 

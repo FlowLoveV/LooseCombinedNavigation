@@ -286,7 +286,7 @@ void ns_GINS::LooseCombination::preForPredict(const INSRes_SingleEpoch & res,con
     change_temp(1,1,-WGS84_WIE*sinLat/RmH);
     change_temp(1,3,ve/RnH2);
     change_temp(2,3,-vn/RmH2);
-    change_temp(3,1,-WGS84_WIE*cosLat/RmH-WGS84_WIE*secLat*secLat/RmnH);
+    change_temp(3,1,-WGS84_WIE*cosLat/RmH-ve*secLat*secLat/RmnH);
     change_temp(3,3,-ve*tanLat/RnH2);
     change_F(3,1,temp);
     // Fphiv
@@ -300,7 +300,7 @@ void ns_GINS::LooseCombination::preForPredict(const INSRes_SingleEpoch & res,con
     change_F(3,6,-Cnb * diag(vector_wib_b.p,3));
 
     // IMU误差状态转移
-    change_F(4,4, 1/options_.imuNoise.corrTime[0] * I3);
+    change_F(4,4, -1/options_.imuNoise.corrTime[0] * I3);
     change_F(5,5,- 1/options_.imuNoise.corrTime[1] * I3);
     change_F(6,6,- 1/options_.imuNoise.corrTime[2] * I3);
     change_F(7,7,- 1/options_.imuNoise.corrTime[3] * I3);
@@ -310,7 +310,8 @@ void ns_GINS::LooseCombination::preForPredict(const INSRes_SingleEpoch & res,con
     Matrix phi =  F * dt + eye(RANK) ;
     filter_.setMStateTrans(phi);
     // 系统噪声矩阵
-    Matrix Q = 0.5 * dt * (G * q_ * G.T() + phi * G * q_ * G.T() * phi.T());
+    Matrix q = G * q_ * G.T();
+    Matrix Q = 0.5 * dt * (phi * q * phi.T() + q);
     filter_.setMSystemNoise(Q);
 }
 
@@ -358,12 +359,6 @@ void ns_GINS::LooseCombination::preForUpdate(const INSRes_SingleEpoch & res,cons
     buildR(pos_R,gnssRes_.m_pBLHStd);
     // 将位置观测相关矩阵放入矩阵数组
     dz[POS-1] = pos_dz;     H[POS-1] = pos_H;       R[POS-1] = pos_R;
-    std::cout << "Z矩阵\n";
-    pos_dz.print(12);
-    std::cout << "H矩阵\n";
-    pos_H.print(12);
-    std::cout << "R矩阵\n";
-    pos_R.print(12);
     // 生成速度观测值的新息、矩阵和方差阵
     if(obs_model > POS){
         // n系相对于i系旋转角速度在n系下投影
@@ -377,10 +372,10 @@ void ns_GINS::LooseCombination::preForUpdate(const INSRes_SingleEpoch & res,cons
         Matrix anti_lb = antiVector(lb);
 
         // 计算速度观测
-        Matrix vel_dz = Matrix(3,1,res.m_pSpeed) - anti_win_n * Cnb_multiply_lb - Cnb * cross(lb,omega_ib_b);
+        Matrix vel_dz = Matrix(3,1,res.m_pSpeed) - anti_win_n * Cnb_multiply_lb - Cnb * cross(lb,omega_ib_b) - Matrix(3,1,gnssRes_.m_pVned);
         // 计算速度观测矩阵
         Matrix vel_H = zero(3,RANK);
-        Matrix Hv3 = - anti_win_n * Cnb * anti_lb - antiVector(Cnb * cross(lb,omega_ib_b));
+        Matrix Hv3 = - anti_win_n * antiVector(Cnb * lb) - antiVector(Cnb * cross(lb,omega_ib_b));
         Matrix Hv6 = - Cnb * anti_lb * diag(omega_ib_b.p,3);
         changeBlock(vel_H,1,2,I3);
         changeBlock(vel_H,1,3,Hv3);

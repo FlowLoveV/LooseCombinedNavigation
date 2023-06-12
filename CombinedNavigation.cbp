@@ -17,6 +17,16 @@
 					<DistClean command="/usr/bin/make -f &quot;/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
 			<Target title="CombinedNavigation">
 				<Option output="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/CombinedNavigation" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation"/>
@@ -109,6 +119,86 @@
 					<DistClean command="/usr/bin/make -f &quot;/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
+			<Target title="plt">
+				<Option output="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/bin/plt" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DQT_CORE_LIB"/>
+					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/plt_autogen/include"/>
+					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/include"/>
+					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/UIHeaders"/>
+					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/UI"/>
+					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib"/>
+					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/CoorSys"/>
+					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/Filter"/>
+					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/Matrix"/>
+					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/TerminalMessage"/>
+					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/TimeSys"/>
+					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/sciplot"/>
+					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/yaml-cpp"/>
+					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/yaml-cpp/include"/>
+					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/Common"/>
+					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO"/>
+					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/GNSS"/>
+					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/INS"/>
+					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/LC"/>
+					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/Process"/>
+					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src"/>
+					<Add directory="/usr/local/lib/QtCore.framework/Headers"/>
+					<Add directory="/usr/local/lib/QtCore.framework"/>
+					<Add directory="/usr/local/share/qt/mkspecs/macx-clang"/>
+					<Add directory="/usr/local/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Makefile&quot;  VERBOSE=1 plt"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="plt/fast">
+				<Option output="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/bin/plt" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DQT_CORE_LIB"/>
+					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/plt_autogen/include"/>
+					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/include"/>
+					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/UIHeaders"/>
+					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/UI"/>
+					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib"/>
+					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/CoorSys"/>
+					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/Filter"/>
+					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/Matrix"/>
+					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/TerminalMessage"/>
+					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/TimeSys"/>
+					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/sciplot"/>
+					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/yaml-cpp"/>
+					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/yaml-cpp/include"/>
+					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/Common"/>
+					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO"/>
+					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/GNSS"/>
+					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/INS"/>
+					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/LC"/>
+					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/Process"/>
+					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src"/>
+					<Add directory="/usr/local/lib/QtCore.framework/Headers"/>
+					<Add directory="/usr/local/lib/QtCore.framework"/>
+					<Add directory="/usr/local/share/qt/mkspecs/macx-clang"/>
+					<Add directory="/usr/local/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Makefile&quot;  VERBOSE=1 plt/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
 			<Target title="LC">
 				<Option output="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/bin/LC" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation"/>
@@ -184,16 +274,6 @@
 				</Compiler>
 				<MakeCommands>
 					<Build command="/usr/bin/make -f &quot;/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Makefile&quot;  VERBOSE=1 LC/fast"/>
-					<CompileFile command="/usr/bin/make -f &quot;/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -f &quot;/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -f &quot;/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="rebuild_cache">
-				<Option working_dir="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
 					<CompileFile command="/usr/bin/make -f &quot;/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -f &quot;/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -f &quot;/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Makefile&quot;  VERBOSE=1 clean"/>
@@ -299,6 +379,16 @@
 					<DistClean command="/usr/bin/make -f &quot;/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
+			<Target title="plt_autogen">
+				<Option working_dir="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Makefile&quot;  VERBOSE=1 plt_autogen"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
 			<Target title="LC_autogen">
 				<Option working_dir="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation"/>
 				<Option type="4"/>
@@ -331,6 +421,7 @@
 		</Unit>
 		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/BasicFuns.cpp">
 			<Option target="CombinedNavigation"/>
+			<Option target="plt"/>
 			<Option target="LC"/>
 			<Option target="INS"/>
 		</Unit>
@@ -348,11 +439,13 @@
 		</Unit>
 		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/include/BasicFuns.h">
 			<Option target="CombinedNavigation"/>
+			<Option target="plt"/>
 			<Option target="LC"/>
 			<Option target="INS"/>
 		</Unit>
 		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib">
 			<Option target="CombinedNavigation"/>
+			<Option target="plt"/>
 		</Unit>
 		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/Filter/cKalman.cpp">
 			<Option target="CombinedNavigation"/>
@@ -364,74 +457,92 @@
 		</Unit>
 		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/sciplot/specs">
 			<Option target="CombinedNavigation"/>
+			<Option target="plt"/>
+		</Unit>
+		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/plt_autogen/mocs_compilation.cpp">
+			<Option target="plt"/>
 		</Unit>
 		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cFileConvertor.cpp">
 			<Option target="CombinedNavigation"/>
+			<Option target="plt"/>
 			<Option target="LC"/>
 			<Option target="INS"/>
 		</Unit>
 		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cFileConvertor.h">
 			<Option target="CombinedNavigation"/>
+			<Option target="plt"/>
 			<Option target="LC"/>
 			<Option target="INS"/>
 		</Unit>
 		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cImuDataReader.cpp">
 			<Option target="CombinedNavigation"/>
+			<Option target="plt"/>
 			<Option target="LC"/>
 			<Option target="INS"/>
 		</Unit>
 		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cImuDataReader.h">
 			<Option target="CombinedNavigation"/>
+			<Option target="plt"/>
 			<Option target="LC"/>
 			<Option target="INS"/>
 		</Unit>
 		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cfileBase.cpp">
 			<Option target="CombinedNavigation"/>
+			<Option target="plt"/>
 			<Option target="LC"/>
 			<Option target="INS"/>
 		</Unit>
 		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cfileBase.h">
 			<Option target="CombinedNavigation"/>
+			<Option target="plt"/>
 			<Option target="LC"/>
 			<Option target="INS"/>
 		</Unit>
 		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cfileReader.cpp">
 			<Option target="CombinedNavigation"/>
+			<Option target="plt"/>
 			<Option target="LC"/>
 			<Option target="INS"/>
 		</Unit>
 		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cfileReader.h">
 			<Option target="CombinedNavigation"/>
+			<Option target="plt"/>
 			<Option target="LC"/>
 			<Option target="INS"/>
 		</Unit>
 		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cfileSaver.cpp">
 			<Option target="CombinedNavigation"/>
+			<Option target="plt"/>
 			<Option target="LC"/>
 			<Option target="INS"/>
 		</Unit>
 		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cfileSaver.h">
 			<Option target="CombinedNavigation"/>
+			<Option target="plt"/>
 			<Option target="LC"/>
 			<Option target="INS"/>
 		</Unit>
 		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/GNSS/GNSSType.cpp">
 			<Option target="CombinedNavigation"/>
+			<Option target="plt"/>
 			<Option target="LC"/>
 			<Option target="INS"/>
 		</Unit>
 		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/GNSS/GNSSType.h">
 			<Option target="CombinedNavigation"/>
+			<Option target="plt"/>
 			<Option target="LC"/>
 			<Option target="INS"/>
 		</Unit>
 		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/INS/INSType.cpp">
 			<Option target="CombinedNavigation"/>
+			<Option target="plt"/>
 			<Option target="LC"/>
 			<Option target="INS"/>
 		</Unit>
 		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/INS/INSType.h">
 			<Option target="CombinedNavigation"/>
+			<Option target="plt"/>
 			<Option target="LC"/>
 			<Option target="INS"/>
 		</Unit>
@@ -456,6 +567,9 @@
 		</Unit>
 		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/Process/lc.cpp">
 			<Option target="LC"/>
+		</Unit>
+		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/Process/plt.cpp">
+			<Option target="plt"/>
 		</Unit>
 		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
