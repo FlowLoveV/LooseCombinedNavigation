@@ -6,7 +6,7 @@
 #include "cfileReader.h"
 #include "QString"
 #include "QRegularExpression"
-#include "QDebug"
+#include "sstream"
 
 
 cfileReader::cfileReader(const std::string &filename, const int type, const int &format) {
@@ -76,5 +76,27 @@ bool cfileReader::open(const std::string &filename, const int &filetype) {
     m_fileFp.open(filename, mode);
     m_ifileType = filetype;
     return is_open();
+}
+
+int cfileReader::measureLine() {
+    int len = 0;
+    std::string str;
+    while(std::getline(m_fileFp,str)){
+        len++;
+    }
+    m_fileFp.seekg(0,std::ios::beg);
+    return len;
+}
+
+int cfileReader::measureLineWidth() {
+    double temp;
+    int lineWidth=0;
+    std::string str;
+    std::getline(m_fileFp,str);
+    std::istringstream ss(str);
+    while(ss >> temp){
+        lineWidth++;
+    }
+    return lineWidth;
 }
 

@@ -29,7 +29,12 @@ bool cImuDataReader::readline(IMUData_SingleEpoch &date) {
             break;
         case LINE_TXT_ASCII:
             // 行排列的
-            date = cFileConvertor::toImuData(cfileReader::readline(7));
+            try{
+                date = cFileConvertor::toImuData(cfileReader::readline(7));
+            }
+            catch (const std::exception & e){
+
+            }
             break;
         default:
             std::cerr << "无输入类型的文本，请选择正确类型的文本!\n";

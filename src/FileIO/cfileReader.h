@@ -28,6 +28,9 @@ public:
 
     virtual std::vector<double>& readline(const int & col);
 
+    int measureLine();
+
+    int measureLineWidth();
 
 
 protected:

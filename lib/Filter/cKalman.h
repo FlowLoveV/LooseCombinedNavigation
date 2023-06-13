@@ -95,7 +95,7 @@ namespace ns_filter{
     protected:
         Matrix m_State0;                      /**< 初始时刻状态向量 */
         Matrix m_StateVariance0;              /**< 初始时刻状态向量方差 */
-    private:
+    public:
         Matrix m_State_k_1;                   /**< 上一历元状态向量 */
         Matrix m_State_estimated;             /**< 状态向量的预测值 */
         Matrix m_State_k;                     /**< 状态向量更新值 */

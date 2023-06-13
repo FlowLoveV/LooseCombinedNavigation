@@ -240,10 +240,8 @@ CMakeFiles/plt.dir/src/FileIO/cfileReader.cpp.o: \
  /usr/local/include/QtCore/qvarlengtharray.h \
  /usr/local/include/QtCore/qversiontagging.h \
  /usr/local/include/QtCore/qxptype_traits.h \
- /usr/local/lib/QtCore.framework/Headers/QDebug \
  /usr/local/lib/QtCore.framework/Headers/QRegularExpression \
  /usr/local/lib/QtCore.framework/Headers/QString \
- /usr/local/lib/QtCore.framework/Headers/qdebug.h \
  /usr/local/lib/QtCore.framework/Headers/qregularexpression.h \
  /usr/local/lib/QtCore.framework/Headers/qstring.h
 CMakeFiles/plt.dir/src/FileIO/cfileSaver.cpp.o: \
@@ -340,5 +338,36 @@ CMakeFiles/plt.dir/src/Process/plt.cpp.o: \
  lib/sciplot/specs/TicsSpecsMajor.hpp \
  lib/sciplot/specs/TicsSpecsMinor.hpp \
  lib/sciplot/specs/TitleSpecsOf.hpp \
+ lib/yaml-cpp/include/yaml-cpp/binary.h \
+ lib/yaml-cpp/include/yaml-cpp/dll.h \
+ lib/yaml-cpp/include/yaml-cpp/emitter.h \
+ lib/yaml-cpp/include/yaml-cpp/emitterdef.h \
+ lib/yaml-cpp/include/yaml-cpp/emittermanip.h \
+ lib/yaml-cpp/include/yaml-cpp/emitterstyle.h \
+ lib/yaml-cpp/include/yaml-cpp/exceptions.h \
+ lib/yaml-cpp/include/yaml-cpp/mark.h \
+ lib/yaml-cpp/include/yaml-cpp/node/convert.h \
+ lib/yaml-cpp/include/yaml-cpp/node/detail/impl.h \
+ lib/yaml-cpp/include/yaml-cpp/node/detail/iterator.h \
+ lib/yaml-cpp/include/yaml-cpp/node/detail/iterator_fwd.h \
+ lib/yaml-cpp/include/yaml-cpp/node/detail/memory.h \
+ lib/yaml-cpp/include/yaml-cpp/node/detail/node.h \
+ lib/yaml-cpp/include/yaml-cpp/node/detail/node_data.h \
+ lib/yaml-cpp/include/yaml-cpp/node/detail/node_iterator.h \
+ lib/yaml-cpp/include/yaml-cpp/node/detail/node_ref.h \
+ lib/yaml-cpp/include/yaml-cpp/node/emit.h \
+ lib/yaml-cpp/include/yaml-cpp/node/impl.h \
+ lib/yaml-cpp/include/yaml-cpp/node/iterator.h \
+ lib/yaml-cpp/include/yaml-cpp/node/node.h \
+ lib/yaml-cpp/include/yaml-cpp/node/parse.h \
+ lib/yaml-cpp/include/yaml-cpp/node/ptr.h \
+ lib/yaml-cpp/include/yaml-cpp/node/type.h \
+ lib/yaml-cpp/include/yaml-cpp/noexcept.h \
+ lib/yaml-cpp/include/yaml-cpp/null.h \
+ lib/yaml-cpp/include/yaml-cpp/ostream_wrapper.h \
+ lib/yaml-cpp/include/yaml-cpp/parser.h \
+ lib/yaml-cpp/include/yaml-cpp/stlemitter.h \
+ lib/yaml-cpp/include/yaml-cpp/traits.h \
+ lib/yaml-cpp/include/yaml-cpp/yaml.h \
  src/FileIO/cfileBase.h \
  src/FileIO/cfileReader.h

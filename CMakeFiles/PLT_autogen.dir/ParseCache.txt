@@ -11,12 +11,12 @@
 /Users/0-0mashuo/Desktop/Clion/CombinedNavigation/include/BasicFuns.h
 /Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cfileSaver.h
 /Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/LC/GINSType.h
+/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/BasicFuns.cpp
 /Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/INS/INSType.cpp
 /Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cfileReader.h
-/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/BasicFuns.cpp
 /Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cfileBase.h
-/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/INS/INSType.h
 /Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cFileConvertor.cpp
+/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/INS/INSType.h
 /Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cImuDataReader.h
 /Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/LC/GINSType.cpp
 /Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cFileConvertor.h

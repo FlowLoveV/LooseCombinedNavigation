@@ -96,6 +96,9 @@ void ns_GINS::LooseCombination::addGnssResData(const GnssRes &gnssres) {
 void ns_GINS::LooseCombination::newProcess() {
     GPST updateTime = gnssRes_.m_isvalid ? gnssRes_.m_gpst : GPST();
     int flag = ifUpdate(updateTime);
+    if(updateTime.second == 456301 && flag != 2){
+
+    }
     double dt;
     IMUData_SingleEpoch midImuData;
     INSRes_SingleEpoch midInsRes;
@@ -107,8 +110,7 @@ void ns_GINS::LooseCombination::newProcess() {
             // 为滤波构建矩阵
             preForPredict(insState_[0],imuData_[1],dt);
             preForUpdate(insState_[1],imuData_[1],dt);
-            // 滤波更新一次
-            filter_.upDate();
+
             // 误差反馈给上一历元IMU
             insState_[1].stateFeedback(filter_.getMStateK());
             // 反馈误差后，机械编排算法更新IMU状态
@@ -124,8 +126,7 @@ void ns_GINS::LooseCombination::newProcess() {
             mech();
             preForPredict(insState_[1],imuData_[2],dt);
             preForUpdate(insState_[2],imuData_[2],dt);
-            // 滤波更新
-            filter_.upDate();
+
             // 误差反馈给本历元IMU状态
             insState_[2].stateFeedback(filter_.getMStateK());
             // 滤波误差置零
@@ -147,7 +148,7 @@ void ns_GINS::LooseCombination::newProcess() {
             // 滤波更新状态
             preForPredict(insState_[1],midImuData,dt);
             preForUpdate(midInsRes,midImuData,dt);
-            filter_.upDate();
+
             // 误差反馈
             midInsRes.stateFeedback(filter_.getMStateK());
             imuError_ = midInsRes.m_error;
@@ -163,6 +164,8 @@ void ns_GINS::LooseCombination::newProcess() {
             break;
         // 机械编排推导
         case 2:
+            dt = imuData_[2].t - imuData_[1].t;
+            preForPredict(insState_[1],imuData_[2],dt);
             mech();
             break;
         default:
@@ -308,11 +311,14 @@ void ns_GINS::LooseCombination::preForPredict(const INSRes_SingleEpoch & res,con
 
     // 状态转移矩阵
     Matrix phi =  F * dt + eye(RANK) ;
-    filter_.setMStateTrans(phi);
     // 系统噪声矩阵
     Matrix q = G * q_ * G.T();
     Matrix Q = 0.5 * dt * (phi * q * phi.T() + q);
-    filter_.setMSystemNoise(Q);
+
+    /*filter_.setMStateTrans(phi);
+    filter_.setMSystemNoise(Q);*/
+    filter_.Predict(phi,Q);
+    filter_.m_StateVariance_k_1 = filter_.m_StateVariance_estimated;
 }
 
 void ns_GINS::LooseCombination::preForUpdate(const INSRes_SingleEpoch & res,const IMUData_SingleEpoch & obs,const double &dt) {
@@ -394,9 +400,14 @@ void ns_GINS::LooseCombination::preForUpdate(const INSRes_SingleEpoch & res,cons
         // 在这里添加代码
     }
     // 生成观测矩阵
-    filter_.setMObservation(vertical_stack_array(dz,obs_model));
+    Matrix z = vertical_stack_array(dz,obs_model);
+    Matrix h = vertical_stack_array(H,obs_model);
+    Matrix r = diag(R,obs_model);
+    /*filter_.setMObservation(vertical_stack_array(dz,obs_model));
     filter_.setMMeasurement(vertical_stack_array(H,obs_model));
-    filter_.setMMeasureNoise(diag(R,obs_model));
+    filter_.setMMeasureNoise(diag(R,obs_model));*/
+    filter_.Update(z,h,r);
+
 }
 
 void ns_GINS::LooseCombination::mech() {

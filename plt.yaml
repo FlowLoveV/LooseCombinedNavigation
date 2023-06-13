@@ -1,0 +1,15 @@
+# 此文件用于配置画图
+
+
+# 作图模式
+# 1 - 普通绘图
+# 2 - 差分绘图（比较两个文件）
+# 3 - 智能绘图
+mode: 1
+
+# 数据文件路径
+# mode = 1 绘图filepath1
+# mode =2  绘图filepath1 - filepath2
+filepath1: "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Dataset/遮挡LCNavRes.txt"
+filepath2: "/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Dataset/遮挡lcRes.pos"
+
