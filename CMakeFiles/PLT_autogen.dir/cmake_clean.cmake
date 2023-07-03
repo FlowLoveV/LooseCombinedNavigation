@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/plt_autogen"
+  "plt_autogen/include/Sources/UI/ui_mainwindow.h"
   "plt_autogen/mocs_compilation.cpp"
 )
 

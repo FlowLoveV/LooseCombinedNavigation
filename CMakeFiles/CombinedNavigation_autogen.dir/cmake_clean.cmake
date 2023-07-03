@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/CombinedNavigation_autogen"
+  "CombinedNavigation_autogen/include/Sources/UI/ui_mainwindow.h"
   "CombinedNavigation_autogen/mocs_compilation.cpp"
 )
 

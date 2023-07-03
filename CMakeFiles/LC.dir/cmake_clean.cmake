@@ -5,6 +5,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/LC.dir/LC_autogen/mocs_compilation.cpp.o"
   "CMakeFiles/LC.dir/Sources/BasicFuns.cpp.o"
   "CMakeFiles/LC.dir/lib/Filter/cKalman.cpp.o"
+  "CMakeFiles/LC.dir/src/ErrorEvaluation/ErrorEvalution.cpp.o"
   "CMakeFiles/LC.dir/src/FileIO/cFileConvertor.cpp.o"
   "CMakeFiles/LC.dir/src/FileIO/cImuDataReader.cpp.o"
   "CMakeFiles/LC.dir/src/FileIO/cfileBase.cpp.o"

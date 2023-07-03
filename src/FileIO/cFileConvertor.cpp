@@ -68,5 +68,6 @@ GnssRes cFileConvertor::toGnssResData(const std::vector<double> &vec) {
     // 单位转换
     res.m_pBLH[0] *= DEG2RAD;
     res.m_pBLH[1] *= DEG2RAD;
+    res.m_pVned[2] = -res.m_pVned[2];
     return res;
 }

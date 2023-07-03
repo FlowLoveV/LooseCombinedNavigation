@@ -109,6 +109,30 @@ int main(int argc, char *argv[]){
     IMUData_SingleEpoch imudata;
     GnssRes gnssRes;
     imuReader.readline(imudata);
+    // 判断是否需要对准
+    int align;
+    double alignBeginTime;
+    try{
+        align = config["ifalign"].as<int>();
+        alignBeginTime = config["alignbegintime"].as<double>();
+    }catch (const std::exception & e){
+        TerminalMessage::displayErrorMessage("无法读取关于是否进行初始对准的配置!请检查配置是否正确");
+    }
+    std::vector<IMUData_SingleEpoch> alignImuData;
+    int f;
+    if(align == 1){
+        double end = startTime;
+        double dt = static_cast<bool>(alignBeginTime) ? end - alignBeginTime : end - imudata.t.second;
+        try{
+            f = config["imudatarate"].as<int>();
+        }
+        catch (const std::exception & e){
+            TerminalMessage::displayErrorMessage("无法读取imu数据频率!请检查配置是否正确");
+        }
+        int epoch = int(dt/f) + 1;
+        alignImuData.reserve(epoch);
+    }
+
     // 结束时间大于一个周的秒数 或者 开始时间大于结束时间 或者 开始时间小于imu第一历元时间
     // 都会报错，无法处理
     if(endTime > 604800 || (startTime > endTime && endTime != -1) || startTime < imudata.t.second){
@@ -123,6 +147,10 @@ int main(int argc, char *argv[]){
     // 时间对齐
     while(startTime > imudata.t.second){
         imuReader.readline(imudata);
+        // 如果读取到的Imu数据时间超过开始对准的时间，则保存数据
+        if(align == 1 && imudata.t.second > alignBeginTime && alignImuData.size() < 300*f){
+            alignImuData.push_back(imudata);
+        }
     }
     do{
         auto vec = gnssReader.readline(gnssLine);
@@ -132,7 +160,16 @@ int main(int argc, char *argv[]){
         gnssRes = cFileConvertor::toGnssResData(vec);
     }while(gnssRes.m_gpst.second <= startTime);
 
-
+    // 初始对准 optional
+    if(align == 1){
+        PureIns alignIns;
+        double euler[3];
+        alignIns.gyrAlignment(alignImuData,euler);
+        for (int i = 0; i < 3; ++i) {
+            std::cout << euler[i]*RAD2DEG << " ";
+        }
+        std::cout << std::endl;
+    }
 
     // 前两历元数据填充
     LC.addImuData(imudata);

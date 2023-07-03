@@ -96,9 +96,6 @@ void ns_GINS::LooseCombination::addGnssResData(const GnssRes &gnssres) {
 void ns_GINS::LooseCombination::newProcess() {
     GPST updateTime = gnssRes_.m_isvalid ? gnssRes_.m_gpst : GPST();
     int flag = ifUpdate(updateTime);
-    if(updateTime.second == 456301 && flag != 2){
-
-    }
     double dt;
     IMUData_SingleEpoch midImuData;
     INSRes_SingleEpoch midInsRes;

@@ -51,6 +51,7 @@
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/yaml-cpp"/>
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/yaml-cpp/include"/>
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/Common"/>
+					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/ErrorEvaluation"/>
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO"/>
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/GNSS"/>
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/INS"/>
@@ -97,6 +98,7 @@
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/yaml-cpp"/>
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/yaml-cpp/include"/>
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/Common"/>
+					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/ErrorEvaluation"/>
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO"/>
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/GNSS"/>
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/INS"/>
@@ -141,6 +143,7 @@
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/yaml-cpp"/>
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/yaml-cpp/include"/>
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/Common"/>
+					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/ErrorEvaluation"/>
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO"/>
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/GNSS"/>
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/INS"/>
@@ -181,6 +184,7 @@
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/yaml-cpp"/>
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/yaml-cpp/include"/>
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/Common"/>
+					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/ErrorEvaluation"/>
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO"/>
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/GNSS"/>
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/INS"/>
@@ -221,6 +225,7 @@
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/yaml-cpp"/>
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/yaml-cpp/include"/>
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/Common"/>
+					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/ErrorEvaluation"/>
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO"/>
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/GNSS"/>
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/INS"/>
@@ -261,6 +266,7 @@
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/yaml-cpp"/>
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/yaml-cpp/include"/>
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/Common"/>
+					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/ErrorEvaluation"/>
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO"/>
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/GNSS"/>
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/INS"/>
@@ -311,6 +317,7 @@
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/yaml-cpp"/>
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/yaml-cpp/include"/>
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/Common"/>
+					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/ErrorEvaluation"/>
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO"/>
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/GNSS"/>
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/INS"/>
@@ -351,6 +358,7 @@
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/yaml-cpp"/>
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/lib/yaml-cpp/include"/>
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/Common"/>
+					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/ErrorEvaluation"/>
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO"/>
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/GNSS"/>
 					<Add directory="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/INS"/>
@@ -461,6 +469,18 @@
 		</Unit>
 		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/plt_autogen/mocs_compilation.cpp">
 			<Option target="plt"/>
+		</Unit>
+		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/ErrorEvaluation/ErrorEvalution.cpp">
+			<Option target="CombinedNavigation"/>
+			<Option target="plt"/>
+			<Option target="LC"/>
+			<Option target="INS"/>
+		</Unit>
+		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/ErrorEvaluation/ErrorEvalution.h">
+			<Option target="CombinedNavigation"/>
+			<Option target="plt"/>
+			<Option target="LC"/>
+			<Option target="INS"/>
 		</Unit>
 		<Unit filename="/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cFileConvertor.cpp">
 			<Option target="CombinedNavigation"/>

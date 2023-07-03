@@ -7,6 +7,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/CombinedNavigation.dir/Sources/main.cpp.o"
   "CMakeFiles/CombinedNavigation.dir/Sources/mainwindow.cpp.o"
   "CMakeFiles/CombinedNavigation.dir/lib/Filter/cKalman.cpp.o"
+  "CMakeFiles/CombinedNavigation.dir/src/ErrorEvaluation/ErrorEvalution.cpp.o"
   "CMakeFiles/CombinedNavigation.dir/src/FileIO/cFileConvertor.cpp.o"
   "CMakeFiles/CombinedNavigation.dir/src/FileIO/cImuDataReader.cpp.o"
   "CMakeFiles/CombinedNavigation.dir/src/FileIO/cfileBase.cpp.o"

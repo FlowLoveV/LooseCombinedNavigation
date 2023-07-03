@@ -6,6 +6,36 @@
 
 #IncludeRegexTransform: 
 
+/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/BasicFuns.cpp
+BasicFuns.h
+/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/Sources/BasicFuns.h
+
+/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/plt_autogen/mocs_compilation.cpp
+
+/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/ErrorEvaluation/ErrorEvalution.cpp
+ErrorEvalution.h
+/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/ErrorEvaluation/ErrorEvalution.h
+
+/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/ErrorEvaluation/ErrorEvalution.h
+iostream
+/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/ErrorEvaluation/iostream
+vector
+/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/ErrorEvaluation/vector
+TerminalMessage.h
+/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/ErrorEvaluation/TerminalMessage.h
+iostream
+-
+cmath
+-
+vector
+-
+
+/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cFileConvertor.cpp
+cFileConvertor.h
+/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cFileConvertor.h
+Angle.h
+/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/Angle.h
+
 /Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cFileConvertor.h
 INSType.h
 /Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/INSType.h
@@ -23,6 +53,10 @@ cfileReader.h
 /Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cfileReader.h
 INSType.h
 /Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/INSType.h
+
+/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cfileBase.cpp
+cfileBase.h
+/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cfileBase.h
 
 /Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cfileBase.h
 fstream
@@ -45,6 +79,28 @@ vector
 -
 cfileBase.h
 /Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cfileBase.h
+
+/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cfileSaver.cpp
+cfileSaver.h
+/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cfileSaver.h
+iostream
+/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/iostream
+
+/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cfileSaver.h
+vector
+/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/vector
+cfileBase.h
+/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/FileIO/cfileBase.h
+
+/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/GNSS/GNSSType.cpp
+GNSSType.h
+/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/GNSS/GNSSType.h
+
+/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/GNSS/GNSSType.h
+TimeSys.h
+/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/GNSS/TimeSys.h
+CoorSys.h
+/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/GNSS/CoorSys.h
 
 /Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/INS/INSType.cpp
 sstream
@@ -87,6 +143,8 @@ iostream
 /Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/Process/iostream
 yaml-cpp/include/yaml-cpp/yaml.h
 /Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/Process/yaml-cpp/include/yaml-cpp/yaml.h
+TerminalMessage.h
+/Users/0-0mashuo/Desktop/Clion/CombinedNavigation/src/Process/TerminalMessage.h
 
 /usr/local/include/QtCore/q20memory.h
 QtCore/qtconfigmacros.h
@@ -1203,6 +1261,10 @@ lib/CoorSys/Matrix.h
 lib/Matrix/Matrix.h
 vector
 lib/Matrix/vector
+
+lib/TerminalMessage/TerminalMessage.h
+iostream
+lib/TerminalMessage/iostream
 
 lib/TimeSys/TimeSys.h
 ctime

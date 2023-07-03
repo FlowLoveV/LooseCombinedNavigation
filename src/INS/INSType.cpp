@@ -177,7 +177,6 @@ void INSRes_SingleEpoch::stateFeedback(const Matrix &dx) {
 
     // 姿态误差反馈
     vector3 = dx.min_matrix(7,9,1,1);
-    vector3.print(10);
     Matrix Cnb = (eye(3) + antiVector(vector3)) * Matrix(3,3,m_pEMatrix);
     memcpy(m_pEMatrix,Cnb.p,9*sizeof(double));
     Rotation::EMatrix2Euler(m_pEMatrix,m_pEuler);
@@ -326,8 +325,8 @@ void IMUData_SingleEpoch::compensate(const ImuError &error, const double & dt) {
     for (int i = 0; i < 3; ++i) {
         m_pAcc[i] -= error.aBias[i] * dt;
         m_pGyr[i] -= error.gBias[i] * dt;
-        m_pAcc[i] /= error.aScale[i] + 1;
-        m_pGyr[i] /= error.gScale[i] + 1;
+        m_pAcc[i] /= (error.aScale[i] + 1);
+        m_pGyr[i] /= (error.gScale[i] + 1);
     }
 }
 

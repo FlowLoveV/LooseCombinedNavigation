@@ -4,6 +4,7 @@ file(REMOVE_RECURSE
   "INS_autogen"
   "CMakeFiles/INS.dir/INS_autogen/mocs_compilation.cpp.o"
   "CMakeFiles/INS.dir/Sources/BasicFuns.cpp.o"
+  "CMakeFiles/INS.dir/src/ErrorEvaluation/ErrorEvalution.cpp.o"
   "CMakeFiles/INS.dir/src/FileIO/cFileConvertor.cpp.o"
   "CMakeFiles/INS.dir/src/FileIO/cImuDataReader.cpp.o"
   "CMakeFiles/INS.dir/src/FileIO/cfileBase.cpp.o"

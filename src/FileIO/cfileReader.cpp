@@ -97,6 +97,7 @@ int cfileReader::measureLineWidth() {
     while(ss >> temp){
         lineWidth++;
     }
+    m_fileFp.seekg(0,std::ios::beg);
     return lineWidth;
 }
 

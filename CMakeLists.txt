@@ -30,6 +30,12 @@ set(LC_CPP_DIR "${SRC_DIR}/LC")
 file(GLOB LC_CPP_SOURCES "${LC_CPP_DIR}/*.cpp" "${LC_CPP_DIR}/*.cxx"
         "${LC_CPP_DIR}/*.cc" "${LC_CPP_DIR}/*.c")
 
+# ErrorEvaluation
+set(ERROR_EVALUATION_DIR "${SRC_DIR}/ErrorEvaluation")
+file(GLOB ERROR_EVALUATION_CPP_SOURCES "${ERROR_EVALUATION_DIR}/*.cpp"
+        "${ERROR_EVALUATION_DIR}/*.cc" "${ERROR_EVALUATION_DIR}/*.c"
+        "${ERROR_EVALUATION_DIR}/*.cxx")
+
 
 ########################################### 第三方库路径设置 #############################################################
 set(THIRD_LIB_DIR "${PROJECT_SOURCE_DIR}/lib")
@@ -73,11 +79,13 @@ include_directories(
 
 add_executable(INS src/Process/ins.cpp
         ${FILEIO_CPP_SOURCES} ${INS_CPP_SOURCES} ${COMMON_CPP_SOURCES} ${GNSS_CPP_SOURCES}
+        ${ERROR_EVALUATION_CPP_SOURCES}
         include/BasicFuns.h Sources/BasicFuns.cpp)
 
 add_executable(LC src/Process/lc.cpp
         # 资源文件
         ${FILEIO_CPP_SOURCES} ${INS_CPP_SOURCES} ${COMMON_CPP_SOURCES} ${GNSS_CPP_SOURCES} ${LC_CPP_SOURCES}
+        ${ERROR_EVALUATION_CPP_SOURCES}
         include/BasicFuns.h Sources/BasicFuns.cpp
         # 依赖文件
         ${PROJECT_SOURCE_DIR}/lib/Filter/cKalman.h ${PROJECT_SOURCE_DIR}/lib/Filter/cKalman.cpp
@@ -86,6 +94,7 @@ add_executable(LC src/Process/lc.cpp
 add_executable(plt src/Process/plt.cpp
         # 读取文件
         ${FILEIO_CPP_SOURCES} ${INS_CPP_SOURCES} ${COMMON_CPP_SOURCES} ${GNSS_CPP_SOURCES}
+        ${ERROR_EVALUATION_CPP_SOURCES}
         include/BasicFuns.h Sources/BasicFuns.cpp
         # 画图依赖
         ${PROJECT_SOURCE_DIR}/lib/sciplot/ ${PROJECT_SOURCE_DIR}/lib/sciplot/specs)
@@ -95,6 +104,7 @@ add_executable(CombinedNavigation Sources/main.cpp
         Sources/mainwindow.cpp Sources/UIHeaders/mainwindow.h Sources/UI/mainwindow.ui
         # 资源文件
         ${FILEIO_CPP_SOURCES} ${INS_CPP_SOURCES} ${COMMON_CPP_SOURCES} ${GNSS_CPP_SOURCES} ${LC_CPP_SOURCES}
+        ${ERROR_EVALUATION_CPP_SOURCES}
         include/BasicFuns.h Sources/BasicFuns.cpp
         # 依赖文件
         ${PROJECT_SOURCE_DIR}/lib/sciplot/ ${PROJECT_SOURCE_DIR}/lib/sciplot/specs

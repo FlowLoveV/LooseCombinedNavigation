@@ -4,6 +4,7 @@ file(REMOVE_RECURSE
   "plt_autogen"
   "CMakeFiles/plt.dir/Sources/BasicFuns.cpp.o"
   "CMakeFiles/plt.dir/plt_autogen/mocs_compilation.cpp.o"
+  "CMakeFiles/plt.dir/src/ErrorEvaluation/ErrorEvalution.cpp.o"
   "CMakeFiles/plt.dir/src/FileIO/cFileConvertor.cpp.o"
   "CMakeFiles/plt.dir/src/FileIO/cImuDataReader.cpp.o"
   "CMakeFiles/plt.dir/src/FileIO/cfileBase.cpp.o"

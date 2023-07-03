@@ -242,6 +242,7 @@ public:
     virtual void insSolver_asc_all(InsConfigure & configure);
 
 
+    // 截取指定IMU文件下的一段数据
 
 };
 
